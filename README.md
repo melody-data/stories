@@ -1,2 +1,2 @@
 # stories
-The repository of all data stories publiched with MELODY
+The repository of all data stories published with MELODY
