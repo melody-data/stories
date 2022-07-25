@@ -1,0 +1,14 @@
+{
+    "sparql_endpoint": "https://query.example.org/",
+    "template_mode": "statistics",
+    "title": "First commit",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "name": "cesenacomics_1658744679.05342",
+    "subtitle": "very happy",
+    "description": "cccccccccc",
+    "action": "save",
+    "dynamic_elements": []
+}
