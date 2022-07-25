@@ -10,5 +10,12 @@
     "subtitle": "very happy",
     "description": "cccccccccc",
     "action": "save",
-    "dynamic_elements": []
+    "dynamic_elements": [
+        {
+            "position": 1,
+            "type": "text",
+            "text": "eeeeeeeeeeeeeeee",
+            "operations": []
+        }
+    ]
 }
