@@ -1,0 +1,14 @@
+{
+    "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql",
+    "template_mode": "statistics",
+    "title": "Check Extra User",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "name": "cesenacomics_1658825777.089988",
+    "subtitle": "",
+    "description": "ppppppppppppppppp",
+    "action": "save",
+    "dynamic_elements": []
+}
