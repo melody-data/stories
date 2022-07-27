@@ -1,0 +1,22 @@
+{
+    "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql",
+    "template_mode": "statistics",
+    "title": "The Second Data Story",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "name": "cesenacomics_1658918918.012576",
+    "subtitle": "",
+    "description": "",
+    "action": "save",
+    "dynamic_elements": [
+        {
+            "position": 1,
+            "type": "count",
+            "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p <https://w3id.org/musow/vocab/repository>.}",
+            "count_label": "Repositories",
+            "operations": []
+        }
+    ]
+}
