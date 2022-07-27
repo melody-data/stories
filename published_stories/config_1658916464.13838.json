@@ -1,0 +1,14 @@
+{
+    "sparql_endpoint": "https://query.example.org/",
+    "template_mode": "statistics",
+    "title": "ssssssssss",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "name": "cesenacomics_1658916464.13838",
+    "subtitle": "",
+    "description": "",
+    "action": "save",
+    "dynamic_elements": []
+}
