@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://hope_you.go",
+    "template_mode": "statistics",
+    "title": "A New Data Story",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1660037441.387787",
+    "subtitle": "",
+    "description": "",
+    "action": "save",
+    "dynamic_elements": []
+}
