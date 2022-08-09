@@ -4,7 +4,8 @@ let lastFetch = '';
 
 window.onload = function () {
     // check timer
-    const today = createTimer();
+    // const today = createTimer();
+    const today = '02/02/1999';
     if (localStorage.getItem('timer') !== today) {
         fetchData(myData, lastFetch);
         console.log('fetch');
@@ -18,10 +19,16 @@ window.onload = function () {
     }
 }
 
+const githubInfo = {
+    owner: 'melody-data',
+    repo: 'stories',
+    sub_repo: 'published_stories'
+};
+
 // fetch data through api call to Githubs
 async function fetchData(myData, lastFetch) {
     try {
-        const response = await fetch('https://api.github.com/repos/melody-data/stories/contents/published_stories');
+        const response = await fetch('https://api.github.com/repos/' + githubInfo.owner + '/' + githubInfo.repo + '/contents/' + githubInfo.sub_repo + '/');
         const data = await response.json();
         for (obj in data) {
             let article = data[obj];
@@ -30,7 +37,7 @@ async function fetchData(myData, lastFetch) {
                 let config = await getJson.json();
                 let title = config.title;
                 let file_name = title.replace(/[^\w]/g, '_').toLowerCase() + '_' + config.id + '.html';
-                let path = 'published_stories/' + file_name;
+                let path = githubInfo.sub_repo + '/' + file_name;
                 myData.push({ title: title, path: path });
             }
         }
