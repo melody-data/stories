@@ -30,15 +30,24 @@ async function fetchData(myData, lastFetch) {
     try {
         const response = await fetch('https://api.github.com/repos/' + githubInfo.owner + '/' + githubInfo.repo + '/contents/' + githubInfo.sub_repo + '/');
         const data = await response.json();
+        // console.log(data);
         for (obj in data) {
-            let article = data[obj];
-            if (article.name.includes('.json')) {
-                let getJson = await fetch(article.download_url); // fetch the url for raw json
+            let file = data[obj];
+            if (file.name.includes('.json')) {
+                // console.log(file.lastModified);
+                let getJson = await fetch(file.download_url); // fetch the url for raw json
                 let config = await getJson.json();
+                console.log(config);
                 let title = config.title;
                 let file_name = title.replace(/[^\w]/g, '_').toLowerCase() + '_' + config.id + '.html';
                 let path = githubInfo.sub_repo + '/' + file_name;
-                myData.push({ title: title, path: path });
+                let author = config.user_name;
+                // let creation_date = new Date(parseFloat(config.id));
+                let utcSeconds = parseFloat(config.id);
+                let creation_date = new Date(0); // The 0 there is the key, which sets the date to the epoch
+                creation_date.setUTCSeconds(utcSeconds);
+                console.log(creation_date);
+                myData.push({ title: title, path: path, author: author, creation_date: creation_date.toLocaleDateString() });
             }
         }
         // store data in localStorage
@@ -66,16 +75,17 @@ const updateList = (data) => {
     const list = document.getElementById('story_list');
     for (story of data) {
         let title = story.title;
-        let li = newListElement(title, story.path);
+        let li = newListElement(title, story.path, story.author, story.creation_date);
         list.appendChild(li);
     }
 }
 
 // create the list item for each story title
-const newListElement = (title, link) => {
+const newListElement = (title, link, author, creation_date) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    const aContent = document.createTextNode(title);
+    const text = title + ' by ' + author + ' created ' + creation_date;
+    const aContent = document.createTextNode(text);
     a.setAttribute('href', link);
     a.appendChild(aContent);
     li.appendChild(a);
