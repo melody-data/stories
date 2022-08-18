@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Check Correct Path",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1660813212.040576",
+    "subtitle": "",
+    "description": "This function request the raw version of a json file hosted in a Github repository.",
+    "action": "save",
+    "dynamic_elements": []
+}
