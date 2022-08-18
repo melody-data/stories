@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Check Again",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1660814922.580138",
+    "subtitle": "",
+    "description": "",
+    "action": "save",
+    "dynamic_elements": []
+}
