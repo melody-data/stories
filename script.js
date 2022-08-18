@@ -1,74 +1,42 @@
-const myData = [];
-let lastFetch = '';
-
-
-window.onload = function () {
-    // check timer
-    // const today = createTimer();
-    const today = '02/02/1999';
-    if (localStorage.getItem('timer') !== today) {
-        fetchData(myData, lastFetch);
-        console.log('fetch');
-    } else {
-        // get the string from localStorage
-        const str = localStorage.getItem('myData');
-        // convert string to valid object
-        const parsedData = JSON.parse(str);
-        updateList(parsedData);
-        console.log('update');
-    }
-}
-
 const githubInfo = {
     owner: 'melody-data',
     repo: 'stories',
-    sub_repo: 'published_stories'
+    sub_repo: 'published_stories',
+    stories_list: 'stories_list.json'
 };
 
-// fetch data through api call to Githubs
-async function fetchData(myData, lastFetch) {
+window.onload = function () {
+    fetchData();
+}
+
+// fetch data through stories_list.json
+function fetchData() {
     try {
-        const response = await fetch('https://api.github.com/repos/' + githubInfo.owner + '/' + githubInfo.repo + '/contents/' + githubInfo.sub_repo + '/');
+        const response = await fetch('https://raw.githubusercontent.com/' + githubInfo.owner + '/' + githubInfo.repo + '/main/' + githubInfo.sub_repo + '/' + githubInfo.stories_list);
         const data = await response.json();
-        // console.log(data);
-        for (obj in data) {
-            let file = data[obj];
-            if (file.name.includes('.json')) {
-                // console.log(file.lastModified);
-                let getJson = await fetch(file.download_url); // fetch the url for raw json
-                let config = await getJson.json();
-                console.log(config);
-                let title = config.title;
-                let file_name = title.replace(/[^\w]/g, '_').toLowerCase() + '_' + config.id + '.html';
-                let path = githubInfo.sub_repo + '/' + file_name;
-                let author = config.user_name;
-                // let creation_date = new Date(parseFloat(config.id));
-                let utcSeconds = parseFloat(config.id);
-                let creation_date = new Date(0); // The 0 there is the key, which sets the date to the epoch
-                creation_date.setUTCSeconds(utcSeconds);
-                console.log(creation_date);
-                myData.push({ title: title, path: path, author: author, creation_date: creation_date.toLocaleDateString() });
-            }
+        console.log(data);
+        const myData = [];
+        for (story of data) {
+            let title = story.title;
+            console.log(title)
+            let file_name = title.replace(/[^\w]/g, '_').toLowerCase() + '_' + story.id + '.html';
+            let path = githubInfo.sub_repo + '/' + file_name;
+            let author = story.user_name;
+
+            let utcSeconds = parseFloat(story.id);
+            let creation_date = new Date(0); // The 0 there is the key, which sets the date to the epoch
+            creation_date.setUTCSeconds(utcSeconds);
+            console.log(creation_date);
+            myData.push({ title: title, path: path, author: author, creation_date: creation_date.toLocaleDateString() });
         }
-        // store data in localStorage
-        localStorage.setItem('myData', JSON.stringify(myData));
-        // update in var
         updateList(myData);
-        // update timer
-        lastFetch = createTimer();
-        // store timer
-        localStorage.setItem('timer', lastFetch);
-    } catch (error) {
+    }
+    catch (error) {
         console.log('Error: ', error);
     }
 
 }
 
-
-const createTimer = () => {
-    const date = new Date();
-    return date.toLocaleDateString();
-}
 
 // update list with new data
 const updateList = (data) => {
