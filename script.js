@@ -10,7 +10,7 @@ window.onload = function () {
 }
 
 // fetch data through stories_list.json
-function fetchData() {
+async function fetchData() {
     try {
         const response = await fetch('https://raw.githubusercontent.com/' + githubInfo.owner + '/' + githubInfo.repo + '/main/' + githubInfo.sub_repo + '/' + githubInfo.stories_list);
         const data = await response.json();
