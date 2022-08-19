@@ -9,16 +9,18 @@ window.onload = function () {
     fetchData();
 }
 
+document.body.addEventListener('click', function(e) {
+  e.target.update && e.target.update();
+})
+
 // fetch data through stories_list.json
 async function fetchData() {
     try {
         const response = await fetch('https://raw.githubusercontent.com/' + githubInfo.owner + '/' + githubInfo.repo + '/main/' + githubInfo.sub_repo + '/' + githubInfo.stories_list);
         const data = await response.json();
-        console.log(data);
         const myData = [];
         for (story of data) {
             let title = story.title;
-            console.log(title)
             let file_name = title.replace(/[^\w]/g, '_').toLowerCase() + '_' + story.id + '.html';
             let path = githubInfo.sub_repo + '/' + file_name;
             let author = story.user_name;
@@ -26,7 +28,6 @@ async function fetchData() {
             let utcSeconds = parseFloat(story.id);
             let creation_date = new Date(0); // The 0 there is the key, which sets the date to the epoch
             creation_date.setUTCSeconds(utcSeconds);
-            console.log(creation_date);
             myData.push({ title: title, path: path, author: author, creation_date: creation_date.toLocaleDateString() });
         }
         updateList(myData);

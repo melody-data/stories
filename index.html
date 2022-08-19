@@ -5,12 +5,152 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <title>Melody Stories</title>
+    <script src="assets/js/webfont.min.js"></script>
+    <script src="https://unpkg.com/css-doodle@0.29.0/css-doodle.min.js"></script>
+    <script>
+  		WebFont.load({
+  			google: { "families": ["Karla:300,400,700,900"] },
+  			custom: {
+  				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+  				urls: ['assets/css/fonts.min.css']
+  			},
+  			active: function () { sessionStorage.fonts = true; }
+  		});
+  	</script>
 </head>
 
-<body>
-    <ol id="story_list"></ol>
-    <script src="script.js"></script>
+<body class="container-fluid">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg ">
+      <span href="#" class="navbar-brand">MELODY</span>
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <i class="icon-menu"></i>
+              </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+          <li><a class="nav-link" href="#about">About MELODY</a></li>
+          <li><a class="nav-link" href="#">Create a story</a></li>
+          <li><a class="nav-link" href="#footer">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section class="background_doodle">
+
+    <css-doodle>
+      :doodle {
+        @grid: 20 / 100vmax;
+        @min-size: 30em;
+      }
+
+      transition: @rand(500ms) ease;
+
+      background: @pick(
+        #1F2525, #272E2E, #279861, #3DED97
+      );
+
+      border-radius: @pick(
+        100% 0 0 0,
+        0 100% 0 0,
+        0 0 100% 0,
+        0 0 0 100%
+      );
+    </css-doodle>
+    <section class="quote">
+      <q>Life is like a beautiful melody, <br/>
+        only the lyrics are messed up.</q>
+        <br/>
+      <p class="author">Hans Christian Andersen</p>
+    </section>
+  </section>
+  <main>
+    <section class="presentation row">
+      <section class="col-md-6">
+        <p class="caption">make me a linked open data story</p>
+        <p class="payoff">MELODY is a place where you can create and publish data stories
+          based on Linked Open Data.</p>
+      </section>
+      <section class="col-md-6 presentation_links">
+        <p><a href="#about">about melody
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a> </p>
+        <p><a href="#getstarted">get started
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a> </p>
+        <p><a href="#catalogue">browse data stories
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a> </p>
+      </section>
+    </section>
+
+    <section class="presentation row" id="about">
+      <h3 class="col-12">About melody</h3>
+      <section class="col-md-6">
+
+        <p class="payoff">When you work with Linked Open Data,
+          you often want to have a quick overview of what is in your data.
+          Get some figure from a query, maybe plot a chart, take some notes,
+          and share with others what you found. Right? </p>
+      </section>
+      <section class="col-md-6">
+        <p>With MELODY (Make mE a Linked Open Data storY)
+        you can do it, and you can do it easily! You can choose among several templates for presenting your data,
+          including charts, maps, text search (and more!)
+          and you can export or publish your web-ready stories here</p>
+      </section>
+    </section>
+    <section class="presentation" id="getstarted">
+      <h3>Get started</h3>
+      <p>What you need is</p>
+      <ul>
+        <li>
+          <span>know where your Linked Open Data are</span>
+          <span>the URL of an endpoint</span>
+        </li>
+        <li>
+          <span>know how to query your data</span>
+          <span>SPARQL!</span>
+        </li>
+        <li>
+          <span>a github account</span>
+          <span>optional</span>
+        </li>
+        <li>
+          <span>know what story you want to tell us</span>
+          <span>get inspired with some examples</span>
+        </li>
+      </ul>
+      <p><a href="https://projects.dharc.unibo.it/melody">Start now</a></p>
+    </section>
+    <section class="presentation" id="catalogue">
+      <h3>browse data stories</h3>
+      <ol id="story_list"></ol>
+    </section>
+  </main>
+
+
+
+  <footer id="footer">
+  </footer>
+  <script src="assets/js/jquery.3.2.1.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
