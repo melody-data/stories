@@ -5,12 +5,250 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <title>Melody Stories</title>
+    <script src="assets/js/webfont.min.js"></script>
+    <script src="https://unpkg.com/css-doodle@0.29.0/css-doodle.min.js"></script>
+    <script>
+  		WebFont.load({
+  			google: { "families": ["Karla:300,400,700,900"] },
+  			custom: {
+  				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+  				urls: ['assets/css/fonts.min.css']
+  			},
+  			active: function () { sessionStorage.fonts = true; }
+  		});
+  	</script>
 </head>
 
-<body>
-    <ol id="story_list"></ol>
-    <script src="script.js"></script>
+<body class="container-fluid">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg ">
+      <span href="#" class="navbar-brand">MELODY</span>
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <i class="icon-menu"></i>
+              </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+          <li><a class="nav-link" href="#about">About MELODY</a></li>
+          <li><a class="nav-link" href="#templates">Our templates</a></li>
+          <li><a class="nav-link" href="#getstarted">Get started</a></li>
+          <li><a class="nav-link" href="#catalogue">Browse the catalogue</a></li>
+          <li><a class="nav-link" href="#footer">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section class="background_doodle">
+
+    <css-doodle>
+      :doodle {
+        @grid: 20 / 100vmax;
+        @min-size: 30em;
+      }
+
+      transition: @rand(500ms) ease;
+
+      background: @pick(
+        #1F2525, #272E2E, #279861, #3DED97
+      );
+
+      border-radius: @pick(
+        100% 0 0 0,
+        0 100% 0 0,
+        0 0 100% 0,
+        0 0 0 100%
+      );
+    </css-doodle>
+    <section class="quote">
+      <q><s>Life</s> Data is like a beautiful melody, <br/>
+        only the lyrics are messed up.</q>
+        <br/>
+      <p class="author">Hans Christian Andersen</p>
+    </section>
+  </section>
+  <main>
+    <section class="presentation row">
+      <section class="col-md-6">
+        <p class="caption">make me a linked open data story</p>
+        <p class="payoff">MELODY is a place where you can make sense of Linked Open Data
+          and publish beautiful data stories.</p>
+      </section>
+      <section class="col-md-6 presentation_links">
+        <p><a href="#about">about melody
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a> </p>
+        <p><a href="#getstarted">get started
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a> </p>
+        <p><a href="#catalogue">browse data stories
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a> </p>
+      </section>
+    </section>
+
+    <section class="presentation row" id="about">
+      <h3 class="col-12">About melody</h3>
+      <section class="col-md-6">
+        <p class="payoff">When you work with Linked Open Data,
+          you often want to have a quick overview of what is in your data.
+          Get some figure from a query, maybe plot a chart, make a comment,
+          and share what you found with others. Right? </p>
+      </section>
+      <section class="col-md-6">
+        <p><strong>With MELODY (Make mE a Linked Open Data storY)
+        you can do it, and you can do it easily!</strong>
+        MELODY is a What-you-see-is-what-you-get (WYSIWYG) dashboard that allows you
+        to attach UI/UX patterns to SPARQL queries. For instance,
+        a query can return a bar chart, or it can trigger a text search.
+        Results of the text search can be attached to charts or other searches, and so on.
+        </p>
+        <img src="assets/example.png" alt=""/>
+        <p><strong>You can choose among several templates for presenting your data! </strong>
+          whether you need to present statistics, explore a map or
+          create an interactive follow-your-nose interface, MELODY can help!
+        </p>
+        <img src="assets/templates.png" alt=""/>
+        <p>When you are happy with your result, you can export your story as a PDF,
+          as a static web-ready document,
+          or you can publish it here, in our online catalogue.</p>
+      </section>
+    </section>
+
+    <section class="presentation row justify-content-md-center" id="templates">
+      <h3 class="col-12">our templates</h3>
+      <section class="col-md-3">
+        <div class="card bg-dark text-white">
+          <img class="card-img" src="assets/statistics.png" alt="Statistics template">
+          <div class="card-img-overlay">
+            <h5 class="payoff">Statistics</h5>
+            </div>
+           <div class="card-body">
+             <p class="card-title">A visual presentation of a dataset with charts, plots, and your curated text.</p>
+             <p class="card-text">Use counters, bar charts, line charts, doughnuts (and more!)
+               to present your dataset.
+               Organise the presentation in sections and add your comments to accompany charts.</p>
+             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+           </div>
+        </div>
+      </section>
+      <section class="col-md-3">
+        <div class="card bg-dark text-white">
+          <img class="card-img" src="assets/relations.png" alt="Relations template">
+          <div class="card-img-overlay">
+            <h5 class="card-title payoff">Relations</h5>
+            <!-- <p class="card-text">Search</p> -->
+          </div>
+          <div class="card-body">
+            <p class="card-title">An interactive text search and an easy way to discover new relations between your data.</p>
+            <p class="card-text">Search contents, show results as tables and enable actions on results, e.g. make new searches or combine results of different searches. See the story line of your searches.</p>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="col-md-3">
+        <section class="frame">
+          <img src="assets/statistics.png" alt="">
+        </section>
+      </section>
+      <section class="col-md-3">
+        <section class="frame">
+          <img src="assets/relations.png" alt="">
+        </section>
+      </section> -->
+    </section>
+    <section class="presentation row" id="getstarted">
+      <h3 class="col-12">Get started</h3>
+      <section class="col-md-6">
+        <ul class="checklist">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+              <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+              <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+            </svg>
+            <span>know where your Linked Open Data are</span>
+            <span>the URL of an endpoint</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+              <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+              <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+            </svg>
+            <span>know how to query your data</span>
+            <span>SPARQL!</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+              <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+              <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+            </svg>
+            <span>a personal github account</span>
+            <span>to publish your data story (optional)</span>
+          </li>
+          <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+          </svg>
+          <span>know what story you want to tell us</span>
+          <span>get inspired with some <a href="#catalogue">examples</a> </span>
+        </li>
+        </ul>
+      </section>
+      <section class="col-md-6">
+        <p class="payoff">To start creating data stories with MELODY you need a few things. But no, you don't need to code!</p>
+
+        <p><a target="_blank" class="btn_link_white" href="https://polifonia-project.github.io/dashboard/documentation/user_guide.html#create_story">Tutorial
+        </a><a target="_blank" class="btn_link" href="https://projects.dharc.unibo.it/melody">Start now
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a></p>
+      </section>
+    </section>
+    <section class="presentation row" id="catalogue">
+        <h3 class="col-12">browse data stories</h3>
+        <p class="payoff col-12">Anybody can publish a story with MELODY. Here you will find the latest data stories created by our users. </p>
+      <ol id="story_list" class="row col-12"></ol>
+    </section>
+  </main>
+
+  <footer id="footer" class="row presentation">
+    <section class="col-md-4">
+      <p>MELODY is part of Polifonia.</p>
+      <a target="_blank" href="https://polifonia-project.eu/"><img src="assets/logopolifonia.svg" alt=""></a>
+      <p>Polifonia has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement N. 101004746</p>
+    </section>
+    <section class="col-md-3">
+      <h5>MELODY</h5>
+      <p><a target="_blank" href="https://projects.dharc.unibo.it/melody">dashboard</a></p>
+      <p><a target="_blank" href="https://polifonia-project.github.io/dashboard/documentation/user_guide.html#create_story">tutorial</a></p>
+      <p><a target="_blank" href="https://github.com/polifonia-project/dashboard">source code</a></p>
+    </section>
+    <section class="col-md-4">
+      <h5>CONTACTS</h5>
+      <p>MELODY is developed and maintained
+        by <a target="_blank" href="https://centri.unibo.it/dharc/en">/DH.arc</a>, the Digital Humanities Advanced Research Centre of the University of Bologna</p>
+      <p class="light">via Zamboni 32, 40127, Bologna. Italy.</p>
+      <p class="light">mail: dharc[at]live[dot]unibo[dot]it</p>
+    </section>
+  </footer>
+  <script src="assets/js/jquery.3.2.1.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
