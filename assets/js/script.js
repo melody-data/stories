@@ -51,12 +51,41 @@ const updateList = (data) => {
 
 // create the list item for each story title
 const newListElement = (title, link, author, creation_date) => {
+    // elements
     const li = document.createElement('li');
+    const title_el = document.createElement('h4');
+    const img = document.createElement('img');
+    const auth = document.createElement('span');
+    const date = document.createElement('span');
     const a = document.createElement('a');
-    const text = title + ' by ' + author + ' created ' + creation_date;
-    const aContent = document.createTextNode(text);
-    a.setAttribute('href', link);
+
+    // contents
+    const read = "Read more";
+    const title_text = document.createTextNode(title);
+    const dateContent = document.createTextNode(creation_date);
+    const authContent = document.createTextNode(author);
+    const aContent = document.createTextNode(read);
+
+    title_el.appendChild(title_text);
+
+    img.setAttribute('src', "https://github.com/"+author+".png")
+    img.classList.add('github_avatar');
+
+    auth.classList.add('story_author');
+    auth.appendChild(authContent);
+
+    date.appendChild(dateContent);
+    date.classList.add('story_date');
+
     a.appendChild(aContent);
+    a.setAttribute('href', link);
+
+    li.appendChild(img);
+    li.appendChild(auth);
+    li.appendChild(date);
+    li.appendChild(title_el);
     li.appendChild(a);
+    li.classList.add('col-md-4');
+
     return li;
 }
