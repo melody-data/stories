@@ -317,6 +317,10 @@
 				<div>
 					<h1 class="text-white pb-2 fw-bold">Discover Music Data on the Web</h1>
 					
+					<h2 class="text-white op-7 mb-2">
+						Shaping the landscape of music data on the web
+					</h2>
+					
 					
 					<p class="card-category">
 						musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.
@@ -566,8 +570,31 @@
 	<!-- Specific Page JS goes HERE  -->
 	
 <script type="text/javascript">
-	var datastory_data = {"action": "save", "color_code": ["#34f98d", "#2c37ba"], "curator": "Giulia Renda", "description": "musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.", "dynamic_elements": [{"operations": [], "position": 1, "text": "The catalogue includes descriptions of several music-related web resources, with a focus on those that serve or allow users to manipulate music data in any form.", "type": "text"}, {"count_label": "Repositories", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/repository\u003e.}", "operations": [], "position": 2, "type": "count"}, {"count_label": "Catalogues", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/catalogue\u003e.}", "operations": [], "position": 3, "type": "count"}, {"count_label": "Datasets", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/dataset\u003e.}", "operations": [], "position": 4, "type": "count"}, {"count_label": "Digital Libraries", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/digital-library\u003e.}", "operations": [], "position": 5, "type": "count"}, {"count_label": "Software", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/software\u003e.}", "operations": [], "position": 6, "type": "count"}, {"operations": [], "position": 7, "text": "We can observe the variety of content from a different perspective.", "type": "text"}, {"chart_query": "PREFIX musow: \u003chttps://w3id.org/musow/vocab/\u003e SELECT ?label (COUNT(?content) AS ?count) WHERE { {?content ?p musow:repository . musow:repository rdfs:label ?label .} UNION {?content ?p musow:catalogue . musow:catalogue rdfs:label ?label .} UNION {?content ?p musow:dataset . musow:dataset rdfs:label ?label .} UNION {?content ?p musow:digital-library . musow:digital-library rdfs:label ?label .} UNION {?content ?p musow:software . musow:software rdfs:label ?label .} } GROUP BY ?label", "chart_series": "", "chart_title": "Content Overview", "chart_type": "barchart", "operations": [], "position": 8, "type": "chart"}, {"operations": [], "position": 9, "text": "We can also observe what is the trend of new content insertion on musoW, which is done by insiders but also by external authenticated users.", "type": "text"}, {"chart_query": "SELECT ?label (COUNT(?label) AS ?count) WHERE { { SELECT ?time (DAY(?time) AS ?label) WHERE { ?entry \u003chttp://www.w3.org/ns/prov#generatedAtTime\u003e ?time . } } } GROUP BY ?label ORDER BY ?label", "chart_series": "", "chart_title": "New Entries", "chart_type": "linechart", "operations": [], "position": 10, "type": "chart"}, {"operations": [], "position": 11, "text": "While collecting information about resources is important, we also focused on understanding the potential audience of the resources. We discovered that most of surveyed resources are targeted to scholars.", "type": "text"}, {"chart_query": "SELECT ?label WHERE { ?entry ?p \u003chttps://w3id.org/musow/vocab/repository\u003e . ?entry \u003chttps://schema.org/audience\u003e ?audience . ?audience rdfs:label ?label . }", "chart_series": "", "chart_title": "Audience of music resources", "chart_type": "doughnutchart", "operations": [{"action": "count", "param": "label"}], "position": 12, "type": "chart"}], "id": "1661525706.302688", "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql", "subtitle": "", "template_mode": "statistics", "title": "Discover Music Data on the Web", "user_name": "cesenacomics"};
+	var datastory_data = {"action": "save", "color_code": ["#34f98d", "#2c37ba"], "curator": "Giulia Renda", "description": "musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.", "dynamic_elements": [{"operations": [], "position": 1, "text": "The catalogue includes descriptions of several music-related web resources, with a focus on those that serve or allow users to manipulate music data in any form.", "type": "text"}, {"count_label": "Repositories", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/repository\u003e.}", "operations": [], "position": 2, "type": "count"}, {"count_label": "Catalogues", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/catalogue\u003e.}", "operations": [], "position": 3, "type": "count"}, {"count_label": "Datasets", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/dataset\u003e.}", "operations": [], "position": 4, "type": "count"}, {"count_label": "Digital Libraries", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/digital-library\u003e.}", "operations": [], "position": 5, "type": "count"}, {"count_label": "Software", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/software\u003e.}", "operations": [], "position": 6, "type": "count"}, {"operations": [], "position": 7, "text": "We can observe the variety of content from a different perspective.", "type": "text"}, {"chart_query": "PREFIX musow: \u003chttps://w3id.org/musow/vocab/\u003e SELECT ?label (COUNT(?content) AS ?count) WHERE { {?content ?p musow:repository . musow:repository rdfs:label ?label .} UNION {?content ?p musow:catalogue . musow:catalogue rdfs:label ?label .} UNION {?content ?p musow:dataset . musow:dataset rdfs:label ?label .} UNION {?content ?p musow:digital-library . musow:digital-library rdfs:label ?label .} UNION {?content ?p musow:software . musow:software rdfs:label ?label .} } GROUP BY ?label", "chart_series": "", "chart_title": "Content Overview", "chart_type": "barchart", "operations": [], "position": 8, "type": "chart"}, {"operations": [], "position": 9, "text": "We can also observe what is the trend of new content insertion on musoW, which is done by insiders but also by external authenticated users.", "type": "text"}, {"chart_query": "SELECT ?label (COUNT(?label) AS ?count) WHERE { { SELECT ?time (DAY(?time) AS ?label) WHERE { ?entry \u003chttp://www.w3.org/ns/prov#generatedAtTime\u003e ?time . } } } GROUP BY ?label ORDER BY ?label", "chart_series": "", "chart_title": "New Entries", "chart_type": "linechart", "operations": [], "position": 10, "type": "chart"}, {"operations": [], "position": 11, "text": "While collecting information about resources is important, we also focused on understanding the potential audience of the resources. We discovered that most of surveyed resources are targeted to scholars.", "type": "text"}, {"chart_query": "SELECT ?label WHERE { ?entry ?p \u003chttps://w3id.org/musow/vocab/repository\u003e . ?entry \u003chttps://schema.org/audience\u003e ?audience . ?audience rdfs:label ?label . }", "chart_series": "", "chart_title": "Audience of music resources", "chart_type": "doughnutchart", "operations": [{"action": "count", "param": "label"}], "position": 12, "type": "chart"}], "id": "1661525706.302688", "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql", "subtitle": "Shaping the landscape of music data on the web", "template_mode": "statistics", "title": "Discover Music Data on the Web", "user_name": "cesenacomics"};
 	$('footer').detach();
+</script>
+
+<script>
+	let hostname = window.location.hostname;
+	if (!hostname.includes('github')) {
+		let beforeUnloadAlert = true;
+		window.addEventListener('beforeunload', function (e) {
+			if (!beforeUnloadAlert) return;
+
+			// etc
+			e.preventDefault();
+			e.returnValue = '';
+		});
+
+		function myFunction() {
+			beforeUnloadAlert = false;
+		}
+		var myObj = document.getElementsByClassName('prevent_alert')
+		console.log(myObj);
+		for (el of myObj) {
+			el.addEventListener('click', myFunction);
+		}
+	}
 </script>
 
 
