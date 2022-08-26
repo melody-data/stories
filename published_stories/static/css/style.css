@@ -9,8 +9,8 @@
 }
 
 /* EXPORT HTML */
-/* #secondarymenuinner p:last-of-type */
-.main-header, .sidebar, .exportbutton{display: none;}
+/* #secondarymenuinner p:last-of-type , .exportbutton */
+.main-header, .sidebar{display: none;}
 .main-panel {width: 100% !important;}
 /* EXPORT HTML */
 .sidebar-color,
