@@ -11,7 +11,7 @@ window.onload = function () {
 
 document.body.addEventListener('click', function(e) {
   e.target.update && e.target.update();
-})
+});
 
 // fetch data through stories_list.json
 async function fetchData() {
