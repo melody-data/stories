@@ -81,7 +81,7 @@
             "chart_type": "linechart",
             "chart_query": "SELECT ?label (COUNT(?label) AS ?count) WHERE { { SELECT ?time (DAY(?time) AS ?label) WHERE { ?entry <http://www.w3.org/ns/prov#generatedAtTime> ?time . } } } GROUP BY ?label ORDER BY ?label",
             "chart_series": "",
-            "chart_title": "New Entries",
+            "chart_title": "New Entries per Day",
             "operations": []
         },
         {
