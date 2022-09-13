@@ -1,0 +1,16 @@
+{
+    "sparql_endpoint": "https://hope_you.go",
+    "template_mode": "statistics",
+    "title": "Check Titles",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1663076466.870266",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "action": "save",
+    "dynamic_elements": []
+}
