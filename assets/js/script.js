@@ -24,13 +24,11 @@ async function fetchData() {
             let file_name = cleanString(title) + '_' + story.id + '.html';
             let path = githubInfo.sub_repo + '/' + file_name;
             let author = story.user_name;
-
             let utcSeconds = parseFloat(story.id);
             let creation_date = new Date(0); // The 0 there is the key, which sets the date to the epoch
             creation_date.setUTCSeconds(utcSeconds);
             myData.push({ title: title, path: path, author: author, creation_date: creation_date.toLocaleDateString() });
         }
-        console.log(myData);
         updateList(myData);
     }
     catch (error) {
