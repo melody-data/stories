@@ -9,8 +9,8 @@ window.onload = function () {
     fetchData();
 }
 
-document.body.addEventListener('click', function(e) {
-  e.target.update && e.target.update();
+document.body.addEventListener('click', function (e) {
+    e.target.update && e.target.update();
 });
 
 // fetch data through stories_list.json
@@ -68,7 +68,7 @@ const newListElement = (title, link, author, creation_date) => {
 
     title_el.appendChild(title_text);
 
-    img.setAttribute('src', "https://github.com/"+author+".png")
+    img.setAttribute('src', "https://github.com/" + author + ".png")
     img.classList.add('github_avatar');
 
     auth.classList.add('story_author');
@@ -88,4 +88,19 @@ const newListElement = (title, link, author, creation_date) => {
     li.classList.add('col-md-4');
 
     return li;
+}
+
+const cleanString = (dirtyString) => {
+    let cleanedString;
+    // remove extra white spaces at beginning and end
+    cleanedString = dirtyString.trim();
+    // remove special characters
+    cleanedString = cleanedString.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '');
+    // replace accented letters
+    cleanedString = cleanedString.normalize("NFD").replace(/\p{Diacritic}/gu, '');
+    // remove multiple white spaces
+    cleanedString = cleanedString.replace(/\s+/g, ' ');
+    // replace white space with '_' and lowercase
+    cleanedString = cleanedString.replace(/[^\w]/g, '_').toLowerCase();
+    return cleanedString;
 }
