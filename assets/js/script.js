@@ -21,7 +21,7 @@ async function fetchData() {
         const myData = [];
         for (story of data) {
             let title = story.title;
-            let file_name = title.replace(/[^\w]/g, '_').toLowerCase() + '_' + story.id + '.html';
+            let file_name = cleanString(title) + '_' + story.id + '.html';
             let path = githubInfo.sub_repo + '/' + file_name;
             let author = story.user_name;
 
@@ -30,6 +30,7 @@ async function fetchData() {
             creation_date.setUTCSeconds(utcSeconds);
             myData.push({ title: title, path: path, author: author, creation_date: creation_date.toLocaleDateString() });
         }
+        console.log(myData);
         updateList(myData);
     }
     catch (error) {
