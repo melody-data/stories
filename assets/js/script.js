@@ -21,8 +21,7 @@ async function fetchData() {
         const myData = [];
         for (story of data) {
             let title = story.title;
-            let file_name = cleanString(title) + '_' + story.id + '.html';
-            let path = githubInfo.sub_repo + '/' + file_name;
+            let path = githubInfo.sub_repo + '/story_' + story.id + '.html';
             let author = story.user_name;
             let utcSeconds = parseFloat(story.id);
             let creation_date = new Date(0); // The 0 there is the key, which sets the date to the epoch
@@ -87,19 +86,4 @@ const newListElement = (title, link, author, creation_date) => {
     li.classList.add('col-md-4');
 
     return li;
-}
-
-const cleanString = (dirtyString) => {
-    let cleanedString;
-    // remove extra white spaces at beginning and end
-    cleanedString = dirtyString.trim();
-    // remove special characters
-    cleanedString = cleanedString.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '');
-    // replace accented letters
-    cleanedString = cleanedString.normalize("NFD").replace(/\p{Diacritic}/gu, '');
-    // remove multiple white spaces
-    cleanedString = cleanedString.replace(/\s+/g, ' ');
-    // replace white space with '_' and lowercase
-    cleanedString = cleanedString.replace(/[^\w]/g, '_').toLowerCase();
-    return cleanedString;
 }
