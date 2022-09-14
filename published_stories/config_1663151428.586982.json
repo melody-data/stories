@@ -1,0 +1,16 @@
+{
+    "sparql_endpoint": "http://data.fondazionezeri.unibo.it/sparql",
+    "template_mode": "statistics",
+    "title": "Check Story Publication!",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1663151428.586982",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "action": "save",
+    "dynamic_elements": []
+}
