@@ -1,0 +1,16 @@
+{
+    "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql",
+    "template_mode": "statistics",
+    "title": "Check css path",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1663162544.894199",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "action": "save",
+    "dynamic_elements": []
+}
