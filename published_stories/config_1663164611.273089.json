@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql",
     "template_mode": "statistics",
-    "title": "Check Title modification!",
+    "title": "Check Title!",
     "color_code": [
         "#39c6b4",
         "#17cf31"
