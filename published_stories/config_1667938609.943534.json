@@ -1,0 +1,32 @@
+{
+    "sparql_endpoint": "https://data.open.ac.uk/index.php?path=sparql",
+    "template_mode": "statistics",
+    "title": "CHILD",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cfestus",
+    "id": "1667938609.943534",
+    "subtitle": "\u00a0Historical\u00a0case study on music and\u00a0childhood",
+    "curator": "Chukwudi Uwasomba, Enrico Daga, Paul Mulholland, Helen Barlow",
+    "description": "Focus of the CHILD pilot is in supporting music scholars from the formulation of a hypothesis to the discovery and collection of resources relevant to the enquiry.\u00a0 Considering sources such as Listening Experience Database, Archive.org,\u00a0 and the Gutenberg\u00a0 Project, the pilot will develop a system for supporting the retrieval, collection, curation, and exploration of documentary evidence relevance to music and childhood, derived from digitized books. Such system will inform an original study in historical musicology.",
+    "action": "save",
+    "dynamic_elements": [
+        {
+            "position": 1,
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_query": "select distinct ?x\r\nfrom <http://data.open.ac.uk/context/oro> {\r\n  ?x <http://xmlns.com/foaf/0.1/familyName> ?y .\r\n  ?x <http://xmlns.com/foaf/0.1/familyName> ?z .\r\nfilter(?z!=?y)\r\n}\r\n\r\nLimit 10",
+            "chart_series": "",
+            "chart_title": "Sorted tracks of a podcast",
+            "extra_queries": [],
+            "operations": [
+                {
+                    "action": "sort",
+                    "param": "another"
+                }
+            ]
+        }
+    ]
+}
