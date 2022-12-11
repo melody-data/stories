@@ -17,7 +17,7 @@
             "position": 1,
             "type": "chart",
             "chart_type": "barchart",
-            "chart_query": "select distinct ?x\r\nfrom <http://data.open.ac.uk/context/oro> {\r\n  ?x <http://xmlns.com/foaf/0.1/familyName> ?y .\r\n  ?x <http://xmlns.com/foaf/0.1/familyName> ?z .\r\nfilter(?z!=?y)\r\n}\r\n\r\nLimit 10",
+            "chart_query": "SELECT *\r\nWHERE {?s ?p <https://data.open.ac.uk/sparql}",
             "chart_series": "",
             "chart_title": "Sorted tracks of a podcast",
             "extra_queries": [],
