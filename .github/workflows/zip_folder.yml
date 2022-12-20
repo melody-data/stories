@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checking out...
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.MELODY_TOKEN }}
       - name: create new zip
         uses: vimtor/action-zip@v1
         with:
