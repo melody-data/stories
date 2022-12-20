@@ -2,8 +2,6 @@ name: zip folder
 
 on:
   push:
-    branches:
-      - main
     paths:
       - 'published_stories/static/**'
       - '!published_stories/static/temp/**'
@@ -15,6 +13,7 @@ jobs:
     steps:
       - name: Checking out...
         uses: actions/checkout@v2
+        
       - name: create new zip
         uses: vimtor/action-zip@v1
         with:
