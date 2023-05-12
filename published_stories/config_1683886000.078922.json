@@ -17,7 +17,7 @@
             "position": 1,
             "type": "count",
             "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}\r\n",
-            "count_label": "British music bands",
+            "count_label": "Exemple count",
             "extra_queries": [],
             "chart_legend": {},
             "operations": []
