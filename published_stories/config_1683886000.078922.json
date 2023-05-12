@@ -1,0 +1,26 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "My data story example",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "sissilinked",
+    "id": "1683886000.078922",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "action": "save",
+    "dynamic_elements": [
+        {
+            "position": 1,
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}\r\n",
+            "count_label": "British music bands",
+            "extra_queries": [],
+            "chart_legend": {},
+            "operations": []
+        }
+    ]
+}
