@@ -1,0 +1,26 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "The Final Data Story",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1684334166.613801",
+    "subtitle": "",
+    "curator": "",
+    "description": "This is a test to check the correctness of the catalogue.",
+    "action": "save",
+    "dynamic_elements": [
+        {
+            "position": 1,
+            "type": "count",
+            "count_query": "SELECT (COUNT (DISTINCT ?item) AS ?count)\r\nWHERE \r\n{\r\n  ?item wdt:P31 wd:Q146.\r\n}",
+            "count_label": "Cats in Wikidata",
+            "extra_queries": [],
+            "chart_legend": {},
+            "operations": []
+        }
+    ]
+}
