@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Rock Bands",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "sissilinked",
+    "id": "1684346747.909569",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": []
+}
