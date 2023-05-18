@@ -28,7 +28,6 @@ async function fetchData() {
             creation_date.setUTCSeconds(utcSeconds);
             myData.push({ title: title, path: path, author: author, creation_date: creation_date.toLocaleDateString() });
         }
-        console.log('MY DATA', myData)
         updateList(myData);
     }
     catch (error) {
@@ -40,7 +39,6 @@ async function fetchData() {
 
 // update list with new data
 const updateList = (data) => {
-    console.log('DATA', data)
     const list = document.getElementById('story_list');
     for (story of data) {
         let title = story.title;
