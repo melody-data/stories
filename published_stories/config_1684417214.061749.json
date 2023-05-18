@@ -1,0 +1,114 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Relations between music bands - An exploration",
+    "color_code": [
+        "#5097ce",
+        "#1754cf"
+    ],
+    "user_name": "sissilinked",
+    "id": "1684417214.061749",
+    "subtitle": "Explore relations, connections and resources between music bands with wikidata",
+    "curator": "Marco Grasso",
+    "description": "Search for music bands, choose from the list of results, click on the buttons that appear next\r\nto the result and keep exploring relations. New tables will appear, including more actions and\r\nrelations to explore",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Search music band",
+            "textsearch_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n              ?category wdt:P31 wd:Q105756498 . }\r\n    UNION\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10",
+            "textsearch": {
+                "band": [
+                    "Show music genres",
+                    "Show members"
+                ],
+                "country": [
+                    "Other bands from this country"
+                ],
+                "genre": [
+                    "Show band of same genre "
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show music genres",
+            "action_query": "SELECT DISTINCT ?genre ?genreLabel\r\nWHERE { \r\n  <<item>> wdt:P136 ?genre .\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show members",
+            "action_query": "SELECT DISTINCT ?member ?memberLabel ?image\r\nWHERE { \r\n  <<item>> wdt:P527 ?member . \r\n OPTIONAL { ?member wdt:P18 ?image . }\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "action",
+            "action_title": "Other bands from this country",
+            "action_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel WHERE { \r\n  ?band wdt:P495 <<item>> . \r\n  ?band wdt:P31 ?category .\r\n  ?category wdt:P31 wd:Q105756498 .\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show band of same genre ",
+            "action_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n    ?band wdt:P31 ?category ; wdt:P495 ?country ; wdt:P136 <<item>> .\r\n    ?category wdt:P279 wd:Q2088357 \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 20",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Search bands in this country",
+            "textsearch_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?country wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n              ?category wdt:P31 wd:Q105756498 . }\r\n    UNION\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10",
+            "textsearch": {
+                "band": [
+                    "Show members"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "map",
+            "map_title": "Recording studios Worldwide",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{\r\n  ?point wdt:P31 wd:Q746369. #recording studio\r\n  ?point wdt:P131 ?villeId.\r\n  ?point p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "map",
+            "map_title": "recording studios",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q746369; wdt:P17 wd:Q30;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
+            "map_filters": [
+                {
+                    "map_filter_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q746369; wdt:P17 wd:Q30;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
+                    "extra_id": "1684419781715_0",
+                    "position": 0,
+                    "map_filter_title": "city"
+                }
+            ],
+            "extra_queries": []
+        }
+    ]
+}
