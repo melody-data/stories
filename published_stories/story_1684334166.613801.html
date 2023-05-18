@@ -2,10 +2,19 @@
 <html lang="en">
 
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SSDBXGCXK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-9SSDBXGCXK');
+	</script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 	<title>
-		MELODY -  The Final Data Story 
+		MELODY - 
 	</title>
 
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -39,9 +48,24 @@
 
 	<!-- Specific Page CSS goes HERE  -->
 	
+<link rel="stylesheet" href="static/css/templates.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-	integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="static/css/MarkerCluster.css">
+  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
+
+  <script type="text/javascript">
+    var datastory_data = {"action": "save", "color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "This is a test to check the correctness of the catalogue.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003ekkkk\u003c/p\u003e", "type": "text"}], "id": "1684334166.613801", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "The Final Data Story", "user_name": "cesenacomics"};
+  </script>
 
 
 </head>
@@ -72,16 +96,14 @@
 	<!-- Navbar Header -->
 	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
 
-		<div class="container-fluid">
+		<div class="container">
 			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 				
 				<li class="nav-item">
-					
-					<a class="nav-link" href="/melody/asklogin" role="button" aria-expanded="false"
+					<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
 						aria-controls="search-nav">
 						Create a story
 					</a>
-					
 				</li>
 				
 				<li class="nav-item">
@@ -111,7 +133,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
-						<p>Sound and Vision</p>
+						<p>Bells</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu1">
@@ -124,19 +146,17 @@
 							
 							
 							
+							
+							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
-									<!-- href="/dutch_broadcast_concert_collection"> -->
-									Dutch Broadcast Concert Collection
+								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
+									<!-- href="/melody//overview_of_bells_in_liguria"> -->
+									Overview of bells in Liguria
 								</a>
 								
 								
 							</li>
-							
-							
-							
-							
 							
 							
 							
@@ -157,7 +177,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
-						<p>Fonn</p>
+						<p>choco</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu2">
@@ -180,8 +200,50 @@
 							
 							<li class="menuitem row">
 								
+								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
+									<!-- href="/melody//chord_corpus_statistics"> -->
+									Chord Corpus Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
+						<p>Fonn</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu3">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
 								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
-									<!-- href="/frequently_occurring_patterns"> -->
+									<!-- href="/melody//frequently_occurring_patterns"> -->
 									Frequently Occurring Patterns 
 								</a>
 								
@@ -202,60 +264,8 @@
 				</li>
 				
 				<li class="nav-item submenu">
-					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
-						<p>Tunes</p>
-						<span class="caret"></span>
-					</a>
-					<div class="collapse" id="submenu3">
-						<ul class="nav nav-collapse">
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							<li class="menuitem row">
-								
-								<a class="col-8" href="/melody/tunes/tunes_statistics">
-									<!-- href="/tunes_statistics"> -->
-									Tunes Statistics
-								</a>
-								
-								
-								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
-									<!-- href="/explore_similarity_relations_among_songs"> -->
-									Explore similarity relations among songs
-								</a>
-								
-								
-							</li>
-							
-							
-							
-							
-							
-							
-						</ul>
-					</div>
-				</li>
-				
-				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
-						<p>Tonalities</p>
+						<p>musicbo</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu4">
@@ -272,25 +282,29 @@
 							
 							
 							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/tonalities/tonalities">
-									<!-- href="/tonalities"> -->
-									Tonalities 
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_textual_corpus_overview">
+									<!-- href="/melody//music_in_bologna_textual_corpus_overview"> -->
+									Music in Bologna - Textual corpus overview
+								</a>
+								
+								
+								<a class="col-8" href="/melody/musicbo/map">
+									<!-- href="/melody//map"> -->
+									map
 								</a>
 								
 								
 							</li>
+							
+							
+							
+							
+							
+							
+							
+							
 							
 							
 							
@@ -301,38 +315,36 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
-						<p>ChoCo</p>
+						<p>musoW</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu5">
 						<ul class="nav nav-collapse">
 							
 							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
-									<!-- href="/chord_corpus_statistics"> -->
-									Chord Corpus Statistics
+								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
+									<!-- href="/melody//discover_music_data_on_the_web"> -->
+									Discover music data on the Web
 								</a>
 								
 								
 							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
 							
 							
 							
@@ -374,12 +386,10 @@
 							
 							
 							
-							
-							
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/organs/organs_statistics">
-									<!-- href="/organs_statistics"> -->
+									<!-- href="/melody//organs_statistics"> -->
 									ORGANS Statistics
 								</a>
 								
@@ -393,7 +403,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
-						<p>wikidata</p>
+						<p>Sound and Vision</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu7">
@@ -402,33 +412,19 @@
 							
 							
 							
+							
+							
+							
+							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/wikidata/relations_between_museums">
-									<!-- href="/relations_between_museums"> -->
-									Relations between museums
-								</a>
-								
-								
-								<a class="col-8" href="/melody/wikidata/music_rock_bands_an_overview">
-									<!-- href="/music_rock_bands_an_overview"> -->
-									Music Rock Bands - An Overview 
-								</a>
-								
-								
-								<a class="col-8" href="/melody/wikidata/relations_between_music_bands">
-									<!-- href="/relations_between_music_bands"> -->
-									Relations between music bands
+								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
+									<!-- href="/melody//dutch_broadcast_concert_collection"> -->
+									Dutch Broadcast Concert Collection
 								</a>
 								
 								
 							</li>
-							
-							
-							
-							
-							
-							
 							
 							
 							
@@ -451,42 +447,40 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
-						<p>musoW</p>
+						<p>Tonalities</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu8">
 						<ul class="nav nav-collapse">
 							
 							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
-									<!-- href="/discover_music_data_on_the_web"> -->
-									Discover music data on the Web
+								<a class="col-8" href="/melody/tonalities/tonalities">
+									<!-- href="/melody//tonalities"> -->
+									Tonalities 
 								</a>
 								
 								
 							</li>
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
 							
 							
 							
@@ -497,7 +491,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
-						<p>musicbo</p>
+						<p>tunes</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu9">
@@ -516,27 +510,25 @@
 							
 							
 							
+							
+							
+							
+							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
-									<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
-									Music in Bologna - Knowledge Graph overview
+								<a class="col-8" href="/melody/tunes/tunes_statistics">
+									<!-- href="/melody//tunes_statistics"> -->
+									Tunes Statistics
 								</a>
 								
 								
-								<a class="col-8" href="/melody/musicbo/musicbo_on_the_map">
-									<!-- href="/musicbo_on_the_map"> -->
-									MusicBO on the map
+								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
+									<!-- href="/melody//explore_similarity_relations_among_songs"> -->
+									Explore similarity relations among songs
 								</a>
 								
 								
 							</li>
-							
-							
-							
-							
-							
-							
 							
 							
 							
@@ -549,7 +541,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
-						<p>Bells</p>
+						<p>Wikidata</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu10">
@@ -558,27 +550,31 @@
 							
 							
 							
-							
-							
-							
-							
-							
-							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/bells/overview_of_the_bells_in_liguria">
-									<!-- href="/overview_of_the_bells_in_liguria"> -->
-									Overview of the bells in Liguria
+								<a class="col-8" href="/melody/wikidata/relations_between_museums">
+									<!-- href="/melody//relations_between_museums"> -->
+									Relations between museums
 								</a>
 								
 								
-								<a class="col-8" href="/melody/bells/bells_on_the_map">
-									<!-- href="/bells_on_the_map"> -->
-									Bells on the map
+								<a class="col-8" href="/melody/wikidata/scatter">
+									<!-- href="/melody//scatter"> -->
+									scatter
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/search_me">
+									<!-- href="/melody//search_me"> -->
+									search me
 								</a>
 								
 								
 							</li>
+							
+							
+							
+							
 							
 							
 							
@@ -615,14 +611,12 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/zeri/female_portraits_">
-									<!-- href="/female_portraits_"> -->
+									<!-- href="/melody//female_portraits_"> -->
 									Female portraits 
 								</a>
 								
 								
 							</li>
-							
-							
 							
 							
 							
@@ -657,56 +651,77 @@
 			
 
 <div class="content row datastorypage" id="dwn">
-	<section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
-		<section id="secondarymenuinner" class="secondarymenuinner">
-			<h4>About</h4>
-			
-			
-			<p>Source: <a href="https://query.wikidata.org/sparql" target="_blank">SPARQL endpoint</a></p>
-			<p>Export</p>
-			<button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
-			<button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
-					download="The Final Data Story.html">HTML</a></button>
-			<!-- publish button -->
-			
-			<!-- modify button -->
-			
-		</section>
+  <section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
+  <section id="secondarymenuinner" class="secondarymenuinner">
 
-	</section>
-	<div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
-		<div class="page-inner py-5">
-			<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-				<div>
-					<h1 class="text-white pb-2 fw-bold">The Final Data Story</h1>
-					
-					
-					<p class="card-category">
-						This is a test to check the correctness of the catalogue.
-					</p>
-					
+    <h4>About this story</h4>
+    
+    <p>Part of: </p>
+    <p>Source: <a href="https://query.wikidata.org/sparql">SPARQL endpoint</a></p>
+    <p>Export</p>
+    <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
+    <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
+        download="The Final Data Story.html">HTML</a></button>
+    <button class="exportbutton" type="button">
+      <a href="#" data-toggle="modal" data-target="#queryModal"
+        id="sparqlQuery">JSON</a></button>
 
-					<div class="card-body row">
-						<span id='loader' class='lds-dual-ring hidden overlay'></span>
-						
+    <!-- publish button -->
+    
+    <!-- modify button -->
+    
+  </section>
 
-						
-						<!-- count -->
-						<div class="count_result col-md-3 col-sm-12" id="1"></div>
+  <div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
+    aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card">
+        <div class="modal-header">
+          <h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;The Final Data Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;cesenacomics&#39;, &#39;id&#39;: &#39;1684334166.613801&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;This is a test to check the correctness of the catalogue.&#39;, &#39;action&#39;: &#39;save&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;kkkk&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
+    <div class="page-inner py-5">
+      <div class="align-items-left align-items-md-center flex-column flex-md-row">
 
-						
+          <h1 class="text-white pb-2 fw-bold">The Final Data Story</h1>
 
-						
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<p class="card-category">
+  This is a test to check the correctness of the catalogue.
+</p>
+
+          <span id='loader' class='lds-dual-ring hidden overlay'></span>
+          <div id="sortable"></div>
+          <script src="static/js/react/Error.js" type="text/babel"></script>
+          <script src="static/js/react/Map.js" type="text/babel"></script>
+          <script src="static/js/react/Table.js" type="text/babel"></script>
+          <script src="static/js/react/Chart.js" type="text/babel"></script>
+          <script src="static/js/react/Textbox.js" type="text/babel"></script>
+          <script src="static/js/react/Count.js" type="text/babel"></script>
+          <script src="static/js/react/Action.js" type="text/babel"></script>
+          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+          <script src="static/js/react/add_components.js" type="text/babel"></script>
+
+      </div>
+    </div>
+  </div>
 </div>
-<!-- alerts -->
-
-
 
 
 
@@ -799,40 +814,41 @@
 
 	
 	<script>
-		overwriteCSS();
+		if (!(window.location.href).includes('published_stories')) {
+			overwriteCSS();
+		}
+
 	</script>
 	
 
 	<!-- Specific Page JS goes HERE  -->
 	
 <script type="text/javascript">
-	var datastory_data = {"action": "save", "color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "This is a test to check the correctness of the catalogue.", "dynamic_elements": [{"chart_legend": {}, "count_label": "Cats in Wikidata", "count_query": "SELECT (COUNT (DISTINCT ?item) AS ?count)\r\nWHERE \r\n{\r\n  ?item wdt:P31 wd:Q146.\r\n}", "extra_queries": [], "operations": [], "position": 1, "type": "count"}], "id": "1684334166.613801", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "The Final Data Story", "user_name": "cesenacomics"};
-	$('footer').detach();
+  $('footer').detach();
 </script>
 
 <script>
-	let hostname = window.location.hostname;
-	if (!hostname.includes('github')) {
-		let beforeUnloadAlert = true;
-		window.addEventListener('beforeunload', function (e) {
-			if (!beforeUnloadAlert) return;
+  let hostname = window.location.hostname;
+  if (!hostname.includes('github')) {
+    let beforeUnloadAlert = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!beforeUnloadAlert) return;
 
-			// etc
-			e.preventDefault();
-			e.returnValue = '';
-		});
+      // etc
+      e.preventDefault();
+      e.returnValue = '';
+    });
 
-		function myFunction() {
-			beforeUnloadAlert = false;
-		}
-		var myObj = document.getElementsByClassName('prevent_alert')
-		console.log(myObj);
-		for (el of myObj) {
-			el.addEventListener('click', myFunction);
-		}
-	}
+    function myFunction() {
+      beforeUnloadAlert = false;
+    }
+    var myObj = document.getElementsByClassName('prevent_alert')
+    console.log(myObj);
+    for (el of myObj) {
+      el.addEventListener('click', myFunction);
+    }
+  }
 </script>
-
 
 
 
