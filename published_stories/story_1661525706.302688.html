@@ -2,10 +2,19 @@
 <html lang="en">
 
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SSDBXGCXK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-9SSDBXGCXK');
+	</script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 	<title>
-		MELODY - Discover Music Data on the Web
+		MELODY - 
 	</title>
 
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -25,6 +34,8 @@
 			active: function () { sessionStorage.fonts = true; }
 		});
 	</script>
+	<!-- IQuill stylesheet -->
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 	<!-- CSS Files -->
 	<link rel="stylesheet" href="static/css/bootstrap.min.css">
@@ -33,14 +44,28 @@
 
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<!-- <link rel="stylesheet" href="static/css/demo.css"> -->
+	<!-- <link rel="stylesheet" href="/static/css/demo.css"> -->
 
 	<!-- Specific Page CSS goes HERE  -->
+	
+<link rel="stylesheet" href="static/css/templates.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="static/css/MarkerCluster.css">
+  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-		integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<!-- <link rel="stylesheet" href="static/css/personal.css"> -->
+  <script type="text/javascript">
+    var datastory_data = {"action": "save", "color_code": ["#34f98d", "#2c37ba"], "curator": "Giulia Renda", "description": "musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003eretry\u003c/p\u003e", "type": "text"}], "id": "1661525706.302688", "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql", "subtitle": "Shaping the landscape of music data on the web", "template_mode": "statistics", "title": "Discover Music Data on the Web", "user_name": "cesenacomics"};
+  </script>
 
 
 </head>
@@ -50,554 +75,786 @@
 
 		<div class="main-header">
 
-			<!-- Logo Header -->
-			<div class="logo-header" data-background-color="dark2">
+	<!-- Logo Header -->
+	<div class="logo-header" data-background-color="dark2">
 
-				<a href="/index.html" class="logo">MELODY</a>
-				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
-					data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon">
-						<i class="icon-menu"></i>
-					</span>
-				</button>
-				<div class="nav-toggle">
-					<button class="btn btn-toggle toggle-sidebar">
-						<i class="icon-menu"></i>
-					</button>
-				</div>
-			</div>
-			<!-- End Logo Header -->
-
-			<!-- Navbar Header -->
-			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
-
-				<div class="container-fluid">
-					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-
-						<li class="nav-item">
-							<a class="nav-link" target="_blank" href="https://polifonia-project.github.io/dashboard/"
-								role="button" aria-expanded="false" aria-controls="search-nav">
-								Documentation
-							</a>
-						</li>
-						<li class="nav-item">
-
-							<a class="nav-link" href="/asklogin" role="button" aria-expanded="false"
-								aria-controls="search-nav">
-								Create a story
-							</a>
-
-						</li>
-
-						<li class="nav-item">
-
-							<a class="nav-link" href="/gitauth" role="button" aria-expanded="false"
-								aria-controls="search-nav">
-								Sign in
-							</a>
-
-						</li>
-
-					</ul>
-				</div>
-
-
-			</nav>
-
-			<!-- End Navbar -->
+		<a href="/melody/" class="logo">MELODY</a>
+		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+			data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">
+				<i class="icon-menu"></i>
+			</span>
+		</button>
+		<div class="nav-toggle">
+			<button class="btn btn-toggle toggle-sidebar">
+				<i class="icon-menu"></i>
+			</button>
 		</div>
+	</div>
+	<!-- End Logo Header -->
+
+	<!-- Navbar Header -->
+	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
+
+		<div class="container">
+			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Create a story
+					</a>
+				</li>
+				
+				<li class="nav-item">
+					
+					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Sign in
+					</a>
+					
+				</li>
+
+			</ul>
+		</div>
+
+
+	</nav>
+
+	<!-- End Navbar -->
+</div>
 
 		<!-- Sidebar -->
-		<div class="sidebar sidebar-style-2" data-background-color="dark2">
-			<div class="sidebar-wrapper scrollbar scrollbar-inner">
-				<div class="sidebar-content">
-					<ul class="nav nav-primary">
-
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
-								<p>Listening Experiences</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu1">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8"
-											href=" /listening_experiences/nurses%27_listening_experiences_during_wwi_">
-											<!--/listening_experiences/nurses&#39;_listening_experiences_during_wwi_-->
-											Nurses&#39; listening experiences during WWI
-										</a>
-
-
-									</li>
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
-								<p>musoW</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu2">
-								<ul class="nav nav-collapse">
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href=" /musow/discover_music_data_on_the_web">
-											<!--/musow/discover_music_data_on_the_web-->
-											Discover music data on the Web
-										</a>
-
-
-										<a class="col-8" href=" /musow/music_datasets">
-											<!--/musow/music_datasets-->
-											Music datasets
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
-								<p>Tests</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu3">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href=" /tests/single_scatter_plot">
-											<!--/tests/single_scatter_plot-->
-											Single Scatter Plot
-										</a>
-
-
-										<a class="col-8" href=" /tests/complex_scatter_plot">
-											<!--/tests/complex_scatter_plot-->
-											Complex Scatter Plot
-										</a>
-
-
-										<a class="col-8" href=" /tests/check_if_submit_button_works">
-											<!--/tests/check_if_submit_button_works-->
-											Check if Submit button works
-										</a>
-
-
-										<a class="col-8" href=" /tests/if_is_a_problem_with_linechart">
-											<!--/tests/if_is_a_problem_with_linechart-->
-											If is a problem with linechart
-										</a>
-
-
-									</li>
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
-								<p>Wikidata</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu4">
-								<ul class="nav nav-collapse">
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href=" /wikidata/explore_another_possibility">
-											<!--/wikidata/explore_another_possibility-->
-											Explore Another Possibility
-										</a>
-
-
-										<a class="col-8" href=" /wikidata/try_the_switch">
-											<!--/wikidata/try_the_switch-->
-											Try the switch for Map
-										</a>
-
-
-										<a class="col-8" href=" /wikidata/relations_between_museums">
-											<!--/wikidata/relations_between_museums-->
-											Relations between museums
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-
-					</ul>
-				</div>
-			</div>
+<div class="sidebar sidebar-style-2" data-background-color="dark2">
+	<div class="sidebar-wrapper scrollbar scrollbar-inner">
+		<div class="sidebar-content">
+			<ul class="nav nav-primary">
+				
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
+						<p>Bells</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu1">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
+									<!-- href="/melody//overview_of_bells_in_liguria"> -->
+									Overview of bells in Liguria
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
+						<p>choco</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu2">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
+									<!-- href="/melody//chord_corpus_statistics"> -->
+									Chord Corpus Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
+						<p>Fonn</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu3">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
+									<!-- href="/melody//frequently_occurring_patterns"> -->
+									Frequently Occurring Patterns 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
+						<p>musicbo</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu4">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_textual_corpus_overview">
+									<!-- href="/melody//music_in_bologna_textual_corpus_overview"> -->
+									Music in Bologna - Textual corpus overview
+								</a>
+								
+								
+								<a class="col-8" href="/melody/musicbo/map">
+									<!-- href="/melody//map"> -->
+									map
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
+						<p>musoW</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu5">
+						<ul class="nav nav-collapse">
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
+									<!-- href="/melody//discover_music_data_on_the_web"> -->
+									Discover music data on the Web
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu6" aria-expanded="true">
+						<p>organs</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu6">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/organs/organs_statistics">
+									<!-- href="/melody//organs_statistics"> -->
+									ORGANS Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
+						<p>Sound and Vision</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu7">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
+									<!-- href="/melody//dutch_broadcast_concert_collection"> -->
+									Dutch Broadcast Concert Collection
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
+						<p>Tonalities</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu8">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tonalities/tonalities">
+									<!-- href="/melody//tonalities"> -->
+									Tonalities 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
+						<p>tunes</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu9">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tunes/tunes_statistics">
+									<!-- href="/melody//tunes_statistics"> -->
+									Tunes Statistics
+								</a>
+								
+								
+								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
+									<!-- href="/melody//explore_similarity_relations_among_songs"> -->
+									Explore similarity relations among songs
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
+						<p>Wikidata</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu10">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_museums">
+									<!-- href="/melody//relations_between_museums"> -->
+									Relations between museums
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/scatter">
+									<!-- href="/melody//scatter"> -->
+									scatter
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/search_me">
+									<!-- href="/melody//search_me"> -->
+									search me
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu11" aria-expanded="true">
+						<p>Zeri</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu11">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/zeri/female_portraits_">
+									<!-- href="/melody//female_portraits_"> -->
+									Female portraits 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				
+			</ul>
 		</div>
-		<!-- End Sidebar -->
+	</div>
+</div>
+<!-- End Sidebar -->
 
 		<div class="main-panel">
 
-
-
-			<div class="content row datastorypage" id="dwn">
-				<section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
-					<section id="secondarymenuinner" class="secondarymenuinner">
-						<h4>About</h4>
-
-						<p>Authors: Giulia Renda </p>
-
-
-						<p>Source: <a href="https://projects.dharc.unibo.it/musow/sparql" target="_blank">SPARQL
-								endpoint</a></p>
-						<p>Export</p>
-						<button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
-						<button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
-								download="Discover Music Data on the Web.html">HTML</a></button>
-						<!-- publish button -->
-
-						<!-- modify button -->
-
-					</section>
-
-				</section>
-				<div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
-					<div class="page-inner py-5">
-						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-							<div>
-								<h1 class="text-white pb-2 fw-bold">Discover Music Data on the Web</h1>
-
-								<h2 class="text-white op-7 mb-2">
-									Shaping the landscape of music data on the web
-								</h2>
-
-
-								<p class="card-category">
-									musoW is a catalogue of musical resources available on the web realized with the
-									idea to support teachers in music education, creative industries, historians, and
-									musicologists in finding what they need.
-								</p>
-
-
-								<div class="card-body row">
-
-
-									<!-- text -->
-
-									<div class="typography-line col-md-12 col-sm-12" id="1">
-										<p>The catalogue includes descriptions of several music-related web resources,
-											with a focus on those that serve or allow users to manipulate music data in
-											any form.</p>
-									</div>
-
-									<!-- count -->
-
-
-
-									<!-- text -->
-
-									<div class="count_result col-md-3 col-sm-12" id="2"></div>
-
-									<!-- chart -->
-
-
-
-									<!-- text -->
-
-									<div class="count_result col-md-3 col-sm-12" id="3"></div>
-
-									<!-- chart -->
-
-
-
-									<!-- text -->
-
-									<div class="count_result col-md-3 col-sm-12" id="4"></div>
-
-									<!-- chart -->
-
-
-
-									<!-- text -->
-
-									<div class="count_result col-md-3 col-sm-12" id="5"></div>
-
-									<!-- chart -->
-
-
-
-									<!-- text -->
-
-									<div class="count_result col-md-3 col-sm-12" id="6"></div>
-
-									<!-- chart -->
-
-
-
-									<!-- text -->
-
-									<div class="typography-line col-md-12 col-sm-12" id="7">
-										<p>We can observe the variety of content from a different perspective.</p>
-									</div>
-
-									<!-- count -->
-
-
-
-									<!-- text -->
-
-									<div class="chartstory col-md-12 col-sm-12" id="8">
-
-									</div>
-									<div class="exportchart card-tools col-md-12 col-sm-12">
-										<a id="export_8" class="btn btn-info btn-border btn-round btn-sm mr-2">
-											<span class="btn-label">
-												<i class="fa fa-pencil"></i>
-											</span>
-											Embed
-										</a>
-										<a id="print_8" class="btn btn-info btn-border btn-round btn-sm">
-											<span class="btn-label">
-												<i class="fa fa-print"></i>
-											</span>
-											Save picture
-										</a>
-									</div>
-
-
-
-									<!-- text -->
-
-									<div class="typography-line col-md-12 col-sm-12" id="9">
-										<p>We can also observe what is the trend of new content insertion on musoW,
-											which is done by insiders but also by external authenticated users.</p>
-									</div>
-
-									<!-- count -->
-
-
-
-									<!-- text -->
-
-									<div class="chartstory col-md-12 col-sm-12" id="10">
-
-									</div>
-									<div class="exportchart card-tools col-md-12 col-sm-12">
-										<a id="export_10" class="btn btn-info btn-border btn-round btn-sm mr-2">
-											<span class="btn-label">
-												<i class="fa fa-pencil"></i>
-											</span>
-											Embed
-										</a>
-										<a id="print_10" class="btn btn-info btn-border btn-round btn-sm">
-											<span class="btn-label">
-												<i class="fa fa-print"></i>
-											</span>
-											Save picture
-										</a>
-									</div>
-
-
-
-									<!-- text -->
-
-									<div class="typography-line col-md-12 col-sm-12" id="11">
-										<p>While collecting information about resources is important, we also focused on
-											understanding the potential audience of the resources. We discovered that
-											most of surveyed resources are targeted to scholars.</p>
-									</div>
-
-									<!-- count -->
-
-
-
-									<!-- text -->
-
-									<div class="chartstory col-md-12 col-sm-12" id="12">
-
-									</div>
-									<div class="exportchart card-tools col-md-12 col-sm-12">
-										<a id="export_12" class="btn btn-info btn-border btn-round btn-sm mr-2">
-											<span class="btn-label">
-												<i class="fa fa-pencil"></i>
-											</span>
-											Embed
-										</a>
-										<a id="print_12" class="btn btn-info btn-border btn-round btn-sm">
-											<span class="btn-label">
-												<i class="fa fa-print"></i>
-											</span>
-											Save picture
-										</a>
-									</div>
-
-
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- alerts -->
-
-
+			
+
+<div class="content row datastorypage" id="dwn">
+  <section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
+  <section id="secondarymenuinner" class="secondarymenuinner">
+
+    <h4>About this story</h4>
+    
+    <p>Authors: Giulia Renda </p>
+    
+    <p>Part of: </p>
+    <p>Source: <a href="https://projects.dharc.unibo.it/musow/sparql">SPARQL endpoint</a></p>
+    <p>Export</p>
+    <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
+    <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
+        download="Discover Music Data on the Web.html">HTML</a></button>
+    <button class="exportbutton" type="button">
+      <a href="#" data-toggle="modal" data-target="#queryModal"
+        id="sparqlQuery">JSON</a></button>
+
+    <!-- publish button -->
+    
+    <!-- modify button -->
+    
+  </section>
+
+  <div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
+    aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card">
+        <div class="modal-header">
+          <h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://projects.dharc.unibo.it/musow/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Discover Music Data on the Web&#39;, &#39;color_code&#39;: [&#39;#34f98d&#39;, &#39;#2c37ba&#39;], &#39;user_name&#39;: &#39;cesenacomics&#39;, &#39;id&#39;: &#39;1661525706.302688&#39;, &#39;subtitle&#39;: &#39;Shaping the landscape of music data on the web&#39;, &#39;curator&#39;: &#39;Giulia Renda&#39;, &#39;description&#39;: &#39;musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.&#39;, &#39;action&#39;: &#39;save&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;retry&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
+    <div class="page-inner py-5">
+      <div class="align-items-left align-items-md-center flex-column flex-md-row">
+
+          <h1 class="text-white pb-2 fw-bold">Discover Music Data on the Web</h1>
+
+<h2 class="text-white op-7 mb-2">
+  Shaping the landscape of music data on the web
+</h2>
+
+
+<p class="card-category">
+  musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.
+</p>
+
+          <span id='loader' class='lds-dual-ring hidden overlay'></span>
+          <div id="sortable"></div>
+          <script src="static/js/react/Error.js" type="text/babel"></script>
+          <script src="static/js/react/Map.js" type="text/babel"></script>
+          <script src="static/js/react/Table.js" type="text/babel"></script>
+          <script src="static/js/react/Chart.js" type="text/babel"></script>
+          <script src="static/js/react/Textbox.js" type="text/babel"></script>
+          <script src="static/js/react/Count.js" type="text/babel"></script>
+          <script src="static/js/react/Action.js" type="text/babel"></script>
+          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+          <script src="static/js/react/add_components.js" type="text/babel"></script>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
 			<footer class="footer">
-				<div class="container-fluid d-flex align-items-start">
-					<div class="p-2 col-md-3">
-						<h6>MELODY</h6>
-						<p><a target="_blank" href="/">Home</a></p>
-						<p><a target="_blank" href="/asklogin">Create a story</a></p>
-					</div>
-					<div class="p-2 col-md-3">
-						<h6>Links</h6>
-						<p>Read the <a href="https://polifonia-project.github.io/dashboard/"
-								target="_blank">documentation</a></p>
-						<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
-						<p>Theme <a target="_blank"
-								href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
-								Flask Atlantis Dark
-							</a></p>
-					</div>
+	<div class="container-fluid d-flex align-items-start">
+		<div class="p-2 col-md-3">
+			<h6>MELODY</h6>
+			<p><a target="_blank" href="/melody">Home</a></p>
+			<p><a target="_blank" href="/melody/asklogin">Create a story</a></p>
+			<p><a target="_blank" href="https://melody-data.github.io/stories/#catalogue">Data stories' catalaogue</a>
+			</p>
+		</div>
+		<div class="p-2 col-md-3">
+			<h6>Links</h6>
+			<p>Read the <a href="https://polifonia-project.github.io/dashboard/" target="_blank">documentation</a></p>
+			<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
+			<p>Theme <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+					Flask Atlantis Dark
+				</a></p>
+		</div>
 
-					<div class="copyright ml-auto p-2 col-md-4">
-						<p>MELODY is part of</p>
-						<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
-						<p>Polifonia has received funding from the European Union’s Horizon 2020 research
-							and innovation programme under grant agreement N. 101004746</p>
-						<!-- &copy; <a target="_blank" href="https://github.com/mondoboia/polifonia_dashboard">GitHub repo</a>
-			- coded by <a target="_blank" href="https://github.com/mondoboia">Giulia Renda</a>-->
-					</div>
-				</div>
-			</footer>
+		<div class="copyright ml-auto p-2 col-md-4">
+			<p>MELODY is part of</p>
+			<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
+			<p>Polifonia has received funding from the European Union’s Horizon 2020 research
+				and innovation programme under grant agreement N. 101004746</p>
+		</div>
+	</div>
+</footer>
 
 		</div>
 
 	</div>
 
 	<!--   Core JS Files   -->
-	<script src="static/js/core/jquery.3.2.1.min.js "></script>
-	<script src="static/js/core/popper.min.js "></script>
-	<script src="static/js/core/bootstrap.min.js "></script>
+<script src="static/js/core/jquery.3.2.1.min.js"></script>
+<script src="static/js/core/popper.min.js"></script>
+<script src="static/js/core/bootstrap.min.js"></script>
 
-	<!-- jQuery UI -->
-	<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js "></script>
-	<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js "></script>
+<!-- jQuery UI -->
+<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
-	<!-- jQuery Scrollbar -->
-	<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js "></script>
+<!-- jQuery Scrollbar -->
+<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
-	<!-- Chart JS -->
-	<script src="static/js/plugin/chart.js/chart.min.js "></script>
+<!-- Chart JS -->
+<script src="static/js/plugin/chart.js/chart.min.js"></script>
 
-	<!-- Import D3 Scale Chromatic via CDN -->
-	<script src="https://d3js.org/d3-color.v1.min.js"></script>
-	<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
-	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<!-- Import D3 Scale Chromatic via CDN -->
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
-	<!-- jQuery Sparkline -->
-	<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js "></script>
+<!-- jQuery Sparkline -->
+<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 
-	<!-- Chart Circle -->
-	<script src="static/js/plugin/chart-circle/circles.min.js "></script>
+<!-- Chart Circle -->
+<script src="static/js/plugin/chart-circle/circles.min.js"></script>
 
-	<!-- Datatables -->
-	<script src="static/js/plugin/datatables/datatables.min.js "></script>
+<!-- Datatables -->
+<script src="static/js/plugin/datatables/datatables.min.js"></script>
 
-	<!-- Bootstrap Notify -->
-	<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js "></script>
+<!-- Bootstrap Notify -->
+<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
-	<!-- jQuery Vector Maps -->
-	<script src="static/js/plugin/jqvmap/jquery.vmap.min.js "></script>
-	<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js "></script>
+<!-- jQuery Vector Maps -->
+<script src="static/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
 
-	<!-- Sweet Alert -->
-	<script src="static/js/plugin/sweetalert/sweetalert.min.js  "></script>
+<!-- Sweet Alert -->
+<script src="static/js/plugin/sweetalert/sweetalert.min.js "></script>
 
-	<!-- Atlantis JS -->
-	<script src="static/js/atlantis.min.js "></script>
+<!-- Atlantis JS -->
+<script src="static/js/atlantis.min.js"></script>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+<script type="text/javascript" src="static/js/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="static/js/leaflet-sidebar.js"></script>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 	<!-- utils js -->
 	<!-- <script src="static/js/utils.js" type="module"></script> -->
 
 	<script src="static/js/main.js"></script>
 
+	
+	<script>
+		if (!(window.location.href).includes('published_stories')) {
+			overwriteCSS();
+		}
+
+	</script>
+	
 
 	<!-- Specific Page JS goes HERE  -->
+	
+<script type="text/javascript">
+  $('footer').detach();
+</script>
 
-	<script type="text/javascript">
-		var datastory_data = { "action": "save", "color_code": ["#34f98d", "#2c37ba"], "curator": "Giulia Renda", "description": "musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.", "dynamic_elements": [{ "operations": [], "position": 1, "text": "The catalogue includes descriptions of several music-related web resources, with a focus on those that serve or allow users to manipulate music data in any form.", "type": "text" }, { "count_label": "Repositories", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/repository\u003e.}", "operations": [], "position": 2, "type": "count" }, { "count_label": "Catalogues", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/catalogue\u003e.}", "operations": [], "position": 3, "type": "count" }, { "count_label": "Datasets", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/dataset\u003e.}", "operations": [], "position": 4, "type": "count" }, { "count_label": "Digital Libraries", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/digital-library\u003e.}", "operations": [], "position": 5, "type": "count" }, { "count_label": "Software", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/software\u003e.}", "operations": [], "position": 6, "type": "count" }, { "operations": [], "position": 7, "text": "We can observe the variety of content from a different perspective.", "type": "text" }, { "chart_query": "PREFIX musow: \u003chttps://w3id.org/musow/vocab/\u003e SELECT ?label (COUNT(?content) AS ?count) WHERE { {?content ?p musow:repository . musow:repository rdfs:label ?label .} UNION {?content ?p musow:catalogue . musow:catalogue rdfs:label ?label .} UNION {?content ?p musow:dataset . musow:dataset rdfs:label ?label .} UNION {?content ?p musow:digital-library . musow:digital-library rdfs:label ?label .} UNION {?content ?p musow:software . musow:software rdfs:label ?label .} } GROUP BY ?label", "chart_series": "", "chart_title": "Content Overview", "chart_type": "barchart", "operations": [], "position": 8, "type": "chart" }, { "operations": [], "position": 9, "text": "We can also observe what is the trend of new content insertion on musoW, which is done by insiders but also by external authenticated users.", "type": "text" }, { "chart_query": "SELECT ?label (COUNT(?label) AS ?count) WHERE { { SELECT ?time (DAY(?time) AS ?label) WHERE { ?entry \u003chttp://www.w3.org/ns/prov#generatedAtTime\u003e ?time . } } } GROUP BY ?label ORDER BY ?label", "chart_series": "", "chart_title": "New Entries per Day", "chart_type": "linechart", "operations": [], "position": 10, "type": "chart" }, { "operations": [], "position": 11, "text": "While collecting information about resources is important, we also focused on understanding the potential audience of the resources. We discovered that most of surveyed resources are targeted to scholars.", "type": "text" }, { "chart_query": "SELECT ?label WHERE { ?entry ?p \u003chttps://w3id.org/musow/vocab/repository\u003e . ?entry \u003chttps://schema.org/audience\u003e ?audience . ?audience rdfs:label ?label . }", "chart_series": "", "chart_title": "Audience of music resources", "chart_type": "doughnutchart", "operations": [{ "action": "count", "param": "label" }], "position": 12, "type": "chart" }], "id": "1661525706.302688", "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql", "subtitle": "Shaping the landscape of music data on the web", "template_mode": "statistics", "title": "Discover Music Data on the Web", "user_name": "cesenacomics" };
-		$('footer').detach();
-	</script>
+<script>
+  let hostname = window.location.hostname;
+  if (!hostname.includes('github')) {
+    let beforeUnloadAlert = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!beforeUnloadAlert) return;
 
-	<script>
-		let hostname = window.location.hostname;
-		if (!hostname.includes('github')) {
-			let beforeUnloadAlert = true;
-			window.addEventListener('beforeunload', function (e) {
-				if (!beforeUnloadAlert) return;
+      // etc
+      e.preventDefault();
+      e.returnValue = '';
+    });
 
-				// etc
-				e.preventDefault();
-				e.returnValue = '';
-			});
-
-			function myFunction() {
-				beforeUnloadAlert = false;
-			}
-			var myObj = document.getElementsByClassName('prevent_alert')
-			console.log(myObj);
-			for (el of myObj) {
-				el.addEventListener('click', myFunction);
-			}
-		}
-	</script>
-
+    function myFunction() {
+      beforeUnloadAlert = false;
+    }
+    var myObj = document.getElementsByClassName('prevent_alert')
+    console.log(myObj);
+    for (el of myObj) {
+      el.addEventListener('click', myFunction);
+    }
+  }
+</script>
 
 
 
