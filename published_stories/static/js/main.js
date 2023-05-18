@@ -3244,7 +3244,7 @@ const overwriteCSS = () => {
         }
 
         .main-panel {
-            width: 100%;
+            width: calc(100% - 250px);
         }`;
 
     document.head.appendChild(style);
