@@ -52,8 +52,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
   integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
@@ -64,7 +64,7 @@
   <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
   <script type="text/javascript">
-    var datastory_data = {"action": "save", "color_code": ["#34f98d", "#2c37ba"], "curator": "Giulia Renda", "description": "musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003eretry\u003c/p\u003e", "type": "text"}], "id": "1661525706.302688", "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql", "subtitle": "Shaping the landscape of music data on the web", "template_mode": "statistics", "title": "Discover Music Data on the Web", "user_name": "cesenacomics"};
+    var datastory_data = {"action": "save", "color_code": ["#34f98d", "#2c37ba"], "curator": "Giulia Renda", "description": "musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003eThe catalogue includes descriptions of several music-related web resources, with a focus on those that serve or allow users to manipulate music data in any form.\u003c/p\u003e", "type": "text"}, {"count_label": "Repositories", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/repository\u003e.}", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "count"}, {"count_label": "Catalogues", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/catalogue\u003e.}", "extra_queries": [], "map_filters": [], "operations": [], "position": 2, "type": "count"}, {"count_label": "Datasets", "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p \u003chttps://w3id.org/musow/vocab/dataset\u003e.}", "extra_queries": [], "map_filters": [], "operations": [], "position": 3, "type": "count"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 4, "text": "\u003cp\u003eWe can observe the variety of content from a different perspective.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "PREFIX musow: \u003chttps://w3id.org/musow/vocab/\u003e SELECT ?label (COUNT(?content) AS ?count) WHERE { {?content ?p musow:repository . musow:repository rdfs:label ?label .} UNION {?content ?p musow:catalogue . musow:catalogue rdfs:label ?label .} UNION {?content ?p musow:dataset . musow:dataset rdfs:label ?label .} UNION {?content ?p musow:digital-library . musow:digital-library rdfs:label ?label .} UNION {?content ?p musow:software . musow:software rdfs:label ?label .} } GROUP BY ?label", "chart_series": "N. of entries", "chart_title": "Content Overview", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 5, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 6, "text": "\u003cp\u003eWe can also observe what is the trend of new content insertion on musoW, which is done by insiders but also by external authenticated users.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "days", "y": "n. of entries"}, "chart_query": "SELECT ?label (COUNT(?label) AS ?count) WHERE { { SELECT ?time (DAY(?time) AS ?label) WHERE { ?entry \u003chttp://www.w3.org/ns/prov#generatedAtTime\u003e ?time . } } } GROUP BY ?label ORDER BY ?label", "chart_series": "new entrie", "chart_title": "New Entries Over Time", "chart_type": "linechart", "extra_queries": [], "map_filters": [], "operations": [], "position": 7, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 8, "text": "\u003cp\u003eWhile collecting information about resources is important, we also focused on understanding the potential audience of the resources. We discovered that most of surveyed resources are targeted to scholars.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label WHERE { ?entry ?p \u003chttps://w3id.org/musow/vocab/repository\u003e . ?entry \u003chttps://schema.org/audience\u003e ?audience . ?audience rdfs:label ?label . }", "chart_series": "", "chart_title": "Audience of music resources", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [{"action": "count", "param": "label"}], "position": 9, "type": "chart"}], "id": "1661525706.302688", "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql", "subtitle": "Shaping the landscape of music data on the web", "template_mode": "statistics", "title": "Discover Music Data on the Web", "user_name": "cesenacomics"};
   </script>
 
 
@@ -108,7 +108,7 @@
 				
 				<li class="nav-item">
 					
-					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+					<a class="nav-link" href="gitauth" role="button" aria-expanded="false"
 						aria-controls="search-nav">
 						Sign in
 					</a>
@@ -151,7 +151,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
-									<!-- href="/melody//overview_of_bells_in_liguria"> -->
+									<!-- href="/overview_of_bells_in_liguria"> -->
 									Overview of bells in Liguria
 								</a>
 								
@@ -201,7 +201,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
-									<!-- href="/melody//chord_corpus_statistics"> -->
+									<!-- href="/chord_corpus_statistics"> -->
 									Chord Corpus Statistics
 								</a>
 								
@@ -243,7 +243,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
-									<!-- href="/melody//frequently_occurring_patterns"> -->
+									<!-- href="/frequently_occurring_patterns"> -->
 									Frequently Occurring Patterns 
 								</a>
 								
@@ -265,7 +265,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
-						<p>musicbo</p>
+						<p>MusicBo</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu4">
@@ -285,13 +285,13 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/musicbo/music_in_bologna_textual_corpus_overview">
-									<!-- href="/melody//music_in_bologna_textual_corpus_overview"> -->
+									<!-- href="/music_in_bologna_textual_corpus_overview"> -->
 									Music in Bologna - Textual corpus overview
 								</a>
 								
 								
 								<a class="col-8" href="/melody/musicbo/map">
-									<!-- href="/melody//map"> -->
+									<!-- href="/map"> -->
 									map
 								</a>
 								
@@ -325,7 +325,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
-									<!-- href="/melody//discover_music_data_on_the_web"> -->
+									<!-- href="/discover_music_data_on_the_web"> -->
 									Discover music data on the Web
 								</a>
 								
@@ -389,7 +389,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/organs/organs_statistics">
-									<!-- href="/melody//organs_statistics"> -->
+									<!-- href="/organs_statistics"> -->
 									ORGANS Statistics
 								</a>
 								
@@ -419,7 +419,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
-									<!-- href="/melody//dutch_broadcast_concert_collection"> -->
+									<!-- href="/dutch_broadcast_concert_collection"> -->
 									Dutch Broadcast Concert Collection
 								</a>
 								
@@ -475,7 +475,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/tonalities/tonalities">
-									<!-- href="/melody//tonalities"> -->
+									<!-- href="/tonalities"> -->
 									Tonalities 
 								</a>
 								
@@ -491,7 +491,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
-						<p>tunes</p>
+						<p>Tunes</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu9">
@@ -517,13 +517,13 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/tunes/tunes_statistics">
-									<!-- href="/melody//tunes_statistics"> -->
+									<!-- href="/tunes_statistics"> -->
 									Tunes Statistics
 								</a>
 								
 								
 								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
-									<!-- href="/melody//explore_similarity_relations_among_songs"> -->
+									<!-- href="/explore_similarity_relations_among_songs"> -->
 									Explore similarity relations among songs
 								</a>
 								
@@ -541,7 +541,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
-						<p>Wikidata</p>
+						<p>wikidata</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu10">
@@ -553,20 +553,26 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/wikidata/relations_between_museums">
-									<!-- href="/melody//relations_between_museums"> -->
+									<!-- href="/relations_between_museums"> -->
 									Relations between museums
 								</a>
 								
 								
-								<a class="col-8" href="/melody/wikidata/scatter">
-									<!-- href="/melody//scatter"> -->
-									scatter
+								<a class="col-8" href="/melody/wikidata/relations_between_music_bands_an_exploration">
+									<!-- href="/relations_between_music_bands_an_exploration"> -->
+									Relations between music bands - An exploration
 								</a>
 								
 								
-								<a class="col-8" href="/melody/wikidata/search_me">
-									<!-- href="/melody//search_me"> -->
-									search me
+								<a class="col-8" href="/melody/wikidata/scatterplot">
+									<!-- href="/scatterplot"> -->
+									Scatterplot 
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/mapping_us_recording_studios">
+									<!-- href="/mapping_us_recording_studios"> -->
+									Mapping US Recording Studios
 								</a>
 								
 								
@@ -611,7 +617,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/zeri/female_portraits_">
-									<!-- href="/melody//female_portraits_"> -->
+									<!-- href="/female_portraits_"> -->
 									Female portraits 
 								</a>
 								
@@ -686,7 +692,7 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <code>{&#39;sparql_endpoint&#39;: &#39;https://projects.dharc.unibo.it/musow/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Discover Music Data on the Web&#39;, &#39;color_code&#39;: [&#39;#34f98d&#39;, &#39;#2c37ba&#39;], &#39;user_name&#39;: &#39;cesenacomics&#39;, &#39;id&#39;: &#39;1661525706.302688&#39;, &#39;subtitle&#39;: &#39;Shaping the landscape of music data on the web&#39;, &#39;curator&#39;: &#39;Giulia Renda&#39;, &#39;description&#39;: &#39;musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.&#39;, &#39;action&#39;: &#39;save&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;retry&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://projects.dharc.unibo.it/musow/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Discover Music Data on the Web&#39;, &#39;color_code&#39;: [&#39;#34f98d&#39;, &#39;#2c37ba&#39;], &#39;user_name&#39;: &#39;cesenacomics&#39;, &#39;id&#39;: &#39;1661525706.302688&#39;, &#39;subtitle&#39;: &#39;Shaping the landscape of music data on the web&#39;, &#39;curator&#39;: &#39;Giulia Renda&#39;, &#39;description&#39;: &#39;musoW is a catalogue of musical resources available on the web realized with the idea to support teachers in music education, creative industries, historians, and musicologists in finding what they need.&#39;, &#39;action&#39;: &#39;save&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;The catalogue includes descriptions of several music-related web resources, with a focus on those that serve or allow users to manipulate music data in any form.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(*) AS ?count) WHERE {?s ?p &lt;https://w3id.org/musow/vocab/repository&gt;.}&#39;, &#39;count_label&#39;: &#39;Repositories&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(*) AS ?count) WHERE {?s ?p &lt;https://w3id.org/musow/vocab/catalogue&gt;.}&#39;, &#39;count_label&#39;: &#39;Catalogues&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(*) AS ?count) WHERE {?s ?p &lt;https://w3id.org/musow/vocab/dataset&gt;.}&#39;, &#39;count_label&#39;: &#39;Datasets&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;We can observe the variety of content from a different perspective.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Content Overview&#39;, &#39;chart_query&#39;: &#39;PREFIX musow: &lt;https://w3id.org/musow/vocab/&gt; SELECT ?label (COUNT(?content) AS ?count) WHERE { {?content ?p musow:repository . musow:repository rdfs:label ?label .} UNION {?content ?p musow:catalogue . musow:catalogue rdfs:label ?label .} UNION {?content ?p musow:dataset . musow:dataset rdfs:label ?label .} UNION {?content ?p musow:digital-library . musow:digital-library rdfs:label ?label .} UNION {?content ?p musow:software . musow:software rdfs:label ?label .} } GROUP BY ?label&#39;, &#39;chart_series&#39;: &#39;N. of entries&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;We can also observe what is the trend of new content insertion on musoW, which is done by insiders but also by external authenticated users.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 7, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;linechart&#39;, &#39;chart_title&#39;: &#39;New Entries Over Time&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(?label) AS ?count) WHERE { { SELECT ?time (DAY(?time) AS ?label) WHERE { ?entry &lt;http://www.w3.org/ns/prov#generatedAtTime&gt; ?time . } } } GROUP BY ?label ORDER BY ?label&#39;, &#39;chart_series&#39;: &#39;new entrie&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;days&#39;, &#39;y&#39;: &#39;n. of entries&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 8, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;While collecting information about resources is important, we also focused on understanding the potential audience of the resources. We discovered that most of surveyed resources are targeted to scholars.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 9, &#39;operations&#39;: [{&#39;action&#39;: &#39;count&#39;, &#39;param&#39;: &#39;label&#39;}], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Audience of music resources&#39;, &#39;chart_query&#39;: &#39;SELECT ?label WHERE { ?entry ?p &lt;https://w3id.org/musow/vocab/repository&gt; . ?entry &lt;https://schema.org/audience&gt; ?audience . ?audience rdfs:label ?label . }&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
           </div>
         </div>
         <div class="modal-footer">
@@ -820,10 +826,7 @@
 
 	
 	<script>
-		if (!(window.location.href).includes('published_stories')) {
-			overwriteCSS();
-		}
-
+		overwriteCSS();
 	</script>
 	
 
