@@ -14,13 +14,12 @@
     "action": "save",
     "dynamic_elements": [
         {
-            "position": 1,
-            "type": "count",
-            "count_query": "SELECT (COUNT (DISTINCT ?item) AS ?count)\r\nWHERE \r\n{\r\n  ?item wdt:P31 wd:Q146.\r\n}",
-            "count_label": "Cats in Wikidata",
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>kkkk</p>",
             "extra_queries": [],
-            "chart_legend": {},
-            "operations": []
+            "map_filters": []
         }
     ]
 }
