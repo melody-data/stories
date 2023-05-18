@@ -1,0 +1,32 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Rock Bands in USA",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "sissilinked",
+    "id": "1684346747.909569",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "map",
+            "map_title": "",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q746369; wdt:P17 wd:Q30;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
+            "map_filters": [
+                {
+                    "map_filter_query": "SELECT DISTINCT ?point ?filter ?filterLabel\r\nWHERE {\r\n?point wdt:P31 wd:Q746369; wdt:P17 wd:Q30 .\r\n?point wdt:P131 ?filter. ?filter rdfs:label ?filterLabel .\r\nFILTER(LANG(?filterLabel) = '' || LANGMATCHES(LANG(?filterLabel), 'en')). }",
+                    "extra_id": "1684398834715_0",
+                    "position": 0,
+                    "map_filter_title": "cities"
+                }
+            ],
+            "extra_queries": []
+        }
+    ]
+}

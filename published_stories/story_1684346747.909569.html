@@ -52,8 +52,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
   integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
@@ -64,7 +64,7 @@
   <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
   <script type="text/javascript">
-    var datastory_data = {"action": "save", "color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "This is a test to check the correctness of the catalogue.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003eyyyyy\u003c/p\u003e", "type": "text"}], "id": "1684334166.613801", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "The Final Data Story", "user_name": "cesenacomics"};
+    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "", "dynamic_elements": [{"extra_queries": [], "map_filters": [{"extra_id": "1684398834715_0", "map_filter_query": "SELECT DISTINCT ?point ?filter ?filterLabel\r\nWHERE {\r\n?point wdt:P31 wd:Q746369; wdt:P17 wd:Q30 .\r\n?point wdt:P131 ?filter. ?filter rdfs:label ?filterLabel .\r\nFILTER(LANG(?filterLabel) = \u0027\u0027 || LANGMATCHES(LANG(?filterLabel), \u0027en\u0027)). }", "map_filter_title": "cities", "position": 0}], "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q746369; wdt:P17 wd:Q30;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }", "map_title": "", "operations": [], "position": 0, "type": "map"}], "id": "1684346747.909569", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "Rock Bands in USA", "user_name": "sissilinked"};
   </script>
 
 
@@ -108,7 +108,7 @@
 				
 				<li class="nav-item">
 					
-					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+					<a class="nav-link" href="gitauth" role="button" aria-expanded="false"
 						aria-controls="search-nav">
 						Sign in
 					</a>
@@ -151,7 +151,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
-									<!-- href="/melody//overview_of_bells_in_liguria"> -->
+									<!-- href="/overview_of_bells_in_liguria"> -->
 									Overview of bells in Liguria
 								</a>
 								
@@ -201,7 +201,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
-									<!-- href="/melody//chord_corpus_statistics"> -->
+									<!-- href="/chord_corpus_statistics"> -->
 									Chord Corpus Statistics
 								</a>
 								
@@ -243,7 +243,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
-									<!-- href="/melody//frequently_occurring_patterns"> -->
+									<!-- href="/frequently_occurring_patterns"> -->
 									Frequently Occurring Patterns 
 								</a>
 								
@@ -265,7 +265,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
-						<p>musicbo</p>
+						<p>MusicBo</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu4">
@@ -285,13 +285,13 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/musicbo/music_in_bologna_textual_corpus_overview">
-									<!-- href="/melody//music_in_bologna_textual_corpus_overview"> -->
+									<!-- href="/music_in_bologna_textual_corpus_overview"> -->
 									Music in Bologna - Textual corpus overview
 								</a>
 								
 								
 								<a class="col-8" href="/melody/musicbo/map">
-									<!-- href="/melody//map"> -->
+									<!-- href="/map"> -->
 									map
 								</a>
 								
@@ -325,7 +325,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
-									<!-- href="/melody//discover_music_data_on_the_web"> -->
+									<!-- href="/discover_music_data_on_the_web"> -->
 									Discover music data on the Web
 								</a>
 								
@@ -389,7 +389,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/organs/organs_statistics">
-									<!-- href="/melody//organs_statistics"> -->
+									<!-- href="/organs_statistics"> -->
 									ORGANS Statistics
 								</a>
 								
@@ -419,7 +419,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
-									<!-- href="/melody//dutch_broadcast_concert_collection"> -->
+									<!-- href="/dutch_broadcast_concert_collection"> -->
 									Dutch Broadcast Concert Collection
 								</a>
 								
@@ -475,7 +475,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/tonalities/tonalities">
-									<!-- href="/melody//tonalities"> -->
+									<!-- href="/tonalities"> -->
 									Tonalities 
 								</a>
 								
@@ -491,7 +491,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
-						<p>tunes</p>
+						<p>Tunes</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu9">
@@ -517,13 +517,13 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/tunes/tunes_statistics">
-									<!-- href="/melody//tunes_statistics"> -->
+									<!-- href="/tunes_statistics"> -->
 									Tunes Statistics
 								</a>
 								
 								
 								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
-									<!-- href="/melody//explore_similarity_relations_among_songs"> -->
+									<!-- href="/explore_similarity_relations_among_songs"> -->
 									Explore similarity relations among songs
 								</a>
 								
@@ -541,7 +541,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
-						<p>Wikidata</p>
+						<p>wikidata</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu10">
@@ -553,20 +553,32 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/wikidata/relations_between_museums">
-									<!-- href="/melody//relations_between_museums"> -->
+									<!-- href="/relations_between_museums"> -->
 									Relations between museums
 								</a>
 								
 								
 								<a class="col-8" href="/melody/wikidata/scatter">
-									<!-- href="/melody//scatter"> -->
+									<!-- href="/scatter"> -->
 									scatter
 								</a>
 								
 								
 								<a class="col-8" href="/melody/wikidata/search_me">
-									<!-- href="/melody//search_me"> -->
+									<!-- href="/search_me"> -->
 									search me
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/try">
+									<!-- href="/try"> -->
+									Try
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/map_test">
+									<!-- href="/map_test"> -->
+									Map test
 								</a>
 								
 								
@@ -611,7 +623,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/zeri/female_portraits_">
-									<!-- href="/melody//female_portraits_"> -->
+									<!-- href="/female_portraits_"> -->
 									Female portraits 
 								</a>
 								
@@ -661,7 +673,7 @@
     <p>Export</p>
     <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
     <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
-        download="The Final Data Story.html">HTML</a></button>
+        download="Rock Bands in USA.html">HTML</a></button>
     <button class="exportbutton" type="button">
       <a href="#" data-toggle="modal" data-target="#queryModal"
         id="sparqlQuery">JSON</a></button>
@@ -684,7 +696,7 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;The Final Data Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;cesenacomics&#39;, &#39;id&#39;: &#39;1684334166.613801&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;This is a test to check the correctness of the catalogue.&#39;, &#39;action&#39;: &#39;save&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;yyyyy&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Rock Bands in USA&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;sissilinked&#39;, &#39;id&#39;: &#39;1684346747.909569&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;&#39;, &#39;map_points_query&#39;: &#39;SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q746369; wdt:P17 wd:Q30;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. } }&#39;, &#39;map_filters&#39;: [{&#39;map_filter_query&#39;: &#34;SELECT DISTINCT ?point ?filter ?filterLabel\r\nWHERE {\r\n?point wdt:P31 wd:Q746369; wdt:P17 wd:Q30 .\r\n?point wdt:P131 ?filter. ?filter rdfs:label ?filterLabel .\r\nFILTER(LANG(?filterLabel) = &#39;&#39; || LANGMATCHES(LANG(?filterLabel), &#39;en&#39;)). }&#34;, &#39;extra_id&#39;: &#39;1684398834715_0&#39;, &#39;position&#39;: 0, &#39;map_filter_title&#39;: &#39;cities&#39;}], &#39;extra_queries&#39;: []}]}</code>
           </div>
         </div>
         <div class="modal-footer">
@@ -699,12 +711,8 @@
     <div class="page-inner py-5">
       <div class="align-items-left align-items-md-center flex-column flex-md-row">
 
-          <h1 class="text-white pb-2 fw-bold">The Final Data Story</h1>
+          <h1 class="text-white pb-2 fw-bold">Rock Bands in USA</h1>
 
-
-<p class="card-category">
-  This is a test to check the correctness of the catalogue.
-</p>
 
           <span id='loader' class='lds-dual-ring hidden overlay'></span>
           <div id="sortable"></div>
@@ -814,10 +822,7 @@
 
 	
 	<script>
-		if (!(window.location.href).includes('published_stories')) {
-			overwriteCSS();
-		}
-
+		overwriteCSS();
 	</script>
 	
 

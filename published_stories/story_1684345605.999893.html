@@ -52,8 +52,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
   integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
@@ -64,7 +64,7 @@
   <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
   <script type="text/javascript">
-    var datastory_data = {"action": "save", "color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "This is a test to check the correctness of the catalogue.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003eyyyyy\u003c/p\u003e", "type": "text"}], "id": "1684334166.613801", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "The Final Data Story", "user_name": "cesenacomics"};
+    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "Marco Grasso", "description": "This data story explores the resources related to British Rock music available on Wikidata, the centralized, linked data repository for all Wikimedia projects,  with the goal of overviewing this music genre from statistical point of view. \r\n", "dynamic_elements": [{"count_label": "British music bands", "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}\r\n", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "count"}, {"count_label": "British rock bands", "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}\r\n", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "count"}, {"chart_legend": {"x": "Band", "y": "N. of members"}, "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30", "chart_series": "Band members", "chart_title": "Number of band members", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 2, "type": "chart"}, {"chart_legend": {"x": "Years", "y": "Band\u0027s start"}, "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20", "chart_series": "Timeline", "chart_title": "Start of activity", "chart_type": "linechart", "extra_queries": [], "map_filters": [], "operations": [], "position": 3, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 4, "text": "\u003cp\u003eBritish rock describes a wide variety of forms of music made in the United Kingdom. Since around 1964, with the \"British Invasion\" of the United States spearheaded by the Beatles, British rock music has had a considerable impact on the development of American music and rock music across the world.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n", "chart_series": "", "chart_title": "Top ten musical influencers", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 5, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 6, "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?Image \r\nWHERE { wd:Q1299 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       OPTIONAL {?Member wdt:P18 ?Image.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10\r\n\r\n", "table_title": "The Beatles", "type": "table"}], "id": "1684345605.999893", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "Exploring music, resources and connections about British rock bands with Wikidata.\r\n", "template_mode": "statistics", "title": "British Rock Bands - An Overview", "user_name": "sissilinked"};
   </script>
 
 
@@ -108,7 +108,7 @@
 				
 				<li class="nav-item">
 					
-					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+					<a class="nav-link" href="gitauth" role="button" aria-expanded="false"
 						aria-controls="search-nav">
 						Sign in
 					</a>
@@ -151,7 +151,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
-									<!-- href="/melody//overview_of_bells_in_liguria"> -->
+									<!-- href="/overview_of_bells_in_liguria"> -->
 									Overview of bells in Liguria
 								</a>
 								
@@ -201,7 +201,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
-									<!-- href="/melody//chord_corpus_statistics"> -->
+									<!-- href="/chord_corpus_statistics"> -->
 									Chord Corpus Statistics
 								</a>
 								
@@ -243,7 +243,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
-									<!-- href="/melody//frequently_occurring_patterns"> -->
+									<!-- href="/frequently_occurring_patterns"> -->
 									Frequently Occurring Patterns 
 								</a>
 								
@@ -265,7 +265,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
-						<p>musicbo</p>
+						<p>MusicBo</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu4">
@@ -285,13 +285,13 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/musicbo/music_in_bologna_textual_corpus_overview">
-									<!-- href="/melody//music_in_bologna_textual_corpus_overview"> -->
+									<!-- href="/music_in_bologna_textual_corpus_overview"> -->
 									Music in Bologna - Textual corpus overview
 								</a>
 								
 								
 								<a class="col-8" href="/melody/musicbo/map">
-									<!-- href="/melody//map"> -->
+									<!-- href="/map"> -->
 									map
 								</a>
 								
@@ -325,7 +325,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
-									<!-- href="/melody//discover_music_data_on_the_web"> -->
+									<!-- href="/discover_music_data_on_the_web"> -->
 									Discover music data on the Web
 								</a>
 								
@@ -389,7 +389,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/organs/organs_statistics">
-									<!-- href="/melody//organs_statistics"> -->
+									<!-- href="/organs_statistics"> -->
 									ORGANS Statistics
 								</a>
 								
@@ -419,7 +419,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
-									<!-- href="/melody//dutch_broadcast_concert_collection"> -->
+									<!-- href="/dutch_broadcast_concert_collection"> -->
 									Dutch Broadcast Concert Collection
 								</a>
 								
@@ -475,7 +475,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/tonalities/tonalities">
-									<!-- href="/melody//tonalities"> -->
+									<!-- href="/tonalities"> -->
 									Tonalities 
 								</a>
 								
@@ -491,7 +491,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
-						<p>tunes</p>
+						<p>Tunes</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu9">
@@ -517,13 +517,13 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/tunes/tunes_statistics">
-									<!-- href="/melody//tunes_statistics"> -->
+									<!-- href="/tunes_statistics"> -->
 									Tunes Statistics
 								</a>
 								
 								
 								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
-									<!-- href="/melody//explore_similarity_relations_among_songs"> -->
+									<!-- href="/explore_similarity_relations_among_songs"> -->
 									Explore similarity relations among songs
 								</a>
 								
@@ -553,20 +553,26 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/wikidata/relations_between_museums">
-									<!-- href="/melody//relations_between_museums"> -->
+									<!-- href="/relations_between_museums"> -->
 									Relations between museums
 								</a>
 								
 								
 								<a class="col-8" href="/melody/wikidata/scatter">
-									<!-- href="/melody//scatter"> -->
+									<!-- href="/scatter"> -->
 									scatter
 								</a>
 								
 								
 								<a class="col-8" href="/melody/wikidata/search_me">
-									<!-- href="/melody//search_me"> -->
+									<!-- href="/search_me"> -->
 									search me
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/try">
+									<!-- href="/try"> -->
+									Try
 								</a>
 								
 								
@@ -611,7 +617,7 @@
 							<li class="menuitem row">
 								
 								<a class="col-8" href="/melody/zeri/female_portraits_">
-									<!-- href="/melody//female_portraits_"> -->
+									<!-- href="/female_portraits_"> -->
 									Female portraits 
 								</a>
 								
@@ -656,12 +662,14 @@
 
     <h4>About this story</h4>
     
+    <p>Authors: Marco Grasso </p>
+    
     <p>Part of: </p>
     <p>Source: <a href="https://query.wikidata.org/sparql">SPARQL endpoint</a></p>
     <p>Export</p>
     <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
     <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
-        download="The Final Data Story.html">HTML</a></button>
+        download="British Rock Bands - An Overview.html">HTML</a></button>
     <button class="exportbutton" type="button">
       <a href="#" data-toggle="modal" data-target="#queryModal"
         id="sparqlQuery">JSON</a></button>
@@ -684,7 +692,7 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;The Final Data Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;cesenacomics&#39;, &#39;id&#39;: &#39;1684334166.613801&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;This is a test to check the correctness of the catalogue.&#39;, &#39;action&#39;: &#39;save&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;yyyyy&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;British Rock Bands - An Overview&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;sissilinked&#39;, &#39;id&#39;: &#39;1684345605.999893&#39;, &#39;subtitle&#39;: &#39;Exploring music, resources and connections about British rock bands with Wikidata.\r\n&#39;, &#39;curator&#39;: &#39;Marco Grasso&#39;, &#39;description&#39;: &#39;This data story explores the resources related to British Rock music available on Wikidata, the centralized, linked data repository for all Wikimedia projects,  with the goal of overviewing this music genre from statistical point of view. \r\n&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}\r\n&#39;, &#39;count_label&#39;: &#39;British music bands&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}\r\n&#39;, &#39;count_label&#39;: &#39;British rock bands&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Number of band members&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30&#39;, &#39;chart_series&#39;: &#39;Band members&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;Band&#39;, &#39;y&#39;: &#39;N. of members&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;linechart&#39;, &#39;chart_title&#39;: &#39;Start of activity&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20&#39;, &#39;chart_series&#39;: &#39;Timeline&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;Years&#39;, &#39;y&#39;: &#34;Band&#39;s start&#34;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;British rock describes a wide variety of forms of music made in the United Kingdom. Since around 1964, with the &#34;British Invasion&#34; of the United States spearheaded by the Beatles, British rock music has had a considerable impact on the development of American music and rock music across the world.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Top ten musical influencers&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;The Beatles&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?Image \r\nWHERE { wd:Q1299 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       OPTIONAL {?Member wdt:P18 ?Image.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.} } \r\n\r\nLIMIT 10\r\n\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
           </div>
         </div>
         <div class="modal-footer">
@@ -699,11 +707,17 @@
     <div class="page-inner py-5">
       <div class="align-items-left align-items-md-center flex-column flex-md-row">
 
-          <h1 class="text-white pb-2 fw-bold">The Final Data Story</h1>
+          <h1 class="text-white pb-2 fw-bold">British Rock Bands - An Overview</h1>
+
+<h2 class="text-white op-7 mb-2">
+  Exploring music, resources and connections about British rock bands with Wikidata.
+
+</h2>
 
 
 <p class="card-category">
-  This is a test to check the correctness of the catalogue.
+  This data story explores the resources related to British Rock music available on Wikidata, the centralized, linked data repository for all Wikimedia projects,  with the goal of overviewing this music genre from statistical point of view. 
+
 </p>
 
           <span id='loader' class='lds-dual-ring hidden overlay'></span>
@@ -814,10 +828,7 @@
 
 	
 	<script>
-		if (!(window.location.href).includes('published_stories')) {
-			overwriteCSS();
-		}
-
+		overwriteCSS();
 	</script>
 	
 
