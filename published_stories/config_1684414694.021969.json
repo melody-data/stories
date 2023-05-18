@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/",
+    "template_mode": "statistics",
+    "title": "7",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1684414694.021969",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": []
+}
