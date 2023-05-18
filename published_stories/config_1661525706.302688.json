@@ -16,14 +16,6 @@
         {
             "position": 0,
             "operations": [],
-            "type": "text",
-            "text": "<p>The catalogue includes descriptions of several music-related web resources, with a focus on those that serve or allow users to manipulate music data in any form.</p>",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 1,
-            "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p <https://w3id.org/musow/vocab/repository>.}",
             "count_label": "Repositories",
@@ -31,7 +23,7 @@
             "map_filters": []
         },
         {
-            "position": 2,
+            "position": 1,
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p <https://w3id.org/musow/vocab/catalogue>.}",
@@ -40,11 +32,19 @@
             "map_filters": []
         },
         {
-            "position": 3,
+            "position": 2,
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(*) AS ?count) WHERE {?s ?p <https://w3id.org/musow/vocab/dataset>.}",
             "count_label": "Datasets",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The catalogue includes descriptions of several music-related web resources, with a focus on those that serve or allow users to manipulate music data in any form.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -104,12 +104,7 @@
         },
         {
             "position": 9,
-            "operations": [
-                {
-                    "action": "count",
-                    "param": "label"
-                }
-            ],
+            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Audience of music resources",
