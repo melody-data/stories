@@ -3236,16 +3236,19 @@ const cleanString = (dirtyString) => {
 
 ///// MODIFY CSS
 const overwriteCSS = () => {
-    const style = document.createElement('style');
+    if (!(window.location.href).includes('published_stories')) {
 
-    style.textContent = `
-        .main-header, .sidebar {
-            display: block;
-        }
+        const style = document.createElement('style');
 
-        .main-panel {
-            width: calc(100% - 250px);
-        }`;
+        style.textContent = `
+            .main-header, .sidebar {
+                display: block;
+            }
+    
+            .main-panel {
+                width: calc(100% - 250px);
+            }`;
 
-    document.head.appendChild(style);
+        document.head.appendChild(style);
+    }
 }
