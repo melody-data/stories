@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://projects.dharc.unibo.it/musow/sparql",
+    "template_mode": "statistics",
+    "title": "8",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1684414711.434314",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": []
+}
