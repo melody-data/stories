@@ -1,24 +1,25 @@
 
 addEventListener("DOMContentLoaded", function () {
     if (Object.getOwnPropertyNames(datastory_data).length > 0) {
-      colorSwitch(datastory_data.color_code[0], datastory_data.color_code[1]); }
+        colorSwitch(datastory_data.color_code[0], datastory_data.color_code[1]);
+    }
 });
 
 window.onload = function () { disableKeypress(); }
 
 $(document).ready(function () {
-  // change font color in secondary menu
-  $(".navbar-toggler.sidenav-toggler.ml-auto").attr('aria-expanded', 'false');
+    // change font color in secondary menu
+    $(".navbar-toggler.sidenav-toggler.ml-auto").attr('aria-expanded', 'false');
     if (Object.getOwnPropertyNames(datastory_data).length > 0) {
         getBrightness(datastory_data.color_code[1]);
     }
-  // auto grow text areas
-  $("textarea").each(function () {
-    this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
-  }).on("input", function () {
-    this.style.height = 0;
-    this.style.height = (this.scrollHeight) + "px";
-  });
+    // auto grow text areas
+    $("textarea").each(function () {
+        this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
+    }).on("input", function () {
+        this.style.height = 0;
+        this.style.height = (this.scrollHeight) + "px";
+    });
 
 });
 
@@ -26,7 +27,7 @@ $(document).ready(function () {
 const storyList = document.getElementById('story-list');
 if (storyList) { fillDropDownList(storyList); }
 
-function auto_grow(element) {}
+function auto_grow(element) { }
 //// WYSIWYG FORM FUNCTIONS ////
 
 // disable submit form when pressing return
@@ -41,7 +42,7 @@ function disableKeypress() {
 }
 
 function detach_table(index) {
-  document.getElementById(index + "__textsearchresults").innerHTML = '&nbsp;';
+    document.getElementById(index + "__textsearchresults").innerHTML = '&nbsp;';
 }
 
 // update index of fields in template page (to store the final order)
@@ -3243,7 +3244,7 @@ const overwriteCSS = () => {
         }
 
         .main-panel {
-            width: calc(100% - 250px);
+            width: 100%;
         }`;
 
     document.head.appendChild(style);
