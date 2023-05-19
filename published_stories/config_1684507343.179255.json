@@ -94,10 +94,17 @@
         {
             "position": 8,
             "operations": [],
-            "type": "textsearch",
-            "textsearch_userinput": "",
-            "textsearch_title": "other animals ",
-            "textsearch_query": "SELECT DISTINCT ?pic ?animal ?animalLabel (SAMPLE(?colorlabel) as ?Colour)\r\nWHERE {\r\n  ?animal wdt:P279* wd:Q729 .\r\n  ?animal wdt:P495 <<item>> .\r\n  ?animal wdt:P18 ?pic .\r\n  ?animal wdt:P462 ?color .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?color rdfs:label ?colorlabel.\r\n      }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nGROUP BY ?pic ?animal ?animalLabel\r\nLIMIT 10",
+            "type": "table",
+            "table_title": "other animals ",
+            "table_query": "SELECT DISTINCT ?pic ?animal ?animalLabel (SAMPLE(?colorlabel) as ?Colour)\r\nWHERE {\r\n  ?animal wdt:P279* wd:Q729 .\r\n  ?animal wdt:P495 \"item\" .\r\n  ?animal wdt:P18 ?pic .\r\n  ?animal wdt:P462 ?color .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?color rdfs:label ?colorlabel.\r\n      }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nGROUP BY ?pic ?animal ?animalLabel\r\nLIMIT 100\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "text",
+            "text": "<p>When talking about how many animals are in the world, we can only talk about the estimation via various calculations. However, it is quite understandable that this number cannot be 100 percent accurate. The most accurate estimate of the total number of species on Earth includes 6.5 million species found on land and 2.2 million that live in the ocean\u2019s depths. This figure reduces the range of earlier estimates and is based on a proven analytical technique. Up until recently, it was believed that there were between 3 million and 100 million species on Earth.</p>",
             "extra_queries": [],
             "map_filters": []
         }
