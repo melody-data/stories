@@ -1,0 +1,88 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Melody Hans-on Fratti",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "Veronica-00",
+    "id": "1684507236.258959",
+    "subtitle": "Exploring data about animals with wikidata",
+    "curator": "Veronica Fratti",
+    "description": "This data story explores the resources related to animals available on\r\nWikidata, the centralized, linked data repository for all Wikimedia projects, with the\r\ngoal of overviewing this topic from a statistical point of view.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "https://w.wiki/6iuU",
+            "count_label": "Cats",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "https://w.wiki/6iuX",
+            "count_label": "Dogs",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "table",
+            "table_title": "Horses ",
+            "table_query": " https://w.wiki/6j7e",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "count",
+            "count_query": "https://w.wiki/6ivr",
+            "count_label": "Lenght of the bird's wing",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "map",
+            "map_title": "Zoologists' country",
+            "map_points_query": "https://w.wiki/6iut",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "count",
+            "count_query": "https://w.wiki/6iwD",
+            "count_label": "Sankes' eggs incubation period",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>When talking about how many animals are in the world, we can only talk about the</p><p>estimation via various calculations. However, it is quite understandable that this number cannot be 100</p><p>percent accurate. The most accurate estimate of the total number of species on Earth includes 6.5</p><p>million species found on land and 2.2 million that live in the ocean\u2019s depths. This figure reduces the</p><p>range of earlier estimates and is based on a proven analytical technique. Up until recently, it was</p><p>believed that there were between 3 million and 100 million species on Earth.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Sheeps ",
+            "textsearch_query": "https://w.wiki/6j7H",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
