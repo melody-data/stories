@@ -1,0 +1,98 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Melody Hands-on Bevilacqua",
+    "color_code": [
+        "#8e39c6",
+        "#cf17b6"
+    ],
+    "user_name": "natashabevilacqua",
+    "id": "1684507195.311225",
+    "subtitle": "Exploring data about animals with wikidata",
+    "curator": "Bevilacqua Natasha",
+    "description": "This data story explores the resources related to animals available on\r\nWikidata, the centralized, linked data repository for all Wikimedia projects, with the\r\ngoal of overviewing this topic from a statistical point of view.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>When talking about how many animals are in the world, we can only talk about the estimation via various calculations. However, it is quite understandable that this number cannot be 100 percent accurate. The most accurate estimate of the total number of species on Earth includes 6.5 million species found on land and 2.2 million that live in the ocean\u2019s depths. This figure reduces the range of earlier estimates and is based on a proven analytical technique. Up until recently, it was believed that there were between 3 million and 100 million species on Earth.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?cat) AS ?count)\r\nWHERE {\r\n     ?cat wdt:P31 wd:Q146 .\r\n}\r\n",
+            "count_label": "Cats",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?dog) AS ?count)\r\nWHERE {\r\n     ?dog wdt:P31 wd:Q144 .\r\n}\r\n",
+            "count_label": "Dogs",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Horses",
+            "table_query": "SELECT DISTINCT ?horse ?horseLabel ?mother ?motherLabel ?father ?fatherLabel (year(?birthdate) as ?birthyear) (year(?deathdate) as ?deathyear) ?genderLabel ?pic\r\nWHERE\r\n{\r\n  ?horse wdt:P31 wd:Q726 .\r\n  ?horse wdt:P25 ?mother .     \r\n  ?horse wdt:P22 ?father .      \r\n  ?horse wdt:P21 ?gender .  \r\n  ?horse wdt:P18 ?pic .\r\n  OPTIONAL {?horse wdt:P569 ?birthdate .}\r\n  OPTIONAL {?horse wdt:P570 ?deathdate .}\r\n \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"en\"\r\n  }\r\n}\r\nORDER BY ?horse\r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Birds",
+            "table_query": "SELECT DISTINCT ?label (?wingslenght as ?count)\r\nWHERE {\r\n     ?bird wdt:P31 wd:Q16521 . \r\n     ?bird wdt:P171* wd:Q5113 .\r\n     ?bird wdt:P2050 ?wingslenght . \r\n     ?bird wdt:P18 ?image .\r\n     ?bird  p:P2050 ?statement .  \r\n     ?statement  psv:P2050 ?valuenode.\r\n     ?valuenode wikibase:quantityAmount ?temperature.\r\n     ?valuenode wikibase:quantityUnit ?unit.\r\n     FILTER( ?unit = wd:Q174728 )\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?bird rdfs:label         ?label.\r\n      }\r\n\r\n}\r\nORDER BY DESC(?wingslenght)\r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "map",
+            "map_title": "Zoologists",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P106 wd:Q350979 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 500",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT  ?label ?count\r\nWHERE {\r\n  ?snake wdt:P7770 ?count . #egg incubation period\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?snake rdfs:label         ?label.\r\n      }\r\n\r\n}\r\n\r\nORDER BY DESC(?count)\r\nLIMIT 10",
+            "count_label": "Snakes",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Sheeps",
+            "textsearch_query": "SELECT DISTINCT ?pic ?sheep ?sheepLabel ?color ?colorLabel ?status ?statusLabel  ?country ?countryLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?country wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?sheep wdt:P31 wd:Q15622363 .\r\n  ?sheep wdt:P495 ?country .\r\n  ?sheep wdt:P2371 ?status .\r\n  OPTIONAL {?sheep wdt:P18 ?pic ; wdt:P462 ?color }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nORDER BY ?sheep\r\nLIMIT 5\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Other Animals",
+            "textsearch_query": "SELECT DISTINCT ?pic ?animal ?animalLabel (SAMPLE(?colorlabel) as ?Colour)\r\nWHERE {\r\n  ?animal wdt:P279* wd:Q729 .\r\n  ?animal wdt:P495 <<item>> .\r\n  ?animal wdt:P18 ?pic .\r\n  ?animal wdt:P462 ?color .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?color rdfs:label ?colorlabel.\r\n      }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nGROUP BY ?pic ?animal ?animalLabel\r\nLIMIT 10\r\n\r\n\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
