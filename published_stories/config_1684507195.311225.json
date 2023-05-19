@@ -78,9 +78,20 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "",
+            "textsearch_userinput": "italy ",
             "textsearch_title": "Sheeps",
             "textsearch_query": "SELECT DISTINCT ?pic ?sheep ?sheepLabel ?color ?colorLabel ?status ?statusLabel  ?country ?countryLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?country wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?sheep wdt:P31 wd:Q15622363 .\r\n  ?sheep wdt:P495 ?country .\r\n  ?sheep wdt:P2371 ?status .\r\n  OPTIONAL {?sheep wdt:P18 ?pic ; wdt:P462 ?color }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nORDER BY ?sheep\r\nLIMIT 5\r\n",
+            "textsearch": {
+                "pic": [
+                    "Other Animals"
+                ],
+                "sheep": [
+                    "Other Animals"
+                ],
+                "country": [
+                    "Other Animals"
+                ]
+            },
             "extra_queries": [],
             "map_filters": []
         },
@@ -89,7 +100,7 @@
             "operations": [],
             "type": "action",
             "action_title": "Other Animals",
-            "action_query": "SELECT DISTINCT ?pic ?animal ?animalLabel (SAMPLE(?colorlabel) as ?Colour)\r\nWHERE {\r\n  ?animal wdt:P279* wd:Q729 .\r\n  ?animal wdt:P495 <<item>> .\r\n  ?animal wdt:P18 ?pic .\r\n  ?animal wdt:P462 ?color .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?color rdfs:label ?colorlabel.\r\n      }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nGROUP BY ?pic ?animal ?animalLabel\r\nLIMIT 10\r\n",
+            "action_query": "ELECT DISTINCT ?pic ?animal ?animalLabel (SAMPLE(?colorlabel) as ?Colour)\r\nWHERE {\r\n  ?animal wdt:P279* wd:Q729 .\r\n  ?animal wdt:P495 <<item>> .\r\n  ?animal wdt:P18 ?pic .\r\n  ?animal wdt:P462 ?color .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?color rdfs:label ?colorlabel.\r\n      }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nGROUP BY ?pic ?animal ?animalLabel\r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
         }
