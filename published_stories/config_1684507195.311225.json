@@ -87,10 +87,9 @@
         {
             "position": 8,
             "operations": [],
-            "type": "textsearch",
-            "textsearch_userinput": "",
-            "textsearch_title": "Other Animals",
-            "textsearch_query": "SELECT DISTINCT ?pic ?animal ?animalLabel (SAMPLE(?colorlabel) as ?Colour)\r\nWHERE {\r\n  ?animal wdt:P279* wd:Q729 .\r\n  ?animal wdt:P495 <<item>> .\r\n  ?animal wdt:P18 ?pic .\r\n  ?animal wdt:P462 ?color .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?color rdfs:label ?colorlabel.\r\n      }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nGROUP BY ?pic ?animal ?animalLabel\r\nLIMIT 10\r\n\r\n\r\n\r\n",
+            "type": "action",
+            "action_title": "Other Animals",
+            "action_query": "SELECT DISTINCT ?pic ?animal ?animalLabel (SAMPLE(?colorlabel) as ?Colour)\r\nWHERE {\r\n  ?animal wdt:P279* wd:Q729 .\r\n  ?animal wdt:P495 <<item>> .\r\n  ?animal wdt:P18 ?pic .\r\n  ?animal wdt:P462 ?color .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?color rdfs:label ?colorlabel.\r\n      }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nGROUP BY ?pic ?animal ?animalLabel\r\nLIMIT 10\r\n",
             "extra_queries": [],
             "map_filters": []
         }
