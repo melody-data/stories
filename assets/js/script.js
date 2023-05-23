@@ -77,6 +77,7 @@ const newListElement = (title, link, author, creation_date) => {
 
     a.appendChild(aContent);
     a.setAttribute('href', link);
+    a.setAttribute('target', '_blank');
 
     li.appendChild(img);
     li.appendChild(auth);
