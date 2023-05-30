@@ -69,11 +69,11 @@ const Table = ({unique_key, index ,
                  tabletoappend += "<td>";
 
                  // audio
-                 if (res_value.endsWith('.mp3')) {
+                 if (res_value.endsWith('.mp3') || res_value.endsWith('.flac')) {
                    tabletoappend += "<span>"+res_label+"</span><audio class='table_result'><source src='" + res_value + "'></source></audio>";
                  }
                  // img
-                 else if (res_value.endsWith('.jpg') || res_value.endsWith('.png')) {
+                 else if (res_value.endsWith('.jpg') || res_value.endsWith('.png') || res_value.endsWith('.JPEG') || res_value.endsWith('.JPG')) {
                    tabletoappend += "<span>"+res_label+"</span><img class='img_table' src='" + res_value + "'/>";
                  }
                  // video
@@ -94,10 +94,10 @@ const Table = ({unique_key, index ,
                }
                else {
                    tabletoappend += "<td>";
-                   if (res_value.endsWith('.mp3')) {
+                   if (res_value.endsWith('.mp3') || res_value.endsWith('.flac')) {
                      tabletoappend += "<audio controls src='" + res_value + "' class='table_result'><a href='" + res_value + "'></a></audio>";
                    }
-                   else if (res_value.endsWith('.jpg') || res_value.endsWith('.png')) {
+                   else if (res_value.endsWith('.jpg') || res_value.endsWith('.png') || res_value.endsWith('.JPEG') || res_value.endsWith('.JPG')) {
                      tabletoappend += "<img class='img_table' src='" + res_value + "'/>";
                    }
                    else if (res_value.endsWith('.mp4') || res_value.endsWith('.ogg')) {

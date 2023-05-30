@@ -36,7 +36,7 @@
   z-index: 30000;
 }
 
-.main-panel {
+.main-header {
   width: 100%;
 }
 
@@ -579,7 +579,7 @@ div[id*='block_field'] {
 #sortable .block_title {
   float: left;
   color: white !important;
-  width: 100%;
+  width: 80%;
 }
 
 .block_title.float_none {
@@ -1059,7 +1059,7 @@ hr {
   top: 0;
   bottom: 0;
   width: 100%;
-  overflow-y: scroll;
+  overflow: scroll;
   z-index: 2000;
   float: left;
   border-radius: 0.5em;
