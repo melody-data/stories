@@ -24,6 +24,15 @@
         {
             "position": 1,
             "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?theater) AS ?count)\r\nWHERE {\r\n  ?theater wdt:P31 wd:Q24354 . \r\n  ?theater wdt:P131 wd:Q84 .   \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" }\r\n}",
+            "count_label": "Number of theatres in London",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
             "type": "map",
             "map_title": "Location of the theatres ",
             "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q11635; wdt:P17 wd:Q145;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n\r\n",
@@ -31,7 +40,7 @@
             "map_filters": []
         },
         {
-            "position": 2,
+            "position": 3,
             "operations": [],
             "type": "table",
             "table_title": "What the theatres look like ",
@@ -40,7 +49,7 @@
             "map_filters": []
         },
         {
-            "position": 3,
+            "position": 4,
             "operations": [],
             "type": "chart",
             "chart_type": "barchart",
@@ -55,7 +64,7 @@
             "map_filters": []
         },
         {
-            "position": 4,
+            "position": 5,
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
@@ -65,16 +74,16 @@
             "map_filters": []
         },
         {
-            "position": 5,
+            "position": 6,
             "operations": [],
             "type": "action",
             "action_title": "Date of founding ",
-            "action_query": "SELECT DISTINCT ?theater ?theaterLabel ?inception \r\nWHERE { \r\n  ?theater wdt:P31 wd:Q24354 .  \r\n  ?theater wdt:P17 wd:Q145 .     \r\n  ?theater wdt:P571 ?inception <<item>> .  \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n    ?theatre rdfs:label ?theatreLabel .\r\n  }\r\n}\r\nORDER BY ?theaterLabel\r\n",
+            "action_query": "SELECT DISTINCT ?theater ?theaterLabel ?inception \r\nWHERE { \r\n  ?theater wdt:P31 wd:Q24354 .   # instance of theater\r\n  ?theater wdt:P17 wd:Q145 .      # located in the United Kingdom\r\n  ?theater wdt:P571 ?inception <<item>> .   # inception date\r\n \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n    ?theatre rdfs:label ?theatreLabel .\r\n  }\r\n}\r\nORDER BY ?theaterLabel\r\n",
             "extra_queries": [],
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 7,
             "operations": [],
             "type": "table",
             "table_title": "Inauguration Year of some of the oldest theatres ",
@@ -83,7 +92,7 @@
             "map_filters": []
         },
         {
-            "position": 7,
+            "position": 8,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -98,7 +107,7 @@
             "map_filters": []
         },
         {
-            "position": 8,
+            "position": 9,
             "operations": [],
             "type": "text",
             "text": "",
