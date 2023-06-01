@@ -110,6 +110,15 @@
             "text": "<p>Italian rock bands have made an unmistakable influence on the music world, from the 1960s and progressive rock of the 1970s through the alternative and indie sounds of the 1990s and beyond. They continue to influence and define the Italian rock scene for future generations with their different genres, distinctive inventiveness, and impassioned performances.&nbsp;</p>",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "table",
+            "table_title": "Italian Rock Bands divided by year ",
+            "table_query": "SELECT ?year (COUNT(?band) AS ?count)\r\nWHERE {\r\n  FILTER(?inceptionYear >= xsd:dateTime(\"1950-01-01T00:00:00Z\"))\r\n  ?band wdt:P31 wd:Q5741069;           # Instance of: rock band\r\n        wdt:P495 wd:Q38;               # Country of origin: Italy\r\n        wdt:P571 ?inceptionYear.       # Year of inception\r\n\r\n  BIND(YEAR(?inceptionYear) AS ?year)\r\n  \r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\".\r\n    ?band rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?year\r\nORDER BY xsd:integer(?year)\r\nLIMIT 20",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
