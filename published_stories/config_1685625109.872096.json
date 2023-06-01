@@ -1,16 +1,16 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "try",
+    "title": "Italian Rock Bands  ",
     "color_code": [
         "#bf7fcc",
         "#79147b"
     ],
     "user_name": "Isabela-Serrano",
     "id": "1685625109.872096",
-    "subtitle": "",
-    "curator": "",
-    "description": "",
+    "subtitle": "A brief overview of Italian Rock Bands  from the 60's until the present day",
+    "curator": "Camilla and Isabela Serrano",
+    "description": "With their distinct sound and engaging performances, Italian rock bands have made an unforgettable impression on the music scene. These bands have played a significant role in establishing the Italian rock scene and pushing limits within the genre since the 1960s and continue to do so now.  \r\n\r\nLegendary rose to prominence in the 1970s, infusing their music with progressive rock elements, sophisticated melodies, and thought-provoking lyrics. These bands pushed the envelope, enthralling listeners with their technical prowess and creative soundscapes.  \r\n\r\nItalian rock took a more accessible and commercial turn in the 1980s, mixing elements of punk, new wave, and pop rock into their music. Their upbeat performances and appealing lyrics drew a broader audience, catapulting them to national success.  \r\n\r\nAlternative and indie rock bands emerged in the 1990s and early 2000s, bringing a fresh and varied approach to rock music, merging numerous genres and introducing electronic elements. Their thoughtful lyrics and distinct sound environments spoke to a generation searching for a new musical identity.  ",
     "dynamic_elements": [
         {
             "position": 0,
@@ -25,7 +25,7 @@
             "position": 1,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT (COUNT(?band) AS ?count) \r\n\r\nWHERE { \r\n\r\n     ?band ?a wd:Q5741069 . # rock band  \r\n\r\n     ?band wdt:P495 wd:Q38 . # from uk \r\n\r\n} ",
+            "count_query": "SELECT (COUNT(?band) AS ?count) \r\n\r\nWHERE { \r\n\r\n     ?band ?a wd:Q5741069 . # rock band  \r\n\r\n     ?band wdt:P495 wd:Q38 . # from italy\r\n\r\n} ",
             "count_label": "Rock bands in Italy",
             "extra_queries": [],
             "map_filters": []
@@ -63,9 +63,8 @@
         {
             "position": 4,
             "operations": [],
-            "type": "table",
-            "table_title": "New dada members ",
-            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel  \r\n\r\nWHERE { wd:Q634852 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate .  \r\n\r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace.  \r\n\r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.}  \r\n\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} }  \r\n\r\n  \r\n\r\nLIMIT 10 ",
+            "type": "text",
+            "text": "<p>New Dada is a 1960s Italian rock band that combines popular songs with experimental noises and literary lyrics. They were a member of the beat and psychedelic rock movements and became well-known for songs such as \"L'ora dell'amore\" and \"L'ultimo giorno di Pompei.\" Despite their brief existence, New Dada had a lasting effect on the Italian rock music scene, influencing future generations of musicians. Their music is still regarded as a monument to the dynamic age of Italian rock in the 1960s.&nbsp;</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -73,17 +72,16 @@
             "position": 5,
             "operations": [],
             "type": "table",
-            "table_title": "Maneskin members ",
-            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel  \r\n\r\nWHERE { wd:Q56884561 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate .  \r\n\r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace.  \r\n\r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.}  \r\n\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} }  \r\n\r\n  \r\n\r\nLIMIT 10 ",
+            "table_title": "New dada members ",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel  \r\n\r\nWHERE { wd:Q634852 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate .  \r\n\r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace.  \r\n\r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.}  \r\n\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} }  \r\n\r\n  \r\n\r\nLIMIT 10 ",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 6,
             "operations": [],
-            "type": "table",
-            "table_title": "The bands along with their pictures",
-            "table_query": "#standardSPARQL\r\nSELECT DISTINCT ?band ?bandLabel ?image\r\nWHERE {\r\n  ?band wdt:P31 wd:Q5741069;        # Instance of: rock band\r\n        wdt:P495 wd:Q38.            # Country of origin: Italy\r\n\r\n  OPTIONAL { ?band wdt:P18 ?image . }\r\n\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\".\r\n  }\r\n}\r\nLIMIT 10 OFFSET 10\r\n",
+            "type": "text",
+            "text": "<p>Italian rock bands have thrived in recent years, with performers like M\u00e5neskin achieving international fame for their blend of rock, glam, and modern pop elements. These bands demonstrate the ever-changing character of Italian rock by pushing boundaries and attracting audiences with exciting performances.&nbsp;</p><p>M\u00e5neskin is a rock band from Italy recognized for their engaging energy and distinct combination of rock, glam, and punk elements. After winning the Eurovision Song Contest in 2021, they achieved international acclaim. M\u00e5neskin has become one of the most prominent rock bands of recent times, attracting listeners worldwide with addictive songs and a raw, rebellious energy.&nbsp;</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -91,8 +89,25 @@
             "position": 7,
             "operations": [],
             "type": "table",
-            "table_title": "bands per year",
-            "table_query": "#standardSPARQL\r\nSELECT ?inceptionYear (COUNT(?band) AS ?count)\r\nWHERE {\r\n  ?band wdt:P31 wd:Q5741069;           # Instance of: rock band\r\n        wdt:P495 wd:Q38;               # Country of origin: Italy\r\n        wdt:P571 ?inceptionYear.       # Year of inception\r\n\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?band rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?inceptionYear\r\nORDER BY DESC(?count)\r\nLIMIT 20",
+            "table_title": "M\u00e5neskin members ",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel  \r\n\r\nWHERE { wd:Q56884561 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate .  \r\n\r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace.  \r\n\r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.}  \r\n\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} }  \r\n\r\n  \r\n\r\nLIMIT 10 ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "table",
+            "table_title": "The bands and pictures",
+            "table_query": "#standardSPARQL\r\nSELECT DISTINCT ?band ?bandLabel ?image\r\nWHERE {\r\n  ?band wdt:P31 wd:Q5741069;        # Instance of: rock band\r\n        wdt:P495 wd:Q38.            # Country of origin: Italy\r\n\r\n  OPTIONAL { ?band wdt:P18 ?image . }\r\n\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\".\r\n  }\r\n}\r\nLIMIT 10 OFFSET 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Italian rock bands have made an unmistakable influence on the music world, from the 1960s and progressive rock of the 1970s through the alternative and indie sounds of the 1990s and beyond. They continue to influence and define the Italian rock scene for future generations with their different genres, distinctive inventiveness, and impassioned performances.&nbsp;</p>",
             "extra_queries": [],
             "map_filters": []
         }
