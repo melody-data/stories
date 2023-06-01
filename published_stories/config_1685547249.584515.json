@@ -11,5 +11,26 @@
     "subtitle": "Comparison between men and women in the opera music genre ",
     "curator": "Camilla Ruggeri and Isabela Serrano",
     "description": "Both men and women contribute their distinct vocal abilities and dramatic interpretations to the opera music genre, resulting in a thrilling and diverse aesthetic experience. Men's vocals are often lower, as tenors, baritones, or basses, conveying power, authority, and emotional depth. Women in opera, such as sopranos, mezzo-sopranos, and contraltos, have greater vocal ranges and excel at portraying heroines, seductresses, and tragic figures. \r\n\r\nIn opera, certain character archetypes are generally identified with each gender, with male characters embodied as heroes, lovers, monarchs, or villains, and female characters embodied as heroines, ingenues, seductresses, or mother figures. However, the genre is flexible, questioning established gender boundaries and enabling women to play pants roles and men to play female characters. \r\n\r\nIn this project we analyze how men and women are reported in the opera music genre along with their different specialties in the Polifonia corpus with MusicBo.  ",
-    "dynamic_elements": []
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [
+                {
+                    "action": "count",
+                    "param": "label"
+                }
+            ],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Number of occurrences of men and women in the Opera context ",
+            "chart_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX polifonia: <http://example.org/polifonia/>\r\n\r\nSELECT ?gender (COUNT(?gender) AS ?count)\r\nWHERE {\r\n  ?person rdf:type polifonia:Person ;\r\n          polifonia:gender ?gender ;\r\n          polifonia:belongsTo ?opera .\r\n  ?opera rdf:type polifonia:Opera ;\r\n         polifonia:context \"opera\" .\r\n}\r\nGROUP BY ?gender",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
 }
