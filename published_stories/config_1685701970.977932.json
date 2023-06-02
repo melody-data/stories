@@ -156,9 +156,17 @@
         {
             "position": 14,
             "operations": [],
+            "type": "text",
+            "text": "<p>Classical music in theaters encompasses a rich and diverse tradition that includes opera, ballet, symphonic concerts, and other forms of musical performances. The combination of music, drama, and visual spectacle creates a unique and immersive experience for audiences.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
             "type": "table",
             "table_title": "Catalogue of classical compositions",
-            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q5051330.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nLIMIT 10",
+            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?inaugurationYear\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q5051330.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY ?inaugurationYear\r\nLIMIT 10\r\n",
             "extra_queries": [],
             "map_filters": []
         }
