@@ -1,0 +1,142 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring the Rock music genre",
+    "color_code": [
+        "#e887ce",
+        "#d8fb8e"
+    ],
+    "user_name": "giuliam2",
+    "id": "1685638796.117557",
+    "subtitle": "The changing face of rock music beyond gender boundaries and  throughout different time periods and regions.",
+    "curator": "Giulia Montesanto, Agnese Musacchio",
+    "description": "As reported by Encyclopedia Britannica, \"Rock, also called rock and roll [...] is a form of popular music that emerged in the 1950s. It is certainly arguable that by the end of the 20th century rock was the world\u2019s dominant form of popular music\". It is precisely its popularity that makes this genre so worthy of further study. Examining the evolution of rock music across different eras and geographical boundaries, this investigation delves into the genre's transformation over time while shedding light on the involvment of women within this musical landscape.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The first rock bands were born in the <strong>1950s</strong>, in fact here we can see the number of bands born in the 50s, 60s and 70s: rock bands became more and more popular with each passing decade</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P571 ?inception.\r\n\r\n FILTER(YEAR(?inception)  >= 1950 && YEAR(?inception) <= 1960)\r\n}\r\n",
+            "count_label": "Bands formed in the 50's",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P571 ?inception.\r\n\r\n FILTER(YEAR(?inception)  >= 1960 && YEAR(?inception) <= 1970)\r\n}\r\n",
+            "count_label": "Bands formed in the '60s",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P571 ?inception.\r\n\r\n FILTER(YEAR(?inception)  >= 1970 && YEAR(?inception) <= 1980)\r\n}\r\n",
+            "count_label": "Bands formed in the 70's",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Let's now take a look at the most influential rock bands in the USA</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Top 10 most influential rock bands in the USA",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q30 . # from USA\r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Let's focus on the band Nirvana. What are the roles played by its members?</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "Nirvana's members ",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?occupation ?occupationLabel \r\nWHERE { wd:Q11649 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P1303 ?occupation.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Each member plays more than one role in the band, four out of five play guitar, including Kurt Cobain, who sings and plays guitar. But who else is connected to the band Nirvana and Cobain and plays guitar, besides singing? His wife Courtney Love, singer and guitarist of American rock band Hole.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "Hole's members",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel ?occupation ?occupationLabel \r\nWHERE { wd:Q624790  wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P19 ?BirthPlace.}\r\n       OPTIONAL {?Member wdt:P1303 ?occupation.} \r\n\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>This band is composed solely of women. Something that might come as a surprise, as one does not often hear of all-female rock bands. Let us see if the numbers support this perception.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q30 . # from usa\r\n}\r\n",
+            "count_label": "Rock bands in the USA",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?band) AS ?count)\r\nWHERE {\r\n  ?band wdt:P31 wd:Q5741069 ;\r\n        wdt:P527 ?member .\r\n  ?member wdt:P31 wd:Q5 ;\r\n          wdt:P21 wd:Q6581072 ;\r\n          wdt:P27 wd:Q30 .\r\n}\r\n",
+            "count_label": "All-female rock bands in the USA",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Let\u2019s now have a look at how rock evolved throughout the years. Over time, rock has become increasingly diversified and so many different sub-genres have emerged that differ from the original genre but retain some of its features.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
