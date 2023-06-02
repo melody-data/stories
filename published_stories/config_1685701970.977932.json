@@ -166,7 +166,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Catalogue of classical compositions",
-            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?inaugurationYear\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q5051330.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY ?inaugurationYear\r\nLIMIT 10\r\n",
+            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q5051330.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
         }
