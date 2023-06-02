@@ -3,8 +3,8 @@
     "template_mode": "statistics",
     "title": "Exploring the Rock music genre",
     "color_code": [
-        "#e887ce",
-        "#d8fb8e"
+        "#80ffac",
+        "#bfa3ff"
     ],
     "user_name": "giuliam2",
     "id": "1685638796.117557",
@@ -166,7 +166,7 @@
             "position": 16,
             "operations": [],
             "type": "text",
-            "text": "<p>Now let's go back to Rock music.</p>",
+            "text": "<p>Now let's go back to Rock music.</p><p>It is arguably one of the most popular music genres ever;&nbsp;but does this apply to all the nations of the world? We can check this by entering the name of a nation; we will then find all the bands of that nationality.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -174,8 +174,8 @@
             "position": 17,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "italy",
-            "textsearch_title": "Rock bands in every country with picture",
+            "textsearch_userinput": "",
+            "textsearch_title": "Enter the name of a country to get the bands based there.",
             "textsearch_query": "SELECT DISTINCT ?pic ?rockgroup ?rockgroupLabel ?country ?countryLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?country wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?rockgroup wdt:P31 wd:Q5741069.\r\n  ?rockgroup wdt:P495 ?country .\r\n  ?rockgroup wdt:P136 ?band .\r\n  OPTIONAL {?rockgroup wdt:P18 ?pic ; }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nORDER BY ?rockgroup\r\nLIMIT 5\r\n",
             "textsearch": {
                 "rockgroup": [
