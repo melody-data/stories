@@ -1,0 +1,157 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Theatres in the UK ",
+    "color_code": [
+        "#b1dd8c",
+        "#e392fe"
+    ],
+    "user_name": "EleonoraPellegrini",
+    "id": "1685701970.977932",
+    "subtitle": "An insight of the theatrical form of music ",
+    "curator": "Eleonora Pellegrini and Isabella Porrovecchio ",
+    "description": "Our project aims at sharing general information about theatres with a focus on UK. With the newer generations, theatres have lost their popularity and rarely see young people amongst their audience. With our project we hope to raise our peers' interests about theatres. ",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;   # instance of theater\r\n           wdt:P17 wd:Q145.     # located in the United Kingdom\r\n}\r\n",
+            "count_label": "Number of theatres in the UK ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?theater) AS ?count)\r\nWHERE {\r\n  ?theater wdt:P31 wd:Q24354 . \r\n  ?theater wdt:P131 wd:Q84 .   \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" }\r\n}",
+            "count_label": "Number of theatres in London",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The United Kingdom has a rich and vibrant theatrical tradition, with a diverse range of theaters spread across the country. The theaters in the UK cater to a wide range of tastes and interests, offering a diverse array of productions, from classic plays to cutting-edge performances.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "map",
+            "map_title": "Location of the theatres ",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q24354 .\r\n?point wdt:P17 wd:Q145 .\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 500",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "What the theatres look like ",
+            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?image\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;   # istanza di teatro\r\n           wdt:P17 wd:Q145.     # si trova nel Regno Unito\r\n  \r\n  OPTIONAL { ?theatre wdt:P18 ?image . }\r\n  \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 10\r\nOFFSET 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "text",
+            "text": "<p><strong>Fun facts about some theatres in London</strong></p><p><strong>Savoy Theatre was the world's first public venue to be lit wholly by electricity</strong></p><p>In 1881, Savoy Theatre was the first venue to be lit wholly by electricity, and its owner D'Oyly Carte even took to the stage to smash a light bulb to prove that this new technology was totally safe.</p><p><strong>Peacock Theatre is allegedly haunted by ghost dolphins</strong></p><p>Apparently, in the 1970s two dolphins were kept in tanks under the stage, ready to star in a variety show - but they died of neglect, and their ghosts still haunt the venue to this day.</p><p>The Globe Theatre is the only central London building with a thatched roof</p><p>Since the Great Fire of London in 1666, there's been a law against buildings having thatched roofs. So when Shakespeare's Globe Theatre was built in 1997, it had to seek special permission to replicate the thatched roof of Shakespeare's day.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "The capacity of theatres ",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band ?a wd:Q24354 .  \r\n     ?band wdt:P1083 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n",
+            "chart_series": "Seats",
+            "chart_legend": {
+                "x": "Capacity",
+                "y": "Number of theatres"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Search theatres by city ",
+            "textsearch_query": "SELECT ?theatre ?theatreLabel ?city ?cityLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n    bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                    wikibase:api \"EntitySearch\";\r\n                    mwapi:search <<searchterm>>;\r\n                    mwapi:language \"en\".\r\n    ?city wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?theatre wdt:P31 wd:Q24354;   \r\n           wdt:P17 wd:Q145.     \r\n  ?theatre wdt:P131 ?city.    \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY ?theatreLabel",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "action",
+            "action_title": "Date of founding ",
+            "action_query": "SELECT DISTINCT ?theater ?theaterLabel ?inception \r\nWHERE { \r\n  ?theater wdt:P31 wd:Q24354 .   # instance of theater\r\n  ?theater wdt:P17 wd:Q145 .      # located in the United Kingdom\r\n  ?theater wdt:P571 ?inception <<item>> .   # inception date\r\n \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n    ?theatre rdfs:label ?theatreLabel .\r\n  }\r\n}\r\nORDER BY ?theaterLabel\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "Inauguration year of some of the oldest theatres ",
+            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?inaugurationYear\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;    \r\n           wdt:P17 wd:Q145;       \r\n           wdt:P571 ?inaugurationYear.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY ?inaugurationYear\r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The Globe Theatre is a famous historical landmark associated with the works of William Shakespeare. The original Globe Theatre was built in 1599 in London, England, by Shakespeare's playing company, the Lord Chamberlain's Men. It was situated on the south bank of the River Thames in the suburb of Southwark.</p><p>The theatre burned down in 1613 during a performance of Shakespeare's play \"Henry VIII\" when a cannon misfired and set fire to the thatched roof. However, it was quickly rebuilt on the same site the following year.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Classical composers from the UK",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n  ?composer wdt:P31 wd:Q5.\r\n  ?composer wdt:P106 wd:Q21680663.\r\n  ?composer wdt:P27 wd:Q145.\r\n  ?composer wdt:P31 ?item .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" .\r\n                           ?composer rdfs:label ?label .\r\n                         }\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 10",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "text",
+            "text": "<p>One of the previously mentioned composer is William Walton. William Walton was a renowned English composer of the 20th century. He was born in Oldham, Lancashire and his musical talents were recognized at an early age.</p><p>In his teenage years, Walton studied composition at the University of Oxford with famous British composer Sir Ernest William Moeran. During this time, he gained attention for his talent and caught the eye of influential figures in the music world. In 1922, Walton composed his \"Viola Concerto,\" which marked a significant breakthrough in his career.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Types of classical music",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band wdt:P279* wd:Q9730. # rock band \r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
