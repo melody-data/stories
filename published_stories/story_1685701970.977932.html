@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SSDBXGCXK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-9SSDBXGCXK');
+	</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>
+		MELODY - 
+	</title>
+
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<!-- <link rel="icon" href="static/img/icon.ico" type="image/x-icon" /> -->
+	<link rel="icon" type="image/png" href="static/favicon.png" />
+	<link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+
+	<!-- Fonts and icons -->
+	<script src="static/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: { "families": ["Karla:300,400,700,900"] },
+			custom: {
+				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+				urls: ['static/css/fonts.min.css']
+			},
+			active: function () { sessionStorage.fonts = true; }
+		});
+	</script>
+	<!-- IQuill stylesheet -->
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/atlantis.min.css">
+	<link rel="stylesheet" href="static/css/style.css">
+
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<!-- <link rel="stylesheet" href="/static/css/demo.css"> -->
+
+	<!-- Specific Page CSS goes HERE  -->
+	
+<link rel="stylesheet" href="static/css/templates.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="static/css/MarkerCluster.css">
+  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
+
+  <script type="text/javascript">
+    var datastory_data = {"color_code": ["#b1dd8c", "#e392fe"], "curator": "Eleonora Pellegrini and Isabella Porrovecchio ", "description": "Our project aims at sharing general information about theatres with a focus on UK. With the newer generations, theatres have lost their popularity and rarely see young people amongst their audience. With our project we hope to raise our peers\u0027 interests about theatres. ", "dynamic_elements": [{"count_label": "Number of theatres in the UK ", "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;   # instance of theater\r\n           wdt:P17 wd:Q145.     # located in the United Kingdom\r\n}\r\n", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "count"}, {"count_label": "Number of theatres in London", "count_query": "SELECT (COUNT(?theater) AS ?count)\r\nWHERE {\r\n  ?theater wdt:P31 wd:Q24354 . \r\n  ?theater wdt:P131 wd:Q84 .   \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" }\r\n}", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "count"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 2, "text": "\u003cp\u003eThe United Kingdom has a rich and vibrant theatrical tradition, with a diverse range of theaters spread across the country. The theaters in the UK cater to a wide range of tastes and interests, offering a diverse array of productions, from classic plays to cutting-edge performances.\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q24354 .\r\n?point wdt:P17 wd:Q145 .\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 500", "map_title": "Location of the theatres ", "operations": [], "position": 3, "type": "map"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 4, "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?image\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;   # istanza di teatro\r\n           wdt:P17 wd:Q145.     # si trova nel Regno Unito\r\n  \r\n  OPTIONAL { ?theatre wdt:P18 ?image . }\r\n  \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 10\r\nOFFSET 10\r\n", "table_title": "What the theatres look like ", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 5, "text": "\u003cp\u003e\u003cstrong\u003eFun facts about some theatres in London\u003c/strong\u003e\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eSavoy Theatre was the world\u0027s first public venue to be lit wholly by electricity\u003c/strong\u003e\u003c/p\u003e\u003cp\u003eIn 1881, Savoy Theatre was the first venue to be lit wholly by electricity, and its owner D\u0027Oyly Carte even took to the stage to smash a light bulb to prove that this new technology was totally safe.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003ePeacock Theatre is allegedly haunted by ghost dolphins\u003c/strong\u003e\u003c/p\u003e\u003cp\u003eApparently, in the 1970s two dolphins were kept in tanks under the stage, ready to star in a variety show - but they died of neglect, and their ghosts still haunt the venue to this day.\u003c/p\u003e\u003cp\u003eThe Globe Theatre is the only central London building with a thatched roof\u003c/p\u003e\u003cp\u003eSince the Great Fire of London in 1666, there\u0027s been a law against buildings having thatched roofs. So when Shakespeare\u0027s Globe Theatre was built in 1997, it had to seek special permission to replicate the thatched roof of Shakespeare\u0027s day.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "Capacity", "y": "Number of theatres"}, "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band ?a wd:Q24354 .  \r\n     ?band wdt:P1083 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n", "chart_series": "Seats", "chart_title": "The capacity of theatres ", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 6, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 7, "textsearch_query": "SELECT ?theatre ?theatreLabel ?city ?cityLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n    bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                    wikibase:api \"EntitySearch\";\r\n                    mwapi:search \u003c\u003csearchterm\u003e\u003e;\r\n                    mwapi:language \"en\".\r\n    ?city wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?theatre wdt:P31 wd:Q24354;   \r\n           wdt:P17 wd:Q145.     \r\n  ?theatre wdt:P131 ?city.    \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY ?theatreLabel", "textsearch_title": "Search theatres by city ", "textsearch_userinput": "", "type": "textsearch"}, {"action_query": "SELECT DISTINCT ?theater ?theaterLabel ?inception \r\nWHERE { \r\n  ?theater wdt:P31 wd:Q24354 .   # instance of theater\r\n  ?theater wdt:P17 wd:Q145 .      # located in the United Kingdom\r\n  ?theater wdt:P571 ?inception \u003c\u003citem\u003e\u003e .   # inception date\r\n \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n    ?theatre rdfs:label ?theatreLabel .\r\n  }\r\n}\r\nORDER BY ?theaterLabel\r\n", "action_title": "Date of founding ", "extra_queries": [], "map_filters": [], "operations": [], "position": 8, "type": "action"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 9, "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?inaugurationYear\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;    \r\n           wdt:P17 wd:Q145;       \r\n           wdt:P571 ?inaugurationYear.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY ?inaugurationYear\r\nLIMIT 10", "table_title": "Inauguration year of some of the oldest theatres ", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 10, "text": "\u003cp\u003eThe Globe Theatre is a famous historical landmark associated with the works of William Shakespeare. The original Globe Theatre was built in 1599 in London, England, by Shakespeare\u0027s playing company, the Lord Chamberlain\u0027s Men. It was situated on the south bank of the River Thames in the suburb of Southwark.\u003c/p\u003e\u003cp\u003eThe theatre burned down in 1613 during a performance of Shakespeare\u0027s play \"Henry VIII\" when a cannon misfired and set fire to the thatched roof. However, it was quickly rebuilt on the same site the following year.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n  ?composer wdt:P31 wd:Q5.\r\n  ?composer wdt:P106 wd:Q21680663.\r\n  ?composer wdt:P27 wd:Q145.\r\n  ?composer wdt:P31 ?item .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" .\r\n                           ?composer rdfs:label ?label .\r\n                         }\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 10", "chart_series": "", "chart_title": "Classical composers from the UK", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 11, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 12, "text": "\u003cp\u003eOne of the previously mentioned composer is William Walton. William Walton was a renowned English composer of the 20th century. He was born in Oldham, Lancashire and his musical talents were recognized at an early age.\u003c/p\u003e\u003cp\u003eIn his teenage years, Walton studied composition at the University of Oxford with famous British composer Sir Ernest William Moeran. During this time, he gained attention for his talent and caught the eye of influential figures in the music world. In 1922, Walton composed his \"Viola Concerto,\" which marked a significant breakthrough in his career.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band wdt:P279* wd:Q9730. # rock band \r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n", "chart_series": "", "chart_title": "Types of classical music", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 13, "type": "chart"}], "id": "1685701970.977932", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "An insight of the theatrical form of music ", "template_mode": "statistics", "title": "Theatres in the UK ", "user_name": "EleonoraPellegrini"};
+  </script>
+
+
+</head>
+
+<body data-background-color="dark">
+	<div class="wrapper">
+
+		<div class="main-header">
+
+	<!-- Logo Header -->
+	<div class="logo-header" data-background-color="dark2">
+
+		<a href="/melody/" class="logo">MELODY</a>
+		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+			data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">
+				<i class="icon-menu"></i>
+			</span>
+		</button>
+		<div class="nav-toggle">
+			<button class="btn btn-toggle toggle-sidebar">
+				<i class="icon-menu"></i>
+			</button>
+		</div>
+	</div>
+	<!-- End Logo Header -->
+
+	<!-- Navbar Header -->
+	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
+
+		<div class="container">
+			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Create a story
+					</a>
+				</li>
+				
+				<li class="nav-item">
+					
+					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Sign in
+					</a>
+					
+				</li>
+
+			</ul>
+		</div>
+
+
+	</nav>
+
+	<!-- End Navbar -->
+</div>
+
+		<!-- Sidebar -->
+<div class="sidebar sidebar-style-2" data-background-color="dark2">
+	<div class="sidebar-wrapper scrollbar scrollbar-inner">
+		<div class="sidebar-content">
+			<ul class="nav nav-primary">
+				
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
+						<p>Bells</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu1">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
+									<!-- href="/overview_of_bells_in_liguria"> -->
+									Overview of bells in Liguria
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
+						<p>choco</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu2">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
+									<!-- href="/chord_corpus_statistics"> -->
+									Chord Corpus Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
+						<p>fonn</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu3">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
+									<!-- href="/frequently_occurring_patterns"> -->
+									Frequently Occurring Patterns 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
+						<p>MusicBo</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu4">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graphverview">
+									<!-- href="/music_in_bologna_knowledge_graphverview"> -->
+									Music in Bologna - Knowledge Graphverview
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
+						<p>musoW</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu5">
+						<ul class="nav nav-collapse">
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
+									<!-- href="/discover_music_data_on_the_web"> -->
+									Discover music data on the Web
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu6" aria-expanded="true">
+						<p>organs</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu6">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/organs/organs_statistics">
+									<!-- href="/organs_statistics"> -->
+									ORGANS Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
+						<p>Sound and Vision</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu7">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
+									<!-- href="/dutch_broadcast_concert_collection"> -->
+									Dutch Broadcast Concert Collection
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
+						<p>Tonalities</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu8">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tonalities/tonalities">
+									<!-- href="/tonalities"> -->
+									Tonalities 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
+						<p>Tunes</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu9">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tunes/tunes_statistics">
+									<!-- href="/tunes_statistics"> -->
+									Tunes Statistics
+								</a>
+								
+								
+								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
+									<!-- href="/explore_similarity_relations_among_songs"> -->
+									Explore similarity relations among songs
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
+						<p>wikidata</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu10">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_museums">
+									<!-- href="/relations_between_museums"> -->
+									Relations between museums
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_music_bands_an_exploration">
+									<!-- href="/relations_between_music_bands_an_exploration"> -->
+									Relations between music bands - An exploration
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/mapping_us_recording_studios">
+									<!-- href="/mapping_us_recording_studios"> -->
+									Mapping US Recording Studios
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/through_the_prism_of_diversity">
+									<!-- href="/through_the_prism_of_diversity"> -->
+									Through the Prism of Diversity
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Sidebar -->
+
+		<div class="main-panel">
+
+			
+
+<div class="content row datastorypage" id="dwn">
+  <section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
+  <section id="secondarymenuinner" class="secondarymenuinner">
+
+    <h4>About this story</h4>
+    
+    <p>Authors: Eleonora Pellegrini and Isabella Porrovecchio  </p>
+    
+    
+
+    <p>Source: <a href="https://query.wikidata.org/sparql">SPARQL endpoint</a></p>
+    <p>Export</p>
+    <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
+    <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
+        download="Theatres in the UK .html">HTML</a></button>
+    <button class="exportbutton" type="button">
+      <a href="#" data-toggle="modal" data-target="#queryModal"
+        id="sparqlQuery">JSON</a></button>
+
+    <!-- publish button -->
+    
+    <!-- modify button -->
+    
+  </section>
+
+  <div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
+    aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card">
+        <div class="modal-header">
+          <h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Theatres in the UK &#39;, &#39;color_code&#39;: [&#39;#b1dd8c&#39;, &#39;#e392fe&#39;], &#39;user_name&#39;: &#39;EleonoraPellegrini&#39;, &#39;id&#39;: &#39;1685701970.977932&#39;, &#39;subtitle&#39;: &#39;An insight of the theatrical form of music &#39;, &#39;curator&#39;: &#39;Eleonora Pellegrini and Isabella Porrovecchio &#39;, &#39;description&#39;: &#34;Our project aims at sharing general information about theatres with a focus on UK. With the newer generations, theatres have lost their popularity and rarely see young people amongst their audience. With our project we hope to raise our peers&#39; interests about theatres. &#34;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;   # instance of theater\r\n           wdt:P17 wd:Q145.     # located in the United Kingdom\r\n}\r\n&#39;, &#39;count_label&#39;: &#39;Number of theatres in the UK &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?theater) AS ?count)\r\nWHERE {\r\n  ?theater wdt:P31 wd:Q24354 . \r\n  ?theater wdt:P131 wd:Q84 .   \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34; }\r\n}&#39;, &#39;count_label&#39;: &#39;Number of theatres in London&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;The United Kingdom has a rich and vibrant theatrical tradition, with a diverse range of theaters spread across the country. The theaters in the UK cater to a wide range of tastes and interests, offering a diverse array of productions, from classic plays to cutting-edge performances.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;Location of the theatres &#39;, &#39;map_points_query&#39;: &#39;SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q24354 .\r\n?point wdt:P17 wd:Q145 .\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. } }\r\nLIMIT 500&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;What the theatres look like &#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?theatre ?theatreLabel ?image\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;   # istanza di teatro\r\n           wdt:P17 wd:Q145.     # si trova nel Regno Unito\r\n  \r\n  OPTIONAL { ?theatre wdt:P18 ?image . }\r\n  \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;\r\n  }\r\n}\r\nLIMIT 10\r\nOFFSET 10\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#34;&lt;p&gt;&lt;strong&gt;Fun facts about some theatres in London&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Savoy Theatre was the world&#39;s first public venue to be lit wholly by electricity&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;In 1881, Savoy Theatre was the first venue to be lit wholly by electricity, and its owner D&#39;Oyly Carte even took to the stage to smash a light bulb to prove that this new technology was totally safe.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Peacock Theatre is allegedly haunted by ghost dolphins&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Apparently, in the 1970s two dolphins were kept in tanks under the stage, ready to star in a variety show - but they died of neglect, and their ghosts still haunt the venue to this day.&lt;/p&gt;&lt;p&gt;The Globe Theatre is the only central London building with a thatched roof&lt;/p&gt;&lt;p&gt;Since the Great Fire of London in 1666, there&#39;s been a law against buildings having thatched roofs. So when Shakespeare&#39;s Globe Theatre was built in 1997, it had to seek special permission to replicate the thatched roof of Shakespeare&#39;s day.&lt;/p&gt;&#34;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;The capacity of theatres &#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band ?a wd:Q24354 .  \r\n     ?band wdt:P1083 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n&#39;, &#39;chart_series&#39;: &#39;Seats&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;Capacity&#39;, &#39;y&#39;: &#39;Number of theatres&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 7, &#39;operations&#39;: [], &#39;type&#39;: &#39;textsearch&#39;, &#39;textsearch_userinput&#39;: &#39;&#39;, &#39;textsearch_title&#39;: &#39;Search theatres by city &#39;, &#39;textsearch_query&#39;: &#39;SELECT ?theatre ?theatreLabel ?city ?cityLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n    bd:serviceParam wikibase:endpoint &#34;www.wikidata.org&#34;;\r\n                    wikibase:api &#34;EntitySearch&#34;;\r\n                    mwapi:search &lt;&lt;searchterm&gt;&gt;;\r\n                    mwapi:language &#34;en&#34;.\r\n    ?city wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?theatre wdt:P31 wd:Q24354;   \r\n           wdt:P17 wd:Q145.     \r\n  ?theatre wdt:P131 ?city.    \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;. }\r\n}\r\nORDER BY ?theatreLabel&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 8, &#39;operations&#39;: [], &#39;type&#39;: &#39;action&#39;, &#39;action_title&#39;: &#39;Date of founding &#39;, &#39;action_query&#39;: &#39;SELECT DISTINCT ?theater ?theaterLabel ?inception \r\nWHERE { \r\n  ?theater wdt:P31 wd:Q24354 .   # instance of theater\r\n  ?theater wdt:P17 wd:Q145 .      # located in the United Kingdom\r\n  ?theater wdt:P571 ?inception &lt;&lt;item&gt;&gt; .   # inception date\r\n \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34; .\r\n    ?theatre rdfs:label ?theatreLabel .\r\n  }\r\n}\r\nORDER BY ?theaterLabel\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 9, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Inauguration year of some of the oldest theatres &#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?theatre ?theatreLabel ?inaugurationYear\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;    \r\n           wdt:P17 wd:Q145;       \r\n           wdt:P571 ?inaugurationYear.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;. }\r\n}\r\nORDER BY ?inaugurationYear\r\nLIMIT 10&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 10, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;The Globe Theatre is a famous historical landmark associated with the works of William Shakespeare. The original Globe Theatre was built in 1599 in London, England, by Shakespeare\&#39;s playing company, the Lord Chamberlain\&#39;s Men. It was situated on the south bank of the River Thames in the suburb of Southwark.&lt;/p&gt;&lt;p&gt;The theatre burned down in 1613 during a performance of Shakespeare\&#39;s play &#34;Henry VIII&#34; when a cannon misfired and set fire to the thatched roof. However, it was quickly rebuilt on the same site the following year.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 11, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Classical composers from the UK&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n  ?composer wdt:P31 wd:Q5.\r\n  ?composer wdt:P106 wd:Q21680663.\r\n  ?composer wdt:P27 wd:Q145.\r\n  ?composer wdt:P31 ?item .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34; .\r\n                           ?composer rdfs:label ?label .\r\n                         }\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 10&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 12, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;One of the previously mentioned composer is William Walton. William Walton was a renowned English composer of the 20th century. He was born in Oldham, Lancashire and his musical talents were recognized at an early age.&lt;/p&gt;&lt;p&gt;In his teenage years, Walton studied composition at the University of Oxford with famous British composer Sir Ernest William Moeran. During this time, he gained attention for his talent and caught the eye of influential figures in the music world. In 1922, Walton composed his &#34;Viola Concerto,&#34; which marked a significant breakthrough in his career.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 13, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Types of classical music&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band wdt:P279* wd:Q9730. # rock band \r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
+    <div class="page-inner py-5">
+      <div class="align-items-left align-items-md-center flex-column flex-md-row">
+
+          <h1 class="text-white pb-2 fw-bold">Theatres in the UK </h1>
+
+<h2 class="text-white op-7 mb-2">
+  An insight of the theatrical form of music 
+</h2>
+
+
+<p class="card-category">
+  Our project aims at sharing general information about theatres with a focus on UK. With the newer generations, theatres have lost their popularity and rarely see young people amongst their audience. With our project we hope to raise our peers&#39; interests about theatres. 
+</p>
+
+          <span id='loader' class='lds-dual-ring hidden overlay'></span>
+          <div id="sortable"></div>
+          <script src="static/js/react/Error.js" type="text/babel"></script>
+          <script src="static/js/react/Map.js" type="text/babel"></script>
+          <script src="static/js/react/Table.js" type="text/babel"></script>
+          <script src="static/js/react/Chart.js" type="text/babel"></script>
+          <script src="static/js/react/Textbox.js" type="text/babel"></script>
+          <script src="static/js/react/Count.js" type="text/babel"></script>
+          <script src="static/js/react/Action.js" type="text/babel"></script>
+          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+          <script src="static/js/react/add_components.js" type="text/babel"></script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+			<footer class="footer">
+	<div class="container-fluid d-flex align-items-start">
+		<div class="p-2 col-md-3">
+			<h6>MELODY</h6>
+			<p><a target="_blank" href="/melody">Home</a></p>
+			<p><a target="_blank" href="/melody/asklogin">Create a story</a></p>
+			<p><a target="_blank" href="https://melody-data.github.io/stories/#catalogue">Data stories' catalaogue</a>
+			</p>
+		</div>
+		<div class="p-2 col-md-3">
+			<h6>Links</h6>
+			<p>Read the <a href="https://polifonia-project.github.io/dashboard/" target="_blank">documentation</a></p>
+			<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
+			<p>Theme <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+					Flask Atlantis Dark
+				</a></p>
+		</div>
+
+		<div class="copyright ml-auto p-2 col-md-4">
+			<p>MELODY is part of</p>
+			<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
+			<p>Polifonia has received funding from the European Union’s Horizon 2020 research
+				and innovation programme under grant agreement N. 101004746</p>
+		</div>
+	</div>
+</footer>
+
+		</div>
+
+	</div>
+
+	<!--   Core JS Files   -->
+<script src="static/js/core/jquery.3.2.1.min.js"></script>
+<script src="static/js/core/popper.min.js"></script>
+<script src="static/js/core/bootstrap.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+<!-- Chart JS -->
+<script src="static/js/plugin/chart.js/chart.min.js"></script>
+
+<!-- Import D3 Scale Chromatic via CDN -->
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!-- jQuery Sparkline -->
+<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Chart Circle -->
+<script src="static/js/plugin/chart-circle/circles.min.js"></script>
+
+<!-- Datatables -->
+<script src="static/js/plugin/datatables/datatables.min.js"></script>
+
+<!-- Bootstrap Notify -->
+<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<!-- jQuery Vector Maps -->
+<script src="static/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+<!-- Sweet Alert -->
+<script src="static/js/plugin/sweetalert/sweetalert.min.js "></script>
+
+<!-- Atlantis JS -->
+<script src="static/js/atlantis.min.js"></script>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+<script type="text/javascript" src="static/js/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="static/js/leaflet-sidebar.js"></script>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+	<!-- utils js -->
+	<!-- <script src="static/js/utils.js" type="module"></script> -->
+
+	<script src="static/js/main.js"></script>
+
+	
+	<script>
+		overwriteCSS();
+	</script>
+	
+
+	<!-- Specific Page JS goes HERE  -->
+	
+<script type="text/javascript">
+  $('footer').detach();
+</script>
+
+<script>
+  let hostname = window.location.hostname;
+  if (!hostname.includes('github')) {
+    let beforeUnloadAlert = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!beforeUnloadAlert) return;
+
+      // etc
+      e.preventDefault();
+      e.returnValue = '';
+    });
+
+    function myFunction() {
+      beforeUnloadAlert = false;
+    }
+    var myObj = document.getElementsByClassName('prevent_alert')
+    console.log(myObj);
+    for (el of myObj) {
+      el.addEventListener('click', myFunction);
+    }
+  }
+</script>
+
+
+
+</body>
+
+</html>
