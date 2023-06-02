@@ -1,0 +1,98 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "La chitarra ",
+    "color_code": [
+        "#8039c6",
+        "#173ccf"
+    ],
+    "user_name": "SofiaMangione",
+    "id": "1685710021.158254",
+    "subtitle": "Un introduzione della chitarra",
+    "curator": "Di Sofia Mangione e Simona Serramondi",
+    "description": "Il nostro processo nasce da un indagine sugli strumenti a corde, in particolare le chitarre, che nella storia della musica hanno segnato un'importante svolta. Vediamo come la chitarra ha influenzato non solo la musica, ma anche le vendite sul piano commerciale. ",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?stringinstrument) AS ?count)\r\nWHERE {\r\n     ?stringinstrument ?a wd:Q1798603 .   \r\n}\r\n",
+            "count_label": "Numero di strumenti a corde",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Parti della chitarra",
+            "table_query": "SELECT DISTINCT ?woodtype ?woodtypeLabel ?image\r\nWHERE { wd:Q6607 wdt:P527 ?woodtype . \r\n       OPTIONAL { ?woodtype wdt:P18 ?image . }\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 12\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Tipi di legno per chitarra",
+            "textsearch_query": "SELECT DISTINCT ?guitarName ?woodName \r\nWHERE {\r\n    SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n    }\r\n  \r\n    ?guitar wdt:P186 ?wood . # Tutte le cose che sono una chitarra fatte da un materiale di tipo legno\r\n    ?wood wdt:P31 wd:Q1493054 . # Tutti i tipi di legni\r\n    ?guitar wdt:P31 wd:Q6607 . # Tutte le chitarre\r\n  \r\n    ?guitar rdfs:label ?guitarName . \r\n    FILTER (langMatches( lang(?guitarName), \"EN\" ) )\r\n    \r\n    ?wood rdfs:label ?woodName . \r\n    FILTER (langMatches( lang(?woodName), \"EN\" ) )  \r\n  \r\n   \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Numero di chitarre per paese",
+            "table_query": "SELECT ?country ?countryLabel (COUNT(?guitarist) AS ?count) WHERE {\r\n  ?guitarist wdt:P1303 wd:Q6607; # plays guitar\r\n    wdt:P27 ?country. # country of citizenship\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"it\" . }\r\n} GROUP BY ?country ?countryLabel\r\nORDER BY DESC(?count)\r\n\r\nLIMIT 20",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Numero di chitarre acustiche vendute tra il 1990 e il 2016",
+            "chart_query": " SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?guitar ?a wd:Q31561 . \r\n       ?guitar wdt:P571 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. }\r\n              FILTER(YEAR(?date)  >= 1990 && YEAR(?date) <= 2020)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\n\r\nLIMIT 30\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Anno",
+                "y": "Numero di chitarre vendute"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Numero di chitarre elettriche vendute tra il 1991 e il 2016",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?guitar ?a wd:Q78987 . \r\n       ?guitar wdt:P571 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. }\r\n              FILTER(YEAR(?date)  >= 1990 && YEAR(?date) <= 2020)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\n\r\nLIMIT 30\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Anno",
+                "y": "Numero di chitarre vendute"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Gli artisti che hanno influenzato maggiormente l'uso della chitarra",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?guitarist) as ?count) \r\nWHERE {\r\n     ?guitarist wdt:P1303* wd:Q6607.\r\n     ?guitarist wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
