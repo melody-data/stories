@@ -51,7 +51,7 @@
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Top 10 most influential rocks people/bands to the Italian rock bands",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count)  \r\n\r\nWHERE { \r\n\r\n     ?band ?a wd:Q5741069 . # rock band  \r\n\r\n     ?band wdt:P495 wd:Q38 . # from uk \r\n\r\n     ?band wdt:P737 ?influencer . \r\n\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n\r\n          ?influencer rdfs:label         ?label. \r\n\r\n      } \r\n\r\n} \r\n\r\n  \r\n\r\nGROUP BY ?label ?count  \r\n\r\nORDER BY DESC(?count) \r\n\r\nLIMIT 20 ",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count)  \r\n\r\nWHERE { \r\n\r\n     ?band ?a wd:Q5741069 . # rock band  \r\n\r\n     ?band wdt:P495 wd:Q38 . # from italy\r\n\r\n     ?band wdt:P737 ?influencer . \r\n\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n\r\n          ?influencer rdfs:label         ?label. \r\n\r\n      } \r\n\r\n} \r\n\r\n  \r\n\r\nGROUP BY ?label ?count  \r\n\r\nORDER BY DESC(?count) \r\n\r\nLIMIT 20 ",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
