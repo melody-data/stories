@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Theatres in the UK ",
+    "title": "Theatres in the UK and classical music",
     "color_code": [
         "#b1dd8c",
         "#e392fe"
@@ -10,7 +10,7 @@
     "id": "1685701970.977932",
     "subtitle": "An insight of the theatrical form of music ",
     "curator": "Eleonora Pellegrini and Isabella Porrovecchio ",
-    "description": "Our project aims at sharing general information about theatres with a focus on UK. With the newer generations, theatres have lost their popularity and rarely see young people amongst their audience. With our project we hope to raise our peers' interests about theatres. ",
+    "description": "Our project aims at sharing general information about theatres with a focus on UK and the most played genre in theatres: classical music. With the newer generations, theatres have lost their popularity and rarely see young people amongst their audience. With our project we hope to raise our peers' interests about theatres. ",
     "dynamic_elements": [
         {
             "position": 0,
@@ -150,6 +150,15 @@
                 "x": "",
                 "y": ""
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "table",
+            "table_title": "Catalogue of classical compositions",
+            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q5051330.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
         }
