@@ -134,7 +134,63 @@
             "position": 13,
             "operations": [],
             "type": "text",
-            "text": "<p>Let\u2019s now have a look at how rock evolved throughout the years. Over time, rock has become increasingly diversified and so many different sub-genres have emerged that differ from the original genre but retain some of its features.</p>",
+            "text": "<p>Let\u2019s now have a look at how rock evolved throughout the years.</p><p>Over time, rock has become increasingly diversified and so many different sub-genres have emerged that differ from the original genre but retain some of its features.</p><p>We can see an explosion of new genres between the 1980 and 1995,&nbsp;but the trend declines as we enter the 2000s.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "When new sub-genres emerged",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?genre ?a wd:Q188451 .\r\n        ?genre wdt:P279* wd:Q11399.\r\n        ?genre wdt:P571 ?date . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. } \r\n       FILTER(YEAR(?date)  >= 1978 && YEAR(?date) <= 2001)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\nLIMIT 30\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Year",
+                "y": "Sub-genres that emerged"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "map",
+            "map_title": "Where they emerged",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q188451 .\r\n  ?point wdt:P279 wd:Q11399 .\r\n  ?point wdt:P495 ?country.\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 500\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Now let's go back to Rock music.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "italy",
+            "textsearch_title": "Rock bands in every country with picture",
+            "textsearch_query": "SELECT DISTINCT ?pic ?rockgroup ?rockgroupLabel ?country ?countryLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?country wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?rockgroup wdt:P31 wd:Q5741069.\r\n  ?rockgroup wdt:P495 ?country .\r\n  ?rockgroup wdt:P136 ?band .\r\n  OPTIONAL {?rockgroup wdt:P18 ?pic ; }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nORDER BY ?rockgroup\r\nLIMIT 5\r\n",
+            "textsearch": {
+                "rockgroup": [
+                    "Show foundation year"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 18,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show foundation year",
+            "action_query": "SELECT DISTINCT ?inception ?InceptionLabel\r\nWHERE { \r\n  <<item>> wdt:P571 ?inception . \r\n\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20\r\n",
             "extra_queries": [],
             "map_filters": []
         }
