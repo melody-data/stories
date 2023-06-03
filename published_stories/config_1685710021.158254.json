@@ -15,38 +15,134 @@
         {
             "position": 0,
             "operations": [],
-            "type": "count",
-            "count_query": "SELECT (COUNT(?stringinstrument) AS ?count)\r\nWHERE {\r\n     ?stringinstrument ?a wd:Q1798603 .   \r\n}\r\n",
-            "count_label": "Numero di strumenti a corde",
+            "type": "text",
+            "text": "<p>A <a href=\"https://www.britannica.com/summary/stringed-instrument#:~:text=The%20orchestral%20stringed%20instruments%20include,%3B%20ukulele%3B%20viol%3B%20zither.\" target=\"_blank\">stringed instrument</a> refers to any <a href=\"https://www.britannica.com/art/musical-instrument\" target=\"_blank\" style=\"color: windowtext;\">musical instrument</a> that produces <a href=\"https://www.britannica.com/science/musical-sound\" target=\"_blank\" style=\"color: windowtext;\">sound</a> by the vibration of stretched <a href=\"https://www.britannica.com/art/strings\" target=\"_blank\" style=\"color: windowtext;\">strings</a>. This vibration creates many different types of stringed instruments: <strong>449 </strong>is the number of types of stringed instruments existing in the world.</p>",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 1,
             "operations": [],
-            "type": "table",
-            "table_title": "Parti della chitarra",
-            "table_query": "SELECT DISTINCT ?woodtype ?woodtypeLabel ?image\r\nWHERE { wd:Q6607 wdt:P527 ?woodtype . \r\n       OPTIONAL { ?woodtype wdt:P18 ?image . }\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 12\r\n",
+            "type": "count",
+            "count_query": "SELECT (COUNT(?stringinstrument) AS ?count)\r\nWHERE {\r\n     ?stringinstrument ?a wd:Q1798603 .   \r\n}\r\n",
+            "count_label": "Stringed instruments ",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 2,
             "operations": [],
-            "type": "textsearch",
-            "textsearch_userinput": "",
-            "textsearch_title": "Tipi di legno per chitarra",
-            "textsearch_query": "SELECT DISTINCT ?guitarName ?woodName \r\nWHERE {\r\n    SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n    }\r\n  \r\n    ?guitar wdt:P186 ?wood . # Tutte le cose che sono una chitarra fatte da un materiale di tipo legno\r\n    ?wood wdt:P31 wd:Q1493054 . # Tutti i tipi di legni\r\n    ?guitar wdt:P31 wd:Q6607 . # Tutte le chitarre\r\n  \r\n    ?guitar rdfs:label ?guitarName . \r\n    FILTER (langMatches( lang(?guitarName), \"EN\" ) )\r\n    \r\n    ?wood rdfs:label ?woodName . \r\n    FILTER (langMatches( lang(?woodName), \"EN\" ) )  \r\n  \r\n   \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n\r\n",
+            "type": "text",
+            "text": "<p>This number includes, however, many other realities, in particular the world of the guitar. Here only the guitar types go up to 42832 different models.</p>",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 3,
             "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?guitar) AS ?count)\r\nWHERE {\r\n     ?guitar ?a wd:Q6607 .   \r\n}\r\n",
+            "count_label": "Models of guitars ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Let\u2019s now take a look at how the sounds of guitar are produced, based on the components of this instrument. Below, you are shown with a table with the different components that make up a guitar.&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "Components of the guitar ",
+            "table_query": "SELECT DISTINCT ?woodtype ?woodtypeLabel ?image\r\nWHERE { wd:Q6607 wdt:P527 ?woodtype . \r\n       OPTIONAL { ?woodtype wdt:P18 ?image . }\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 12\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>It can be seen from this table that the material that gives life to these instruments is <strong>wood</strong>. Almost all components are made of wood; in fact, wood is one of the factors that most influences the sound of a guitar. Its quality allows the strings to vibrate differently and determines the tone of the instrument. Yet is it always just one type of wood? The answer is no. In fact, a specific wood is used for each guitar model. Depending on the model of the guitar (e.g., Gibson ES-333), in fact, we will have different types of wood (e.g., poplar wood, maple wood, mahogany wood and rosewood).</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Types of wood employed for guitars",
+            "textsearch_query": "SELECT DISTINCT ?guitarName ?woodName \r\nWHERE {\r\n    SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n    }\r\n  \r\n    ?guitar wdt:P186 ?wood . # Tutte le cose che sono una chitarra fatte da un materiale di tipo legno\r\n    ?wood wdt:P31 wd:Q1493054 . # Tutti i tipi di legni\r\n    ?guitar wdt:P31 wd:Q6607 . # Tutte le chitarre\r\n  \r\n    ?guitar rdfs:label ?guitarName . \r\n    FILTER (langMatches( lang(?guitarName), \"EN\" ) )\r\n    \r\n    ?wood rdfs:label ?woodName . \r\n    FILTER (langMatches( lang(?woodName), \"EN\" ) )  \r\n  \r\n   \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "action",
+            "action_title": "Image for the type of wood",
+            "action_query": "SELECT DISTINCT ?guitar ?guitarLabel ?category ?categoryLabel WHERE {\r\n    ?band wdt:P31 ?category ; wdt:P186 <<item>> .\r\n    ?category wdt:P279 wd:Q6607 \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 20",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The presence of various types of guitars gives rise to different market demands, which vary according to the uses and types most valued by the guitar users. Here, then, are shown as indicators two different tables that present by year and sales, the number of electric guitars and acoustic guitars sold over a period of time from 1990 to 2016.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Acoustic guitars sold",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?guitar ?a wd:Q31561 . \r\n       ?guitar wdt:P571 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. }\r\n              FILTER(YEAR(?date)  >= 1990 && YEAR(?date) <= 2020)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\n\r\nLIMIT 30",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Years",
+                "y": "Sales"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Electric guitars sold",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?guitar ?a wd:Q78987 . \r\n       ?guitar wdt:P571 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. }\r\n              FILTER(YEAR(?date)  >= 1990 && YEAR(?date) <= 2020)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\n\r\nLIMIT 30\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Years",
+                "y": "Sales"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "text",
+            "text": "<p>As we can seen, not only do we have a greater number of sales of electric guitars, but more importantly these are concentrated around 1995, a year when rock-n roll had great success, but also around 2016, a year when the rock revival played an important role in music history. From here, the question arises as to what factors influenced these sales: hence, in the chart below the most influential guitarists who boosted guitar sales are shown.&nbsp;&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
-            "chart_title": "Gli artisti che hanno influenzato maggiormente l'uso della chitarra",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?guitarist) as ?count) \r\nWHERE {\r\n     ?guitarist wdt:P1303* wd:Q6607.\r\n     ?guitarist wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10",
+            "chart_title": "Most influential guitarists",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band wdt:P1303* wd:Q6607.\r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 20 ",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
@@ -56,10 +152,19 @@
             "map_filters": []
         },
         {
-            "position": 4,
+            "position": 14,
             "operations": [],
             "type": "text",
-            "text": "",
+            "text": "<p>The influence of American guitarists has since spread throughout the world and thus, as the map shows us, different countries have a greater or lesser number of guitarists who have influenced the single cultures in their own countries (eg., Fabrizio De Andr\u00e8 in Italy).&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "map",
+            "map_title": "Guitarists in every country",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point  wdt:P1303 wd:Q6607 .\r\n  ?point wdt:P27 ?country.\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 500",
             "extra_queries": [],
             "map_filters": []
         }
