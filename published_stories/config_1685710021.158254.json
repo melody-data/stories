@@ -1,16 +1,16 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "La chitarra ",
+    "title": "The History of the Guitar ",
     "color_code": [
         "#8039c6",
         "#173ccf"
     ],
     "user_name": "SofiaMangione",
     "id": "1685710021.158254",
-    "subtitle": "Un introduzione della chitarra",
-    "curator": "Di Sofia Mangione e Simona Serramondi",
-    "description": "Il nostro processo nasce da un indagine sugli strumenti a corde, in particolare le chitarre, che nella storia della musica hanno segnato un'importante svolta. Vediamo come la chitarra ha influenzato non solo la musica, ma anche le vendite sul piano commerciale. ",
+    "subtitle": "The history of the instrument who changed the world of music",
+    "curator": "Sofia Mangione, Simona Serramondi",
+    "description": "This project stems from  an overview of string instruments, particularly guitars, which have marked an important turning point in the history of music. You will discover how the guitar has influenced not only culture and music, but also the sales market. ",
     "dynamic_elements": [
         {
             "position": 0,
@@ -43,45 +43,6 @@
         {
             "position": 3,
             "operations": [],
-            "type": "table",
-            "table_title": "Numero di chitarre per paese",
-            "table_query": "SELECT ?country ?countryLabel (COUNT(?guitarist) AS ?count) WHERE {\r\n  ?guitarist wdt:P1303 wd:Q6607; # plays guitar\r\n    wdt:P27 ?country. # country of citizenship\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"it\" . }\r\n} GROUP BY ?country ?countryLabel\r\nORDER BY DESC(?count)\r\n\r\nLIMIT 20",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 4,
-            "operations": [],
-            "type": "chart",
-            "chart_type": "barchart",
-            "chart_title": "Numero di chitarre acustiche vendute tra il 1990 e il 2016",
-            "chart_query": " SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?guitar ?a wd:Q31561 . \r\n       ?guitar wdt:P571 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. }\r\n              FILTER(YEAR(?date)  >= 1990 && YEAR(?date) <= 2020)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\n\r\nLIMIT 30\r\n",
-            "chart_series": "",
-            "chart_legend": {
-                "x": "Anno",
-                "y": "Numero di chitarre vendute"
-            },
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 5,
-            "operations": [],
-            "type": "chart",
-            "chart_type": "barchart",
-            "chart_title": "Numero di chitarre elettriche vendute tra il 1991 e il 2016",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?guitar ?a wd:Q78987 . \r\n       ?guitar wdt:P571 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. }\r\n              FILTER(YEAR(?date)  >= 1990 && YEAR(?date) <= 2020)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\n\r\nLIMIT 30\r\n",
-            "chart_series": "",
-            "chart_legend": {
-                "x": "Anno",
-                "y": "Numero di chitarre vendute"
-            },
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 6,
-            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Gli artisti che hanno influenzato maggiormente l'uso della chitarra",
@@ -91,6 +52,14 @@
                 "x": "",
                 "y": ""
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "",
             "extra_queries": [],
             "map_filters": []
         }
