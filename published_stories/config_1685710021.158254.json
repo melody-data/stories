@@ -75,9 +75,9 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "",
+            "textsearch_userinput": "Gibson ES-333",
             "textsearch_title": "Types of wood employed for guitars",
-            "textsearch_query": "SELECT DISTINCT ?guitarName ?woodName \r\nWHERE {\r\n    SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n    }\r\n  \r\n    ?guitar wdt:P186 ?wood . # Tutte le cose che sono una chitarra fatte da un materiale di tipo legno\r\n    ?wood wdt:P31 wd:Q1493054 . # Tutti i tipi di legni\r\n    ?guitar wdt:P31 wd:Q6607 . # Tutte le chitarre\r\n  \r\n    ?guitar rdfs:label ?guitarName . \r\n    FILTER (langMatches( lang(?guitarName), \"EN\" ) )\r\n    \r\n    ?wood rdfs:label ?woodName . \r\n    FILTER (langMatches( lang(?woodName), \"EN\" ) )  \r\n  \r\n   \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  \r\n",
+            "textsearch_query": "SELECT DISTINCT ?guitarName ?woodName \r\nWHERE {\r\n    SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n    }\r\n  \r\n    ?guitar wdt:P186 ?wood . \r\n    ?wood wdt:P31 wd:Q1493054 . \r\n    ?guitar wdt:P31 wd:Q6607 . \r\n  \r\n    ?guitar rdfs:label ?guitarName . \r\n    FILTER (langMatches( lang(?guitarName), \"EN\" ) )\r\n    \r\n    ?wood rdfs:label ?woodName . \r\n    FILTER (langMatches( lang(?woodName), \"EN\" ) )  \r\n  \r\n   \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  \r\n",
             "extra_queries": [],
             "map_filters": []
         },
