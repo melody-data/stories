@@ -75,9 +75,17 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "Gibson ES-333",
+            "textsearch_userinput": "fender",
             "textsearch_title": "Types of wood employed for guitars",
-            "textsearch_query": "SELECT DISTINCT ?guitarName ?woodName \r\nWHERE {\r\n    SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n    }\r\n  \r\n    ?guitar wdt:P186 ?wood . \r\n    ?wood wdt:P31 wd:Q1493054 . \r\n    ?guitar wdt:P31 wd:Q6607 . \r\n  \r\n    ?guitar rdfs:label ?guitarName . \r\n    FILTER (langMatches( lang(?guitarName), \"EN\" ) )\r\n    \r\n    ?wood rdfs:label ?woodName . \r\n    FILTER (langMatches( lang(?woodName), \"EN\" ) )  \r\n  \r\n   \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  \r\n",
+            "textsearch_query": "SELECT DISTINCT ?guitar ?guitarLabel ?wood ?woodLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?guitar wdt:P186 ?wood .\r\n  ?wood wdt:P31 wd:Q1493054 .\r\n  ?guitar wdt:P31 wd:Q6607 .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}\r\nORDER BY ?guitar\r\n\r\n\r\n",
+            "textsearch": {
+                "woodName": [
+                    "Image "
+                ],
+                "wood": [
+                    "Image "
+                ]
+            },
             "extra_queries": [],
             "map_filters": []
         },
@@ -85,8 +93,8 @@
             "position": 8,
             "operations": [],
             "type": "action",
-            "action_title": "Image for the type of wood",
-            "action_query": "SELECT DISTINCT ?guitar ?guitarLabel ?category ?categoryLabel WHERE {\r\n    ?band wdt:P31 ?category ; wdt:P186 <<item>> .\r\n    ?category wdt:P279 wd:Q6607 \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 20",
+            "action_title": "Image ",
+            "action_query": "SELECT DISTINCT ?image ?imageLabel\r\nWHERE { \r\n  <<item>> wdt:P18 ?image.\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}",
             "extra_queries": [],
             "map_filters": []
         },
