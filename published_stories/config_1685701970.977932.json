@@ -25,13 +25,22 @@
             "position": 1,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT (COUNT(?theater) AS ?count)\r\nWHERE {\r\n  ?theater wdt:P31 wd:Q24354 . \r\n  ?theater wdt:P131 wd:Q84 .   \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" }\r\n}",
-            "count_label": "Number of theatres in London",
+            "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;  \r\n           wdt:P131 wd:Q10690.     \r\n}",
+            "count_label": "Number of theatres in Cardiff",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;  \r\n           wdt:P131 wd:Q34217.     \r\n}",
+            "count_label": "Number of theatres in Cardiff",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
             "operations": [],
             "type": "text",
             "text": "<p>The United Kingdom has a rich and vibrant theatrical tradition, with a diverse range of theaters spread across the country. The theaters in the UK cater to a wide range of tastes and interests, offering a diverse array of productions, from classic plays to cutting-edge performances.</p>",
@@ -39,7 +48,7 @@
             "map_filters": []
         },
         {
-            "position": 3,
+            "position": 4,
             "operations": [],
             "type": "map",
             "map_title": "Location of the theatres ",
@@ -48,7 +57,7 @@
             "map_filters": []
         },
         {
-            "position": 4,
+            "position": 5,
             "operations": [],
             "type": "table",
             "table_title": "What the theatres look like ",
@@ -57,7 +66,7 @@
             "map_filters": []
         },
         {
-            "position": 5,
+            "position": 6,
             "operations": [],
             "type": "text",
             "text": "<p><strong>Fun facts about some theatres in London</strong></p><p><strong>Savoy Theatre was the world's first public venue to be lit wholly by electricity</strong></p><p>In 1881, Savoy Theatre was the first venue to be lit wholly by electricity, and its owner D'Oyly Carte even took to the stage to smash a light bulb to prove that this new technology was totally safe.</p><p><strong>Peacock Theatre is allegedly haunted by ghost dolphins</strong></p><p>Apparently, in the 1970s two dolphins were kept in tanks under the stage, ready to star in a variety show - but they died of neglect, and their ghosts still haunt the venue to this day.</p><p>The Globe Theatre is the only central London building with a thatched roof</p><p>Since the Great Fire of London in 1666, there's been a law against buildings having thatched roofs. So when Shakespeare's Globe Theatre was built in 1997, it had to seek special permission to replicate the thatched roof of Shakespeare's day.</p>",
@@ -65,7 +74,7 @@
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 7,
             "operations": [],
             "type": "chart",
             "chart_type": "barchart",
@@ -80,7 +89,7 @@
             "map_filters": []
         },
         {
-            "position": 7,
+            "position": 8,
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
@@ -101,7 +110,7 @@
             "map_filters": []
         },
         {
-            "position": 8,
+            "position": 9,
             "operations": [],
             "type": "table",
             "table_title": "Inauguration year of some of the oldest theatres ",
@@ -110,7 +119,7 @@
             "map_filters": []
         },
         {
-            "position": 9,
+            "position": 10,
             "operations": [],
             "type": "text",
             "text": "<p>The Globe Theatre is a famous historical landmark associated with the works of William Shakespeare. The original Globe Theatre was built in 1599 in London, England, by Shakespeare's playing company, the Lord Chamberlain's Men. It was situated on the south bank of the River Thames in the suburb of Southwark.</p><p>The theatre burned down in 1613 during a performance of Shakespeare's play \"Henry VIII\" when a cannon misfired and set fire to the thatched roof. However, it was quickly rebuilt on the same site the following year.</p>",
@@ -118,7 +127,7 @@
             "map_filters": []
         },
         {
-            "position": 10,
+            "position": 11,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -133,7 +142,7 @@
             "map_filters": []
         },
         {
-            "position": 11,
+            "position": 12,
             "operations": [],
             "type": "text",
             "text": "<p>One of the previously mentioned composer is William Walton. William Walton was a renowned English composer of the 20th century. He was born in Oldham, Lancashire and his musical talents were recognized at an early age.</p><p>In his teenage years, Walton studied composition at the University of Oxford with famous British composer Sir Ernest William Moeran. During this time, he gained attention for his talent and caught the eye of influential figures in the music world. In 1922, Walton composed his \"Viola Concerto,\" which marked a significant breakthrough in his career.</p>",
@@ -141,7 +150,7 @@
             "map_filters": []
         },
         {
-            "position": 12,
+            "position": 13,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -156,7 +165,7 @@
             "map_filters": []
         },
         {
-            "position": 13,
+            "position": 14,
             "operations": [],
             "type": "text",
             "text": "<p>Classical music in theaters encompasses a rich and diverse tradition that includes opera, ballet, symphonic concerts, and other forms of musical performances. The combination of music, drama, and visual spectacle creates a unique and immersive experience for audiences.</p>",
@@ -164,7 +173,7 @@
             "map_filters": []
         },
         {
-            "position": 14,
+            "position": 15,
             "operations": [],
             "type": "table",
             "table_title": "Catalogue of classical compositions",
@@ -173,7 +182,7 @@
             "map_filters": []
         },
         {
-            "position": 15,
+            "position": 16,
             "operations": [],
             "type": "action",
             "action_title": "image of theatres",
