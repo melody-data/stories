@@ -43,7 +43,7 @@
             "operations": [],
             "type": "map",
             "map_title": "Location of the theatres ",
-            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q24354 .\r\n?point wdt:P17 wd:Q145 .\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 500",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q24354 .\r\n?point wdt:P17 wd:Q145 .\r\n?point p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 500",
             "extra_queries": [],
             "map_filters": []
         },
