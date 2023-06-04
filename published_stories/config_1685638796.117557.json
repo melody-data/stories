@@ -134,7 +134,7 @@
             "position": 13,
             "operations": [],
             "type": "text",
-            "text": "<p>Let\u2019s now have a look at how rock evolved throughout the years.</p><p>Over time, rock has become increasingly diversified and so many different sub-genres have emerged that differ from the original genre but retain some of its features.</p><p>We can see an explosion of new genres between the 1980 and 1995,&nbsp;but the trend declines as we enter the 2000s.</p>",
+            "text": "<p>Let\u2019s now have a look at how rock evolved throughout the years.</p><p>Over time, rock has become increasingly diversified and so many different sub-genres have emerged that differ from the original genre but retain some of its features. We can see an explosion of new genres between the 1980 and 1995,&nbsp;but the trend declines as we enter the 2000s.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -166,7 +166,7 @@
             "position": 16,
             "operations": [],
             "type": "text",
-            "text": "<p>Now let's go back to Rock music.</p><p>It is arguably one of the most popular music genres ever;&nbsp;but does this apply to all the nations of the world? We can check this by entering the name of a nation; we will then find all the bands of that nationality.</p>",
+            "text": "<p>Now let's go back to Rock music.</p><p>It is arguably one of the most popular music genres ever;&nbsp;but does this apply to all the nations of the world? We can check this by entering the name of a nation; we will then find all the bands of that nationality.</p><p>If interested in the foundation date of the band, one can check it by clicking on \"Show foundation year\".</p>",
             "extra_queries": [],
             "map_filters": []
         },
