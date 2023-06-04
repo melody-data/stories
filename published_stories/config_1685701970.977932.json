@@ -35,7 +35,7 @@
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;  \r\n           wdt:P131 wd:Q34217.     \r\n}",
-            "count_label": "Number of theatres in Cardiff",
+            "count_label": "Number of theatres in Oxford",
             "extra_queries": [],
             "map_filters": []
         },
