@@ -25,7 +25,7 @@
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P571 ?inception.\r\n\r\n FILTER(YEAR(?inception)  >= 1950 && YEAR(?inception) <= 1960)\r\n}\r\n",
-            "count_label": "Bands formed in the 50's",
+            "count_label": "Bands formed in the '50s",
             "extra_queries": [],
             "map_filters": []
         },
