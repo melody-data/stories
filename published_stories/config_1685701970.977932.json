@@ -86,20 +86,22 @@
             "textsearch_userinput": "",
             "textsearch_title": "Search theatres by city ",
             "textsearch_query": "SELECT ?theatre ?theatreLabel ?city ?cityLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n    bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                    wikibase:api \"EntitySearch\";\r\n                    mwapi:search <<searchterm>>;\r\n                    mwapi:language \"en\".\r\n    ?city wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?theatre wdt:P31 wd:Q24354;   \r\n           wdt:P17 wd:Q145.     \r\n  ?theatre wdt:P131 ?city.    \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY ?theatreLabel",
+            "textsearch": {
+                "city": [
+                    "image of theatres"
+                ],
+                "image": [
+                    "image of theatres"
+                ],
+                "theatre": [
+                    "image of theatres"
+                ]
+            },
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 8,
-            "operations": [],
-            "type": "action",
-            "action_title": "Date of founding ",
-            "action_query": "SELECT DISTINCT ?theater ?theaterLabel ?inception \r\nWHERE { \r\n  ?theater wdt:P31 wd:Q24354 .   \r\n  ?theater wdt:P17 wd:Q145 .  \r\n  ?theater wdt:P571 ?inception <<item>> .  \r\n \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n    ?theatre rdfs:label ?theatreLabel .\r\n  }\r\n}\r\nORDER BY ?theaterLabel\r\n",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 9,
             "operations": [],
             "type": "table",
             "table_title": "Inauguration year of some of the oldest theatres ",
@@ -108,7 +110,7 @@
             "map_filters": []
         },
         {
-            "position": 10,
+            "position": 9,
             "operations": [],
             "type": "text",
             "text": "<p>The Globe Theatre is a famous historical landmark associated with the works of William Shakespeare. The original Globe Theatre was built in 1599 in London, England, by Shakespeare's playing company, the Lord Chamberlain's Men. It was situated on the south bank of the River Thames in the suburb of Southwark.</p><p>The theatre burned down in 1613 during a performance of Shakespeare's play \"Henry VIII\" when a cannon misfired and set fire to the thatched roof. However, it was quickly rebuilt on the same site the following year.</p>",
@@ -116,7 +118,7 @@
             "map_filters": []
         },
         {
-            "position": 11,
+            "position": 10,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -131,7 +133,7 @@
             "map_filters": []
         },
         {
-            "position": 12,
+            "position": 11,
             "operations": [],
             "type": "text",
             "text": "<p>One of the previously mentioned composer is William Walton. William Walton was a renowned English composer of the 20th century. He was born in Oldham, Lancashire and his musical talents were recognized at an early age.</p><p>In his teenage years, Walton studied composition at the University of Oxford with famous British composer Sir Ernest William Moeran. During this time, he gained attention for his talent and caught the eye of influential figures in the music world. In 1922, Walton composed his \"Viola Concerto,\" which marked a significant breakthrough in his career.</p>",
@@ -139,7 +141,7 @@
             "map_filters": []
         },
         {
-            "position": 13,
+            "position": 12,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -154,7 +156,7 @@
             "map_filters": []
         },
         {
-            "position": 14,
+            "position": 13,
             "operations": [],
             "type": "text",
             "text": "<p>Classical music in theaters encompasses a rich and diverse tradition that includes opera, ballet, symphonic concerts, and other forms of musical performances. The combination of music, drama, and visual spectacle creates a unique and immersive experience for audiences.</p>",
@@ -162,11 +164,20 @@
             "map_filters": []
         },
         {
-            "position": 15,
+            "position": 14,
             "operations": [],
             "type": "table",
             "table_title": "Catalogue of classical compositions",
             "table_query": "SELECT DISTINCT ?theatre ?theatreLabel\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q5051330.  \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "action",
+            "action_title": "image of theatres",
+            "action_query": "SELECT DISTINCT ?image ?imageLabel\r\nWHERE { \r\n  <<item>> wdt:P18 ?image.\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
         }
