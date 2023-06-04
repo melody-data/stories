@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;   # instance of theater\r\n           wdt:P17 wd:Q145.     # located in the United Kingdom\r\n}\r\n",
+            "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354; \r\n           wdt:P17 wd:Q145.\r\n}",
             "count_label": "Number of theatres in the UK ",
             "extra_queries": [],
             "map_filters": []
@@ -52,7 +52,7 @@
             "operations": [],
             "type": "table",
             "table_title": "What the theatres look like ",
-            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?image\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;   # istanza di teatro\r\n           wdt:P17 wd:Q145.     # si trova nel Regno Unito\r\n  \r\n  OPTIONAL { ?theatre wdt:P18 ?image . }\r\n  \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 10\r\nOFFSET 10\r\n",
+            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?image\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;  \r\n           wdt:P17 wd:Q145.    \r\n  \r\n  OPTIONAL { ?theatre wdt:P18 ?image . }\r\n  \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 10\r\nOFFSET 10\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -70,8 +70,8 @@
             "type": "chart",
             "chart_type": "barchart",
             "chart_title": "The capacity of theatres ",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band ?a wd:Q24354 .  \r\n     ?band wdt:P1083 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n",
-            "chart_series": "Seats",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?theatre) as ?count) \r\nWHERE {\r\n     ?theatre ?a wd:Q24354 .  \r\n     ?theatre wdt:P1083 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n",
+            "chart_series": "Number of theatres",
             "chart_legend": {
                 "x": "Capacity",
                 "y": "Number of theatres"
@@ -94,7 +94,7 @@
             "operations": [],
             "type": "action",
             "action_title": "Date of founding ",
-            "action_query": "SELECT DISTINCT ?theater ?theaterLabel ?inception \r\nWHERE { \r\n  ?theater wdt:P31 wd:Q24354 .   # instance of theater\r\n  ?theater wdt:P17 wd:Q145 .      # located in the United Kingdom\r\n  ?theater wdt:P571 ?inception <<item>> .   # inception date\r\n \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n    ?theatre rdfs:label ?theatreLabel .\r\n  }\r\n}\r\nORDER BY ?theaterLabel\r\n",
+            "action_query": "SELECT DISTINCT ?theater ?theaterLabel ?inception \r\nWHERE { \r\n  ?theater wdt:P31 wd:Q24354 .   \r\n  ?theater wdt:P17 wd:Q145 .  \r\n  ?theater wdt:P571 ?inception <<item>> .  \r\n \r\n  SERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n    ?theatre rdfs:label ?theatreLabel .\r\n  }\r\n}\r\nORDER BY ?theaterLabel\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -144,7 +144,7 @@
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Types of classical music",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band wdt:P279* wd:Q9730. # rock band \r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?classicalmusic) as ?count) \r\nWHERE {\r\n     ?classicalmusic wdt:P279* wd:Q9730. \r\n     ?classicalmusic wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
