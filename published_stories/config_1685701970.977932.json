@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354; \r\n           wdt:P17 wd:Q145.\r\n}",
+            "count_query": "SELECT (COUNT(?theatre) AS ?count)\r\nWHERE {\r\n  ?theatre wdt:P31 wd:Q24354;  \r\n           wdt:P17 wd:Q145.     \r\n}\r\n",
             "count_label": "Number of theatres in the UK ",
             "extra_queries": [],
             "map_filters": []
