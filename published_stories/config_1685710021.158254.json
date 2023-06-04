@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "text",
-            "text": "<p>A <a href=\"https://www.britannica.com/summary/stringed-instrument#:~:text=The%20orchestral%20stringed%20instruments%20include,%3B%20ukulele%3B%20viol%3B%20zither.\" target=\"_blank\">stringed instrument</a> refers to any <a href=\"https://www.britannica.com/art/musical-instrument\" target=\"_blank\" style=\"color: windowtext;\">musical instrument</a> that produces <a href=\"https://www.britannica.com/science/musical-sound\" target=\"_blank\" style=\"color: windowtext;\">sound</a> by the vibration of stretched <a href=\"https://www.britannica.com/art/strings\" target=\"_blank\" style=\"color: windowtext;\">strings</a>. This vibration creates many different types of stringed instruments: <strong>449 </strong>is the number of types of stringed instruments existing in the world.</p>",
+            "text": "<p>A <a href=\"https://www.britannica.com/summary/stringed-instrument#:~:text=The%20orchestral%20stringed%20instruments%20include,%3B%20ukulele%3B%20viol%3B%20zither.\" target=\"_blank\">stringed instrument</a> refers to any musical instrument that produces sound by the vibration of stretched strings. This vibration creates many different types of stringed instruments: <strong>449 </strong>is the number of types of stringed instruments existing in the world.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -75,14 +75,14 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "fender",
+            "textsearch_userinput": "",
             "textsearch_title": "Types of wood employed for guitars",
             "textsearch_query": "SELECT DISTINCT ?guitar ?guitarLabel ?wood ?woodLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?guitar wdt:P186 ?wood .\r\n  ?wood wdt:P31 wd:Q1493054 .\r\n  ?guitar wdt:P31 wd:Q6607 .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}\r\nORDER BY ?guitar\r\n\r\n\r\n",
             "textsearch": {
-                "woodName": [
+                "wood": [
                     "Image "
                 ],
-                "wood": [
+                "woodName": [
                     "Image "
                 ]
             },
