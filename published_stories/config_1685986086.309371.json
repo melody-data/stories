@@ -1,0 +1,72 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "The Beatles",
+    "color_code": [
+        "#f34e7e",
+        "#b2ffe6"
+    ],
+    "user_name": "Alenkanaaa",
+    "id": "1685986086.309371",
+    "subtitle": "Exploring the Timeless Legacy of the Iconic Fab Four",
+    "curator": "Alena Nagovitcyna",
+    "description": "The Beatles, one of the most iconic bands in music history, have left an indelible mark on the world. In this project, we explore their success and profound influence on society. We uncover the story of The Beatles and explore why their music continues to captivate and inspire generations. Through this story, you will gain a deeper understanding of the band's enduring legacy and their impact on popular culture.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (YEAR(?foundationDate) AS ?count)\r\nWHERE {\r\n  wd:Q1299 wdt:P571 ?foundationDate.\r\n}\r\n",
+            "count_label": "Founded in",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Members of The Beatles",
+            "table_query": "SELECT DISTINCT ?Member ?Image  ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel  \r\nWHERE { wd:Q1299 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL { ?Member wdt:P18 ?Image }\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n} \r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "",
+            "chart_query": "",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "",
+            "chart_query": "",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
