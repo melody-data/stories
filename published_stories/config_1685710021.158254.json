@@ -67,7 +67,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p>It can be seen from this table that the material that gives life to this instrument is <strong>wood</strong>. Almost all components are made of wood; in fact, wood is one of the factors that most influences the sound of a guitar. Its quality allows the strings to vibrate differently and determines the tone of the instrument. Yet, is it always just one type of wood? The answer is no. In fact, a specific wood is used for each guitar model. Depending on the model of the guitar (e.g., Gibson, Fender, etc. ) we will have different types of wood (e.g., poplar wood, maple wood, mahogany wood and rosewood).</p><p>To give an idea of how the wood type look like, an <strong>image </strong>of it is provided by clicking \"Show the image\".</p>",
+            "text": "<p>It can be seen from this table that the material that gives life to this instrument is <strong>wood</strong>. Almost all components are made of wood; in fact, wood is one of the factors that most influences the sound of a guitar. Its quality allows the strings to vibrate differently and determines the tone of the instrument. Yet, is it always just one type of wood? The answer is no. In fact, a specific wood is used for each guitar model. Depending on the model of the guitar (e.g., Ibanez, Fender, etc. ) we will have different types of wood (e.g., poplar wood, maple wood, mahogany wood and rosewood).</p><p>To give an idea of how the wood type look like, an <strong>image </strong>of it is provided by clicking \"Show the image\".</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -76,16 +76,8 @@
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
-            "textsearch_title": "Types of wood employed for guitars",
+            "textsearch_title": "Enter the model of a guitar to see what type of wood was employed. ",
             "textsearch_query": "SELECT DISTINCT ?guitar ?guitarLabel ?wood ?woodLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?guitar wdt:P186 ?wood .\r\n  ?wood wdt:P31 wd:Q1493054 .\r\n  ?guitar wdt:P31 wd:Q6607 .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}\r\nORDER BY ?guitar\r\n\r\n\r\n",
-            "textsearch": {
-                "wood": [
-                    "Image "
-                ],
-                "woodName": [
-                    "Image "
-                ]
-            },
             "extra_queries": [],
             "map_filters": []
         },
