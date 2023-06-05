@@ -33,7 +33,7 @@
             "position": 2,
             "operations": [],
             "type": "text",
-            "text": "<p>This number includes, however, many other realities, in particular the world of the guitar. Here only the guitar types go up to 42832 different models.</p>",
+            "text": "<p>This number includes, however, many other realities, in particular the world of guitars. Here only the guitar types go up to 42832 different models.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -50,7 +50,7 @@
             "position": 4,
             "operations": [],
             "type": "text",
-            "text": "<p>Let\u2019s now take a look at how the sounds of guitar are produced, based on the components of this instrument. Below, you are shown with a table with the different components that make up a guitar.&nbsp;</p>",
+            "text": "<p>Let\u2019s now take a look at how the sounds of guitar are produced, based on the components of this instrument. Below, you are provided with a table with the different components that make up a guitar.&nbsp;</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -58,8 +58,8 @@
             "position": 5,
             "operations": [],
             "type": "table",
-            "table_title": "Components of the guitar ",
-            "table_query": "SELECT DISTINCT ?woodtype ?woodtypeLabel ?image\r\nWHERE { wd:Q6607 wdt:P527 ?woodtype . \r\n       OPTIONAL { ?woodtype wdt:P18 ?image . }\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 12\r\n",
+            "table_title": "The components of the guitar ",
+            "table_query": "SELECT DISTINCT ?components ?componentsLabel ?image\r\nWHERE { wd:Q6607 wdt:P527 ?components . \r\n       OPTIONAL { ?components wdt:P18 ?image . }\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 12\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -67,7 +67,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p>It can be seen from this table that the material that gives life to these instruments is <strong>wood</strong>. Almost all components are made of wood; in fact, wood is one of the factors that most influences the sound of a guitar. Its quality allows the strings to vibrate differently and determines the tone of the instrument. Yet is it always just one type of wood? The answer is no. In fact, a specific wood is used for each guitar model. Depending on the model of the guitar (e.g., Gibson ES-333), in fact, we will have different types of wood (e.g., poplar wood, maple wood, mahogany wood and rosewood).</p>",
+            "text": "<p>It can be seen from this table that the material that gives life to this instrument is <strong>wood</strong>. Almost all components are made of wood; in fact, wood is one of the factors that most influences the sound of a guitar. Its quality allows the strings to vibrate differently and determines the tone of the instrument. Yet, is it always just one type of wood? The answer is no. In fact, a specific wood is used for each guitar model. Depending on the model of the guitar (e.g., Gibson, Fender, etc. ) we will have different types of wood (e.g., poplar wood, maple wood, mahogany wood and rosewood).</p><p>To give an idea of how the wood type look like, an <strong>image </strong>of it is provided by clicking \"Show the image\".</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -93,7 +93,7 @@
             "position": 8,
             "operations": [],
             "type": "action",
-            "action_title": "Image ",
+            "action_title": "Show the image",
             "action_query": "SELECT DISTINCT ?image ?imageLabel\r\nWHERE { \r\n  <<item>> wdt:P18 ?image.\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}",
             "extra_queries": [],
             "map_filters": []
@@ -102,7 +102,7 @@
             "position": 9,
             "operations": [],
             "type": "text",
-            "text": "<p>The presence of various types of guitars gives rise to different market demands, which vary according to the uses and types most valued by the guitar users. Here, then, are shown as indicators two different tables that present by year and sales, the number of electric guitars and acoustic guitars sold over a period of time from 1990 to 2016.</p>",
+            "text": "<p>The presence of various types of guitars gives rise to different <strong>market demands</strong>, which vary according to the uses and types most valued by the guitar users. Here, then, two different tables are shown to present the number of acoustic and electric guitars sold over a period of time that goes from 1990 to 2016.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -111,7 +111,7 @@
             "operations": [],
             "type": "chart",
             "chart_type": "linechart",
-            "chart_title": "Acoustic guitars sold",
+            "chart_title": "Sales of Acoustic Guitars ",
             "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?guitar ?a wd:Q31561 . \r\n       ?guitar wdt:P571 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. }\r\n              FILTER(YEAR(?date)  >= 1990 && YEAR(?date) <= 2020)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\n\r\nLIMIT 30",
             "chart_series": "",
             "chart_legend": {
@@ -126,7 +126,7 @@
             "operations": [],
             "type": "chart",
             "chart_type": "linechart",
-            "chart_title": "Electric guitars sold",
+            "chart_title": "Sales of Electric Guitars ",
             "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?guitar ?a wd:Q78987 . \r\n       ?guitar wdt:P571 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. }\r\n              FILTER(YEAR(?date)  >= 1990 && YEAR(?date) <= 2020)\r\n      } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\n\r\nLIMIT 30\r\n",
             "chart_series": "",
             "chart_legend": {
@@ -140,7 +140,7 @@
             "position": 12,
             "operations": [],
             "type": "text",
-            "text": "<p>As we can seen, not only do we have a greater number of sales of electric guitars, but more importantly these are concentrated around 1995, a year when rock-n roll had great success, but also around 2016, a year when the rock revival played an important role in music history. From here, the question arises as to what factors influenced these sales: hence, in the chart below the most influential guitarists who boosted guitar sales are shown.&nbsp;&nbsp;</p>",
+            "text": "<p>As we can seen, not only do we have a greater number of sales of electric guitars, but more importantly these are concentrated around 1995, a year when rock-n roll had great success, but also around 2016, a year when the rock-n roll revival played an important role in the history of music. From here, the question arises as to what factors influenced these sales: hence, in the chart below the <strong>most influential guitarists </strong>are shown<strong> </strong>who boosted guitars sales.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -149,7 +149,7 @@
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
-            "chart_title": "Most influential guitarists",
+            "chart_title": "Most influential Guitarists in the world",
             "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band wdt:P1303* wd:Q6607.\r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 20 ",
             "chart_series": "",
             "chart_legend": {
@@ -163,7 +163,7 @@
             "position": 14,
             "operations": [],
             "type": "text",
-            "text": "<p>The influence of American guitarists has since spread throughout the world and thus, as the map shows us, different countries have a greater or lesser number of guitarists who have influenced the single cultures in their own countries (eg., Fabrizio De Andr\u00e8 in Italy).&nbsp;</p>",
+            "text": "<p>The influence of the American guitarists has since spread throughout the world and thus, as the map shows, different countries have a higher or lower number of guitarists who have influenced their respective cultures (eg., Fabrizio De Andr\u00e8 in Italy).&nbsp;</p>",
             "extra_queries": [],
             "map_filters": []
         },
