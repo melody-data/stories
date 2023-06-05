@@ -33,18 +33,10 @@
         {
             "position": 2,
             "operations": [],
-            "type": "text",
-            "text": "",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 3,
-            "operations": [],
             "type": "chart",
-            "chart_type": "linechart",
-            "chart_title": "",
-            "chart_query": "",
+            "chart_type": "doughnutchart",
+            "chart_title": "What genre are The Beatles?",
+            "chart_query": "SELECT (?genreLabel as ?label)\r\nWHERE {\r\n  wd:Q1299 wdt:P136 ?genre.\r\n  ?genre rdfs:label ?genreLabel.\r\n  FILTER (lang(?genreLabel) = \"en\").\r\n}\r\n",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
@@ -54,16 +46,24 @@
             "map_filters": []
         },
         {
+            "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The members of band were highly skilled and versatile musicians, proficient in playing multiple instruments. Their musical talents and ability to switch roles within the band contributed to the diverse and innovative sound that defined their music.</p><p>The Beatles' mastery of multiple instruments allowed them to experiment with different sounds, genres, and musical styles, pushing the boundaries of popular music and contributing to their unparalleled musical legacy.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
             "position": 4,
             "operations": [],
             "type": "chart",
-            "chart_type": "linechart",
-            "chart_title": "",
-            "chart_query": "",
+            "chart_type": "barchart",
+            "chart_title": "What instruments did the Fab Four play?",
+            "chart_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count)\r\nWHERE {\r\n  wd:Q1299 wdt:P527 ?member.\r\n  ?member wdt:P1303 ?instrument.\r\n  ?instrument rdfs:label ?instrumentLabel.\r\n  FILTER (lang(?instrumentLabel) = \"en\").\r\n}\r\nGROUP BY ?instrument ?instrumentLabel\r\nORDER BY DESC(?count)\r\nLIMIT 10",
             "chart_series": "",
             "chart_legend": {
-                "x": "",
-                "y": ""
+                "x": "Instruments",
+                "y": "Members"
             },
             "extra_queries": [],
             "map_filters": []
