@@ -1,0 +1,78 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring Music in Spain",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "Serena2796",
+    "id": "1686059304.594234",
+    "subtitle": "",
+    "curator": "Gilda Gitto, Serena Sciortino, Vito Antonio Miccoli",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Start of activity ",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q29 . # from Spain\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20\r\n",
+            "chart_series": "Rock band",
+            "chart_legend": {
+                "x": "Formation year",
+                "y": "Number of bands "
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "map",
+            "map_title": "Stadium in Spain",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q483110; wdt:P17 wd:Q29;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q29 . # from spain\r\n}\r\n",
+            "count_label": "Music bands from Spain",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Theatres in Spain",
+            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?image \r\nWHERE { ?theatre wdt:P31 wd:Q24354; # istanza di teatro \r\n                 wdt:P17 wd:Q29. # si trova in Spagna\r\n       OPTIONAL { ?theatre wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } } \r\nLIMIT 10 \r\nOFFSET 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [
+                {
+                    "action": "count",
+                    "param": "label"
+                }
+            ],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Rosalia's genres",
+            "chart_query": "SELECT (?genreLabel as ?label) \r\nWHERE { wd:Q28843759 wdt:P136 ?genre. ?genre rdfs:label ?genreLabel. \r\n       FILTER (lang(?genreLabel) = \"en\"). }\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
