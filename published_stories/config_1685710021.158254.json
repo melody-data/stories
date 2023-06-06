@@ -75,9 +75,14 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "",
+            "textsearch_userinput": "Gibson ES-333",
             "textsearch_title": "Enter the model of a guitar to see what type of wood was employed. ",
             "textsearch_query": "SELECT DISTINCT ?guitar ?guitarLabel ?wood ?woodLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?guitar wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?guitar wdt:P186 ?wood .\r\n  ?wood wdt:P31 wd:Q1493054 .\r\n  ?guitar wdt:P31 wd:Q6607 .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}\r\nORDER BY ?guitar\r\n\r\n\r\n",
+            "textsearch": {
+                "wood": [
+                    "Show the image"
+                ]
+            },
             "extra_queries": [],
             "map_filters": []
         },
