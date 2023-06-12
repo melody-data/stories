@@ -1,0 +1,100 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring rock bands in the USA",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "Serena2796",
+    "id": "1686588464.951175",
+    "subtitle": "",
+    "curator": "Serena Sciortino, Gilda Gitto, Vito Antonio Miccoli",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q30 . # from \r\n}\r\n",
+            "count_label": "Music bands in the USA",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q30 . # from uk\r\n}\r\n",
+            "count_label": "Rock bands in the USA",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "map",
+            "map_title": "Stadium ",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q483110; wdt:P17 wd:Q30;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Rock bands in the USA",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE { ?band ?a wd:Q5741069 . # rock band \r\n       ?band wdt:P495 wd:Q30 . # from USA \r\n       ?band wdt:P527 ?item . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } \r\nGROUP BY ?label \r\nORDER BY DESC(?count) \r\nLIMIT 30\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Group name ",
+                "y": "Number of members "
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Rock bands formation year ",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q20 . # from USA\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Formation year",
+                "y": "Groups number"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "Rock bands ",
+            "table_query": "SELECT DISTINCT ?rockgroup ?rockgroupLabel ?image\r\nWHERE { ?rockgroup wdt:P31 wd:Q5741069; # istanza di rockgroup\r\n                 wdt:P17 wd:Q30. # si trova in usa\r\n       OPTIONAL { ?rockgroup wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } } \r\nLIMIT 10 \r\nOFFSET 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "table",
+            "table_title": "Guns N' Roses members and occupation",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?occupation ?occupationLabel \r\nWHERE { wd:Q11895 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\nOPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPl \r\nOPTIONAL {?Member wdt:P1303 ?occupation.} \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "Guns N' Roses album and release date",
+            "table_query": "SELECT ?album ?albumLabel ?releaseDate\r\nWHERE {\r\n  ?album wdt:P31 wd:Q482994;        # instance of album\r\n         wdt:P175 wd:Q11895;      # performed by Guns n roses\r\n         wdt:P577 ?releaseDate .    # release date\r\n  \r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n  }\r\n}\r\nORDER BY ?releaseDate\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
