@@ -1,0 +1,87 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Johann Sebastian Bach - An overview",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "Lorenzopetrucci",
+    "id": "1686560583.655908",
+    "subtitle": "An overview on classical 18th century composers and their impact on contemporary cultural heritage",
+    "curator": "Lorenzo Petrucci ",
+    "description": "The following story data explores the life and works of Johann Sebastian Bach with particular attention to their resonance in contemporary European culture and identity. We indeed believe that, apart from being just cultural products, cultural works (of whatever kind and of whatever genre) contributed to creating an idea of belonging and to shaping a common shared identity, a European one in our case. In music among the ones who mostly influenced the creation of a European cultural heritage was Johann Sebastian Bach. \r\nThis story will be theoretically divided into two major parts: in the former we will present some bibliographical data on the composer in order to have a clear presentation on who he was, where he was born and what works he worked on; the latter, on the other hand, will deal more with the contemporary resonance that his works had (and still have under major different forms) in our culture. We will indeed have a look at all those cultural products (concerts, books, films) which may echo Johann Sebastian Bach. \r\n",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "map",
+            "map_title": "Place of birth",
+            "map_points_query": "SELECT DISTINCT ?countryLabel ?lat ?long\r\nWHERE {\r\nwd:Q1339 wdt:P19 ?country . #worklocation\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Johann Sebastian Bach's family ",
+            "table_query": "SELECT DISTINCT ?father ?fatherLabel ?mother ?motherLabel \r\nWHERE {\r\nwd:Q1339 wdt:P22 ?father. \r\n  ?father rdfs:label ?fatherLabel.\r\n  wd:Q1339 wdt:P25 ?mother .\r\n  ?mother rdfs:label ?motherLabel .\r\nFILTER(LANG(?fatherLabel)=\"en\"). \r\nFILTER (Lang(?motherLabel) =\"en\"). \r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?notablework) AS ?count)\r\nWHERE {\r\n   wd:Q1339 wdt:P800 ?notablework\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\n",
+            "count_label": "Johann Sebastian Bach's notable works ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "List of Bach's notable works ",
+            "table_query": "SELECT ?notablework ?image ?notableworkLabel\r\nWHERE {\r\n   wd:Q1339 wdt:P800 ?notablework.\r\n   ?notablework wdt:P18 ?image. \r\n  ?notablework rdfs:label ?notableworkLabel\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n  FILTER(LANG(?notableworkLabel)=\"en\").\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Instruments played by Bach ",
+            "table_query": "SELECT ?instrumentLabel ?instrument ?image\r\nWHERE {\r\n  wd:Q1339 wdt:P1303 ?instrument.\r\n  ?instrument wdt:P18 ?image. \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "map",
+            "map_title": "Places Bach visited as composer ",
+            "map_points_query": "SELECT DISTINCT ?countryLabel ?lat ?long\r\nWHERE {\r\nwd:Q1339 wdt:P937 ?country . \r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "table",
+            "table_title": "Other (European) composers who influenced Bach's work",
+            "table_query": "SELECT DISTINCT ?influencedby ?image ?influencedbyLabel\r\nWHERE {\r\n   wd:Q1339 wdt:P737 ?influencedby.\r\n   ?influencedby wdt:P18 ?image. \r\n   ?influencedy rdfs:label ?influencedbyLabel.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(0, 0, 0);\">To conclude, Johann Sebastian Bach was undoubtedly one of the most decisive composers in the formation of a European cultural and musical identity along with Mozart and Beethoven. This story has demonstrated how, despite the fact he was not a very cosmopolitan author because he did not travel much abroad in his life, his music still reaches contemporary audiences and had incredible resonance in both the 20th and 21st centuries. We can therefore affirm that this is indicative of his fortune but at the same it shows how he is linked to a European common taste and, consequently, also a European sense of belonging. </span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
