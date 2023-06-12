@@ -78,14 +78,6 @@
         {
             "position": 7,
             "operations": [],
-            "type": "text",
-            "text": "<p><span style=\"color: rgb(0, 0, 0); background-color: transparent;\">To conclude, Johann Sebastian Bach was undoubtedly one of the most decisive composers in the formation of a European cultural and musical identity along with Mozart and Beethoven. This story has demonstrated how, despite the fact he was not a very cosmopolitan author because he did not travel much abroad in his life, his music still reaches contemporary audiences and had incredible resonance in both the 20th and 21st centuries. We can therefore affirm that this is indicative of his fortune but at the same it shows how he is linked to a European common taste and, consequently, also a European sense of belonging. </span></p>",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 8,
-            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Other European authors who influenced Bach ",
@@ -95,6 +87,14 @@
                 "x": "",
                 "y": ""
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(0, 0, 0);\">To conclude, Johann Sebastian Bach was undoubtedly one of the most decisive composers in the formation of a European cultural and musical identity along with Mozart and Beethoven. This story has demonstrated how, despite the fact he was not a very cosmopolitan author because he did not travel much abroad in his life, his music still reaches contemporary audiences and had incredible resonance in both the 20th and 21st centuries. We can therefore affirm that this is indicative of his fortune but at the same it shows how he is linked to a European common taste and, consequently, also a European sense of belonging. </span></p>",
             "extra_queries": [],
             "map_filters": []
         }
