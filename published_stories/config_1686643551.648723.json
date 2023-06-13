@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://dbpedia.org/sparql",
     "template_mode": "statistics",
-    "title": "Best-selling albums by women",
+    "title": "Best-selling women in music",
     "color_code": [
         "#39c6b4",
         "#17cf31"
@@ -25,8 +25,17 @@
             "position": 1,
             "operations": [],
             "type": "table",
-            "table_title": "Women best selling ",
-            "table_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\n\r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\n\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\n\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\n\r\nSELECT DISTINCT ?name ?something\r\n\r\nWHERE { \r\n\r\n?list a owl:Thing . \r\n\r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n\r\n?person a dbo:Animal ; a dbo:Person .\r\n\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n\r\n?person dbp:name ?name .  \r\n\r\n?person dbo:thumbnail ?something .\r\n\r\n\r\n \r\n\r\n}\r\n",
+            "table_title": "Best-selling women in music",
+            "table_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?name ?data ?datam ?data1\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?name .\r\n?person dbo:birthDate ?data .\r\nOPTIONAL { \r\n?person dbo:deathDate ?datam .  }\r\n?person dbo:activeYearsStartYear ?data1 .\r\n }\r\nORDER BY ?data1",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "map",
+            "map_title": "",
+            "map_points_query": "Where were they born?",
             "extra_queries": [],
             "map_filters": []
         }
