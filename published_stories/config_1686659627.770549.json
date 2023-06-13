@@ -17,7 +17,7 @@
             "operations": [],
             "type": "chart",
             "chart_type": "barchart",
-            "chart_title": "hello",
+            "chart_title": "hello world",
             "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE { ?band ?a wd:Q5741069 . # rock band \r\n?band wdt:P495 wd:Q30 . # from USA \r\n?band wdt:P527 ?item . \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } GROUP BY ?label ORDER BY DESC(?count) LIMIT 30",
             "chart_series": "",
             "chart_legend": {
