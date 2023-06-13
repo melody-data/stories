@@ -34,8 +34,8 @@
             "position": 2,
             "operations": [],
             "type": "map",
-            "map_title": "",
-            "map_points_query": "Where were they born?",
+            "map_title": "Where were they born?",
+            "map_points_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\n \r\n\r\nSELECT DISTINCT ?name ?point ?lat ?long\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?name .\r\n?person dbo:birthPlace ?luogo .\r\n?luogo georss:point ?point ; geo:lat ?lat ; geo:long ?long . \r\n}\r\nGROUP BY ?luogo",
             "extra_queries": [],
             "map_filters": []
         }
