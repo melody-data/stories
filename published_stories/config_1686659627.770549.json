@@ -1,0 +1,46 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "save me please",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "umanistica-informatica",
+    "id": "1686659627.770549",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "hello",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE { ?band ?a wd:Q5741069 . # rock band \r\n?band wdt:P495 wd:Q30 . # from USA \r\n?band wdt:P527 ?item . \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } GROUP BY ?label ORDER BY DESC(?count) LIMIT 30",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "hello 2",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label) (COUNT(?label) AS ?count) \r\nWHERE { ?band ?a wd:Q5741069 . # rock band \r\n?band wdt:P495 wd:Q20 . # from USA \r\n?band wdt:P2031 ?date . # formation year \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n?band rdfs:label ?label. } } \r\nGROUP BY ?count ?date ORDER BY ?label LIMIT 20",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
