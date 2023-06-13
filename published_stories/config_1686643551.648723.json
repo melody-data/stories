@@ -1,0 +1,34 @@
+{
+    "sparql_endpoint": "https://dbpedia.org/sparql",
+    "template_mode": "statistics",
+    "title": "Best-selling albums by women",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "VeronicaCopparoni",
+    "id": "1686643551.648723",
+    "subtitle": "",
+    "curator": "Veronica Copparoni, Tatiana Giacobbo",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dbo: <http://dbpedia.org/ontology/>\r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX dbp: <http://dbpedia.org/property/>\r\n\r\n \r\n\r\nSELECT (COUNT(?list) AS ?count)\r\nWHERE\r\n{\r\n?list a owl:Thing .\r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n}",
+            "count_label": "Number of albums by women that sold more than 10mln",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Women best selling ",
+            "table_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\n\r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\n\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\n\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\n\r\nSELECT DISTINCT ?name ?something\r\n\r\nWHERE { \r\n\r\n?list a owl:Thing . \r\n\r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n\r\n?person a dbo:Animal ; a dbo:Person .\r\n\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n\r\n?person dbp:name ?name .  \r\n\r\n?person dbo:thumbnail ?something .\r\n\r\n\r\n \r\n\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
