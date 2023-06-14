@@ -1,23 +1,23 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Exploring culture in Spain",
+    "title": "Exploring Rock Bands in Spain",
     "color_code": [
-        "#39c6b4",
-        "#17cf31"
+        "#e7d036",
+        "#d7040f"
     ],
     "user_name": "Serena2796",
     "id": "1686331429.988095",
-    "subtitle": "",
+    "subtitle": "Rocking Spain: Unveiling Rock Bands Concert Venues and the Captivating Sound of La Oreja De Van Gogh. \r\n",
     "curator": "Serena Sciortino, Gilda Gitto, Vito Antonio Miccoli",
-    "description": "",
+    "description": "Get ready to dive into the world of rock music in Spain! Discover the numerous bands that exist, each with their own unique sound. Explore the names of the main rock groups that have made a mark in Spain. Check out the exciting map of music venues where rock concerts take place across the country. And don't miss La Oreja de Van Gogh, a popular band known for their heartfelt melodies, who blend pop-rock, alternative rock, and indie pop genres. Get ready to rock to the rhythm of Spanish music and experience the dynamic energy of the Spanish rock scene!",
     "dynamic_elements": [
         {
             "position": 0,
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q29 . # from spain\r\n}\r\n",
-            "count_label": "Music bands in Spain",
+            "count_label": "Music Bands in Spain",
             "extra_queries": [],
             "map_filters": []
         },
@@ -26,46 +26,40 @@
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q29 . # from Spain\r\n}\r\n",
-            "count_label": "Rock bands in Spain",
+            "count_label": "Rock Bands in Spain",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 2,
             "operations": [],
-            "type": "chart",
-            "chart_type": "linechart",
-            "chart_title": "Starting  activity ",
-            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label) (COUNT(?label) AS ?count) WHERE { ?band ?a wd:Q5741069 . # rock band\r\n                                                                                       ?band wdt:P495 wd:Q29 . # from Spain\r\n                                                                                       ?band wdt:P2031 ?date . # formation year SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n                                                                                       ?band rdfs:label ?label. } \r\nGROUP BY ?count ?date ORDER BY ?label LIMIT 20\r\n",
-            "chart_series": "",
-            "chart_legend": {
-                "x": "Formation year",
-                "y": "Number of bands"
-            },
+            "type": "map",
+            "map_title": "Music Venues in Spain",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q8719053; wdt:P17 wd:Q29;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 3,
             "operations": [],
-            "type": "chart",
-            "chart_type": "barchart",
-            "chart_title": "Number of members for each group",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE { ?band ?a wd:Q5741069 . # rock band \r\n       ?band wdt:P495 wd:Q29 . # from Spain\r\n       ?band wdt:P527 ?item . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } \r\nGROUP BY ?label \r\nORDER BY DESC(?count) \r\nLIMIT 10\r\n",
-            "chart_series": "",
-            "chart_legend": {
-                "x": "Group name",
-                "y": "Members"
-            },
+            "type": "table",
+            "table_title": "Electric Guitar Components ",
+            "table_query": "SELECT DISTINCT ?components ?componentsLabel ?image \r\nWHERE { wd:Q78987 wdt:P527 ?components . \r\n       OPTIONAL { ?components wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 4,
             "operations": [],
-            "type": "map",
-            "map_title": "Stadiums in Spain",
-            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q483110; wdt:P17 wd:Q29;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Rock Bands: Starting Activity",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label) (COUNT(?label) AS ?count) WHERE { ?band ?a wd:Q5741069 . # rock band\r\n                                                                                       ?band wdt:P495 wd:Q29 . # from Spain\r\n                                                                                       ?band wdt:P2031 ?date . # formation year SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n                                                                                       ?band rdfs:label ?label. } \r\nGROUP BY ?count ?date ORDER BY ?label LIMIT 20\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Formation Year",
+                "y": "Number of Bands"
+            },
             "extra_queries": [],
             "map_filters": []
         },
@@ -73,22 +67,42 @@
             "position": 5,
             "operations": [],
             "type": "table",
-            "table_title": "Theatres in Spain",
-            "table_query": "SELECT DISTINCT ?theatre ?theatreLabel ?image \r\nWHERE { ?theatre wdt:P31 wd:Q24354; # istanza di teatro \r\n                 wdt:P17 wd:Q29. # si trova in Spagna\r\n       OPTIONAL { ?theatre wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } } \r\nLIMIT 10 \r\nOFFSET 10\r\n",
+            "table_title": "Rock Bands: Pictures",
+            "table_query": "SELECT DISTINCT ?band ?bandLabel ?image \r\nWHERE { ?band wdt:P31 wd:Q5741069; # Instance of: rock band \r\n              wdt:P495 wd:Q29. # Country of origin: Spain \r\n              OPTIONAL { ?band wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } } \r\nLIMIT 10 \r\nOFFSET 10\r\n\r\n\r\n\r\n",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 6,
-            "operations": [
-                {
-                    "action": "count",
-                    "param": "label"
-                }
-            ],
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Rock Bands: Number of Members for Each Group",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE { ?band ?a wd:Q5741069 . # rock band \r\n       ?band wdt:P495 wd:Q29 . # from Spain\r\n       ?band wdt:P527 ?item . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } \r\nGROUP BY ?label \r\nORDER BY DESC(?count) \r\nLIMIT 10\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Group Names",
+                "y": "Number of Members"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "La Oreja De Van Gogh: Search Their Members, Birth Date and Place",
+            "textsearch_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel \r\nWHERE { wd:Q499971 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P19 ?BirthPlace.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
-            "chart_title": "La Oreja de Van Gogh's genres ",
+            "chart_title": "La Oreja De Van Gogh Genres ",
             "chart_query": "SELECT (?genreLabel as ?label) WHERE { wd:Q499971 wdt:P136 ?genre. ?genre rdfs:label ?genreLabel. FILTER (lang(?genreLabel) = \"en\"). }",
             "chart_series": "",
             "chart_legend": {
