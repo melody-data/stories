@@ -26,7 +26,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Best-selling women in music",
-            "table_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?name ?data ?datam ?data1\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?name .\r\n?person dbo:birthDate ?data .\r\nOPTIONAL { \r\n?person dbo:deathDate ?datam .  }\r\n?person dbo:activeYearsStartYear ?data1 .\r\n }\r\nORDER BY ?data1",
+            "table_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbr: <http://dbpedia.org/resource/> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX dbp: <http://dbpedia.org/property/> PREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/> \r\n\r\nSELECT DISTINCT ?name ?picture ?data ?datam ?data1\r\nWHERE { ?list a owl:Thing ; ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person . dbr:List_of_best-selling_albums_by_women ?boh ?person . \r\n?person dbp:name ?name .\r\n?person dbo:birthDate ?data .\r\nOPTIONAL { \r\n?person dbo:deathDate ?datam .  }\r\n?person dbo:activeYearsStartYear ?data1 .\r\n ?person dbo:thumbnail ?pic BIND (REPLACE(str(?pic), \"(\\\\?width=300)\", \"\",\"i\") AS ?picture) } \r\nORDER BY ?data1\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -73,14 +73,9 @@
             "position": 5,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "madonna",
+            "textsearch_userinput": "",
             "textsearch_title": "Women",
-            "textsearch_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?Name ?datam ?data1 ?wiki\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?Name .\r\n?person dbo:birthDate ?BirthDate .\r\nOPTIONAL { \r\n?person dbo:deathDate ?datam .  }\r\n?person dbo:activeYearsStartYear ?data1 .\r\nFILTER regex(str(?Name), <<searchterm>>, 'i') \r\nOPTIONAL { \r\n?person foaf:homepage ?sito . }\r\n?wiki  foaf:primaryTopic ?person\r\n }",
-            "textsearch": {
-                "Name": [
-                    "wiki"
-                ]
-            },
+            "textsearch_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?Name ?datam ?data1\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?Name .\r\n?person dbo:birthDate ?BirthDate .\r\nOPTIONAL { \r\n?person dbo:deathDate ?datam .  }\r\n?person dbo:activeYearsStartYear ?data1 .\r\nFILTER regex(str(?Name), <<searchterm>>, 'i') \r\nOPTIONAL { \r\n?person foaf:homepage ?sito . }\r\n?wiki  foaf:primaryTopic ?person\r\n }",
             "extra_queries": [],
             "map_filters": []
         },
@@ -88,8 +83,8 @@
             "position": 6,
             "operations": [],
             "type": "action",
-            "action_title": "wiki",
-            "action_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?Name ?BirthDate ?datam ?data1 \r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?Name .\r\n?person dbo:birthDate ?BirthDate .\r\nOPTIONAL { \r\n?person dbo:deathDate ?datam .  }\r\n?person dbo:activeYearsStartYear ?data1 .\r\nFILTER regex(str(?Name), <<searchterm>>, 'i') \r\nOPTIONAL { \r\n?person foaf:homepage ?sito . }\r\nOPTIONAL { \r\n?wiki foaf:primaryTopic ?person  } \r\nFILTER regex(str(?wiki), <<item>>, 'i') \r\n\r\n }",
+            "action_title": "BirthDate ",
+            "action_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT  ?BirthDate\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?Name .\r\n?person dbo:birthDate <<item>> .\r\nOPTIONAL { \r\n?person dbo:deathDate ?datam .  }\r\n?person dbo:activeYearsStartYear ?data1 . \r\nOPTIONAL { \r\n?person foaf:homepage ?sito . }\r\n?wiki foaf:primaryTopic ?person .\r\n}\r\nFILTER regex(str(?BirthDate), <<item>> , 'i') ",
             "extra_queries": [],
             "map_filters": []
         }
