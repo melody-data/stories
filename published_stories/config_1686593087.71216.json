@@ -46,10 +46,10 @@
             "chart_type": "barchart",
             "chart_title": "Top 10 most cited cities in MusicBo",
             "chart_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>   \r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\n \r\nSELECT DISTINCT ?label (COUNT(distinct ?s) as ?count)\r\nWHERE \r\n{?s rdf:type amr:City ; \r\namr:name ?label  .\r\n}\r\n \r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
-            "chart_series": "",
+            "chart_series": "Occurrences",
             "chart_legend": {
                 "x": "Cities",
-                "y": "Number of mentions"
+                "y": "Frequency"
             },
             "extra_queries": [],
             "map_filters": []
@@ -72,6 +72,14 @@
         {
             "position": 5,
             "operations": [],
+            "type": "text",
+            "text": "<p>ciao</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
             "type": "table",
             "table_title": "Gioacchino Rossini: an overview",
             "table_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT DISTINCT (year(?birthDate) as ?birthYear) ?birthPlace (year(?deathDate) as ?deathYear)  ?deathPlace ?pic \r\nWHERE\r\n \r\n{\r\n \r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>\r\n \r\n{\r\n    \r\n    wd:Q9726 wdt:P18 ?pic .\r\n \r\n \r\nOPTIONAL { wd:Q9726 wdt:P569 ?birthDate . }\r\n \r\n    OPTIONAL { wd:Q9726 wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace }\r\n \r\nOPTIONAL { wd:Q9726 wdt:P570 ?deathDate . }\r\n    \r\n       OPTIONAL { wd:Q9726 wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace }\r\n\r\n  }\r\nFILTER langMatches(lang(?birthPlace), 'en')\r\n  FILTER langMatches(lang(?deathPlace), 'en')\r\n}\r\n\r\nLIMIT 1\r\nOFFSET 4",
@@ -79,7 +87,7 @@
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 7,
             "operations": [],
             "type": "table",
             "table_title": "Rossini's notable works",
