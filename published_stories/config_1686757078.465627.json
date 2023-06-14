@@ -1,0 +1,25 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "New Story to Modify",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1686757078.465627",
+    "subtitle": "",
+    "curator": "",
+    "description": "The introduction.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "table",
+            "table_title": "Cats",
+            "table_query": "SELECT ?item ?itemLabel \r\nWHERE \r\n{\r\n  ?item wdt:P31 wd:Q146.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
