@@ -33,6 +33,14 @@
         {
             "position": 2,
             "operations": [],
+            "type": "text",
+            "text": "<p>Our initial purpose was to focus on the number of people and cities mentioned in the MusicBo corpus. This information could be retrieved only by exploring the knowledge graph.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
             "type": "map",
             "map_title": "Location of the cities mentioned in MusicBo ",
             "map_points_query": "\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n\r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\r\n\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n\r\nPREFIX dbpedia: <http://dbpedia.org/resource/>\r\n\r\nPREFIX sc: <http://purl.org/science/owl/sciencecommons/>\r\n\r\nPREFIX schema: <http://schema.org/>\r\n\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\n\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\n\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\n\r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\n\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\nSELECT DISTINCT ?point ?label ?frameInstance ?lat ?long\r\n\r\nWHERE { \r\n\r\n\r\n\r\n  ?cityUri rdf:type amr:City ; \r\n\r\n    owl:sameAs ?point ; \r\n\r\n    amr:name ?label .\r\n\r\n\r\n  FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))\r\n\r\n\r\n  ?frameInstance ?p ?cityUri ; \r\n\r\n    rdf:type ?frame . \r\n\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n\r\n  { ?point wdt:P31/wdt:P279* wd:Q515 . \r\n\r\n    ?point p:P625 ?coords_stmt . \r\n\r\n    ?coords_stmt ps:P625 ?coords;\r\n\r\n      psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] . \r\n\r\n  }\r\n\r\n\r\n  }\r\n\r\n",
@@ -40,7 +48,15 @@
             "map_filters": []
         },
         {
-            "position": 3,
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p>To deepen our quantitative study, we decided to discover which cities were specifically mentioned. The map below enables to visualize the results, which show that most cities (1042) are located in Italy.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
             "operations": [],
             "type": "chart",
             "chart_type": "barchart",
@@ -55,7 +71,15 @@
             "map_filters": []
         },
         {
-            "position": 4,
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>To further develop our research, we created a list of the most mentioned cities in the corpus. The results are shown in the bar chart below, which ranks each city based on their occurrences.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -70,15 +94,15 @@
             "map_filters": []
         },
         {
-            "position": 5,
+            "position": 8,
             "operations": [],
             "type": "text",
-            "text": "<p>ciao</p>",
+            "text": "<p>The same ranking approach was applied to counting people in the knowledge graph by means of a different visual representation, which is the doughnut chart.</p>",
             "extra_queries": [],
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 9,
             "operations": [],
             "type": "table",
             "table_title": "Gioacchino Rossini: an overview",
@@ -87,11 +111,29 @@
             "map_filters": []
         },
         {
-            "position": 7,
+            "position": 10,
             "operations": [],
             "type": "table",
             "table_title": "Rossini's notable works",
             "table_query": "PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT DISTINCT ?WorkOfArt (YEAR(?publicationDate) as ?year)\r\nWHERE {\r\n?rossini a <http://www.ontologydesignpatterns.org/ont/amr/Person> ;\r\n    owl:sameAs ?wikidata ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?Author .\r\nFILTER regex (?Author, \"Rossini\", \"i\")\r\n    FILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\n    SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  \r\n  {?wikidata wdt:P800 ?work . #P800 notable work\r\n    ?work rdfs:label ?WorkOfArt.\r\n    ?work wdt:P577 ?publicationDate .  #P577 publication date\r\n    FILTER langMatches(lang(?WorkOfArt),\"en\")}\r\n\r\n    \r\n  }\r\nORDER BY ASC (?year)\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "text",
+            "text": "<p>As in the previous function the results show Gioacchino Rossini as the most cited person, we decided to explore some aspects of his life. In order to do so, the Wikidata and Dbpedia knowledge graphs have proved to be very effective at retrieving extra information which was not available in the Polifonia knowledge graph.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Other people in MusicBo  ",
+            "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nPREFIX bds: <http://www.bigdata.com/rdf/search#>\r\n\r\n \r\n\r\nSELECT DISTINCT  ?musician ?musicianLabel (year(?birthDate) as ?birthYear) (year(?deathDate) as ?deathYear) ?Image\r\n\r\n \r\n\r\nWHERE {\r\n  ?musician owl:sameAs ?wiki .\r\n  ?musician <http://www.ontologydesignpatterns.org/ont/amr/name> ?musicianLabel .\r\n  filter contains(?musicianLabel, <<searchterm>>).\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n        OPTIONAL {?wiki wdt:P569 ?birthDate ; wdt:P570 ?deathDate .}\r\n        OPTIONAL { ?wiki wdt:P18 ?Image . FILTER regex(str(?Image), \"jpg\") }\r\n        SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n       }\r\n}\r\nLIMIT 1\r\n",
             "extra_queries": [],
             "map_filters": []
         }
