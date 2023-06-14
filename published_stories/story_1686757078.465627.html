@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
   <script type="text/javascript">
-    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "The introduction.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "table_query": "SELECT ?item ?itemLabel \r\nWHERE \r\n{\r\n  ?item wdt:P31 wd:Q146.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}", "table_title": "Cats", "type": "table"}], "id": "1686757078.465627", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "New Story to Modify", "user_name": "cesenacomics"};
+    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "The introduction.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "table_query": "SELECT ?item ?itemLabel ?pic\r\nWHERE\r\n{\r\n?item wdt:P31 wd:Q146 .\r\n?item wdt:P18 ?pic\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" }\r\n} LIMIT 10", "table_title": "Cats", "type": "table"}], "id": "1686757078.465627", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "New Story to Modify", "user_name": "cesenacomics"};
   </script>
 
 
@@ -634,7 +634,7 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;New Story to Modify&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;cesenacomics&#39;, &#39;id&#39;: &#39;1686757078.465627&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;The introduction.&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Cats&#39;, &#39;table_query&#39;: &#39;SELECT ?item ?itemLabel \r\nWHERE \r\n{\r\n  ?item wdt:P31 wd:Q146.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;. }\r\n}&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;New Story to Modify&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;cesenacomics&#39;, &#39;id&#39;: &#39;1686757078.465627&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;The introduction.&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Cats&#39;, &#39;table_query&#39;: &#39;SELECT ?item ?itemLabel ?pic\r\nWHERE\r\n{\r\n?item wdt:P31 wd:Q146 .\r\n?item wdt:P18 ?pic\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34; }\r\n} LIMIT 10&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
           </div>
         </div>
         <div class="modal-footer">
