@@ -15,6 +15,15 @@
         {
             "position": 0,
             "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(*) AS ?count)\r\nWHERE {\r\n  ?item wdt:P31 wd:Q5 .\r\n}",
+            "count_label": "Number of humans in Wikidata",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
             "type": "table",
             "table_title": "Cats",
             "table_query": "SELECT ?item ?itemLabel ?pic\r\nWHERE\r\n{\r\n?item wdt:P31 wd:Q146 .\r\n?item wdt:P18 ?pic\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" }\r\n} LIMIT 10",
