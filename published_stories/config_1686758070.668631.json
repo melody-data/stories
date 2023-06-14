@@ -1,0 +1,45 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Orchestras in Italy",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "AlessiaValentini",
+    "id": "1686758070.668631",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?orchestra) AS ?count)\r\nWHERE {\r\n     ?orchestra ?a wd:Q42998 . # orchestra\r\n     ?orchestra wdt:P495 wd:Q38 . # from italy\r\n}\r\n",
+            "count_label": "Number of orchestras in Italy ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [
+                {
+                    "action": "count",
+                    "param": "label"
+                }
+            ],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Orchestra  Members",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?orchestra ?a wd:Q42998 . # orchestra\r\n     ?orchestra wdt:P495 wd:Q38 . # from italy\r\n     ?orchestra wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?orchestra rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
