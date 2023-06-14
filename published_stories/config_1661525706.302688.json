@@ -116,6 +116,14 @@
             },
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>This text is to check if the modify function works.</p>",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
