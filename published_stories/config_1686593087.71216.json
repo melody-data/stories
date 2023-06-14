@@ -115,7 +115,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Rossini's notable works",
-            "table_query": "PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT DISTINCT ?WorkOfArt (YEAR(?publicationDate) as ?year)\r\nWHERE {\r\n?rossini a <http://www.ontologydesignpatterns.org/ont/amr/Person> ;\r\n    owl:sameAs ?wikidata ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?Author .\r\nFILTER regex (?Author, \"Rossini\", \"i\")\r\n    FILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\n    SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  \r\n  {?wikidata wdt:P800 ?work . #P800 notable work\r\n    ?work rdfs:label ?WorkOfArt.\r\n    ?work wdt:P577 ?publicationDate .  #P577 publication date\r\n    FILTER langMatches(lang(?WorkOfArt),\"en\")}\r\n\r\n    \r\n  }\r\nORDER BY ASC (?year)\r\n",
+            "table_query": "PREFIX dbp:<http://dbpedia.org/property/>\r\nPREFIX dbr:<http://dbpedia.org/resource/>\r\nSELECT DISTINCT ?Works (YEAR(?time) as ?year)\r\nWHERE {\r\nSERVICE <https://dbpedia.org/sparql> {\r\n    ?s dbp:composer dbr:Gioachino_Rossini ; rdfs:label ?Works ; dbp:premiereDate ?time .\r\n    FILTER langMatches(lang(?Works),\"en\")\r\n  }\r\n }\r\nORDER BY ASC (?year)",
             "extra_queries": [],
             "map_filters": []
         },
