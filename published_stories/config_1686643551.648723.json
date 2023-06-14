@@ -45,11 +45,31 @@
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Awards wins",
-            "chart_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?label ?count\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?label .\r\n?person dbp:awards ?what .  \r\nFILTER (REGEX (?what, \"awards\", \"I\"))\r\n?what dbp:nominations ?nominations .\r\n?what dbp:wins ?count .\r\n}\r\nGROUP BY ?label\r\nORDER BY ?count",
+            "chart_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?label ?count\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?label .\r\n?person dbp:awards ?what .  \r\nFILTER (REGEX (?what, \"awards\", \"I\"))\r\n?what dbp:nominations ?nominations .\r\n?what dbp:wins ?count .\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC ( ?count)",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
                 "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [
+                {
+                    "action": "count",
+                    "param": "label"
+                }
+            ],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Number of nominations received ",
+            "chart_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?label ?count\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?label .\r\n?person dbp:awards ?what .  \r\nFILTER (REGEX (?what, \"awards\", \"I\"))\r\n?what dbp:nominations ?count .\r\n?what dbp:wins ?eins .\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC (?count)",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Artists",
+                "y": "Nominations"
             },
             "extra_queries": [],
             "map_filters": []
