@@ -1,0 +1,45 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Another story to modify",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1686758241.527783",
+    "subtitle": "",
+    "curator": "",
+    "description": "I want to check if it is ok to modify before publishing.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "table",
+            "table_title": "Humans who died on August 25 2001 according to the English Wikipedia",
+            "table_query": "SELECT ?item ?articlename ?itemLabel ?itemDescription ?sl\r\nWHERE {\r\n   VALUES ?dod {\"+2001-08-25\"^^xsd:dateTime}\r\n    ?dod ^wdt:P570 ?item .\r\n    ?item wikibase:sitelinks ?sl .\r\n    ?item ^schema:about ?article .\r\n    ?article schema:isPartOf <https://en.wikipedia.org/>;\r\n    schema:name ?articlename .\r\n  SERVICE wikibase:label\r\n    {\r\n      bd:serviceParam wikibase:language \"en\" .\r\n      ?item rdfs:label ?itemLabel .\r\n      ?item schema:description ?itemDescription .\r\n    }\r\n  BIND(REPLACE(?itemLabel, \"^.*(?<! [Vv][ao]n| [Dd][aeiu]| [Dd][e][lns]| [Ll][ae]) (?!([SJ]r\\\\.?|[XVI]+)$)\", \"\") AS ?sortname)  \r\n} ORDER BY ASC(UCASE(?sortname)) ASC(UCASE(?itemLabel))",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [
+                {
+                    "action": "count",
+                    "param": "label"
+                }
+            ],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Recent events",
+            "chart_query": "#Eventi recenti\r\n#title: Recent events\r\nSELECT ?label\r\nWITH {\r\n  SELECT DISTINCT ?event ?label\r\n  WHERE {\r\n    # find events\r\n    ?event wdt:P31/wdt:P279* wd:Q1190554.\r\n    # with a point in time or start date\r\n    OPTIONAL { ?event wdt:P585 ?label. }\r\n    OPTIONAL { ?event wdt:P580 ?label. }\r\n    # but at least one of those\r\n    FILTER(BOUND(?label) && DATATYPE(?label) = xsd:dateTime).\r\n    # not in the future, and not more than 31 days ago\r\n    BIND(NOW() - ?label AS ?distance).\r\n    FILTER(0 <= ?distance && ?distance < 31).\r\n  }\r\n  LIMIT 150\r\n} AS %i\r\nWHERE {\r\n  INCLUDE %i\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" . }\r\n}",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
