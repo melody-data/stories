@@ -74,7 +74,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Guns N' Roses: Members, Birth Date and Occupation",
-            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?occupation ?occupationLabel \r\nWHERE { wd:Q11895 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\nOPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPl \r\nOPTIONAL {?Member wdt:P1303 ?occupation.} \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth)   ?occupation ?occupationLabel \r\nWHERE { wd:Q11895 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n             OPTIONAL {?Member wdt:P1303 ?occupation.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } LIMIT 10\r\n",
             "extra_queries": [],
             "map_filters": []
         },
