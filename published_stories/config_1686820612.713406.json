@@ -1,0 +1,132 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Beethoven: an overview",
+    "color_code": [
+        "#b539c6",
+        "#1a17cf"
+    ],
+    "user_name": "emmapir",
+    "id": "1686820612.713406",
+    "subtitle": "An overview on the composer's life and main work achievements",
+    "curator": "Emma Piraccini, Lisa Venturelli",
+    "description": "The following story will explore the most significant points and events in Beethoven\u2019s personal and professional life. In particular, it will focus on the cities he lived and worked in, the medical conditions that contributed to shaping his musical genius, his multifaceted field of work, the composers he was influenced by and his most notable works over the years. Lastly, we will present some of the ways in which he is still present in today\u2019s culture through movies and TV products.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "table",
+            "table_title": "Beethoven's painting by Joseph Karl Stieler",
+            "table_query": "SELECT DISTINCT ?image \r\nWHERE {\r\nwd:Q255 wdt:P18 ?image .\r\n}\r\nOFFSET 1\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "<p><strong>Ludwig van Beethoven was born in December 1770 in Bonn (Germany). </strong></p><p><strong>He came from a humble family with a strong musical background where his father recognised his talent right away and wanted to turn him into the \"next Mozart\". At a very early age he started receiving piano and violin lessons until he became a talented composer, pianist and conductor. During his life he suffered a series of illnesses, including the onset of deafness at 28 which worsened throughout his life until he became completely deaf. Despite this debilitating health condition, he composed 722 works, of which 9 symphonies, 35 piano sonatas and 16 string quartets. He died in Vienna on the 26th of March 1827 and his last words are believed to be \"I will be able to hear in heaven!\". He is one of the greatest classical composers in Western history and his myth still has an influence on today's cultural landscape. </strong></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Beethoven was born in Bonn, he worked mostly in Vienna and its surrounding area and moved back to Bonn for a brief period to attend to his sick mother.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "map",
+            "map_title": "Cities where Beethoven lived and worked",
+            "map_points_query": "SELECT DISTINCT ?countryLabel ?lat ?long\r\nWHERE {\r\nwd:Q255 wdt:P937 ?country . #worklocation\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  }\r\nLIMIT 500",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p>During his life, Beethoven suffered a series of illnesses, some proven and other alleged. Nevertheless, they had a huge impact on his life and work, and they contributed to the myth of his feisty personality and musical genius.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "His medical conditions",
+            "table_query": "SELECT DISTINCT ?medicalcondition ?medicalconditionLabel\r\nWHERE {\r\nwd:Q255 wdt:P1050 ?medicalcondition .\r\n?medicalcondition rdfs:label ?medicalconditionLabel .\r\nFILTER(LANG(?medicalconditionLabel)=\"en\"). \r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Beethoven's field of work as a composer",
+            "chart_query": "SELECT DISTINCT ?label \r\nWHERE {\r\n     wd:Q255 wdt:P101 ?fieldofwork .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?fieldofwork rdfs:label         ?label.\r\n      }\r\n}\r\nGROUP BY ?label \r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "Artists he was influenced by",
+            "table_query": "SELECT DISTINCT ?composers ?composersLabel ?image\r\nWHERE {\r\nwd:Q255 wdt:P737 ?composers. #influencedby\r\n?composers rdfs:label ?composersLabel.\r\n?composers wdt:P18 ?image.\r\nFILTER(LANG(?composersLabel)=\"en\"). \r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "count",
+            "count_query": "\r\nSELECT (COUNT(?nw) AS ?count)\r\nWHERE {\r\n      wd:Q255 wdt:P800 ?nw .\r\n\r\n}",
+            "count_label": "Beethoven's most notable works",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "His most famous works with pictures, ordered by date",
+            "table_query": "SELECT DISTINCT  ?works ?worksLabel ?date ?image WHERE { wd:Q255 wdt:P800 ?works . ?works rdfs:label ?worksLabel .   ?works wdt:P577 ?date .         ?works wdt:P18 ?image . FILTER(LANG(?worksLabel)=\"en\").  } ORDER by ASC(?date)",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Beethoven's resonance goes beyond his music and his time. He has become part of the Western cultural heritage and his myth has inspired many other works of art, even in recent times.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "His influence on contemporary culture based on movies and tv series with Beethoven as a character",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count) \r\nWHERE {\r\n{?film ?a wd:Q11424} \r\n  UNION\r\n  {?film ?a wd:Q17013749}\r\n  UNION\r\n  {?film ?a wd:Q93204}\r\n  UNION\r\n  {?film ?a wd:Q842256}\r\n  UNION\r\n  {?film ?a wd:Q24862}\r\n  UNION\r\n  {?film ?a wd:Q1054574}\r\n  UNION\r\n  {?film ?a wd:Q202866}\r\n  UNION\r\n  {?film ?a wd:Q130232}\r\n?film wdt:P674 wd:Q255 . \r\n  ?film rdfs:label ?filmLabel .\r\n  ?film wdt:P577 ?date\r\n  FILTER(LANG(?filmLabel)=\"en\") .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?date rdfs:label ?label. }\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY ?label",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
