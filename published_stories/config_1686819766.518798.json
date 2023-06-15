@@ -1,0 +1,175 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring the life and works of Johann Sebastian Bach ",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "Lorenzopetrucci",
+    "id": "1686819766.518798",
+    "subtitle": "An overview on the18th century classical composer and his impact on contemporary cultural heritage",
+    "curator": "Lorenzo Petrucci",
+    "description": "The following data story explores the life and works of Johann Sebastian Bach with particular attention to his resonance in contemporary European culture and identity. We indeed believe that, apart from being just cultural products, cultural works (of whatever kind and of whatever genre) contribute to creating an idea of belonging and to shaping a common shared identity, a European one in our case. In the music field, Johann Sebastian Bach was one of those who mostly influenced the creation of a European cultural heritage.  \r\nThis story will be divided into two major parts: in the former we will present some bibliographical data on the composer in order to have a clear presentation on who he was, where he was born, what works he worked on and who he was influenced by; the latter, on the other hand, will deal more with the contemporary resonance that his works had - and still have - in our culture. We will indeed have a look at all those cultural products (concerts, books, films) which still echo Johann Sebastian Bach in contemporary culture. \r\n\r\n",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "map",
+            "map_title": "Bach's place of birth",
+            "map_points_query": "SELECT DISTINCT ?countryLabel ?lat ?long\r\nWHERE {\r\nwd:Q1339 wdt:P19 ?country . #worklocation\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } } \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Johann Sebastian Bach's family ",
+            "table_query": "SELECT DISTINCT ?father ?fatherLabel ?mother ?motherLabel \r\nWHERE {\r\nwd:Q1339 wdt:P22 ?father. \r\n  ?father rdfs:label ?fatherLabel.\r\n  wd:Q1339 wdt:P25 ?mother .\r\n  ?mother rdfs:label ?motherLabel .\r\nFILTER(LANG(?fatherLabel)=\"en\"). \r\nFILTER (Lang(?motherLabel) =\"en\"). \r\n}\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p class=\"ql-align-justify\"><span style=\"color: white;\">Bach and his wives (he had two) had a huge family: together they had 20 children, as it can be seen in the counter. Moreover, he travelled little and mainly in Germany and he did not go abroad.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "map",
+            "map_title": "Places Bach visited ",
+            "map_points_query": "SELECT DISTINCT ?countryLabel ?lat ?long\r\nWHERE {\r\nwd:Q1339 wdt:P108 ?country . \r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Bach's children",
+            "table_query": "SELECT DISTINCT ?child ?childLabel\r\nWHERE {\r\nwd:Q1339 wdt:P40 ?child. \r\n  ?child rdfs:label ?childLabel. \r\nFILTER (Lang(?childLabel) =\"en\"). \r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "Bach's wives",
+            "table_query": "SELECT DISTINCT ?wife ?wifeLabel \r\nWHERE {\r\nwd:Q1339 wdt:P26 ?wife. \r\n  ?wife rdfs:label ?wifeLabel.\r\nFILTER(LANG(?wifeLabel)=\"en\"). \r\n}\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: white;\">In his early life, Bach immediately entered in contact with music since his father already played an instrument and it was probably him who encouraged him to study music. As a matter of fact, in his childhood and as a young man he learnt to play many instruments, as it can be seen below. In his life he was a music teacher, a musicologist, a harpsichordist, a violinist, a choir director, an organist, a concertmaster, a virtuoso and obviously a composer.&nbsp;&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "Instruments played by Bach",
+            "table_query": "SELECT ?instrumentLabel ?instrument\r\nWHERE {\r\n  wd:Q1339 wdt:P1303 ?instrument.\r\n  ?instrument rdfs:label ?instrumentLabel.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n  FILTER(LANG(?instrumentLabel)=\"en\"). \r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: white;\">Since a young age, Bach started his career as a composer. In his life he composed 25 notable works and 4 famous lists of works.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?notableworks) AS ?count)\r\nWHERE {\r\n     wd:Q1339 wdt:P800 ?notableworks.\r\n}",
+            "count_label": "Notable works composed by Bach",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "table",
+            "table_title": "Notable works made by Bach",
+            "table_query": "SELECT ?notablework ?image ?notableworkLabel\r\nWHERE {\r\n   wd:Q1339 wdt:P800 ?notablework.\r\n   ?notablework wdt:P18 ?image. \r\n  ?notablework rdfs:label ?notableworkLabel\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n  FILTER(LANG(?notableworkLabel)=\"en\").\r\n}\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: white;\">Furthermore, in his life Bach was influenced by other major European authors and composers, suggesting a European spirit and possibly a European cultural identity in progress of formation.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Authors who influenced Bach's work and music",
+            "chart_query": "SELECT DISTINCT ?label \r\nWHERE {\r\n     wd:Q1339 wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\nGROUP BY ?label ",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: white;\">Finally, as for his contemporary resonance, we can argue that concerts with Bach\u2019s music are still played and his music is still very much appreciated by contemporary audiences, sometimes without even knowing it (for instance, Piero Angela\u2019s soundtrack of Superquark was Bach\u2019s). Moreover, in the table below we can for example see how his figure is still very much present in present filmography and cinema.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Bach and films ",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count) \r\nWHERE {\r\n{?film ?a wd:Q11424} \r\n  UNION\r\n  {?film ?a wd:Q17013749}\r\n  UNION\r\n  {?film ?a wd:Q93204}\r\n  UNION\r\n  {?film ?a wd:Q842256}\r\n  UNION\r\n  {?film ?a wd:Q24862}\r\n  UNION\r\n  {?film ?a wd:Q1054574}\r\n  UNION\r\n  {?film ?a wd:Q202866}\r\n  UNION\r\n  {?film ?a wd:Q130232}\r\n?film wdt:P674 wd:Q1339 . \r\n  ?film rdfs:label ?filmLabel .\r\n  ?film wdt:P577 ?date\r\n  FILTER(LANG(?filmLabel)=\"en\") .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?date rdfs:label ?label. }\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY ?label",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "dates",
+                "y": "count of movies"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "table",
+            "table_title": "Films",
+            "table_query": "SELECT ?works ?worksLabel ?image ?genre ?genreLabel ?date\r\nWHERE {\r\n?works wdt:P86 wd:Q1339 . \r\n  ?works rdfs:label ?worksLabel .\r\n  ?works wdt:P18 ?image .\r\n  ?works wdt:P136 ?genre .\r\n  ?genre rdfs:label ?genreLabel .\r\n  ?works wdt:P577 ?date       \r\n  FILTER(LANG(?worksLabel)=\"en\").\r\n  FILTER(LANG(?genreLabel)=\"en\").\r\n}\r\nORDER BY ASC(?date)",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "text",
+            "text": "<p class=\"ql-align-justify\"><span style=\"color: white;\">To conclude, Johann Sebastian Bach was undoubtedly one of the most decisive composers in 18</span><sup style=\"color: white;\">th</sup><span style=\"color: white;\"> century Europe and he deeply contributed in the formation of a European cultural and musical identity along with Mozart and Beethoven. This story has also demonstrated how his music still speaks volumes to contemporary audiences and had incredible resonance in both the 20</span><sup style=\"color: white;\">th</sup><span style=\"color: white;\"> century as well. We can therefore affirm that this is indicative of his fortune but at the same it shows how he is linked to a European common taste and, as a consequence, also a European sense of belonging.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
