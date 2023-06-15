@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://dbpedia.org/sparql",
     "template_mode": "statistics",
-    "title": "Best female artists",
+    "title": "Best female music artists",
     "color_code": [
         "#e392fe",
         "#371a94"
@@ -15,15 +15,6 @@
         {
             "position": 0,
             "operations": [],
-            "type": "table",
-            "table_title": "Best-selling women in music",
-            "table_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\n \r\n\r\n\r\nSELECT DISTINCT  ?name ?picture ?birth_date ?place_of_birth ?years_active ?death_date \r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?name .\r\n?person dbo:birthDate ?birth_date .\r\nOPTIONAL { \r\n?person dbo:deathDate ?death_date .  }\r\n?person dbo:activeYearsStartYear ?years_active .\r\n?person dbp:birthPlace ?place_of_birth . \r\n?person dbp:name ?name \r\nMINUS { ?person dbp:name \"Whitney Houston\"@en } \r\n?person dbo:thumbnail ?pic .\r\nOPTIONAL {  ?person foaf:homepage ?sito . }\r\n?wikipage  foaf:primaryTopic ?person\r\n\r\n\r\nBIND (REPLACE(str(?pic), \"(\\\\?width=300)\", \"\",\"i\") AS ?picture)} \r\nORDER BY ?years_active ",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 1,
-            "operations": [],
             "type": "count",
             "count_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dbo: <http://dbpedia.org/ontology/>\r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX dbp: <http://dbpedia.org/property/>\r\n\r\n \r\n\r\nSELECT (COUNT(?list) AS ?count)\r\nWHERE\r\n{\r\n?list a owl:Thing .\r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n}",
             "count_label": "Number of albums by women that sold more than 10mln",
@@ -31,16 +22,32 @@
             "map_filters": []
         },
         {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(0, 0, 0);\">This is the number of famous albums that sold at least 10 million copies worldwide. In the music scene, this surely represents a measure of success and recognition for every artist.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
             "position": 2,
             "operations": [],
-            "type": "map",
-            "map_title": "Where were they born?",
-            "map_points_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\n \r\n\r\nSELECT DISTINCT ?name ?point ?lat ?long\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?name .\r\n?person dbo:birthPlace ?luogo .\r\n?luogo georss:point ?point ; geo:lat ?lat ; geo:long ?long . \r\n}\r\nGROUP BY ?luogo",
+            "type": "table",
+            "table_title": "Best-selling women in music",
+            "table_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\n \r\n\r\n\r\nSELECT DISTINCT  ?name ?picture ?birth_date ?place_of_birth ?years_active ?death_date \r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?name .\r\n?person dbo:birthDate ?birth_date .\r\nOPTIONAL { \r\n?person dbo:deathDate ?death_date .  }\r\n?person dbo:activeYearsStartYear ?years_active .\r\n?person dbp:birthPlace ?place_of_birth . \r\n?person dbp:name ?name \r\nMINUS { ?person dbp:name \"Whitney Houston\"@en } \r\n?person dbo:thumbnail ?pic .\r\nOPTIONAL {  ?person foaf:homepage ?sito . }\r\n?wikipage  foaf:primaryTopic ?person\r\n\r\n\r\nBIND (REPLACE(str(?pic), \"(\\\\?width=300)\", \"\",\"i\") AS ?picture)} \r\nORDER BY ?years_active ",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(0, 0, 0);\">With this doughnut chart we want to represent the number of awards honoring female performers and songwriters for their career and artistic achievements in the music business.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -55,7 +62,15 @@
             "map_filters": []
         },
         {
-            "position": 4,
+            "position": 5,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(0, 0, 0);\">Another significant recognition that female artists get for their artistic production is the nomination for awards and prizes. Similarly, the following bar chart explores the number of nominations that most popular female musicians received during their career.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
             "operations": [],
             "type": "chart",
             "chart_type": "barchart",
@@ -70,7 +85,16 @@
             "map_filters": []
         },
         {
-            "position": 5,
+            "position": 7,
+            "operations": [],
+            "type": "map",
+            "map_title": "Place of birth of the most influential female artists",
+            "map_points_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\n \r\n\r\nSELECT DISTINCT ?name ?point ?lat ?long\r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person dbp:name ?name .\r\n?person dbo:birthPlace ?luogo .\r\n?luogo georss:point ?point ; geo:lat ?lat ; geo:long ?long . \r\n}\r\nGROUP BY ?luogo",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
@@ -85,7 +109,7 @@
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 9,
             "operations": [],
             "type": "action",
             "action_title": "wikipage",
