@@ -121,7 +121,7 @@
             "position": 10,
             "operations": [],
             "type": "text",
-            "text": "<p>This text is to check if the modify function works.</p>",
+            "text": "This text is to check if the modify function works.",
             "extra_queries": [],
             "map_filters": []
         }
