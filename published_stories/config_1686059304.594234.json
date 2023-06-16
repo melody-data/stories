@@ -56,16 +56,35 @@
         },
         {
             "position": 4,
-            "operations": [
-                {
-                    "action": "count",
-                    "param": "label"
-                }
-            ],
+            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Rosalia's genres",
             "chart_query": "SELECT (?genreLabel as ?label) \r\nWHERE { wd:Q28843759 wdt:P136 ?genre. ?genre rdfs:label ?genreLabel. \r\n       FILTER (lang(?genreLabel) = \"en\"). }\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "Components",
+            "table_query": "SELECT DISTINCT ?components ?componentsLabel ?image \r\nWHERE { wd:Q128309 wdt:P527 ?components . \r\n                                                           OPTIONAL { ?components wdt:P18 ?image . } \r\n                                 SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 12\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "top 5",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?singer) as ?count) \r\nWHERE { ?rocksinger ?a wd:Q104218554 . # rock singer \r\n       ?rockisinger wdt:P495 wd:Q29 . # from USA \r\n       ?rocksinger wdt:P737 ?influencer . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?influencer rdfs:label ?label. } } \r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count) \r\nLIMIT 5\r\n",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
