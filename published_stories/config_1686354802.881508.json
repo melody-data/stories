@@ -164,8 +164,8 @@
             "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{\r\n  ?point wdt:P31 wd:Q24354. #theatre\r\n  ?point wdt:P131 ?villeId.\r\n  ?point p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n",
             "map_filters": [
                 {
-                    "map_filter_query": "SELECT DISTINCT ?point ?filter ?filterLabel WHERE { ?point wdt:P31 wd:Q24354; wdt:P17 wd:Q38 . ?point wdt:P131 ?filter. ?filter rdfs:label ?filterLabel . FILTER(LANG(?filterLabel) = '' || LANGMATCHES(LANG(?filterLabel), 'en')). }",
-                    "extra_id": "1686568233150_0",
+                    "map_filter_query": "FILTER\r\nSELECT DISTINCT ?point ?filter ?filterLabel\r\nWHERE {\r\n?point wdt:P31 wd:Q24354; wdt:P17 wd:Q38 .\r\n?point wdt:P131 ?filter. ?filter rdfs:label ?filterLabel .\r\nFILTER(LANG(?filterLabel) = '' || LANGMATCHES(LANG(?filterLabel), 'en')). }\r\n",
+                    "extra_id": "1686878536330_0",
                     "position": 0,
                     "map_filter_title": "Theatres in Italy"
                 }
