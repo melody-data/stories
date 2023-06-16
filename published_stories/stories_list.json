@@ -1,17 +1,292 @@
 [
     {
-        "user_name": "marilenadaquino",
-        "id": "1660835449.184966",
-        "title": "Relations between museums"
-    },
-    {
         "user_name": "cesenacomics",
         "id": "1661525706.302688",
         "title": "Discover Music Data on the Web"
     },
     {
+        "user_name": "sissilinked",
+        "id": "1684417214.061749",
+        "title": "Relations between music bands - An exploration"
+    },
+    {
+        "user_name": "ritagramellini",
+        "id": "1684502885.618603",
+        "title": "Melody Hans-on\u00a0Gramellini"
+    },
+    {
+        "user_name": "ariannamendrano",
+        "id": "1684506057.578226",
+        "title": "Melody Hands-on Mendrano"
+    },
+    {
+        "user_name": "JohnPat-N",
+        "id": "1684506332.44083",
+        "title": "Melody Hands-on Nulud"
+    },
+    {
+        "user_name": "giorgiatonelli",
+        "id": "1684506987.37579",
+        "title": "Melody Hans-on Tonelli"
+    },
+    {
+        "user_name": "gildagitto",
+        "id": "1684506990.199518",
+        "title": "Melody Hans-on + Gitto"
+    },
+    {
+        "user_name": "Bella2402",
+        "id": "1684507237.410787",
+        "title": "Melody Hans- On Porrovecchio"
+    },
+    {
+        "user_name": "natashabevilacqua",
+        "id": "1684507195.311225",
+        "title": "Melody Hands-on Bevilacqua"
+    },
+    {
+        "user_name": "AlessiaMazza",
+        "id": "1684507060.339315",
+        "title": "Melody Hands-on Alessia"
+    },
+    {
+        "user_name": "elenamaurizzi",
+        "id": "1684507379.156969",
+        "title": "Melody Hands-on Maurizzi"
+    },
+    {
+        "user_name": "giuliam2",
+        "id": "1684507029.200586",
+        "title": "Melody Hands-on Montesanto"
+    },
+    {
+        "user_name": "JoannaIacono",
+        "id": "1684507976.244301",
+        "title": "Melody Hans-on Iacono"
+    },
+    {
+        "user_name": "AlessiaValentini",
+        "id": "1684507201.524345",
+        "title": "Melody Hands-on Valentini"
+    },
+    {
+        "user_name": "emmapir",
+        "id": "1684507227.205867",
+        "title": "Melody Hands-on Piraccini"
+    },
+    {
+        "user_name": "Veronica-00",
+        "id": "1684507236.258959",
+        "title": "Melody Hans-on Fratti"
+    },
+    {
+        "user_name": "Elisa1304",
+        "id": "1684507116.437032",
+        "title": "Melody Hands-on Nicoli"
+    },
+    {
+        "user_name": "Elena875",
+        "id": "1684507147.119497",
+        "title": "Melody Hans-on Benelli"
+    },
+    {
+        "user_name": "AnnaMamyan",
+        "id": "1684507150.005608",
+        "title": " \u2018Melody Hans-on Mamyan\u2019"
+    },
+    {
+        "user_name": "Lada-unibo",
+        "id": "1684507168.063376",
+        "title": "Melody Hands-On Shchigoreva"
+    },
+    {
+        "user_name": "rafaelm16",
+        "id": "1684507174.351386",
+        "title": "Melody Hands-on Morna"
+    },
+    {
+        "user_name": "EleonoraPellegrini",
+        "id": "1684507177.899199",
+        "title": "Melody Hans-on Pellegrini"
+    },
+    {
+        "user_name": "ElisaMastro",
+        "id": "1684507180.215691",
+        "title": "Melody Hans-On Elisa"
+    },
+    {
+        "user_name": "VeronicaCopparoni",
+        "id": "1684507206.952735",
+        "title": "Melody Hands-on Copparoni"
+    },
+    {
+        "user_name": "DariaKanev",
+        "id": "1684507255.103448",
+        "title": "Melody Hans-on Kaneva"
+    },
+    {
+        "user_name": "Lorenzopetrucci",
+        "id": "1684507343.179255",
+        "title": "Melody Hans-on Petrucci"
+    },
+    {
+        "user_name": "verospena",
+        "id": "1684507497.760215",
+        "title": "Melody Hans-on Spena"
+    },
+    {
+        "user_name": "aurorapianelli",
+        "id": "1684507518.224097",
+        "title": "Melody Hands-on Pianelli"
+    },
+    {
+        "user_name": "natashabevilacqua",
+        "id": "1684513981.566084",
+        "title": "Melody Hands-on Bevilacqua 2"
+    },
+    {
+        "user_name": "RossellaVerolino",
+        "id": "1684525154.752879",
+        "title": "\u2018Melody Hans-on Verolino'"
+    },
+    {
+        "user_name": "verospena",
+        "id": "1684526136.484567",
+        "title": "Melody hans-on Spenav"
+    },
+    {
+        "user_name": "giorgiatonelli",
+        "id": "1685443123.499498",
+        "title": "prova umile"
+    },
+    {
+        "user_name": "Isabela-Serrano",
+        "id": "1685547249.584515",
+        "title": "Men and Women in Opera "
+    },
+    {
+        "user_name": "EleonoraPellegrini",
+        "id": "1685548733.710874",
+        "title": "Theatres in the UK "
+    },
+    {
+        "user_name": "Isabela-Serrano",
+        "id": "1685625109.872096",
+        "title": "Italian Rock Bands  "
+    },
+    {
+        "user_name": "Lada-unibo",
+        "id": "1685630421.646025",
+        "title": "Russian Rock Bands"
+    },
+    {
+        "user_name": "giuliam2",
+        "id": "1685638796.117557",
+        "title": "Exploring the Rock music genre"
+    },
+    {
+        "user_name": "EleonoraPellegrini",
+        "id": "1685701970.977932",
+        "title": "Theatres in the UK and classical music"
+    },
+    {
+        "user_name": "SofiaMangione",
+        "id": "1685710021.158254",
+        "title": "The History of the Guitar "
+    },
+    {
+        "user_name": "Ele-cerasella",
+        "id": "1685691815.368436",
+        "title": "Jazz musicians born in Bologna"
+    },
+    {
+        "user_name": "Alenkanaaa",
+        "id": "1685986086.309371",
+        "title": "The Beatles"
+    },
+    {
+        "user_name": "Serena2796",
+        "id": "1686059304.594234",
+        "title": "Exploring Music in Spain"
+    },
+    {
+        "user_name": "giorgiatonelli",
+        "id": "1686082936.815798",
+        "title": "pop in bolo"
+    },
+    {
+        "user_name": "anastasiiahulevych",
+        "id": "1686087468.008729",
+        "title": "Joy Division"
+    },
+    {
+        "user_name": "aurorapianelli",
+        "id": "1686209548.561217",
+        "title": "Wolfgang Amadeus Mozart "
+    },
+    {
+        "user_name": "Serena2796",
+        "id": "1686331429.988095",
+        "title": "Exploring culture in Spain"
+    },
+    {
+        "user_name": "giorgiatonelli",
+        "id": "1686354802.881508",
+        "title": "pop in bologna"
+    },
+    {
+        "user_name": "Lorenzopetrucci",
+        "id": "1686560583.655908",
+        "title": "Johann Sebastian Bach - An overview"
+    },
+    {
+        "user_name": "Serena2796",
+        "id": "1686588464.951175",
+        "title": "Exploring Rock Bands in the USA"
+    },
+    {
+        "user_name": "ritagramellini",
+        "id": "1686593087.71216",
+        "title": "People and cities in MusicBo: Knowledge Graph Overview"
+    },
+    {
+        "user_name": "VeronicaCopparoni",
+        "id": "1686643551.648723",
+        "title": "Best female music artists"
+    },
+    {
+        "user_name": "umanistica-informatica",
+        "id": "1686659627.770549",
+        "title": "save me please"
+    },
+    {
+        "user_name": "FabianaCei",
+        "id": "1686688595.896991",
+        "title": "Melody Hands-on Cei"
+    },
+    {
         "user_name": "cesenacomics",
-        "id": "1663164611.273089",
-        "title": "New title"
+        "id": "1686757078.465627",
+        "title": "New Story to Modify"
+    },
+    {
+        "user_name": "cesenacomics",
+        "id": "1686758241.527783",
+        "title": "Another story to modify"
+    },
+    {
+        "user_name": "AlessiaValentini",
+        "id": "1686758070.668631",
+        "title": "Orchestras in Italy"
+    },
+    {
+        "user_name": "Lorenzopetrucci",
+        "id": "1686819766.518798",
+        "title": "Exploring the life and works of Johann Sebastian Bach "
+    },
+    {
+        "user_name": "emmapir",
+        "id": "1686820612.713406",
+        "title": "Beethoven: an overview"
     }
 ]
