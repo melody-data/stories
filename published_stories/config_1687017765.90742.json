@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring musical instruments: the violin",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "Elena875",
+    "id": "1687017765.90742",
+    "subtitle": "History and main features of the violin",
+    "curator": "Elena Benelli",
+    "description": "",
+    "dynamic_elements": []
+}
