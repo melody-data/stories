@@ -11,5 +11,42 @@
     "subtitle": "History and main features of the violin",
     "curator": "Elena Benelli",
     "description": "",
-    "dynamic_elements": []
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?StringInstrument) AS ?count) \r\nWHERE { \r\n \t?StringInstrument ?a wd:Q1798603 . # string instrument \r\n} ",
+            "count_label": "String instruments",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?BowedStringInstrument) AS ?count) \r\nWHERE { \r\n \t?BowedStringInstrument ?a wd:Q192096 . # bowed string instrument \r\n}",
+            "count_label": "Bowed string instruments",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "table",
+            "table_title": "Violin components",
+            "table_query": "SELECT DISTINCT ?components ?componentsLabel ?image \r\nWHERE { \r\nwd:Q8355 wdt:P527 ?components .\r\nOPTIONAL { ?components wdt:P18 ?image . }\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}\r\n LIMIT 12 \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "map",
+            "map_title": "Violinists in Europe",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P106 wd:Q1259917 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 300",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
 }
