@@ -1,0 +1,52 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Gaspare Spontini",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "AlessiaMazza",
+    "id": "1686999190.271702",
+    "subtitle": "The great composer",
+    "curator": "Alessia Mazza and Veronica Spena",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "table",
+            "table_title": "Gaspare Spontini, portrayed by Jean-Baptiste Aubry-Lecomte in the 19th century.",
+            "table_query": "SELECT DISTINCT ?image \r\nWHERE { \r\n  wd:Q168485 wdt:P18 ?image . \r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Biography",
+            "table_query": "SELECT DISTINCT (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?DeathPlace ?DeathPlaceLabel\r\n\r\nWHERE { \r\nwd:Q168485 wdt:P569 ?BirthDate . \r\nwd:Q168485 wdt:P570 ?DeathDate . \r\nwd:Q168485 wdt:P19 ?BirthPlace . \r\nwd:Q168485 wdt:P20 ?DeathPlace . \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n} \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "table",
+            "table_title": "Occupation and field of work",
+            "table_query": "SELECT DISTINCT ?occupation ?occupationLabel ?fieldofwork ?fieldofworkLabel\r\nWHERE {\r\n  wd:Q168485 wdt:P106 ?occupation .\r\n  ?occupation rdfs:label ?occupationLabel.\r\n  wd:Q168485 wdt:P101 ?fieldofwork.\r\n  ?fieldofwork rdfs:label ?fieldofworkLabel .\r\n  FILTER(LANG(?occupationLabel)=\"en\").\r\n  FILTER(LANG(?fieldofworkLabel)=\"en\").\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Award received.",
+            "table_query": "SELECT DISTINCT ?award ?awardLabel \r\nWHERE { \r\n  wd:Q168485 wdt:P166 ?award .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
