@@ -1,0 +1,26 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Prova",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "Ilariamassa",
+    "id": "1687015856.487312",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Bands in Italy",
+            "textsearch_query": "\r\nSELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\nSERVICE wikibase:mwapi {\r\nbd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\nwikibase:api \"EntitySearch\";\r\nmwapi:search <<searchterm>>;\r\nmwapi:language \"en\".\r\n?band wikibase:apiOutputItem mwapi:item.\r\n}\r\n{\r\n{?band wdt:P31 ?category ; wdt:P495 ?country .\r\n?category wdt:P31 wd:Q105756498 . }\r\nUNION\r\n{?band wdt:P31 ?category ; wdt:P495 ?country .\r\n?category wdt:P279 wd:Q2088357 }\r\n}\r\n?band wdt:P495 wd:Q38.\r\nSERVICE wikibase:label {\r\nbd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n}\r\n} LIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
