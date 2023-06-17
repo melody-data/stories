@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Exploring Rock Bands in the USA",
+    "title": "Discovering Rock Bands in the USA",
     "color_code": [
         "#071bb0",
         "#f00000"
@@ -9,7 +9,7 @@
     "user_name": "Serena2796",
     "id": "1686588464.951175",
     "subtitle": "Rocking the USA: Discover With Us the Rock Groups and the Sound of Guns N\u2019 Roses and Red Hot Chili Peppers",
-    "curator": "Serena Sciortino, Gilda Gitto, Vito Antonio Miccoli",
+    "curator": "Gilda Gitto, Vito Antonio Miccoli, Serena Sciortino",
     "description": "Get ready for an amazing adventure into the world of rock music in the USA. We'll explore the huge number of bands, the exciting stadiums they perform in, and the talented members that make up these groups. We'll also discover when these bands formed. Along the way, we'll see cool pictures of rock bands and their unique styles. Plus, we'll dive into the story of Guns N' Roses, learning about their band members, hit albums, and when they were released. In addition, during our journey we have also encountered the majestic band of the Red Hot Chili Peppers. Get ready to rock out to the incredible music and stories that define American rock!",
     "dynamic_elements": [
         {
@@ -25,7 +25,7 @@
             "position": 1,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q30 . # from uk\r\n}\r\n",
+            "count_query": "\r\nSELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q30 . # from uk\r\n}\r\n",
             "count_label": "Rock Bands in the USA",
             "extra_queries": [],
             "map_filters": []
@@ -34,7 +34,7 @@
             "position": 2,
             "operations": [],
             "type": "map",
-            "map_title": "Stadiums ",
+            "map_title": "Stadiums",
             "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q483110; wdt:P17 wd:Q30;\r\nwdt:P131 ?villeId; p:P625 ?statement.\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
             "extra_queries": [],
             "map_filters": []
@@ -63,7 +63,7 @@
             "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE { ?band ?a wd:Q5741069 . # rock band \r\n       ?band wdt:P495 wd:Q30 . # from USA \r\n       ?band wdt:P527 ?item . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } \r\nGROUP BY ?label \r\nORDER BY DESC(?count) \r\nLIMIT 30\r\n",
             "chart_series": "",
             "chart_legend": {
-                "x": "Group Names",
+                "x": "Group Names ",
                 "y": "Number of Members "
             },
             "extra_queries": [],
@@ -74,30 +74,27 @@
             "operations": [],
             "type": "table",
             "table_title": "Guns N' Roses: Members, Birth Date and Occupation",
-            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth)   ?occupation ?occupationLabel \r\nWHERE { wd:Q11895 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n             OPTIONAL {?Member wdt:P1303 ?occupation.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } LIMIT 10\r\n",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?occupation ?occupationLabel \r\nWHERE { wd:Q11895 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\nOPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPl \r\nOPTIONAL {?Member wdt:P1303 ?occupation.} \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 6,
             "operations": [],
-            "type": "table",
-            "table_title": "Guns N' Roses: Albums and Release Date",
-            "table_query": "SELECT ?album ?albumLabel ?releaseDate\r\nWHERE {\r\n  ?album wdt:P31 wd:Q482994;        # instance of album\r\n         wdt:P175 wd:Q11895;      # performed by Guns n roses\r\n         wdt:P577 ?releaseDate .    # release date\r\n  \r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" .\r\n  }\r\n}\r\nORDER BY ?releaseDate\r\n",
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Instruments Played by Red Hot Chili Peppers",
+            "chart_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count) \r\nWHERE { wd:Q10708 wdt:P527 ?member. ?member \r\n                                   wdt:P1303 ?instrument. ?instrument rdfs:label ?instrumentLabel. \r\n       FILTER (lang(?instrumentLabel) = \"en\"). } \r\nGROUP BY ?instrument ?instrumentLabel \r\nORDER BY DESC(?count) \r\nLIMIT 10\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 7,
-            "operations": [],
-            "type": "table",
-            "table_title": "Red Hot Chili Peppers Members: Pictures",
-            "table_query": "SELECT DISTINCT ?components ?componentsLabel ?image \r\nWHERE { wd:Q10708 wdt:P527 ?components . \r\n       OPTIONAL { ?components wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 8,
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
