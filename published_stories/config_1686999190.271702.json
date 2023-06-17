@@ -34,8 +34,8 @@
             "position": 2,
             "operations": [],
             "type": "table",
-            "table_title": "Occupation and field of work",
-            "table_query": "SELECT DISTINCT ?occupation ?occupationLabel ?fieldofwork ?fieldofworkLabel\r\nWHERE {\r\n  wd:Q168485 wdt:P106 ?occupation .\r\n  ?occupation rdfs:label ?occupationLabel.\r\n  wd:Q168485 wdt:P101 ?fieldofwork.\r\n  ?fieldofwork rdfs:label ?fieldofworkLabel .\r\n  FILTER(LANG(?occupationLabel)=\"en\").\r\n  FILTER(LANG(?fieldofworkLabel)=\"en\").\r\n}\r\n",
+            "table_title": "Occupation",
+            "table_query": "SELECT DISTINCT ?occupation ?occupationLabel \r\n\r\nWHERE {\r\n  wd:Q168485 wdt:P106 ?occupation .\r\n  ?occupation rdfs:label ?occupationLabel.\r\n  \r\n  FILTER(LANG(?occupationLabel)=\"en\").\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -43,8 +43,35 @@
             "position": 3,
             "operations": [],
             "type": "table",
-            "table_title": "Award received.",
-            "table_query": "SELECT DISTINCT ?award ?awardLabel \r\nWHERE { \r\n  wd:Q168485 wdt:P166 ?award .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n} ",
+            "table_title": "Fields of work",
+            "table_query": "SELECT DISTINCT ?fieldofwork ?fieldofworkLabel\r\n\r\nWHERE {\r\n  wd:Q168485 wdt:P101 ?fieldofwork .\r\n  ?fieldofwork rdfs:label ?fieldofworkLabel.\r\n  \r\n  FILTER(LANG(?fieldofworkLabel)=\"en\").\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Award received",
+            "table_query": "SELECT DISTINCT ?award ?awardLabel ?serviceribbonimage ?image\r\nWHERE {\r\n  wd:Q168485 wdt:P166 ?award.\r\n  OPTIONAL { ?award wdt:P2425 ?serviceribbonimage }\r\n  OPTIONAL { ?award wdt:P18 ?image }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "map",
+            "map_title": "Acad\u00e9mie des Beaux Arts",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE\r\n{\r\n  wd:Q168485 wdt:P463 ?point .\r\n  ?point p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "map",
+            "map_title": "City of citizenship",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE\r\n{\r\n  wd:Q168485 wdt:P27 ?point .\r\n  ?point p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
         }
