@@ -89,6 +89,16 @@
             },
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Discover Other Information About Rock Music ",
+            "textsearch_query": "SELECT DISTINCT ?pic ?rockband ?rockbandLabel ?country ?countryLabel\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?country wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?rockband wdt:P31 wd:Q5741069 .\r\n  ?rockband wdt:P495 ?country .\r\n  OPTIONAL {?rockband wdt:P18 ?pic ; }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nORDER BY ?rockband\r\nLIMIT 5\r\n",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
