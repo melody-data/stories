@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Exploring Rock Bands in Spain",
+    "title": "Discovering Rock Bands in Spain",
     "color_code": [
         "#e7d036",
         "#d7040f"
@@ -9,7 +9,7 @@
     "user_name": "Serena2796",
     "id": "1686331429.988095",
     "subtitle": "Rocking Spain: Unveiling Rock Bands Concert Venues and the Captivating Sound of La Oreja De Van Gogh. \r\n",
-    "curator": "Serena Sciortino, Gilda Gitto, Vito Antonio Miccoli",
+    "curator": "Gilda Gitto, Vito Antonio Miccoli, Serena Sciortino",
     "description": "Get ready to dive into the world of rock music in Spain! Discover the numerous bands that exist, each with their own unique sound. Explore the names of the main rock groups that have made a mark in Spain. Check out the exciting map of music venues where rock concerts take place across the country. And don't miss La Oreja de Van Gogh, a popular band known for their heartfelt melodies, who blend pop-rock, alternative rock, and indie pop genres. Get ready to rock to the rhythm of Spanish music and experience the dynamic energy of the Spanish rock scene!",
     "dynamic_elements": [
         {
@@ -90,10 +90,9 @@
         {
             "position": 7,
             "operations": [],
-            "type": "textsearch",
-            "textsearch_userinput": "",
-            "textsearch_title": "La Oreja De Van Gogh: Search Their Members, Birth Date and Place",
-            "textsearch_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel \r\nWHERE { wd:Q499971 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P19 ?BirthPlace.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
+            "type": "table",
+            "table_title": "La Oreja De Van Gogh: Members, Birth and Place date",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel \r\nWHERE { wd:Q499971 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P19 ?BirthPlace.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
             "extra_queries": [],
             "map_filters": []
         },
