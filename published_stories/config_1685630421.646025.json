@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n}",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # music band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n}",
             "count_label": "Number of Russian Rock Bands",
             "extra_queries": [],
             "map_filters": []
@@ -33,6 +33,33 @@
                 "x": "Name of the band",
                 "y": "Number of people in the band"
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "map",
+            "map_title": "map",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q5741069 .\r\n?point wdt:P495 wd:Q159 . # from russia\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 50",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Russian Rock bands with pics",
+            "table_query": "SELECT DISTINCT ?band ?bandLabel ?image \r\nWHERE { ?band wdt:P31 wd:Q5741069; # Instance of: rock band \r\n              wdt:P495 wd:Q159. # Country of origin: Russia \r\n       OPTIONAL { ?band wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } } \r\nLIMIT 15 OFFSET 15",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Composition of DDT",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q949424 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
         }
