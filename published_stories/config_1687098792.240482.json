@@ -1,0 +1,90 @@
+{
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "Organizations in MusicBo ",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "ritagramellini",
+    "id": "1687098792.240482",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "\r\nSELECT DISTINCT  (count(distinct ?subject) as ?count)\r\nWHERE {\r\n?subject a <http://www.ontologydesignpatterns.org/ont/amr/Organization>;\r\n  <http://www.ontologydesignpatterns.org/ont/amr/name> ?slabel .\r\n\r\n}\r\n",
+            "count_label": "Organizations in MusicBo ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Top 10 most cited organizations in MusicBo ",
+            "chart_query": "\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nSELECT DISTINCT  ?slabel (COUNT(distinct ?subject) as ?count)\r\nWHERE {\r\n    ?subject a amr:Organization ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?slabel .\r\n\r\n\r\nFILTER (!regex(str(?slabel), \"jstor\",'i'))\r\n    }\r\nGROUP BY ?slabel ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n",
+            "chart_series": "Occurrences",
+            "chart_legend": {
+                "x": "Organization",
+                "y": "Frequency "
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "map",
+            "map_title": "Bologna's organizations in MusicBo ",
+            "map_points_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n\r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\r\n\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n\r\nPREFIX dbpedia: <http://dbpedia.org/resource/>\r\n\r\nPREFIX sc: <http://purl.org/science/owl/sciencecommons/>\r\n\r\nPREFIX schema: <http://schema.org/>\r\n\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\n\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\n\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\n\r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\n\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\nSELECT DISTINCT  ?slabel ?point  ?lat ?long \r\n\r\nWHERE { \r\n\r\n\r\n   ?subject a <http://www.ontologydesignpatterns.org/ont/amr/Organization>;\r\n\r\n  <http://www.ontologydesignpatterns.org/ont/amr/name> ?slabel ;\r\n\r\n  ?isconnectedto ?cityUri .\r\n\r\n\r\n  ?cityUri rdf:type amr:City ; \r\n\r\n    owl:sameAs ?point ; \r\n\r\n    amr:name ?label .\r\n\r\n\r\n  FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))\r\n\r\n\r\n  ?frameInstance ?p ?cityUri ; \r\n\r\n    rdf:type ?frame . \r\n    FILTER regex (?label, \"Bologna\", \"i\")\r\n\r\n\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n\r\n  { ?point wdt:P31/wdt:P279* wd:Q515 . \r\n\r\n    ?point p:P625 ?coords_stmt . \r\n\r\n    ?coords_stmt ps:P625 ?coords;\r\n\r\n      psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] . \r\n\r\n  }\r\n\r\n\r\n  }\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Bologna's organizations and their occurrences in MusicBo ",
+            "chart_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX dbpedia: <http://dbpedia.org/resource/>\r\nPREFIX sc: <http://purl.org/science/owl/sciencecommons/>\r\nPREFIX schema: <http://schema.org/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nSELECT DISTINCT  ?slabel (COUNT(distinct ?subject) as ?count)\r\nWHERE {\r\n    ?subject a amr:Organization ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?slabel ;\r\n  ?isconnectedto ?cityUri .\r\n  ?cityUri rdf:type amr:City ;\r\n\towl:sameAs ?point ;\r\n\tamr:name ?label .\r\n \r\n  ?frameInstance ?p ?cityUri ;\r\n\trdf:type ?frame .\r\n   FILTER regex (?label, \"Bologna\", \"i\")\r\n\r\n \r\n  }\r\n \r\nGROUP BY ?slabel ?count \r\nORDER BY DESC (?count)\r\n",
+            "chart_series": "Occurrences",
+            "chart_legend": {
+                "x": "Bologna's organization",
+                "y": "Frequency "
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Bologna's organizations and their foundation year ",
+            "table_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\n \r\n\r\nSELECT DISTINCT ?Organization (YEAR(?foundationDate) as ?foundationYear) \r\n\r\nWHERE {\r\n  ?s a amr:Organization ;\r\n    owl:sameAs ?wikidata ;\r\n    amr:name ?slabel ;\r\n?isconnectedto ?cityUri .\r\n\r\n  ?cityUri rdf:type amr:City ;\r\n    owl:sameAs ?point ;\r\n    amr:name ?label .\r\n\r\n  ?frameInstance ?p ?cityUri ;\r\n    rdf:type ?frame .\r\n   FILTER regex (?label, \"Bologna\", \"i\")\r\n\r\n \r\n\r\n  \r\n  FILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\"))\r\n\r\n \r\n\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>\r\n       {\r\n    ?wikidata  rdfs:label ?Organization . \r\n     OPTIONAL  { ?wikidata wdt:P571 ?foundationDate . }     \r\n    FILTER (langMatches(lang(?Organization), \"en\"))\r\n FILTER (YEAR(?foundationDate) != 1350)\r\n  }\r\n}\r\nORDER BY ASC (?foundationYear)\r\n\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "Philharmonic Academy of Bologna: the building ",
+            "table_query": "PREFIX arco-catalogue: <https://w3id.org/arco/ontology/catalogue/>\r\nPREFIX arco: <https://w3id.org/arco/ontology/arco/>\r\nPREFIX a-cd: <https://w3id.org/arco/ontology/context-description/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX agent: <https://w3id.org/arco/resource/Agent/>\r\nPREFIX cis: <http://dati.beniculturali.it/cis/>\r\nPREFIX clv: <https://w3id.org/italia/onto/CLV/>\r\nPREFIX core: <https://w3id.org/arco/ontology/core/>\r\nPREFIX a-ip: <https://w3id.org/arco/ontology/immovable-property/>\r\n\r\nSELECT DISTINCT ?Building ?ConstructionDate ?CulturalScope ?ArchitecturalLayout ?Picture \r\nWHERE  \r\n{\r\n  SERVICE <https://dati.cultura.gov.it/sparql> {\r\n    ?s a arco:ArchitecturalOrLandscapeHeritage ;\r\n       rdfs:label ?Building .\r\n    FILTER regex(?Building, \"Palazzo della Accademia Filarmonica\", \"i\")\r\n    \r\n    ?s a-cd:hasDating ?d .\r\n    ?d a-cd:hasDatingEvent ?e .\r\n    ?e <https://w3id.org/italia/onto/TI/atTime> ?t .\r\n    ?t rdfs:label ?ConstructionDate.\r\n    \r\n    ?s a-cd:hasAuthorshipAttribution ?c . \r\n    ?c a-cd:hasCulturalScope ?cscope . \r\n    ?cscope rdfs:label ?CulturalScope.\r\n    \r\n\r\n  ?s a-ip:hasLayout ?layout . \r\n  ?layout rdfs:label ?ArchitecturalLayout . \r\n\r\n    OPTIONAL { ?s foaf:depiction ?Picture } \r\n  }\r\n}\r\nLIMIT 1\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The Baroque Concerto, A.J.B. Hutchings (1961)</p><p>\"After his Italian tour of 1770, Burney wrote of Torelli: ' This author, who was a member of the Philharmonic Academy of Bologna and the first violin of the church of San Petronio in the same city, published seven different works for violin.\"</p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
