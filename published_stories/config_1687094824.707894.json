@@ -1,0 +1,58 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Romanian music bands",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "rafaelm16",
+    "id": "1687094824.707894",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n ?band ?a wd:Q215380 . # music band\r\n     ?band wdt:P495 wd:Q218 . # from romania\r\n}\r\nLIMIT 10",
+            "count_label": "Number of music bands in Romania",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Number of members per band",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q218 . # from romania\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "table",
+            "table_title": "Romanian music bands with pictures",
+            "table_query": "SELECT DISTINCT ?band ?bandLabel ?image \r\nWHERE { ?band ?a wd:Q215380 . # music band  \r\n              ?band wdt:P495 wd:Q218. # Country of origin: Romania\r\n       OPTIONAL { ?band wdt:P18 ?image . } \r\n                                                      SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } } \r\nLIMIT 15 OFFSET 15",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Members of Sfinx Romanian band",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q1797517 wdt:P527 ?Member . ?Member \r\n                                      wdt:P569 ?BirthDate . \r\nOPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member \r\n                                        wdt:P19 ?BirthPlace. \r\nOPTIONAL {?Member wdt:P412 ?VoiceType.} \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
