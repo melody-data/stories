@@ -54,7 +54,8 @@
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+  <script src="static/js/babel.min.js"></script>
   <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
       integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -64,7 +65,7 @@
   <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
   <script type="text/javascript">
-    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "", "dynamic_elements": [{"count_label": "Number of Russian Rock Bands", "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n}", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "count"}, {"chart_legend": {"x": "Name of the band", "y": "Number of people in the band"}, "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30", "chart_series": "", "chart_title": "Composition of Russian Rock Bands", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "chart"}], "id": "1685630421.646025", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "Russian Rock Bands", "user_name": "Lada-unibo"};
+    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "", "dynamic_elements": [{"count_label": "Number of Russian Rock Bands", "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # music band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n}", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "count"}, {"chart_legend": {"x": "Name of the band", "y": "Number of people in the band"}, "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30", "chart_series": "", "chart_title": "Composition of Russian Rock Bands", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "chart"}, {"extra_queries": [], "map_filters": [], "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q5741069 .\r\n?point wdt:P495 wd:Q159 . # from russia\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 50", "map_title": "map", "operations": [], "position": 2, "type": "map"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 3, "table_query": "SELECT DISTINCT ?band ?bandLabel ?image \r\nWHERE { ?band wdt:P31 wd:Q5741069; # Instance of: rock band \r\n              wdt:P495 wd:Q159. # Country of origin: Russia \r\n       OPTIONAL { ?band wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } } \r\nLIMIT 15 OFFSET 15", "table_title": "Russian Rock bands with pics", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 4, "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q949424 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10", "table_title": "Composition of DDT", "type": "table"}], "id": "1685630421.646025", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "", "template_mode": "statistics", "title": "Russian Rock Bands", "user_name": "Lada-unibo"};
   </script>
 
 
@@ -242,6 +243,18 @@
 								</a>
 								
 								
+								<a class="col-8" href="/melody/fonn/tune_families_in_the_session_and_mtcann">
+									<!-- href="/tune_families_in_the_session_and_mtcann"> -->
+									Tune families in The Session and MTC-ANN
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg">
+									<!-- href="/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg"> -->
+									Statistics on The Session (annotated subset) and Meertens Tune Collections (MTC-ANN) Pattern KG
+								</a>
+								
+								
 							</li>
 							
 							
@@ -276,9 +289,9 @@
 							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graphverview">
-									<!-- href="/music_in_bologna_knowledge_graphverview"> -->
-									Music in Bologna - Knowledge Graphverview
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
+									<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
+									Music in Bologna - Knowledge Graph Overview
 								</a>
 								
 								
@@ -469,7 +482,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
-						<p>Tunes</p>
+						<p>tunes</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu9">
@@ -621,7 +634,7 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Russian Rock Bands&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;Lada-unibo&#39;, &#39;id&#39;: &#39;1685630421.646025&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n}&#39;, &#39;count_label&#39;: &#39;Number of Russian Rock Bands&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Composition of Russian Rock Bands&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;Name of the band&#39;, &#39;y&#39;: &#39;Number of people in the band&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Russian Rock Bands&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;Lada-unibo&#39;, &#39;id&#39;: &#39;1685630421.646025&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # music band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n}&#39;, &#39;count_label&#39;: &#39;Number of Russian Rock Bands&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Composition of Russian Rock Bands&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q159 . # from russia\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;Name of the band&#39;, &#39;y&#39;: &#39;Number of people in the band&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;map&#39;, &#39;map_points_query&#39;: &#39;SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P31 wd:Q5741069 .\r\n?point wdt:P495 wd:Q159 . # from russia\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. } }\r\nLIMIT 50&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Russian Rock bands with pics&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?band ?bandLabel ?image \r\nWHERE { ?band wdt:P31 wd:Q5741069; # Instance of: rock band \r\n              wdt:P495 wd:Q159. # Country of origin: Russia \r\n       OPTIONAL { ?band wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;. } } \r\nLIMIT 15 OFFSET 15&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Composition of DDT&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q949424 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.} } \r\nLIMIT 10&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
           </div>
         </div>
         <div class="modal-footer">
