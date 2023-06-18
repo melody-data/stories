@@ -1,0 +1,98 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "ABBA (bozza)",
+    "color_code": [
+        "#fd6dea",
+        "#ffe14d"
+    ],
+    "user_name": "Carmela-Saracino",
+    "id": "1687105993.977294",
+    "subtitle": "An overview of the most popular pop band of all the time. ",
+    "curator": "Carmela Saracino, Fabiana Cei",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "ABBA",
+            "textsearch_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n              ?category wdt:P31 wd:Q105756498 . }\r\n    UNION\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n\r\n",
+            "textsearch": {
+                "band": [
+                    "Show members",
+                    "Show music genre"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show members",
+            "action_query": "SELECT DISTINCT ?member ?memberLabel ?image\r\nWHERE { \r\n  <<item>> wdt:P527 ?member . \r\n OPTIONAL { ?member wdt:P18 ?image . }\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show music genre",
+            "action_query": "SELECT DISTINCT ?genre ?genreLabel\r\nWHERE { \r\n  <<item>> wdt:P136 ?genre .\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Top 20 songs by ABBA",
+            "table_query": "SELECT DISTINCT ?song ?songLabel (year(xsd:dateTime(?publicationDate)) as ?publication) \r\nWHERE\r\n{ \r\n?song wdt:P175 wd:Q18233 . ?song wdt:P577 ?publicationDate . \r\n       \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nORDER BY ?date\r\n\r\nLIMIT 20",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Swedish bands during the years",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # musical group\r\n     ?band wdt:P495 wd:Q34 . # from sweden\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 50\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "YEAR",
+                "y": "NUMBER OF BANDS PER YEAR"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Artists who influenced ABBA",
+            "chart_query": "SELECT DISTINCT ?label\r\nWHERE { wd:Q18233 wdt:P737 ?influencer . \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?influencer rdfs:label ?label. } }\r\nGROUP BY ?label",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "table",
+            "table_title": "Instruments  played by ABBA",
+            "table_query": "SELECT DISTINCT ?Instrument ?instrumentLabel ?image\r\nWHERE { wd:Q18233 wdt:P1303 ?Instrument .  \r\n        OPTIONAL { ?Instrument wdt:P18 ?image . }\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
