@@ -1,10 +1,10 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Orchestras in Italy",
+    "title": "Girlbands from the USA",
     "color_code": [
-        "#39c6b4",
-        "#17cf31"
+        "#c63971",
+        "#a717cf"
     ],
     "user_name": "AlessiaValentini",
     "id": "1686758070.668631",
@@ -16,28 +16,56 @@
             "position": 0,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT (COUNT(?orchestra) AS ?count)\r\nWHERE {\r\n     ?orchestra ?a wd:Q42998 . # orchestra\r\n     ?orchestra wdt:P495 wd:Q38 . # from italy\r\n}\r\n",
-            "count_label": "Number of orchestras in Italy ",
+            "count_query": "SELECT (COUNT(?girlband) AS ?count)\r\nWHERE {\r\n     ?girlband wdt:P31 wd:Q641066 . \r\n}\r\n",
+            "count_label": "Number of Girl Bands in the World",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 1,
-            "operations": [
-                {
-                    "action": "count",
-                    "param": "label"
-                }
-            ],
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?girlband) AS ?count)\r\nWHERE {\r\n     ?girlband ?a wd:Q641066 .\r\n     ?girlband wdt:P495 wd:Q30 .\r\n}",
+            "count_label": "Number of Girl Bands from the United States of America",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
             "type": "chart",
-            "chart_type": "doughnutchart",
-            "chart_title": "Orchestra  Members",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?orchestra ?a wd:Q42998 . # orchestra\r\n     ?orchestra wdt:P495 wd:Q38 . # from italy\r\n     ?orchestra wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?orchestra rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30",
+            "chart_type": "linechart",
+            "chart_title": "Activity Start Sorted by Year",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?girlband ?a wd:Q641066 . \r\n     ?girlband wdt:P495 wd:Q30 . \r\n     ?girlband wdt:P2031 ?date .    \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?girlband rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20\r\n\r\n\r\n",
+            "chart_series": "When they started their activity",
+            "chart_legend": {
+                "x": "Start of Activity Year ",
+                "y": "Amount of Girl Bands per Year"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Girl Bands Sorted by Number of Group Members ",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?girlband ?a wd:Q641066 . \r\n     ?girlband wdt:P495 wd:Q30 . \r\n     ?girlband wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?girlband rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 20",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
                 "y": ""
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "The Ronettes' Members: Details",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel ?Pic \r\nWHERE { wd:Q530886 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       OPTIONAL {?Member wdt:P18 ?Pic.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
         }
