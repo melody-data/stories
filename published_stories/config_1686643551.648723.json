@@ -64,14 +64,6 @@
         {
             "position": 5,
             "operations": [],
-            "type": "text",
-            "text": "<p><span style=\"color: rgb(0, 0, 0);\">Another significant recognition that female artists get for their artistic production is the nomination for awards and prizes. Similarly, the following bar chart explores the number of nominations that most popular female musicians received during their career.&nbsp;</span></p>",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 6,
-            "operations": [],
             "type": "chart",
             "chart_type": "barchart",
             "chart_title": "Number of nominations received ",
@@ -81,6 +73,14 @@
                 "x": "Artists",
                 "y": "Nominations"
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(0, 0, 0);\">Another significant recognition that female artists get for their artistic production is the nomination for awards and prizes. Similarly, the following bar chart explores the number of nominations that most popular female musicians received during their career.&nbsp;</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -97,7 +97,7 @@
             "position": 8,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "cher",
+            "textsearch_userinput": "",
             "textsearch_title": "Women in music",
             "textsearch_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dbo: <http://dbpedia.org/ontology/> \r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX commons: <http://commons.wikimedia.org/wiki/Special:FilePath/>\r\n\r\nSELECT DISTINCT ?Name ?person \r\nWHERE { \r\n?list a owl:Thing . \r\n?list ?relation dbr:List_of_best-selling_albums_by_women . \r\n?person a dbo:Animal ; a dbo:Person .\r\ndbr:List_of_best-selling_albums_by_women  ?boh ?person .\r\n?person rdfs:label ?Name .\r\n?person dbo:birthDate ?BirthDate .\r\nOPTIONAL { \r\n?person dbo:deathDate ?datam .  }\r\n?person dbo:activeYearsStartYear ?years_active .\r\nFILTER regex(str(?Name), <<searchterm>>, 'i') \r\nOPTIONAL { \r\n?person foaf:homepage ?sito . }\r\n?wikipage  foaf:primaryTopic ?person .\r\nFILTER (LANG(?Name)=\"en\")\r\n }",
             "textsearch": {
