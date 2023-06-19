@@ -25,9 +25,9 @@
             "position": 1,
             "operations": [],
             "type": "chart",
-            "chart_type": "doughnutchart",
+            "chart_type": "barchart",
             "chart_title": "Top 10 most cited organizations in MusicBo ",
-            "chart_query": "\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nSELECT DISTINCT  ?slabel (COUNT(distinct ?subject) as ?count)\r\nWHERE {\r\n    ?subject a amr:Organization ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?slabel .\r\n\r\n\r\nFILTER (!regex(str(?slabel), \"jstor\",'i'))\r\n    }\r\nGROUP BY ?slabel ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n",
+            "chart_query": "PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nSELECT DISTINCT  ?label (COUNT(distinct ?subject) as ?count)\r\nWHERE {\r\n    ?subject a amr:Organization ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?label .\r\n\r\n\r\nFILTER (!regex(str(?label), \"jstor\",'i'))\r\n    }\r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n",
             "chart_series": "Occurrences",
             "chart_legend": {
                 "x": "Organization",
@@ -49,9 +49,9 @@
             "position": 3,
             "operations": [],
             "type": "chart",
-            "chart_type": "barchart",
+            "chart_type": "doughnutchart",
             "chart_title": "Bologna's organizations and their occurrences in MusicBo ",
-            "chart_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX dbpedia: <http://dbpedia.org/resource/>\r\nPREFIX sc: <http://purl.org/science/owl/sciencecommons/>\r\nPREFIX schema: <http://schema.org/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nSELECT DISTINCT  ?slabel (COUNT(distinct ?subject) as ?count)\r\nWHERE {\r\n    ?subject a amr:Organization ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?slabel ;\r\n  ?isconnectedto ?cityUri .\r\n  ?cityUri rdf:type amr:City ;\r\n\towl:sameAs ?point ;\r\n\tamr:name ?label .\r\n \r\n  ?frameInstance ?p ?cityUri ;\r\n\trdf:type ?frame .\r\n   FILTER regex (?label, \"Bologna\", \"i\")\r\n\r\n \r\n  }\r\n \r\nGROUP BY ?slabel ?count \r\nORDER BY DESC (?count)\r\n",
+            "chart_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX dbpedia: <http://dbpedia.org/resource/>\r\nPREFIX sc: <http://purl.org/science/owl/sciencecommons/>\r\nPREFIX schema: <http://schema.org/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nSELECT DISTINCT  ?label (COUNT(distinct ?subject) as ?count)\r\nWHERE {\r\n    ?subject a amr:Organization ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?label ;\r\n  ?isconnectedto ?cityUri .\r\n  ?cityUri rdf:type amr:City ;\r\n\towl:sameAs ?point ;\r\n\tamr:name ?plabel .\r\n \r\n  ?frameInstance ?p ?cityUri ;\r\n\trdf:type ?frame .\r\n   FILTER regex (?plabel, \"Bologna\", \"i\")\r\n\r\n \r\n  }\r\n \r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)\r\n",
             "chart_series": "Occurrences",
             "chart_legend": {
                 "x": "Bologna's organization",
@@ -83,6 +83,39 @@
             "operations": [],
             "type": "text",
             "text": "<p>The Baroque Concerto, A.J.B. Hutchings (1961)</p><p>\"After his Italian tour of 1770, Burney wrote of Torelli: ' This author, who was a member of the Philharmonic Academy of Bologna and the first violin of the church of San Petronio in the same city, published seven different works for violin.\"</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "Giuseppe Torelli: an overview ",
+            "table_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n\r\nSELECT DISTINCT (year(?birthDate) as ?birthYear)?birthPlace (year(?deathDate) as ?deathYear) ?deathPlace ?occupation ?pic\r\nWHERE\r\n{\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>\r\n{\r\nwd:Q207532  wdt:P18 ?pic .\r\nOPTIONAL { wd:Q207532  wdt:P569 ?birthDate . }\r\nOPTIONAL { wd:Q207532  wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace . }\r\nOPTIONAL { wd:Q207532  wdt:P570 ?deathDate . }\r\nOPTIONAL { wd:Q207532  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\nOPTIONAL { wd:Q207532  wdt:P106 ?occ . ?occ rdfs:label ?occupation .  }\r\n  \r\nFILTER langMatches(lang(?birthPlace), 'en')\r\nFILTER langMatches(lang(?deathPlace), 'en')\r\nFILTER langMatches(lang(?occupation), 'en')\r\n}\r\n}\r\nOFFSET 65\r\nLIMIT 1 \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Other violinists",
+            "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nPREFIX bds: <http://www.bigdata.com/rdf/search#>\r\nSELECT DISTINCT ?violinist (year(?birthDate) as ?birthYear) ?birthPlace (year(?deathDate) as ?deathYear) ?deathPlace ?citizenship ?pic\r\n\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n\r\n    SERVICE wikibase:mwapi {\r\n\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #violinist\r\n                      mwapi:language \"en\".\r\n      ?viol wikibase:apiOutputItem mwapi:item.\r\n  }\r\n\r\n ?viol wdt:P106 wd:Q1259917 ;\r\n       rdfs:label ?violinist ; \r\nOPTIONAL {?viol wdt:P27 ?citiz . ?citiz rdfs:label ?citizenship . }\r\nOPTIONAL {?viol wdt:P569 ?birthDate . }\r\nOPTIONAL {?viol wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace . }\r\nOPTIONAL {?viol wdt:P570 ?deathDate .}\r\nOPTIONAL {?viol wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\nOPTIONAL {?viol wdt:P18 ?pic . }\r\n\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\nFILTER regex(str(?pic), \"jpg\").\r\nFILTER langMatches(lang(?violinist), 'en')\r\nFILTER langMatches(lang(?birthPlace), 'en')\r\nFILTER langMatches(lang(?deathPlace), 'en')\r\nFILTER langMatches(lang(?citizenship), 'en')\r\n\r\n}\r\n\r\n}\r\n\r\nLIMIT 1\r\n",
+            "textsearch": {
+                "citizenship": [
+                    "Other violinists of the same citizenship "
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "Types of violin ",
+            "table_query": "\r\nPREFIX dpo: <http://dbpedia.org/ontology/>\r\nPREFIX dpp: <http://dbpedia.org/property/>\r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\n\r\nSELECT DISTINCT ?name (SAMPLE(?depiction) as ?sampleDepiction) \r\nWHERE {\r\n  SERVICE <https://dbpedia.org/sparql> {\r\n    { ?s a dpo:Agent . }\r\n    UNION\r\n    { ?s a <http://dbpedia.org/class/yago/WikicatViolins> . }\r\n    ?s dpp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Violin_family> ;\r\n       rdfs:label ?name.\r\n    FILTER langMatches(lang(?name), \"en\")\r\n    OPTIONAL { ?s foaf:depiction ?depiction }\r\n    OPTIONAL { ?s dpo:soundRecording ?sound }\r\n  FILTER (regex(str(?depiction), \".jpg\"))\r\n  }\r\n}\r\nGROUP BY ?name\r\nORDER BY ASC(?name)",
             "extra_queries": [],
             "map_filters": []
         }
