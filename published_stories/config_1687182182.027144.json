@@ -38,6 +38,62 @@
             "map_points_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX ps: <https://w3id.org/payswarm#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/> \r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\n\r\nSELECT DISTINCT ?point ?lat ?long\r\nWHERE {\r\n  ?s a <http://www.ontologydesignpatterns.org/ont/amr/Person>;\r\n    owl:sameAs ?point .\r\n  FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n?point wdt:P106 wd:Q36834  .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n}\r\n}\r\nLIMIT 690",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p>123</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "DA RIMUOVERE",
+            "chart_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\n#OBIETTIVO: \r\n\r\nSELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n ?woa a <http://www.ontologydesignpatterns.org/ont/amr/Work-of-art>;\r\n    owl:sameAs ?wikidata.\r\n  FILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  {\r\n  ?wikidata wdt:P86 ?composer;\r\n      wdt:P571 ?date .\r\n    SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?wikidata rdfs:label ?label.\r\n      }\r\n  } \r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\n\r\n",
+            "chart_series": "asds",
+            "chart_legend": {
+                "x": "asd",
+                "y": "asd"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "most cited works of art",
+            "chart_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX wn: <http://xmlns.com/wordnet/1.6/>\r\nPREFIX wn30: <http://purl.org/vocabularies/princeton/wn30/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT DISTINCT ?label (COUNT (?label) as ?count)\r\nWHERE \r\n{\r\n?s a <http://www.ontologydesignpatterns.org/ont/amr/Work-of-art>; \r\n <http://www.ontologydesignpatterns.org/ont/amr/name> ?label;\r\nowl:sameAs ?wd .\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n{?wd wdt:P86 ?wdauthor}\r\n} \r\nGROUP BY ?label ?count\r\nORDER BY DESC (?count) \r\nLIMIT 10\r\n\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>text 2</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "Semiramide",
+            "textsearch_title": "Inserisci opera (es. opere sopracitate nel doughnut chart)",
+            "textsearch_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nPREFIX bds: <http://www.bigdata.com/rdf/search#> \r\nPREFIX p: <http://www.wikidata.org/prop/> \r\nPREFIX ps: <https://w3id.org/payswarm#>\r\n\r\n\r\nSELECT DISTINCT ?workOfArt ?composer (YEAR(?date) as ?publicationYear) ?genre ?image \r\nWHERE \r\n{\r\n  ?subject owl:sameAs ?wiki.\r\n  ?subject <http://www.ontologydesignpatterns.org/ont/amr/name> ?workOfArt\r\n    filter contains(?workOfArt, <<searchterm>>)\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {  \r\n  OPTIONAL {?wiki wdt:P86 ?comp.\r\n            ?comp rdfs:label ?composer\r\n           FILTER langMatches(lang(?composer),\"en\")}\r\n  OPTIONAL {?wiki wdt:P7937 ?gns.\r\n           ?gns rdfs:label ?genre\r\n           FILTER langMatches(lang(?genre),\"en\")}\r\n  OPTIONAL {?wiki wdt:P577 ?date}\r\n  OPTIONAL {?wiki wdt:P18 ?image}\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}\r\n}\r\nLIMIT 1",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
