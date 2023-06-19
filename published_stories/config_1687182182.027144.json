@@ -1,0 +1,43 @@
+{
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "test",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "JohnPat-N",
+    "id": "1687182182.027144",
+    "subtitle": "test story",
+    "curator": "John Patrick Bulseco Nulud",
+    "description": "test story",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "\r\nSELECT (COUNT(DISTINCT ?workofart) AS ?count)\r\nWHERE {\r\n ?workofart a <http://www.ontologydesignpatterns.org/ont/amr/Work-of-art>. \r\n}",
+            "count_label": "Works of art",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX ps: <https://w3id.org/payswarm#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT DISTINCT (COUNT(distinct ?label) AS ?count)\r\nWHERE {\r\n  ?s a <http://www.ontologydesignpatterns.org/ont/amr/Person>;\r\n    owl:sameAs ?wikidata .\r\n  FILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\n\tSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  {\r\n\t?wikidata wdt:P106 wd:Q36834 ; \r\n\t rdfs:label ?label .\r\n        FILTER langMatches(lang(?label),\"en\")  \r\n  } \r\n}",
+            "count_label": "Composers",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "map",
+            "map_title": "Country of origin of composers in MusicBo",
+            "map_points_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX ps: <https://w3id.org/payswarm#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/> \r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\n\r\nSELECT DISTINCT ?point ?lat ?long\r\nWHERE {\r\n  ?s a <http://www.ontologydesignpatterns.org/ont/amr/Person>;\r\n    owl:sameAs ?point .\r\n  FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n?point wdt:P106 wd:Q36834  .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n}\r\n}\r\nLIMIT 690",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
