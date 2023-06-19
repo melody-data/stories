@@ -53,6 +53,15 @@
             "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q1797517 wdt:P527 ?Member . ?Member \r\n                                      wdt:P569 ?BirthDate . \r\nOPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member \r\n                                        wdt:P19 ?BirthPlace. \r\nOPTIONAL {?Member wdt:P412 ?VoiceType.} \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Genres of music played by DJ Project",
+            "table_query": "SELECT (?genreLabel as ?label) \r\nWHERE { wd:Q669865 wdt:P136 ?genre. ?genre rdfs:label ?genreLabel. \r\n       FILTER (lang(?genreLabel) = \"en\"). }",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
