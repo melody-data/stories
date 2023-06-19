@@ -1,0 +1,184 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Overview on Wolfgang Amadeus Mozart ",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "aurorapianelli",
+    "id": "1687192885.49225",
+    "subtitle": "",
+    "curator": "Anna Mamyan and Aurora Pianelli ",
+    "description": "The following data story explores the life and career of one of the most influential and prolific composers of the classical period - Wolfgang Amadeus Mozart. \r\nThroughout his 30-year-long career he created a huge number of composition in diverse genres, largely contributing to the enrichment of the western musical heritage. Along with other great composers of the golden era of music, such as Bach and Beethoven, Mozart left an indelible imprint on pages of the world music history, opening the door for several other brilliant composers that had yet to come. \r\nIn the following data story we will touch upon some biographic data, putting an emphasis on the work activity of Mozart. Finally, we will investigate how Mozart is represented in contemporary culture.  \r\n\r\n\r\n",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "table",
+            "table_title": "Wolfgang Amadeus Mozart ",
+            "table_query": "SELECT DISTINCT ?image \r\nWHERE {\r\nwd:Q254 wdt:P18 ?image .\r\n}\r\nOFFSET 1\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Date of birth",
+            "table_query": "SELECT DISTINCT ?dateofbirth\r\nWHERE {  \r\nwd:Q254 wdt:P569 ?dateofbirth .\r\n  }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "map",
+            "map_title": "Mozart's place of birth",
+            "map_points_query": "SELECT DISTINCT ?countryLabel ?lat ?long\r\nWHERE {\r\nwd:Q254 wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Family members",
+            "table_query": "SELECT DISTINCT ?father ?fatherLabel ?mother ?motherLabel ?sibiling ?sibilingLabel\r\nWHERE {\r\nwd:Q254 wdt:P22 ?father. \r\n  ?father rdfs:label ?fatherLabel.\r\n  wd:Q254 wdt:P25 ?mother .\r\n  ?mother rdfs:label ?motherLabel .\r\n wd:Q254 wdt:P3373 ?sibiling .\r\n  ?sibiling rdfs:label ?sibilingLabel .\r\nFILTER(LANG(?fatherLabel)=\"en\"). \r\nFILTER (Lang(?motherLabel) =\"en\"). \r\nFILTER (LANG(?sibilingLabel) = \"en\").}\r\nLimit 3\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">His father and sister were artists as well. Leopold Mozart was a musician and he mainly worked at the court of Salzburg, where later his son will work too. Leopold recognised his son\u2019s talent since he was a child and he made sure his son was known in the major courts of Europe. The Mozart family traveled a lot, however Wolfgang Mozart ended up working mainly in Salzburg and Wien. .&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "map",
+            "map_title": "Work location",
+            "map_points_query": " SELECT DISTINCT ?countryLabel ?lat ?long\r\nWHERE {\r\nwd:Q254 wdt:P937 ?country . #worklocation\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">Mozart married Constanze Weber and they had two children</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "wife and children ",
+            "table_query": "SELECT DISTINCT ?wife ?wifeLabel ?child ?childLabel\r\nWHERE {\r\nwd:Q254 wdt:P26 ?wife. \r\n  ?wife rdfs:label ?wifeLabel.\r\n  wd:Q254 wdt:P40 ?child .\r\n  ?child rdfs:label ?childLabel .\r\n\r\nFILTER(LANG(?wifeLabel)=\"en\"). \r\nFILTER (Lang(?childLabel) =\"en\"). \r\n}\r\nLIMIT 3\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">Mozart died young: he was only 35 years old, In his 26 years of activity he managed to create an enormous amount of masterpieces, which inspired his successors, e.g. Wagner and Beethoven. With his overall work he established a bridge between the Classical and Romantic music movements.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "Activity period",
+            "table_query": "SELECT DISTINCT ?Start  ?End \r\nWHERE {\r\nwd:Q254 wdt:P2031 ?Start .\r\nwd:Q254 wdt:P2032 ?End .\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "compositions per year ",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?work ?a wd:Q960366 .  \r\n     ?work wdt:P86 wd:Q254 . \r\n     ?work wdt:P577 ?date . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?work rdfs:label ?label.\r\n}}\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 30\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "years",
+                "y": "compositions"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "table",
+            "table_title": "Notable works",
+            "table_query": "SELECT DISTINCT  ?works ?worksLabel ?image\r\nWHERE {\r\nwd:Q254 wdt:P800 ?works .\r\n?works rdfs:label ?worksLabel .\r\n\r\n        ?works wdt:P18 ?image .\r\nFILTER(LANG(?worksLabel)=\"en\"). \r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">In some of his works, however, it is possible to trace the influence of other great composers of his time.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Mozart's influencers ",
+            "chart_query": "SELECT DISTINCT ?label \r\nWHERE {\r\n     wd:Q254 wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\nGROUP BY ?label\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "text",
+            "text": "<p><strong style=\"color: rgb(0, 0, 0); background-color: transparent;\">&nbsp;</strong><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">The huge number of Mozart\u2019s followers on social media clearly expresses the love and admiration of the world for his music.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "table",
+            "table_title": "Followers on social media",
+            "table_query": "SELECT DISTINCT ?followers\r\nWHERE {\r\n  wd:Q254 wdt:P8687 ?followers .\r\n }\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">As the following table shows , the life and works of Wolfgang Amadeus Mozart still represent a source of interest and entertainment: many movies, screenplays, tv series and books are made on his figure, his short but eventful life and on his evergreen music. </span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "table",
+            "table_title": "Mozart in contemporary culture ",
+            "table_query": "SELECT ?item ?itemLabel #non solo film, ma anche plays/TVshows che hanno come soggetto Mozart \r\nWHERE {\r\n?item wdt:P674 wd:Q254 . \r\n  ?item rdfs:label ?itemLabel .\r\n  FILTER(LANG(?itemLabel)=\"en\") .\r\n\r\n}\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
