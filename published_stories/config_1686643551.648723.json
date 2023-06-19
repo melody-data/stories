@@ -25,7 +25,7 @@
             "position": 1,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(0, 0, 0);\">This is the number of famous albums that sold at least 10 million copies worldwide. In the music scene, this surely represents a measure of success and recognition for every artist.</span></p>",
+            "text": "<p>This is the number of famous albums that sold at least 10 millions copies worldwide. In the music scene, this surely represents a measure of success and recognition for every event.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -42,7 +42,7 @@
             "position": 3,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(0, 0, 0);\">With this doughnut chart we want to represent the number of awards honoring female performers and songwriters for their career and artistic achievements in the music business.&nbsp;</span></p>",
+            "text": "<h3>With this doughnut chart we want to represent the number of awards honoring female performers and songwriters for their career and artistic achievements in the music business.</h3>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -80,7 +80,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(0, 0, 0);\">Another significant recognition that female artists get for their artistic production is the nomination for awards and prizes. Similarly, the following bar chart explores the number of nominations that most popular female musicians received during their career.&nbsp;</span></p>",
+            "text": "<h3>Another significant recognition that female artists get for their artistic production is the nomination for awards and prizes. Similarly, the bar chart explores the number of nominations that the most popular female musicians received during their career.</h3>",
             "extra_queries": [],
             "map_filters": []
         },
