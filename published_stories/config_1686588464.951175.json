@@ -74,7 +74,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Guns N' Roses: Members, Birth Date and Occupation",
-            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?occupation ?occupationLabel \r\nWHERE { wd:Q11895 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\nOPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPl \r\nOPTIONAL {?Member wdt:P1303 ?occupation.} \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth)   ?occupation ?occupationLabel \r\nWHERE { wd:Q11895 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n             OPTIONAL {?Member wdt:P1303 ?occupation.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } LIMIT 10\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -98,8 +98,8 @@
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
-            "textsearch_title": "Red Hot Chili Peppers: Search Their Members and Discover More Information",
-            "textsearch_query": "SELECT DISTINCT ?components ?componentsLabel ?image \r\nWHERE { wd:Q10708 wdt:P527 ?components . \r\n       OPTIONAL { ?components wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nLIMIT 10\r\n",
+            "textsearch_title": "Red Hot Chili Peppers: Search Their Members and Discover How They Look Like",
+            "textsearch_query": "SELECT DISTINCT ?pic ?member ?memberLabel \r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #member\r\n                      mwapi:language \"en\".\r\n      ?member wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?member wdt:P463 wd:Q10708 .\r\n  ?member wdt:P18 ?pic .\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  FILTER regex(str(?pic), \"jpg\").\r\n}\r\nORDER BY ?member\r\nLIMIT 5\r\n\r\n",
             "extra_queries": [],
             "map_filters": []
         }
