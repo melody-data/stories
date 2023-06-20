@@ -11,15 +11,5 @@
     "subtitle": "",
     "curator": "Elena Maurizzi, Iryna Filyuk",
     "description": "",
-    "dynamic_elements": [
-        {
-            "position": 0,
-            "operations": [],
-            "type": "count",
-            "count_query": "SELECT (COUNT(?item) AS ?count)\r\nWHERE {\r\n  ?item wdt:P31 wd:Q482994.\r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}",
-            "count_label": "Albums",
-            "extra_queries": [],
-            "map_filters": []
-        }
-    ]
+    "dynamic_elements": []
 }
