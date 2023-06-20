@@ -3,8 +3,8 @@
     "template_mode": "statistics",
     "title": "Exploring Music Organizations in MusicBo ",
     "color_code": [
-        "#39c6b4",
-        "#17cf31"
+        "#d3bc27",
+        "#8b349d"
     ],
     "user_name": "ritagramellini",
     "id": "1687277754.778511",
@@ -26,6 +26,200 @@
             "type": "count",
             "count_query": "PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> SELECT DISTINCT  (count(distinct ?subject) as ?count) WHERE { ?subject a <http://www.ontologydesignpatterns.org/ont/amr/Organization>;   <http://www.ontologydesignpatterns.org/ont/amr/name> ?slabel .  }",
             "count_label": "Organization in MuscBo ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p>As a matter of fact, here we can observe the most mentioned organizations. Amongst them, organizations found in Bologna prevail, given to the fact that the corpus focuses on this city and the role of music there.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Top 10 most cited organizations in MusicBo ",
+            "chart_query": "PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nSELECT DISTINCT  ?label (COUNT(distinct ?subject) as ?count)\r\nWHERE {\r\n    ?subject a amr:Organization ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?label .\r\n\r\n\r\nFILTER (!regex(str(?label), \"jstor\",'i'))\r\n    }\r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n\r\n",
+            "chart_series": "Occurrences",
+            "chart_legend": {
+                "x": "Organization ",
+                "y": "Frequency"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Let\u2019s take a closer look at the organizations in Bologna, where the most various organisations are discovered, going from classical academies to the notable Cathedral of San Petronio.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "Most cited Bologna's organizations and their foundation year ",
+            "table_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n\r\n \r\n\r\nSELECT DISTINCT ?Organization (YEAR(?foundationDate) as ?foundationYear) \r\n\r\nWHERE {\r\n  ?s a amr:Organization ;\r\n    owl:sameAs ?wikidata ;\r\n    amr:name ?slabel ;\r\n?isconnectedto ?cityUri .\r\n\r\n  ?cityUri rdf:type amr:City ;\r\n    owl:sameAs ?point ;\r\n    amr:name ?label .\r\n\r\n  ?frameInstance ?p ?cityUri ;\r\n    rdf:type ?frame .\r\n   FILTER regex (?label, \"Bologna\", \"i\")\r\n\r\n \r\n\r\n  \r\n  FILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\"))\r\n\r\n \r\n\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>\r\n       {\r\n    ?wikidata  rdfs:label ?Organization . \r\n     OPTIONAL  { ?wikidata wdt:P571 ?foundationDate . }     \r\n    FILTER (langMatches(lang(?Organization), \"en\"))\r\n FILTER (YEAR(?foundationDate) != 1350)\r\n  }\r\n}\r\nORDER BY ASC (?foundationYear)",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Which Bologna-based organization is the most cited and popular?</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Bologna's organizations and their occurrences in MusicBo ",
+            "chart_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nSELECT DISTINCT  ?label (COUNT(distinct ?subject) as ?count)\r\nWHERE {\r\n\t?subject a amr:Organization ;\r\n<http://www.ontologydesignpatterns.org/ont/amr/name> ?label ;\r\n  ?isconnectedto ?cityUri .\r\n  ?cityUri rdf:type amr:City ;\r\n\towl:sameAs ?point ;\r\n\tamr:name ?plabel .\r\n\r\n  ?frameInstance ?p ?cityUri ;\r\n\trdf:type ?frame .\r\n   FILTER regex (?plabel, \"Bologna\", \"i\")\r\n \r\n\r\n  }\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count)",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The Philharmonic Academy of Bologna is the most mentioned one, given its high status in the Bolognese music panorama between the XVII and XVIII centuries. Its success was especially given by the high-profile members, such as the composer Giacomo Antonio Perti or the renowned violinist Giuseppe Torelli.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "The Philharmonic Academy of Bologna: the building",
+            "table_query": "PREFIX arco-catalogue: <https://w3id.org/arco/ontology/catalogue/>\r\nPREFIX arco: <https://w3id.org/arco/ontology/arco/>\r\nPREFIX a-cd: <https://w3id.org/arco/ontology/context-description/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX agent: <https://w3id.org/arco/resource/Agent/>\r\nPREFIX cis: <http://dati.beniculturali.it/cis/>\r\nPREFIX clv: <https://w3id.org/italia/onto/CLV/>\r\nPREFIX core: <https://w3id.org/arco/ontology/core/>\r\nPREFIX a-ip: <https://w3id.org/arco/ontology/immovable-property/>\r\n\r\nSELECT DISTINCT ?Building ?ConstructionDate ?CulturalScope ?ArchitecturalLayout ?Picture \r\nWHERE  \r\n{\r\n  SERVICE <https://dati.cultura.gov.it/sparql> {\r\n    ?s a arco:ArchitecturalOrLandscapeHeritage ;\r\n       rdfs:label ?Building .\r\n    FILTER regex(?Building, \"Palazzo della Accademia Filarmonica\", \"i\")\r\n    \r\n    ?s a-cd:hasDating ?d .\r\n    ?d a-cd:hasDatingEvent ?e .\r\n    ?e <https://w3id.org/italia/onto/TI/atTime> ?t .\r\n    ?t rdfs:label ?ConstructionDate.\r\n    \r\n    ?s a-cd:hasAuthorshipAttribution ?c . \r\n    ?c a-cd:hasCulturalScope ?cscope . \r\n    ?cscope rdfs:label ?CulturalScope.\r\n    \r\n\r\n  ?s a-ip:hasLayout ?layout . \r\n  ?layout rdfs:label ?ArchitecturalLayout . \r\n\r\n    OPTIONAL { ?s foaf:depiction ?Picture } \r\n  }\r\n}\r\nLIMIT 1",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The Baroque Concerto, A.J.B. Hutchings (1961) from the MusicBo corpus:</p><p>\"<em>After his Italian tour of 1770, Burney wrote of Torelli: ' This author, who was a member of the Philharmonic Academy of Bologna and the first violin of the church of San Petronio in the same city, published seven different works for violin</em>.\"</p><p>Let\u2019s look at an overview of Torelli\u2019s life.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "table",
+            "table_title": "Giuseppe Torelli: an overview",
+            "table_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n\r\nSELECT DISTINCT (year(?birthDate) as ?birthYear)?birthPlace (year(?deathDate) as ?deathYear) ?deathPlace ?occupation ?pic\r\nWHERE\r\n{\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>\r\n{\r\nwd:Q207532  wdt:P18 ?pic .\r\nOPTIONAL { wd:Q207532  wdt:P569 ?birthDate . }\r\nOPTIONAL { wd:Q207532  wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace . }\r\nOPTIONAL { wd:Q207532  wdt:P570 ?deathDate . }\r\nOPTIONAL { wd:Q207532  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\nOPTIONAL { wd:Q207532  wdt:P106 ?occ . ?occ rdfs:label ?occupation .  }\r\n  \r\nFILTER langMatches(lang(?birthPlace), 'en')\r\nFILTER langMatches(lang(?deathPlace), 'en')\r\nFILTER langMatches(lang(?occupation), 'en')\r\nFILTER (regex (?occupation, \"violinist\"))\r\n}\r\n}\r\nLIMIT 1",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Violinists like Torelli had a crucial role in the music scene of the XVIII century, since the violin was one of the most played instruments thanks to its sound harmony and grace, perfectly fit for classical music.</p><p>Look at how many violinists existed during this time!</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\n\r\nSELECT (COUNT(?violinist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?violinist wdt:P106 wd:Q1259917 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}\r\n",
+            "count_label": "Violinists in the XVIII century ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT (COUNT(?pianist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?pianist wdt:P106 wd:Q486748 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
+            "count_label": "Pianists in the XVIII century ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT (COUNT(?flutist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?flutist wdt:P106 wd:Q12902372 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
+            "count_label": "Flutists in the XVIII century ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT (COUNT(?guitarist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?guitarist wdt:P106 wd:Q855091 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
+            "count_label": "Guitarists in the XVIII century ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\n\r\nSELECT (COUNT(?violist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?violist wdt:P106 wd:Q899758 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
+            "count_label": "Violists in the XVIII century ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 18,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT (COUNT(?drummer) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?drummer wdt:P106 wd:Q386854 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
+            "count_label": "Drummers in the XVIII century ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 19,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Compared to other positions, such as pianists, flutists, guitarists, violists and drummers, violinists were of great importance in classical music and were much more required.</p><p>But what was the citizenship of the violinists of the XVIII century?</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 20,
+            "operations": [],
+            "type": "map",
+            "map_title": "Where were the violinists of the XVIII century born? ",
+            "map_points_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n  \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n \r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n \r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n \r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n \r\nPREFIX p: <http://www.wikidata.org/prop/>\r\n \r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n \r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\n \r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\n \r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\n\r\n\r\nSELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE {\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n  ?point wdt:P106 wd:Q1259917 ; #violinist  \r\n         wdt:P569 ?birthDate ; \r\n      rdfs:label ?pointLabel ;\r\n             wdt:P19 ?villeId .#bornin \r\n    ?villeId rdfs:label ?villeIdLabel . \r\n ?villeId p:P625 ?coords_stmt .\r\n\t?coords_stmt ps:P625 ?coords;\r\n  \tpsv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] .\r\n \r\nFILTER langMatches(lang(?pointLabel), 'en')\r\nFILTER langMatches(lang(?villeIdLabel), 'en')\r\n  \r\nFILTER NOT EXISTS { ?point rdfs:label ?pointLabel . FILTER (lang(?pointLabel) = 'en-ca' || lang(?pointLabel) = 'en-gb') }\r\nFILTER NOT EXISTS { ?villeId rdfs:label ?villeIdLabel . FILTER (lang(?villeIdLabel) = 'en-ca' || lang(?villeIdLabel) = 'en-gb') }\r\n\r\nFILTER ( YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  } }\r\nGROUP BY ?point ?pointLabel ?villeIdLabel ?lat ?long\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 21,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Europe had a notable larger number of violinists than the rest of the world, due to the fact that classical music was born in France and therefore it mostly expanded in countries of Northern Europe. France, Germany, Belgium, Luxembourg and Italy welcome the majority of violinists of the XVIII century.</p><p>If we want to find out which violinists are from a given city, we can check by entering the name of a city and discover who was born there. If available, we will also see an image depicting the artist.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 22,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Enter the name of a city to find out the violinists born there!",
+            "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\n\r\nSELECT DISTINCT ?violinist ?pic \r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #birthPlace \r\n                      mwapi:language \"en\".\r\n      ?bplace wikibase:apiOutputItem mwapi:item.\r\n    }\r\n    ?viol wdt:P106 wd:Q1259917 ;\r\n          rdfs:label ?violinist ;\r\n          wdt:P19 ?bplace .\r\n    ?bplace rdfs:label ?birthPlace .\r\n \r\n  OPTIONAL { ?viol wdt:P18 ?pic . }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n  FILTER langMatches(lang(?violinist), 'en')\r\n  FILTER langMatches(lang(?birthPlace), 'en')\r\n} }",
             "extra_queries": [],
             "map_filters": []
         }
