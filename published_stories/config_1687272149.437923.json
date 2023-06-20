@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Eploring albums' distribution formats 2000-20",
+    "title": "Eploring albums' distribution formats: 2000-2020",
     "color_code": [
         "#39c6b4",
         "#17cf31"
@@ -16,7 +16,96 @@
             "position": 0,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: rgb(26, 32, 53); color: rgb(0, 0, 0);\">Over the past two decades, the music industry has undergone significant transformations in the way albums are distributed to listeners. In this data story, we explore the distribution formats of albums from 2000 to 2020, specifically focusing on vinyls, CDs, and streaming platforms. By analyzing the data, we uncover the shifting landscape of album distribution and its impact on the music industry.</span></p>",
+            "text": "<p class=\"ql-align-justify\"><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">Over the past two decades, the music industry has undergone significant transformations in the way albums are distributed to listeners. In this data story, we explore the distribution formats of albums from 2000 to 2020, specifically focusing on vinyls, CDs, and streaming platforms. By analyzing the data, we uncover the shifting landscape of album distribution and its impact on the music industry.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT (?item) as ?count) \r\n\r\nWHERE {\r\n  ?item wdt:P31 wd:Q482994.\r\n  \r\n  SERVICE wikibase:label {bd:serviceParam wikibase:language \"en\".}\r\n}\r\n",
+            "count_label": "Albums published according to Wikidata",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?item) AS ?count)\r\nWHERE {\r\n  ?item wdt:P31 wd:Q482994;\r\n        wdt:P577 ?date;\r\n        wdt:P437 ?format.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n",
+            "count_label": "Albums with distribution format",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?item) AS ?count)\r\nWHERE {\r\n  ?item wdt:P31 wd:Q482994;\r\n        wdt:P577 ?date. \r\n  FILTER(YEAR(?date) <= 2020 && YEAR(?date) > 1999)\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n",
+            "count_label": "Albums published from 2000 to 2020 according to Wikidata",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?item) AS ?count)\r\nWHERE {\r\n  ?item wdt:P31 wd:Q482994;\r\n        wdt:P577 ?date;\r\nwdt:P437 ?format. \r\n  FILTER(YEAR(?date) <= 2020 && YEAR(?date) > 1999)\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n",
+            "count_label": "Albums with distribution format published from 2000 to 2020",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Albums published from 2000 to 2020: distribution formats",
+            "chart_query": "SELECT ?label (COUNT(?album) as ?count)\r\nWHERE {\r\n  ?album wdt:P31 wd:Q482994;\r\n         wdt:P437 ?format;\r\n         wdt:P577 ?date.\r\n  \r\n  FILTER(YEAR(?date) <= 2020 && YEAR(?date) > 1999)\r\n  \r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?format rdfs:label ?label.\r\n  }\r\n\r\n  VALUES ?format { wd:Q178588 wd:Q841983 wd:Q34467 wd:Q15982450 }  # Vinyl, LP, Compact disc, Streaming service\r\n  BIND(IF(?format IN (wd:Q178588, wd:Q841983), \"vinyl record\", ?label) AS ?label)\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Albums released as CD from 2000 to 2020",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?item ?a wd:Q482994;\r\n           wdt:P437 wd:Q34467; # CD\r\n           wdt:P577 ?date.\r\n\r\n  BIND(YEAR(?date) AS ?label) FILTER(YEAR(?date) <= 2020 && YEAR(?date) > 1999)\r\n}\r\n\r\nGROUP BY ?label ?count\r\nORDER BY ?label\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "years",
+                "y": "n. of CD"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">The advent of digital technology and streaming platforms revolutionized the way we consume music, leading to a decline in physical formats such as compact discs. However, in recent years, a surprising trend has emerged, marking the revival of vinyl records.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Albums released as vinyls from 2000 to 2020",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?item ?a wd:Q482994;\r\n           wdt:P577 ?date.\r\n  {?item wdt:P437 wd:Q178588} # vinyl record\r\n  UNION\r\n  {?item wdt:P437 wd:Q841983} # LP record\r\n\r\n\r\n  BIND(YEAR(?date) AS ?label) FILTER(YEAR(?date) <= 2020 && YEAR(?date) > 1999)\r\n}\r\n\r\nGROUP BY ?label ?count\r\nORDER BY ?label\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "years",
+                "y": "n. of albums"
+            },
             "extra_queries": [],
             "map_filters": []
         }
