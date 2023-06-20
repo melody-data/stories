@@ -1,0 +1,24 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Eploring albums' distribution formats 2000-20",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "elenamaurizzi",
+    "id": "1687272149.437923",
+    "subtitle": "",
+    "curator": "Elena Maurizzi and Iryna Filyuk",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"background-color: rgb(26, 32, 53); color: rgb(0, 0, 0);\">Over the past two decades, the music industry has undergone significant transformations in the way albums are distributed to listeners. In this data story, we explore the distribution formats of albums from 2000 to 2020, specifically focusing on vinyls, CDs, and streaming platforms. By analyzing the data, we uncover the shifting landscape of album distribution and its impact on the music industry.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
