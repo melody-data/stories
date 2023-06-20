@@ -52,7 +52,7 @@
             "position": 4,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">His father and sister were artists as well. Leopold Mozart was a musician and he mainly worked at the court of Salzburg, where later his son will work too. Leopold recognised his son\u2019s talent since he was a child and he made sure his son was known in the major courts of Europe. The Mozart family traveled a lot, however Wolfgang Mozart ended up working mainly in Salzburg and Wien. .&nbsp;</span></p>",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">His father and sister were artists as well. Leopold Mozart was a musician and he mainly worked at the court of Salzburg, where later his son will work too. Leopold recognised his son\u2019s talent since he was a child and he made sure his son was known in the major courts of Europe. The Mozart family traveled a lot, however Wolfgang Mozart ended up working mainly in Salzburg and Wien. .&nbsp;</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -69,7 +69,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">Mozart married Constanze Weber and they had two children</span></p>",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">Mozart married Constanze Weber and they had two children</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -86,7 +86,7 @@
             "position": 8,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">Mozart died young: he was only 35 years old, In his 26 years of activity he managed to create an enormous amount of masterpieces, which inspired his successors, e.g. Wagner and Beethoven. With his overall work he established a bridge between the Classical and Romantic music movements.</span></p>",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">Mozart died young: he was only 35 years old, In his 26 years of activity he managed to create an enormous amount of masterpieces, which inspired his successors, e.g. Wagner and Beethoven. With his overall work he established a bridge between the Classical and Romantic music movements.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -127,7 +127,7 @@
             "position": 12,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">In some of his works, however, it is possible to trace the influence of other great composers of his time.</span></p>",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">In some of his works, however, it is possible to trace the influence of other great composers of his time.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -150,7 +150,7 @@
             "position": 14,
             "operations": [],
             "type": "text",
-            "text": "<p><strong style=\"background-color: transparent; color: rgb(0, 0, 0);\">&nbsp;</strong><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">The huge number of Mozart\u2019s followers on social media clearly expresses the love and admiration of the world for his music.&nbsp;</span></p>",
+            "text": "<p><strong style=\"color: rgb(0, 0, 0); background-color: transparent;\">&nbsp;</strong><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">The huge number of Mozart\u2019s followers on social media clearly expresses the love and admiration of the world for his music.&nbsp;</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -167,7 +167,7 @@
             "position": 16,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">As the following table shows , the life and works of Wolfgang Amadeus Mozart still represent a source of interest and entertainment: many movies, screenplays, tv series and books are made on his figure, his short but eventful life and on his evergreen music. </span></p>",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">As the following table shows , the life and works of Wolfgang Amadeus Mozart still represent a source of interest and entertainment: many movies, screenplays, tv series and books are made on his figure, his short but eventful life and on his evergreen music. </span></p>",
             "extra_queries": [],
             "map_filters": []
         },
