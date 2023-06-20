@@ -42,7 +42,7 @@
             "position": 3,
             "operations": [],
             "type": "text",
-            "text": "<h3>With this doughnut chart we want to represent the number of awards honoring female performers and songwriters for their career and artistic achievements in the music business.</h3>",
+            "text": "<h3><br></h3><h3><br></h3><h3>With this doughnut chart we want to represent the number of awards honoring female performers and songwriters for their career and artistic achievements in the music business.</h3>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -65,7 +65,7 @@
             "position": 5,
             "operations": [],
             "type": "text",
-            "text": "<h3>Another significant recognition that female artists get for their artistic production is the nomination for awards and prizes. Similarly, the bar chart explores the number of nominations that the most popular female musicians received during their career.</h3>",
+            "text": "<h3><br></h3><h3><br></h3><h3>Another significant recognition that female artists get for their artistic production is the nomination for awards and prizes. Similarly, the bar chart explores the number of nominations that the most popular female musicians received during their career.</h3>",
             "extra_queries": [],
             "map_filters": []
         },
