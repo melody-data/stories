@@ -1,0 +1,33 @@
+{
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring Music Organizations in MusicBo ",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "ritagramellini",
+    "id": "1687277754.778511",
+    "subtitle": "An inspection of MusicBo\u2019s organizations going from a more general point of view to the discovery of specific aspects regarding academies, their members and the XVIII century music scene. \r\n",
+    "curator": "Rita Gramellini, Elisa Mastrorilli, Arianna Mendrano ",
+    "description": "This study aims at displaying the music organizations in the MusicBo corpus. In particular, we focused on the organizations in Bologna, while uncovering the dominance of violinists within the music scene in the XVIII century.\r\n",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The total number of organizations found in the MusicBo corpus is 307, mostly being music schools, academies, churches and operas.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> SELECT DISTINCT  (count(distinct ?subject) as ?count) WHERE { ?subject a <http://www.ontologydesignpatterns.org/ont/amr/Organization>;   <http://www.ontologydesignpatterns.org/ont/amr/name> ?slabel .  }",
+            "count_label": "Organization in MuscBo ",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
