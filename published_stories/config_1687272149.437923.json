@@ -3,14 +3,14 @@
     "template_mode": "statistics",
     "title": "Eploring albums' distribution formats: 2000-2020",
     "color_code": [
-        "#39c6b4",
-        "#17cf31"
+        "#b876f9",
+        "#3ded97"
     ],
     "user_name": "elenamaurizzi",
     "id": "1687272149.437923",
     "subtitle": "",
     "curator": "Elena Maurizzi and Iryna Filyuk",
-    "description": "",
+    "description": "This data story explores the resources related to the distribution formats of albums available on Wikidata, the centralized, linked data repository for all Wikimedia projects, with the goal of overviewing this topic from statistical point of view.",
     "dynamic_elements": [
         {
             "position": 0,
@@ -106,6 +106,81 @@
                 "x": "years",
                 "y": "n. of albums"
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Music streaming platforms launched over the years",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\n\r\nWHERE {\r\n     ?item ?a wd:Q15590336;\r\n           wdt:P571 ?date.\r\n\r\n  BIND(YEAR(?date) AS ?label)\r\n}\r\nGROUP BY ?label ?count\r\nORDER BY ?label\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "years",
+                "y": "n. of music streaming platforms"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "table",
+            "table_title": "Muisc streaming platforms",
+            "table_query": "SELECT ?service ?serviceLabel (SUM(?followers) AS ?totalFollowers) ?year ?country ?countryLabel\r\nWHERE {\r\n  ?service wdt:P31 wd:Q15590336 ;\r\n           wdt:P8687 ?followers .\r\n  \r\n  \r\n  OPTIONAL { ?service wdt:P571 ?date. }\r\n  OPTIONAL { ?service wdt:P495 ?country . }\r\n  \r\n  BIND(YEAR(?date) AS ?year)\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en, it, fr, ja, nl\".}\r\n}\r\n\r\nGROUP BY ?service ?serviceLabel ?year ?country ?countryLabel\r\nORDER BY DESC(?totalFollowers)\r\nLIMIT 20\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "text",
+            "text": "<p class=\"ql-align-justify\"><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">The table above showcases some of the most notable streaming services that have shaped the digital music landscape. These platforms have revolutionized the way music is accessed and enjoyed, providing a vast library of songs. A visual representation of the locations of these streaming service headquarters can be seen on map below. Each marker corresponds to the respective company's headquarters, showcasing the international reach of the streaming industry.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "map",
+            "map_title": "Location of music streaming platforms' headquarters",
+            "map_points_query": "SELECT ?point ?pointLabel ?headquartersLabel ?lat ?long\r\nWHERE {\r\n  ?point wdt:P31 wd:Q15590336 ;\r\n         wdt:P159 ?headquarters.\r\n\r\n  ?headquarters p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  }\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Search album",
+            "textsearch_query": "SELECT DISTINCT ?album ?albumLabel ?performer ?performerLabel ?date\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?album wikibase:apiOutputItem mwapi:item. }\r\n\r\n  {?album ?a wd:Q482994; wdt:P175 ?performer .\r\n   ?album wdt:P577 ?date; wdt:P437 ?format .}\r\n\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" }\r\n}\r\n\r\nLIMIT 20",
+            "textsearch": {
+                "album": [
+                    "Distribution format",
+                    "Genre"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "action",
+            "action_title": "Distribution format",
+            "action_query": "SELECT DISTINCT ?format ?formatLabel\r\nWHERE { \r\n  <<item>> wdt:P437 ?format .\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "action",
+            "action_title": "Genre",
+            "action_query": "SELECT DISTINCT ?genre ?genreLabel\r\nWHERE { \r\n  <<item>> wdt:P136 ?genre .\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20\r\n",
             "extra_queries": [],
             "map_filters": []
         }
