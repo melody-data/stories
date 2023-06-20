@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": " https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Exploring albums' distribution formats 2000-20",
+    "title": "Trial",
     "color_code": [
         "#39c6b4",
         "#17cf31"
