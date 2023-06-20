@@ -95,21 +95,10 @@
         },
         {
             "position": 7,
-            "operations": [
-                {
-                    "action": "count",
-                    "param": "label"
-                }
-            ],
-            "type": "chart",
-            "chart_type": "doughnutchart",
-            "chart_title": "Year of Publication of Each Album by The Destiny's Child",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?album) as ?count) \r\nWHERE {\r\n     ?album ?a wd:Q482994 . \r\n     ?album wdt:P175 wd:Q153056 . \r\n     ?album wdt:P577 ?publication .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?publication rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10",
-            "chart_series": "",
-            "chart_legend": {
-                "x": "",
-                "y": ""
-            },
+            "operations": [],
+            "type": "table",
+            "table_title": "Year of Publication of the Albums",
+            "table_query": "SELECT DISTINCT (?label AS ?album) (year(xsd:dateTime(?date)) as ?date) \r\nWHERE {\r\n     ?album wdt:P31 wd:Q482994 . \r\n     ?album wdt:P175 wd:Q153056 . \r\n     ?album wdt:P577 ?date .    \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?album rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?label ?date\r\nORDER BY ?date\r\nLIMIT 20",
             "extra_queries": [],
             "map_filters": []
         }
