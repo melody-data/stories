@@ -156,8 +156,8 @@
             "position": 15,
             "operations": [],
             "type": "count",
-            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT (COUNT(?flutist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?flutist wdt:P106 wd:Q12902372 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
-            "count_label": "Flutists in the XVIII century ",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT (COUNT(?oboist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?oboist wdt:P106 wd:Q16003954 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
+            "count_label": "Oboists in the XVIII century ",
             "extra_queries": [],
             "map_filters": []
         },
@@ -165,8 +165,8 @@
             "position": 16,
             "operations": [],
             "type": "count",
-            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT (COUNT(?guitarist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?guitarist wdt:P106 wd:Q855091 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
-            "count_label": "Guitarists in the XVIII century ",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\n\r\nSELECT (COUNT(?flutist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?flutist wdt:P106 wd:Q12902372 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
+            "count_label": "Flutists in the XVIII century ",
             "extra_queries": [],
             "map_filters": []
         },
@@ -174,8 +174,8 @@
             "position": 17,
             "operations": [],
             "type": "count",
-            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\n\r\nSELECT (COUNT(?violist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?violist wdt:P106 wd:Q899758 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
-            "count_label": "Violists in the XVIII century ",
+            "count_query": "\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\n\r\nSELECT (COUNT(?guitarist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?guitarist wdt:P106 wd:Q855091 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}\r\n",
+            "count_label": "Guitarists in the XVIII century ",
             "extra_queries": [],
             "map_filters": []
         },
@@ -183,8 +183,8 @@
             "position": 18,
             "operations": [],
             "type": "count",
-            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT (COUNT(?drummer) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?drummer wdt:P106 wd:Q386854 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}",
-            "count_label": "Drummers in the XVIII century ",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\n\r\nSELECT (COUNT(?violist) AS ?count)\r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    ?violist wdt:P106 wd:Q899758 ;\r\n               wdt:P569 ?birthDate .\r\n\r\n   FILTER (   YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  ).\r\n  }\r\n}\r\n",
+            "count_label": "Violists in the XVIII century ",
             "extra_queries": [],
             "map_filters": []
         },
@@ -192,7 +192,7 @@
             "position": 19,
             "operations": [],
             "type": "text",
-            "text": "<p>Compared to other positions, such as pianists, flutists, guitarists, violists and drummers, violinists were of great importance in classical music and were much more required.</p><p>But what was the citizenship of the violinists of the XVIII century?</p>",
+            "text": "<p>Compared to other players, such as pianists, flutists, guitarists, violists and drummers, violinists were of great importance in classical music and were much more required. The MusicBo corpus has evidence of the popularity of violinists:</p><p>The Baroque Concerto, A.J.B. Hutchings (1961)</p><p>\"<em>bassoonists, flautists and oboists who are less richly served with concertos than are violinists and pianists, but prove that we have yet to explore a field of French concertos in which there are works as attractive as Telemann's, which they notably influenced, and sometimes quite as distinguished by technical skill</em>.\"</p><p>But what was the citizenship of the violinists of the XVIII century?</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -209,7 +209,7 @@
             "position": 21,
             "operations": [],
             "type": "text",
-            "text": "<p>Europe had a notable larger number of violinists than the rest of the world, due to the fact that classical music was born in France and therefore it mostly expanded in countries of Northern Europe. France, Germany, Belgium, Luxembourg and Italy welcome the majority of violinists of the XVIII century.</p><p>If we want to find out which violinists are from a given city, we can check by entering the name of a city and discover who was born there. If available, we will also see an image depicting the artist.</p>",
+            "text": "<p>Europe had a notable larger number of violinists than the rest of the world, due to the fact that classical music was born in France and therefore it mostly expanded in countries of Northern Europe. France, England, Germany, Belgium, Luxembourg and Italy welcome the majority of violinists of the XVIII century. The MusicBo corpus provides an explanation for the growing presence of violinists between the XVII and the XVIII centuries, as shown by the following sentences:</p><p>OUTLANDISH AUTHORS: INNOCENZO FEDE AND MUSICAL PATRONAGE AT THE STUART COURT IN LONDON AND IN EXILE, Nicholas Ezra Field (2013)</p><p>\"<em>The experience of the violin in England was transformed in 1656 with the arrival of Thomas Baltzar, a German violinist recently employed in Sweden at the court Queen dissemination of the violin and its court repertoire into the wider musical community was, of course, the Civil War</em>.\"</p><p>OUTLANDISH AUTHORS: INNOCENZO FEDE AND MUSICAL PATRONAGE AT THE STUART COURT IN LONDON AND IN EXILE, Nicholas Ezra Field (2013)</p><p>\"<em>The 1773 arrival of Mary and her Italian courtiers nearly coincided with an explosion of popular interest in Italian music caused in large part by the performances of violinist Nicola Matteis, who had appeared in London around 1670 and struggled briefly for recognition before achieving fame around 1672.106 North wrote, \u201cthis poor Man as a gratefull legacy to the English Nation left with them a generall favour for the Itallian Manner of Harmony, and after him the French was wholly lay\u2019d aside</em>.\"</p><p>The Baroque Concerto, A.J.B. Hutchings (1961)</p><p>\"<em>Geminiani was one of the finest violinists of his generation, and he came to England at a time when the example and teaching of a great violinist was badly needed</em>.\"</p><p>If we want to find out which violinists are from a given city, we can check by entering the name of a city and discover who was born there. If available, we will also see an image depicting the artist.</p>",
             "extra_queries": [],
             "map_filters": []
         },
