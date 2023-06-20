@@ -1,0 +1,94 @@
+{
+    "sparql_endpoint": " https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "History of the piano (prova)",
+    "color_code": [
+        "#ededed",
+        "#cf3c17"
+    ],
+    "user_name": "RossellaVerolino",
+    "id": "1687273434.214928",
+    "subtitle": "Features of the piano",
+    "curator": "Rossella Verolino - Giovanna De Felice",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?piano) AS ?count)\r\nWHERE {\r\n     ?piano wdt:P31 wd:Q5994 .\r\n}\r\n",
+            "count_label": "Types of pianos",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Types of pianos ",
+            "table_query": "SELECT ?item ?itemLabel  \r\nWHERE  { \r\n ?item wdt:P31 wd:Q5994. \r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } \r\n} \r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "table",
+            "table_title": "Piano images",
+            "table_query": "#defaultView:ImageGrid\r\nSELECT ?item ?itemLabel ?pic\r\nWHERE \r\n { \r\n?item wdt:P31 wd:Q5994 . \r\n   ?item wdt:P18 ?pic\r\n         SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } \r\n    } \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Male pianists",
+            "table_query": "SELECT DISTINCT ?men ?menLabel\r\nWHERE\r\n { \r\n   ?men wdt:P31 wd:Q5 .\r\n   ?men wdt:P21 wd:Q6581097 .\r\n   ?men wdt:P106/wdt:P279* wd:Q486748 . # pianists\r\n   SERVICE wikibase:label {bd:serviceParam wikibase:language \"en\" }\r\n   }\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Female pianists ",
+            "table_query": "SELECT DISTINCT ?women ?womenLabel\r\nWHERE\r\n { \r\n   ?women wdt:P31 wd:Q5 .\r\n   ?women wdt:P21 wd:Q6581072 .\r\n   ?women wdt:P106/wdt:P279* wd:Q486748 . # pianists\r\n   SERVICE wikibase:label {bd:serviceParam wikibase:language \"en\" }\r\n   }\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "map",
+            "map_title": "Pianists and their origins ",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P106 wd:Q486748 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 100\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Piano sales over the years ",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) \r\nWHERE { ?piano ?a wd:Q5994 . ?piano wdt:P571 ?date . \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?date rdfs:label ?label. } \r\nFILTER(YEAR(?date) >= 1990 && YEAR(?date) <= 2020) } \r\nGROUP BY ?label \r\nORDER BY ASC(?label) \r\nLIMIT 30\r\n",
+            "chart_series": "Piano sales ",
+            "chart_legend": {
+                "x": "Years ",
+                "y": "Sales "
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "Famous piano pieces ",
+            "table_query": "SELECT DISTINCT ?label (COUNT(distinct ?pianist) as ?count) \r\nWHERE {\r\n     ?pianist ?a wd:Q36834 . # pianist\r\n      ?pianist wdt:P800 ?notablework . \r\n   \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?notablework rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 5",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
