@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Blur ",
+    "title": "Blur  ",
     "color_code": [
         "#39c6b4",
         "#17cf31"
