@@ -3,17 +3,33 @@
     "template_mode": "statistics",
     "title": "Imagine Dragons",
     "color_code": [
-        "#39c6b4",
-        "#17cf31"
+        "#5b72e6",
+        "#df20cf"
     ],
     "user_name": "MatteoPu",
     "id": "1687270122.507342",
-    "subtitle": "",
+    "subtitle": "Pop rock bands: focus on Imagine Dragons",
     "curator": "Matteo Puglia and Joanna Iacono",
-    "description": "",
+    "description": "The name alone conjures up a sense of magic, power, and limitless creativity. This American rock band has captivated millions of hearts and minds with their unique sound and heartfelt lyrics, leaving an indelible mark on the music industry. Allow us to take you on a journey through their incredible legacy and share why Imagine Dragons deserves your unwavering attention.",
     "dynamic_elements": [
         {
             "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>American pop rock music bands have played a significant role in shaping the landscape of popular music for decades. Known for their catchy melodies, energetic performances, and mainstream appeal, these bands have garnered immense popularity both in the United States and around the world.</p><p>If you want to explore some notable American pop rock music bands that have made a lasting impact, click <a href=\"https://en.wikipedia.org/wiki/Category:American_pop_rock_music_groups\" target=\"_blank\">here</a>.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "<p><strong>POP ROCK MUSIC BANDS IN THE USA</strong></p><p>Let's start with the number of pop rock music bands all over the USA</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q484641 . # pop rock band \r\n     ?band wdt:P495 wd:Q30 . # from usa\r\n}\r\n",
@@ -22,7 +38,45 @@
             "map_filters": []
         },
         {
-            "position": 1,
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Pop rock bands in the USA",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q484641 . # pop rock\r\n     ?band wdt:P495 wd:Q30 . # from United States\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20\r\n",
+            "chart_series": "Pop rock bands activity",
+            "chart_legend": {
+                "x": "Formation year",
+                "y": "Number of bands"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Members of pop rock bands in the USA",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE { ?band ?a wd:Q484641 . # pop rock\r\n       ?band wdt:P495 wd:Q30 . # from United States \r\n       ?band wdt:P527 ?item . \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } GROUP BY ?label ORDER BY DESC(?count) \r\nLIMIT 5",
+            "chart_series": "Members of pop rock bands in the USA",
+            "chart_legend": {
+                "x": "Group names",
+                "y": "Number of members"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "text",
+            "text": "<p><strong>What is the pop rock band that caught our attention? </strong></p><p>Let's find it out!</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
@@ -38,16 +92,7 @@
             "map_filters": []
         },
         {
-            "position": 2,
-            "operations": [],
-            "type": "table",
-            "table_title": "Imagine Dragons members",
-            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q391348 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10\r\n\r\n",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 3,
+            "position": 7,
             "operations": [],
             "type": "action",
             "action_title": "Show components of music band",
@@ -56,7 +101,7 @@
             "map_filters": []
         },
         {
-            "position": 4,
+            "position": 8,
             "operations": [],
             "type": "action",
             "action_title": "Show music genres",
@@ -65,16 +110,49 @@
             "map_filters": []
         },
         {
-            "position": 5,
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "Imagine Dragons members and their birthplace",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q391348 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "table",
+            "table_title": "Top 10 most influential songs by Imagine Dragons",
+            "table_query": "SELECT DISTINCT ?song ?songLabel (year(xsd:dateTime(?publicationDate)) as ?publication) WHERE { ?song wdt:P175 wd:Q391348 ; wdt:P407 wd:Q1860 . ?song wdt:P577 ?publicationDate . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } ORDER BY ?publicationDate LIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
             "operations": [],
             "type": "chart",
-            "chart_type": "linechart",
-            "chart_title": "Pop rock bands in the USA",
-            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q484641 . # pop rock\r\n     ?band wdt:P495 wd:Q30 . # from United States\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20\r\n",
-            "chart_series": "Pop rock bands activity",
+            "chart_type": "doughnutchart",
+            "chart_title": "Instruments played by Imagine Dragons",
+            "chart_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count) WHERE { wd:Q391348 wdt:P527 ?member. ?member wdt:P1303 ?instrument. ?instrument rdfs:label ?instrumentLabel. FILTER (lang(?instrumentLabel) = \"en\"). } GROUP BY ?instrument ?instrumentLabel ORDER BY DESC(?count)\r\n",
+            "chart_series": "",
             "chart_legend": {
-                "x": "Formation year",
-                "y": "Number of bands"
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "What is the most used instrument by Imagine Dragons?",
+            "textsearch_query": "#Guitar, with pictures\r\n#defaultView:ImageGrid\r\nSELECT ?item ?itemLabel ?pic\r\nWHERE\r\n{\r\n?item wdt:P31 wd:Q78987 .\r\n?item wdt:P18 ?pic\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" }\r\n}\r\nLIMIT 1",
+            "textsearch": {
+                "item": [
+                    "Show components of music band"
+                ]
             },
             "extra_queries": [],
             "map_filters": []
