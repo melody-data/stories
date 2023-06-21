@@ -1,0 +1,25 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Coldplay",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "giulia2910",
+    "id": "1687333146.683135",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "table",
+            "table_title": "coldplay",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q45188 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
