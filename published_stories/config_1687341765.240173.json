@@ -1,0 +1,93 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Dolly Parton: The Queen of Country Music",
+    "color_code": [
+        "#e6da56",
+        "#cf7017"
+    ],
+    "user_name": "AlessiaValentini",
+    "id": "1687341765.240173",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Since the early 20th century, Tennessee has been home to many popular singers.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?singer) AS ?count)\r\nWHERE {\r\n     ?singer ?a wd:Q639669 . \r\n     ?singer wdt:P19/wdt:P131* wd:Q1509 . \r\n}",
+            "count_label": "Number of Singers born in Tennessee",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p>In particular, Tennessee has been recognized worldwide as the capital of country music.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "Most Influential Singers from Tennessee",
+            "table_query": "SELECT DISTINCT ?label \r\nWHERE {\r\n     ?singer ?a wd:Q639669 .\r\n     ?singer wdt:P19/wdt:P131* wd:Q1509 .\r\n     ?singer wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count\r\nORDER BY (?label)\r\nLIMIT 30",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p>When talking about Tennessee, it is impossible not to mention the Queen of country music: Dolly Parton.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "Dolly Parton ",
+            "table_query": "SELECT ?Picture\r\nWHERE {\r\n  wd:Q180453 wdt:P18 ?Picture. \r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The peak of her career started in the 1970s and continued in the new millenium. Dolly Parton, with a career spanning over 50 years, produced many successful albums starting from the early seventies, till the new millennium. Her discography includes studio, collaborative, live, soundtrack, compilation albums.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?album) AS ?count)\r\nWHERE {\r\n     ?album wdt:P31/wdt:P279* wd:Q482994. \r\n     ?album wdt:P175 wd:Q180453 . \r\n}",
+            "count_label": "Discography of Dolly Parton ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "table",
+            "table_title": "Dolly Parton's studio albums sorted by year",
+            "table_query": "SELECT DISTINCT (?label AS ?album) (year(xsd:dateTime(?date)) as ?date) \r\nWHERE {\r\n     ?album wdt:P31 wd:Q482994 . \r\n     ?album wdt:P175 wd:Q180453 . \r\n     ?album wdt:P577 ?date .    \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?album rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?label ?date\r\nORDER BY ?date\r\nLIMIT 500",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
