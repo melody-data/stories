@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://query.wikidata.org/sparql",
     "template_mode": "statistics",
-    "title": "Coldplay ",
+    "title": "Coldplay study",
     "color_code": [
         "#e25a2c",
         "#cf1767"
