@@ -88,6 +88,15 @@
             "table_query": "SELECT DISTINCT (?label AS ?album) (year(xsd:dateTime(?date)) as ?date) \r\nWHERE {\r\n     ?album wdt:P31 wd:Q482994 . \r\n     ?album wdt:P175 wd:Q180453 . \r\n     ?album wdt:P577 ?date .    \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?album rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?label ?date\r\nORDER BY ?date\r\nLIMIT 500",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?award) AS ?count)\r\nWHERE {\r\n  wd:Q180453 wdt:P166 ?award.\r\n}",
+            "count_label": "Number of Awards received by Dolly Parton ",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
