@@ -1,0 +1,63 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "M\u00e5neskin",
+    "color_code": [
+        "#39c3c6",
+        "#a717cf"
+    ],
+    "user_name": "fio99",
+    "id": "1687363773.138831",
+    "subtitle": "One of the most influential bands of the last 20 years",
+    "curator": "Fiorella Di Matteo, Marika Di Matteo",
+    "description": "Introducing the sensational rock band Maneskin, an Italian rock band formed in 2016 that has captured the hearts of music enthusiasts worldwide, with their edgy performances and their rebellious spirit. This band has reached massive international success, especially after winning the European Song Contest in 2021, becoming the leading exporters of Italian culture all over the world. Today this group continues to redefine the boundaries of modern rock music.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q38 . # from italy\r\n}",
+            "count_label": "Number of Italian rock bands",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Number of members of Italian rock bands",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q38 . # from italy\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 10",
+            "chart_series": "members",
+            "chart_legend": {
+                "x": "Italian rock bands",
+                "y": "Number of members"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Number of Italian rock bands per year",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q38 . # from italy\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20",
+            "chart_series": "bands",
+            "chart_legend": {
+                "x": "years",
+                "y": "number of bands"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
