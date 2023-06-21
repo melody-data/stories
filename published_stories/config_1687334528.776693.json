@@ -1,0 +1,24 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "The 27 Club",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "Veronica-00",
+    "id": "1687334528.776693",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<pre class=\"ql-syntax\" spellcheck=\"false\">The cultural phenomenon of the 27 Club\r\nA sense of unease surrounds the history of the so-called 27 Club, a group of young talented musicians, mainly rockstars, who are united by a sudden and premature death. We all know the most famous of them: Kurt Cobain, lead singer of Nirvana who committed suicide, Jim Morrison, frontman of The Doors who died of an overdose, as well as Amy Winehouse and Janis Joplin, Brian Jones and Jimi Hendrix. But there are more of them. It would therefore be interesting to look into this creepy Club, that has now turned into a cultural phenomenon.\r\n</pre>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
