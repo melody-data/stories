@@ -146,7 +146,7 @@
             "position": 13,
             "operations": [],
             "type": "text",
-            "text": "<p>Apart from the many nominations, The Destiny's Child actually received many awards of different types. They were recognized for their songs, their dances, their videos and their performances in general. </p>",
+            "text": "<p>Apart from the many nominations, The Destiny's Child actually received many awards of different types. They were recognized for their songs, their dances, their videos and their performances in general.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -156,7 +156,7 @@
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Awards Received by the Destiny's Child ",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?award) as ?count) \r\nWHERE {\r\n     ?destiny ?a wd:Q153056 . \r\n     ?destiny wdt:P166 ?award .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?award rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 15",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?award) as ?count) \r\nWHERE {\r\n     ?destiny ?a wd:Q153056 . \r\n     ?destiny wdt:P166 ?award .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?award rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 13",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
