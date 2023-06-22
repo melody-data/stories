@@ -1,0 +1,25 @@
+{
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "Gaspare Spontini ",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "AlessiaMazza",
+    "id": "1687423919.288237",
+    "subtitle": "MusicBO starting point",
+    "curator": "Alessia Mazza and Veronica Spena",
+    "description": "We start this story with the exploration of the MusicBO knowledge graph, with the aim to discover the quantity of people with a counter.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\t\r\nSELECT (COUNT(?person) as ?count) \r\nWHERE {\r\n?person rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person> .\t\r\n?person <http://www.ontologydesignpatterns.org/ont/amr/name> ?label \r\n} \r\n",
+            "count_label": "People in MusicBO.",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
