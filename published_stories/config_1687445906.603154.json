@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Pink Floyd",
+    "color_code": [
+        "#ff8647",
+        "#b51a00"
+    ],
+    "user_name": "MartinaSant",
+    "id": "1687445906.603154",
+    "subtitle": "The creator of two major music movements",
+    "curator": "Martina Santarini and Alessia Perrone",
+    "description": "This story aims at delineating the success of one of the greatest British bands representative of the progressive rock genre, cited by some as the greatest progressive rock band of all time. Pink Floy were the founder of two major music movements: psychedelic space-rock and blues-based progressive rock. They became known for their biting political, social and emotional commentary.",
+    "dynamic_elements": []
+}
