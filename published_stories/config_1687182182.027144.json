@@ -68,7 +68,7 @@
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "most cited works of art",
-            "chart_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX wn: <http://xmlns.com/wordnet/1.6/>\r\nPREFIX wn30: <http://purl.org/vocabularies/princeton/wn30/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nSELECT DISTINCT ?label (COUNT (?label) as ?count)\r\nWHERE \r\n{\r\n?s a <http://www.ontologydesignpatterns.org/ont/amr/Work-of-art>; \r\n <http://www.ontologydesignpatterns.org/ont/amr/name> ?label;\r\nowl:sameAs ?wd .\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n{?wd wdt:P86 ?wdauthor}\r\n} \r\nGROUP BY ?label ?count\r\nORDER BY DESC (?count) \r\nLIMIT 10\r\n\r\n",
+            "chart_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT DISTINCT ?label\r\nWHERE\r\n{?musician rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person>;\r\nowl:sameAs ?wikidata. \r\nFILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\nSERVICE  <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n  {\r\n\t?wikidata wdt:P106 wd:Q36834  . #has occupation musician\r\n\r\n    {?wikidata ?origin wd:Q159}  # has origin in Russia\r\n    UNION\r\n    {?wikidata ?origin wd:Q34266} # has origin in Russian Empire\r\n    ?wikidata rdfs:label ?label .\r\n    FILTER langmatches(lang(?label), \"en\")\r\n}\r\n}\r\n\r\nGROUP BY  ?label\r\nORDER BY ASC (?label)\r\nLIMIT 10 #this is to remove all language duplicates. Fortunately the results are actually 10",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
@@ -89,9 +89,37 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "Semiramide",
+            "textsearch_userinput": "",
             "textsearch_title": "Inserisci opera (es. opere sopracitate nel doughnut chart)",
-            "textsearch_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nPREFIX bds: <http://www.bigdata.com/rdf/search#> \r\nPREFIX p: <http://www.wikidata.org/prop/> \r\nPREFIX ps: <https://w3id.org/payswarm#>\r\n\r\n\r\nSELECT DISTINCT ?workOfArt ?composer (YEAR(?date) as ?publicationYear) ?genre ?image \r\nWHERE \r\n{\r\n  ?subject owl:sameAs ?wiki.\r\n  ?subject <http://www.ontologydesignpatterns.org/ont/amr/name> ?workOfArt\r\n    filter contains(?workOfArt, <<searchterm>>)\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {  \r\n  OPTIONAL {?wiki wdt:P86 ?comp.\r\n            ?comp rdfs:label ?composer\r\n           FILTER langMatches(lang(?composer),\"en\")}\r\n  OPTIONAL {?wiki wdt:P7937 ?gns.\r\n           ?gns rdfs:label ?genre\r\n           FILTER langMatches(lang(?genre),\"en\")}\r\n  OPTIONAL {?wiki wdt:P577 ?date}\r\n  OPTIONAL {?wiki wdt:P18 ?image}\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}\r\n}\r\nLIMIT 1",
+            "textsearch_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nPREFIX bds: <http://www.bigdata.com/rdf/search#> \r\nPREFIX p: <http://www.wikidata.org/prop/> \r\nPREFIX ps: <https://w3id.org/payswarm#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n\r\n\r\nSELECT DISTINCT ?composer (YEAR(?dateOfBirth)AS ?birthYear) ?placeOfBirth (YEAR(?dateOfDeath)AS ?deathYear) ?placeOfDeath ?image\r\nWHERE \r\n{?subject a <http://www.ontologydesignpatterns.org/ont/amr/Person>; owl:sameAs ?wikidata.\r\n\t\r\n   SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> { \r\n\t?wikidata wdt:P106 wd:Q36834  .#has occupation musician\r\n    {?wikidata ?origin wd:Q159}  # has origin in Russia\r\n    UNION\r\n    {?wikidata ?origin wd:Q34266} # has origin in Russian Empire\r\n    ?wikidata rdfs:label ?composer .\r\n\tfilter contains(?composer, <<searchterm>>)\r\n\tFILTER(lang(?composer) = \"en\")\r\n\r\nOPTIONAL {?wikidata wdt:P569 ?dateOfBirth ; wdt:P570 ?dateOfDeath}\r\nOPTIONAL {?wikidata wdt:P19 ?pob ; wdt:P20 ?pod .\r\n    \t?pob rdfs:label  ?placeOfBirth. ?pod rdfs:label ?placeOfDeath}\r\n    FILTER(lang(?placeOfBirth) = \"en\")\r\n    FILTER(lang(?placeOfDeath) = \"en\")\r\nOPTIONAL {?wikidata wdt:P18 ?image}\r\n   \r\n}\r\n}\r\nLIMIT 1  \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "asdasd",
+            "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\n\r\nSELECT DISTINCT ?composer  (year(?birthDate) as ?birthYear) ?birthPlace (year(?deathDate) as ?deathYear) ?deathPlace ?pic \r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n    filter contains(?country, <<searchterm>>). \r\n    ?person wdt:P106 wd:Q36834 ; \r\n          rdfs:label ?composer ;\r\n          wdt:P19 ?bplace .\r\n          ?bplace wdt:P17 ?paese.\r\n      ?paese rdfs:label ?country.     \r\n  ?bplace rdfs:label ?birthPlace .\r\nOPTIONAL { ?person  wdt:P569 ?birthDate . }\r\nOPTIONAL { ?person  wdt:P570 ?deathDate . }\r\nOPTIONAL { ?person  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\n  OPTIONAL { ?person wdt:P18 ?pic . }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n  FILTER (lang(?composer) = \"en\")\r\n  FILTER (lang(?birthPlace) = \"en\")\r\n FILTER (lang(?deathPlace) = \"en\")\r\nFILTER (YEAR(?birthDate) > 1799 && YEAR(?birthDate) < 1901 )\r\n  }}\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "audio",
+            "table_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nSELECT ?label ?audio\r\nWHERE{\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n{?member wdt:P463 wd:Q190390;\r\n      wdt:P800 wd:Q285976;\r\n        rdfs:label ?label. \r\n   wd:Q285976 wdt:P51 ?audio .    \r\n      FILTER (lang(?label) = \"en\")\r\n  }\r\n}\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nSELECT (COUNT(DISTINCT ?label) as ?count)\r\nWHERE{\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n{\r\n?composer wdt:P463 ?group;  # is member of \r\nwdt:P106 wd:Q36834. # has occupation composer\r\n?composer ?origin wd:Q34266. # has origin in Russian Empire\r\n?group rdfs:label ?label\r\nFILTER (lang(?label) = \"en\")\r\n       FILTER (!regex(str(?label), \"American\")) \r\n       FILTER (!regex(str(?label), \"Swedish\"))\r\n       FILTER (!regex(str(?label), \"Soviet\")) \r\n       FILTER(!regex(str(?label), \"USSR\"))\r\n}}\r\n",
+            "count_label": "Number of aoisnapsjsd",
             "extra_queries": [],
             "map_filters": []
         }
