@@ -3,8 +3,8 @@
     "template_mode": "statistics",
     "title": "M\u00e5neskin",
     "color_code": [
-        "#ae39c6",
-        "#cf1779"
+        "#39c3c6",
+        "#a717cf"
     ],
     "user_name": "fio99",
     "id": "1687363773.138831",
@@ -131,18 +131,24 @@
         {
             "position": 11,
             "operations": [],
-            "type": "table",
-            "table_title": "Instruments they play",
-            "table_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count) WHERE { wd:Q56884561 wdt:P527 ?member. ?member wdt:P1303 ?instrument. ?instrument rdfs:label ?instrumentLabel. FILTER (lang(?instrumentLabel) = \"en\"). } GROUP BY ?instrument ?instrumentLabel ORDER BY DESC(?count)",
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Their sources of inspiration",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE { \r\n  ?band ?a wd:Q5741069 . # rock \r\n  ?band wdt:P495 wd:Q38 . # from italy \r\n  ?band wdt:P737 ?influencer . \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n                         ?influencer rdfs:label ?label.}\r\n} \r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count) \r\nLIMIT 10",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 12,
             "operations": [],
-            "type": "count",
-            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q482994 . # album\r\n     ?band wdt:P175 wd:Q56884561 . # from maneskin\r\n}",
-            "count_label": "Number of published albums",
+            "type": "table",
+            "table_title": "Instruments they play",
+            "table_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count) WHERE { wd:Q56884561 wdt:P527 ?member. ?member wdt:P1303 ?instrument. ?instrument rdfs:label ?instrumentLabel. FILTER (lang(?instrumentLabel) = \"en\"). } GROUP BY ?instrument ?instrumentLabel ORDER BY DESC(?count)",
             "extra_queries": [],
             "map_filters": []
         },
@@ -158,9 +164,9 @@
         {
             "position": 14,
             "operations": [],
-            "type": "table",
-            "table_title": "Some of their most famous songs",
-            "table_query": "SELECT DISTINCT ?song ?songLabel (year(xsd:dateTime(?publicationDate)) as ?publication) WHERE { ?song wdt:P175 wd:Q56884561 ; wdt:P407 wd:Q652 . ?song wdt:P577 ?publicationDate . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } ORDER BY ?publicationDate LIMIT 20",
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q482994 . # album\r\n     ?band wdt:P175 wd:Q56884561 . # from maneskin\r\n}",
+            "count_label": "Number of published albums",
             "extra_queries": [],
             "map_filters": []
         },
@@ -168,8 +174,8 @@
             "position": 15,
             "operations": [],
             "type": "table",
-            "table_title": "Number of nominations they received",
-            "table_query": "SELECT DISTINCT ?nomination ?nominationLabel WHERE { wd:Q56884561 wdt:P1411 ?nomination . ?nomination rdfs:label ?nominationLabel. FILTER(LANG(?nominationLabel)=\"en\"). }",
+            "table_title": "Some of their most famous songs",
+            "table_query": "SELECT DISTINCT ?song ?songLabel (year(xsd:dateTime(?publicationDate)) as ?publication) WHERE { ?song wdt:P175 wd:Q56884561 ; wdt:P407 wd:Q652 . ?song wdt:P577 ?publicationDate . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } ORDER BY ?publicationDate LIMIT 20",
             "extra_queries": [],
             "map_filters": []
         },
@@ -177,7 +183,16 @@
             "position": 16,
             "operations": [],
             "type": "table",
-            "table_title": "Number of awards they won",
+            "table_title": "Nominations they received",
+            "table_query": "SELECT DISTINCT ?nomination ?nominationLabel WHERE { wd:Q56884561 wdt:P1411 ?nomination . ?nomination rdfs:label ?nominationLabel. FILTER(LANG(?nominationLabel)=\"en\"). }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "table",
+            "table_title": "Awards they won",
             "table_query": "SELECT DISTINCT ?award ?awardLabel WHERE { wd:Q56884561 wdt:P166 ?award . ?award rdfs:label ?awardLabel. FILTER(LANG(?awardLabel)=\"en\"). }",
             "extra_queries": [],
             "map_filters": []
