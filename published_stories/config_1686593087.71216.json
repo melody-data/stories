@@ -8,16 +8,15 @@
     ],
     "user_name": "ritagramellini",
     "id": "1686593087.71216",
-    "subtitle": "An insight into the MusicBo corpus through knowledge extraction.",
+    "subtitle": "An insight into the MusicBo corpus discovering the people and cities mentioned through knowledge extraction. ",
     "curator": "John Patrick Bulseco Nulud, Rita Gramellini, Elisa Mastrorilli ",
-    "description": "The MusicBo corpus contains 135 texts about Bologna's music heritage. The exploration of its knowledge graph by means of the Polifonia endpoint allows to retrieve data which provides a quantitative and qualitative overview of the corpus\u2019s contents.",
+    "description": "The MusicBo corpus consists of 135 texts that delve into the rich music heritage of Bologna. By exploring its knowledge graph, you can access data that offers both a quantitative and qualitative glimpse into the contents of the corpus. It's an innovative way to get a deeper understanding of the fascinating musical world of Bologna. Get ready for this amazing journey!\r\n",
     "dynamic_elements": [
         {
             "position": 0,
             "operations": [],
-            "type": "count",
-            "count_query": "\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>   \r\n \r\nSELECT distinct (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person>. \r\n}\r\n \r\n",
-            "count_label": "People mentioned in MusicBo ",
+            "type": "text",
+            "text": "<p>Let's start by taking a quick peek at the MusicBo corpus to see just how many people and cities are mentioned. This will give us a sense of the multitude of individuals and locations that contributed to Bologna's vibrant musical heritage.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -25,43 +24,52 @@
             "position": 1,
             "operations": [],
             "type": "count",
-            "count_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>   \r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n \r\nSELECT distinct (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type amr:City.\r\n}\r\n",
-            "count_label": "Cities mentioned in MusicBo ",
+            "count_query": "\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n \r\nSELECT distinct (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person>. \r\n}\r\n \r\n",
+            "count_label": "People mentioned in MusicBo ",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 2,
             "operations": [],
-            "type": "text",
-            "text": "<p>Our initial purpose was to focus on the number of people and cities mentioned in the MusicBo corpus. This information could be retrieved only by exploring the knowledge graph.</p>",
+            "type": "count",
+            "count_query": "\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n \r\nSELECT distinct (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type amr:City.\r\n}\r\n",
+            "count_label": "Cities mentioned in MusicBo ",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 3,
             "operations": [],
-            "type": "map",
-            "map_title": "Location of the cities mentioned in MusicBo ",
-            "map_points_query": "\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n\r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\r\n\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n\r\nPREFIX dbpedia: <http://dbpedia.org/resource/>\r\n\r\nPREFIX sc: <http://purl.org/science/owl/sciencecommons/>\r\n\r\nPREFIX schema: <http://schema.org/>\r\n\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\n\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\n\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\n\r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\n\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\nSELECT DISTINCT ?point ?label ?frameInstance ?lat ?long\r\n\r\nWHERE { \r\n\r\n\r\n\r\n  ?cityUri rdf:type amr:City ; \r\n\r\n    owl:sameAs ?point ; \r\n\r\n    amr:name ?label .\r\n\r\n\r\n  FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))\r\n\r\n\r\n  ?frameInstance ?p ?cityUri ; \r\n\r\n    rdf:type ?frame . \r\n\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n\r\n  { ?point wdt:P31/wdt:P279* wd:Q515 . \r\n\r\n    ?point p:P625 ?coords_stmt . \r\n\r\n    ?coords_stmt ps:P625 ?coords;\r\n\r\n      psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] . \r\n\r\n  }\r\n\r\n\r\n  }\r\n\r\n",
+            "type": "text",
+            "text": "<p>Check out this map to discover which cities are specifically mentioned in the MusicBo corpus!&nbsp;</p>",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 4,
             "operations": [],
-            "type": "text",
-            "text": "<p>To deepen our quantitative study, we decided to discover which cities were specifically mentioned. The map below enables to visualize the results, which show that most cities (1042) are located in Italy.</p>",
+            "type": "map",
+            "map_title": "Location of the cities mentioned in MusicBo ",
+            "map_points_query": "\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\nSELECT DISTINCT ?point ?label ?frameInstance ?lat ?long\r\n\r\nWHERE { \r\n\r\n  ?cityUri rdf:type amr:City ; \r\n    owl:sameAs ?point ; \r\n    amr:name ?label .\r\n\r\n  FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))\r\n\r\n  ?frameInstance ?p ?cityUri ; \r\n    rdf:type ?frame . \r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n  { ?point wdt:P31/wdt:P279* wd:Q515 . \r\n    ?point p:P625 ?coords_stmt . \r\n    ?coords_stmt ps:P625 ?coords;\r\n      psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] . \r\n\r\n  }\r\n  }\r\n",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 5,
             "operations": [],
+            "type": "text",
+            "text": "<p>Did you notice that the cities are highly concentrated in Europe?</p><p>This can be also attributed to the Grand Tour, started in the XVIII century. This significant phenomenon allowed musicians, composers, and&nbsp;also music enthusiasts to visit prominent cities, like Bologna, and initiate a cultural exchange that involved the entire Europe. As a matter of fact, the Grand Tour had a profound impact on the dissemination of Bologna's music heritage across the continent.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
             "type": "chart",
             "chart_type": "barchart",
             "chart_title": "Top 10 most cited cities in MusicBo",
-            "chart_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>   \r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\n \r\nSELECT DISTINCT ?label (COUNT(distinct ?s) as ?count)\r\nWHERE \r\n{?s rdf:type amr:City ; \r\namr:name ?label  .\r\n}\r\n \r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
+            "chart_query": "PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n\r\n \r\nSELECT DISTINCT ?label (COUNT(distinct ?s) as ?count)\r\nWHERE \r\n{?s rdf:type amr:City ; \r\namr:name ?label  .\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n\r\n\r\n",
             "chart_series": "Occurrences",
             "chart_legend": {
                 "x": "Cities",
@@ -71,20 +79,20 @@
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 7,
             "operations": [],
             "type": "text",
-            "text": "<p>To further develop our research, we created a list of the most mentioned cities in the corpus. The results are shown in the bar chart below, which ranks each city based on their occurrences.</p>",
+            "text": "<p>As we continue our journey of MusicBo's discovery, there's one question we need to ask: who are the top 10 people that appear the most in the corpus?</p>",
             "extra_queries": [],
             "map_filters": []
         },
         {
-            "position": 7,
+            "position": 8,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Top 10 most cited people in MusicBo ",
-            "chart_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>   \r\n \r\nSELECT distinct ?label (COUNT(distinct ?s) as ?count)\r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person>. \r\n    ?s <http://www.ontologydesignpatterns.org/ont/amr/name> ?label  .\r\n}\r\n \r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
+            "chart_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\nSELECT distinct ?label (COUNT(distinct ?s) as ?count)\r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person>. \r\n    ?s <http://www.ontologydesignpatterns.org/ont/amr/name> ?label  .\r\n}\r\n \r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
@@ -94,24 +102,24 @@
             "map_filters": []
         },
         {
-            "position": 8,
-            "operations": [],
-            "type": "text",
-            "text": "<p>The same ranking approach was applied to counting people in the knowledge graph by means of a different visual representation, which is the doughnut chart.</p>",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
             "position": 9,
             "operations": [],
-            "type": "table",
-            "table_title": "Gioacchino Rossini: an overview",
-            "table_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT DISTINCT (year(?birthDate) as ?birthYear) ?birthPlace (year(?deathDate) as ?deathYear)  ?deathPlace ?pic \r\nWHERE\r\n \r\n{\r\n \r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>\r\n \r\n{\r\n    \r\n    wd:Q9726 wdt:P18 ?pic .\r\n \r\n \r\nOPTIONAL { wd:Q9726 wdt:P569 ?birthDate . }\r\n \r\n    OPTIONAL { wd:Q9726 wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace }\r\n \r\nOPTIONAL { wd:Q9726 wdt:P570 ?deathDate . }\r\n    \r\n       OPTIONAL { wd:Q9726 wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace }\r\n\r\n  }\r\nFILTER langMatches(lang(?birthPlace), 'en')\r\n  FILTER langMatches(lang(?deathPlace), 'en')\r\n}\r\n\r\nLIMIT 1\r\nOFFSET 4",
+            "type": "text",
+            "text": "<p>And the prize for the most cited person in the MusicBo corpus goes to... Gioacchino Rossini!</p><p>Such an important person deserves a worthy introduction. Get ready to discover some biographical information, his notable works, and the cities that embraced his talent. But that's not all: you'll also see an image of this extraordinary musical genius!</p>",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 10,
+            "operations": [],
+            "type": "table",
+            "table_title": "Gioacchino Rossini: an overview",
+            "table_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT DISTINCT (year(?birthDate) as ?birthYear) ?birthPlace (year(?deathDate) as ?deathYear)  ?deathPlace ?pic \r\nWHERE\r\n \r\n{\r\n \r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>\r\n \r\n{\r\n    \r\n    wd:Q9726 wdt:P18 ?pic .\r\n \r\n \r\nOPTIONAL { wd:Q9726 wdt:P569 ?birthDate . }\r\n \r\n    OPTIONAL { wd:Q9726 wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace }\r\n \r\nOPTIONAL { wd:Q9726 wdt:P570 ?deathDate . }\r\n    \r\n       OPTIONAL { wd:Q9726 wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace }\r\n\r\n  }\r\nFILTER (lang(?birthPlace) = 'en')\r\nFILTER (lang(?deathPlace)= 'en')\r\n}\r\nOFFSET 3 ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
             "operations": [],
             "type": "table",
             "table_title": "Rossini's notable works",
@@ -120,20 +128,17 @@
             "map_filters": []
         },
         {
-            "position": 11,
-            "operations": [],
-            "type": "text",
-            "text": "<p>As in the previous function the results show Gioacchino Rossini as the most cited person, we decided to explore some aspects of his life. In order to do so, the Wikidata and Dbpedia knowledge graphs have proved to be very effective at retrieving extra information which was not available in the Polifonia knowledge graph.</p><p>We interrogated the MusicBo corpus I order to understand the reasons of Rossini's popularity. Here are some sentences that are particularly representative:</p><ul><li>The music of <strong>Rossini</strong> is universally appreciated for no other reason than because his melodies are either entirely popular, and lifted, so to speak, from the mouths of the people; or resemble those successions of tones which the people are generally familiar with and have become accustomed to, that is, popular.</li><li>At times it seems almost as if <strong>Rossini</strong> is some sort of 1950s rock \u2019n\u2019 roll star, out to corrupt young, impressionable, and, yes, mostly female minds with his \u201cphysical\u201d music.</li><li>Carpani goes on to list the myriad forms in which <strong>Rossini\u2019</strong>s music spread throughout Italy and the many different nonoperatic situations in which it featured: military marches, Tafelmusik, church organs, orchestral accompaniment to theatrical dance, the tavern, the street, the salon, pianos, and so on: \u201cWe still haven\u2019t heard this music only from church bells or repeated by the plumed inhabitants of wood trees.</li></ul><p>The observation of the corpus' sentences has revealed that Rossini is a renowned composer, notable not only for the fame he achieved during his lifetime but also for the significant impact he had on subsequent musical heritage.</p>",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
             "position": 12,
             "operations": [],
-            "type": "textsearch",
-            "textsearch_userinput": "",
-            "textsearch_title": "Other people in MusicBo  ",
-            "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nPREFIX bds: <http://www.bigdata.com/rdf/search#>\r\n\r\n \r\n\r\nSELECT DISTINCT  ?musician ?musicianLabel (year(?birthDate) as ?birthYear) (year(?deathDate) as ?deathYear) ?Image\r\n\r\n \r\n\r\nWHERE {\r\n  ?musician owl:sameAs ?wiki .\r\n  ?musician <http://www.ontologydesignpatterns.org/ont/amr/name> ?musicianLabel .\r\n  filter contains(?musicianLabel, <<searchterm>>).\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n        OPTIONAL {?wiki wdt:P569 ?birthDate ; wdt:P570 ?deathDate .}\r\n        OPTIONAL { ?wiki wdt:P18 ?Image . FILTER regex(str(?Image), \"jpg\") }\r\n        SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n       }\r\n}\r\nLIMIT 1\r\n",
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Cities where Rossini left his mark",
+            "chart_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX dbp: <http://dbpedia.org/property/>\r\nPREFIX dpr: <http://dbpedia.org/resource/>\r\nPREFIX dbr: <http://dbpedia.org/resource/>\r\nPREFIX dbo: <http://dbpedia.org/ontology/>\r\nSELECT DISTINCT  ?label (COUNT(distinct ?city) as ?count) \r\nWHERE {\r\nSERVICE <https://dbpedia.org/sparql> \r\n  {\r\n dbr:Gioachino_Rossini a dbo:Person ; \r\n      dbo:wikiPageWikiLink ?city.\r\n{  ?city a dbo:City . }\r\nUNION \r\n{  ?city a dbr:City . }\r\nUNION\r\n{  ?city a dbo:Comune . }\r\n?city rdfs:label ?label .\r\n   FILTER langMatches(lang(?label),\"en\")\r\n}\r\n\r\n}\r\nGROUP BY ?label ?count \r\nORDER BY ?label ",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
             "extra_queries": [],
             "map_filters": []
         },
@@ -141,7 +146,17 @@
             "position": 13,
             "operations": [],
             "type": "text",
-            "text": "<p>This function is a starting point to conduct research on people mentioned in the Polifonia knowledge graph. The text search enables to retrieve their biographical information, as well as an image. All the data are extracted from the Wikidata knowledge graph.</p>",
+            "text": "<p>Many are the cities that embraced Rossini\u2019s talent and were influenced by his musical genius.&nbsp;&nbsp;</p><p>But why is Rossini so popular?&nbsp;The MusicBo corpus reveals some reasons behind his fame:&nbsp;</p><p>Music in the Present Tense Rossini Italian's Operas in Their Time, Emanuele Senici (2019)</p><p><em style=\"background-color: transparent;\">The music of </em><strong style=\"background-color: transparent;\"><em>Rossini</em></strong><em style=\"background-color: transparent;\"> is universally appreciated for no other reason than because his melodies are either entirely popular, and lifted, so to speak, from the mouths of the people; or resemble those successions of tones which the people are generally familiar with and have become accustomed to, that is, popular.</em></p><p><em style=\"background-color: transparent;\">At times it seems almost as if </em><strong style=\"background-color: transparent;\"><em>Rossini</em></strong><em style=\"background-color: transparent;\"> is some sort of 1950s rock \u2019n\u2019 roll star, out to corrupt young, impressionable, and, yes, mostly female minds with his \u201cphysical\u201d music.</em></p><p><em style=\"background-color: transparent;\">Carpani goes on to list the myriad forms in which </em><strong style=\"background-color: transparent;\"><em>Rossini\u2019</em></strong><em style=\"background-color: transparent;\">s music spread throughout Italy and the many different nonoperatic situations in which it featured: military marches, Tafelmusik, church organs, orchestral accompaniment to theatrical dance, the tavern, the street, the salon, pianos, and so on: \u201cWe still haven\u2019t heard this music only from church bells or repeated by the plumed inhabitants of wood trees.</em></p><p>Numerous people like him contributed to enriching Bologna's music scene and spreading its heritage all over the world. Do you want to know if a person played an important role in Bologna's music tradition? </p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "Mozart",
+            "textsearch_title": "Enter a name to find out if they left a lasting mark in Bologna's musical landscape!",
+            "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nPREFIX bds: <http://www.bigdata.com/rdf/search#>\r\n\r\n \r\n\r\nSELECT DISTINCT  ?musician ?musicianLabel (year(?birthDate) as ?birthYear) (year(?deathDate) as ?deathYear) ?Image\r\n\r\n \r\n\r\nWHERE {\r\n  ?musician owl:sameAs ?wiki .\r\n  ?musician <http://www.ontologydesignpatterns.org/ont/amr/name> ?musicianLabel .\r\n  filter contains(?musicianLabel, <<searchterm>>).\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n        OPTIONAL {?wiki wdt:P569 ?birthDate ; wdt:P570 ?deathDate .}\r\n        OPTIONAL { ?wiki wdt:P18 ?Image . FILTER regex(str(?Image), \"jpg\") }\r\n        SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n       }\r\n}\r\nLIMIT 1\r\n",
             "extra_queries": [],
             "map_filters": []
         }
