@@ -8,9 +8,9 @@
     ],
     "user_name": "AlessiaValentini",
     "id": "1687341765.240173",
-    "subtitle": "",
-    "curator": "",
-    "description": "",
+    "subtitle": "Country music has its deep roots in Tennessee and in the Queen herself, Dolly Parton ",
+    "curator": "Alessia Valentini, Elisa Nicoli, Benedetta Poli and Riccardo La Forgia ",
+    "description": "This story aims at delineating the success of one of the greatest American singers representative of country music. Tennessee has always given birth to a great amount of singers performing many different genres. However, country music seems to be the core of this US southern state. For this reason, the main focus of this story will be the woman who is considered the Queen herself of country music, the multi-talented, Tennessee-born Dolly Parton. ",
     "dynamic_elements": [
         {
             "position": 0,
@@ -95,6 +95,86 @@
             "type": "count",
             "count_query": "SELECT (COUNT(?award) AS ?count)\r\nWHERE {\r\n  wd:Q180453 wdt:P166 ?award.\r\n}",
             "count_label": "Number of Awards received by Dolly Parton ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>As visible in the chart below, the Queen of Country Music, Dolly Parton, has received many different typologawards, which qualify her not only has a very successful singer, but also as an actor and very influential public personality in general.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Award Types conferred to Dolly Parton ",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?award) as ?count) \r\nWHERE {\r\n     ?dolly ?a wd:Q180453 . \r\n     ?dolly wdt:P166 ?award .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?award rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 20",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Beyond the many recognitions, she received many nominations as well, which further identify the Country Music Queen as a very multifaceted and versatile performer.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Nominations received by Dolly Parton ",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?nomination) as ?count) \r\nWHERE {\r\n     ?dolly ?a wd:Q180453 . \r\n     ?dolly wdt:P1411 ?nomination .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?nomination rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 20",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "text",
+            "text": "<p>As many might know, Dolly Parton had a major role in Hannah Montana Disney Channel TV series. Her role in the series is Hannah's (Miley Cyrus) aunt coming from Tennessee. The connection between the two is also very strong in real life. Parton, being a long-time friend of Miley's father, Billy Ray Cyrus, is also the singer's godmother. Apart from that, Miley is one of the most famous performers in the present decade, whose work has been very much influenced by Dolly Parton .</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "table",
+            "table_title": "Miley Cyrus: Dolly Parton's main disciple",
+            "table_query": "SELECT DISTINCT ?singer ?singerLabel ?Pic\r\nWHERE {\r\n  ?singer wdt:P106 wd:Q639669 .   \r\n  ?singer wdt:P737 wd:Q180453 .   \r\n  OPTIONAL {?singer wdt:P18 ?Pic.} \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY ?singerLabel",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Apart from the roles on the screen, Dolly Parton is mainly known for her successful songs, all of them having a deep country sound. Here are the ones with the lyrics precisely authored by her and inspired by her personal life experience, just like <em>Jolene</em>.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "table",
+            "table_title": "Most famous songs written and sung by Dolly Parton ",
+            "table_query": "SELECT DISTINCT ?song ?songLabel (year(xsd:dateTime(?publicationDate)) as ?publication) \r\nWHERE { ?song wdt:P676 wd:Q180453 ; wdt:P407 wd:Q1860 . ?song wdt:P577 ?publicationDate . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nORDER BY ?publicationDate \r\nLIMIT 20",
             "extra_queries": [],
             "map_filters": []
         }
