@@ -20,6 +20,23 @@
             "count_label": "People in MusicBO.",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "<p>We than narrow down our research with a counter for the quantity of artists in the corpus.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX pblr: <https://w3id.org/framester/pb/localrole/>\r\nSELECT (COUNT(?artist) AS ?count)\r\nWHERE {\r\n\t?artist pblr:artist ?person .\r\n\t?person rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person> .    \r\n}\r\n",
+            "count_label": "Artists in MusicBO.",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
