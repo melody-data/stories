@@ -10,7 +10,7 @@
     "id": "1686999190.271702",
     "subtitle": "An 18th century Italian composer",
     "curator": "Alessia Mazza and Veronica Spena",
-    "description": "The following story will explore the WikiData knowledge base to discover the most significant points and events in the Italian composer Gaspare Spontini\u2019s personal and professional life.\r\nWe will start with a general exploration of the WikiData knowledge base to discover the quantity of people and artists in comparison with MusicBO and then we will narrow down our research analysing composers in WikiData, until finding our main object of the story: Gaspare Spontini.  \r\nIn particular, we will focus on his biography, his occupations and fields of work, the awards he received during his life, where he worked and the cities where he lived. There will be at the end an insight on the Museum Gaspare Spontini, its location and the visitors he had per year.\r\n",
+    "description": "The following story will explore the WikiData knowledge base to discover the most significant points and events in the Italian composer Gaspare Spontini\u2019s personal and professional life.\r\nWe will start with a general exploration of the WikiData knowledge base to discover the quantity of people and artists in comparison with MusicBO and then we will narrow down our research analysing composers in WikiData, until finding our main object of the story: Gaspare Spontini.  \r\nIn particular, we will focus on his biography, his occupations and fields of work, the awards he received during his life, where he worked and the cities where he lived. \r\nThere will be at the end an insight into the Casa Museo Gaspare Spontini, its location and the visitors he had per year.\r\n",
     "dynamic_elements": [
         {
             "position": 0,
@@ -231,7 +231,7 @@
             "position": 24,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(0, 0, 0); background-color: transparent;\">During his life, he received many awards. In particular the award \"Pour le M\u00e9rite for Sciences and Arts order\" which is given to scientists and artists who have made an outstanding name for themselves through the widespread recognition of their achievements in science or the arts.</span></p>",
+            "text": "<p><span style=\"color: rgb(0, 0, 0); background-color: transparent;\">During his life, he received many awards. In particular, the award \"Pour le M\u00e9rite for Sciences and Arts order\" is given to scientists and artists who have made an outstanding name for themselves through the widespread recognition of their achievements in science or the arts.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -241,6 +241,46 @@
             "type": "table",
             "table_title": "Casa Museo Gaspare Spontini",
             "table_query": "SELECT DISTINCT ?image\r\nWHERE {\r\n  wd:Q3867604 wdt:P18 ?image .\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 26,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(0, 0, 0); background-color: transparent;\">The Gaspare Spontini Museum is located in Maiolata Spontini, in the house where the composer and his wife spent the last years of their lives. Inside, we can find some music sheets, manuscripts, two pianos and some paintings depicting the staging of Spontini's French works, like </span><em style=\"color: rgb(0, 0, 0); background-color: transparent;\">The Miltondel, The Vestal</em><span style=\"color: rgb(0, 0, 0); background-color: transparent;\"> and others.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 27,
+            "operations": [],
+            "type": "map",
+            "map_title": "Location of the museum",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE {\r\nwd:Q3867604 wdt:P131 ?point .\r\n?point p:P625 ?statement.\r\n?statement psv:P625 ?node.\r\n?node wikibase:geoLatitude ?lat ;\r\n        \twikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language 'en'. }\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 28,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Visitors per year :",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  ?count\r\nWHERE {\r\n \twd:Q3867604 p:P1174 ?statement.\r\n \t?statement ps:P1174 ?count.\r\n \t?statement pq:P585 ?date.     \t\r\n \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n  \t}\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\n",
+            "chart_series": "Visitors per year",
+            "chart_legend": {
+                "x": "Year",
+                "y": "Visitors per year"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 29,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(0, 0, 0);\">This last chart shows us the number of visitors per year to the museum. In 2019 there was a high increase, however, probably due to Covid-19, the number of visitors decreased drastically in 2020.</span></p>",
             "extra_queries": [],
             "map_filters": []
         }
