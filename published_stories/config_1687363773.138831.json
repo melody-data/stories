@@ -196,6 +196,59 @@
             "table_query": "SELECT DISTINCT ?award ?awardLabel WHERE { wd:Q56884561 wdt:P166 ?award . ?award rdfs:label ?awardLabel. FILTER(LANG(?awardLabel)=\"en\"). }",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 18,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 19,
+            "operations": [],
+            "type": "table",
+            "table_title": "Damiano David",
+            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q57415344 wdt:P18 ?image . }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 20,
+            "operations": [],
+            "type": "table",
+            "table_title": "His occupations",
+            "table_query": "SELECT DISTINCT ?occupation ?occupationLabel WHERE { wd:Q57415344 wdt:P106 ?occupation . ?occupation rdfs:label ?occupationLabel. FILTER(LANG(?occupationLabel)=\"en\"). }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 21,
+            "operations": [],
+            "type": "table",
+            "table_title": "Languages that he speaks",
+            "table_query": "SELECT DISTINCT ?language ?languageLabel WHERE { wd:Q57415344 wdt:P1412 ?language . ?language rdfs:label ?languageLabel. FILTER(LANG(?languageLabel)=\"en\"). }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 22,
+            "operations": [],
+            "type": "table",
+            "table_title": "Sport he plays",
+            "table_query": "SELECT DISTINCT ?sport ?sportLabel WHERE { wd:Q57415344 wdt:P641 ?sport . ?sport rdfs:label ?sportLabel. FILTER(LANG(?sportLabel)=\"en\"). }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 23,
+            "operations": [],
+            "type": "table",
+            "table_title": "Number of followers on social media",
+            "table_query": "SELECT DISTINCT ?followers WHERE { wd:Q57415344 wdt:P8687 ?followers . }",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
