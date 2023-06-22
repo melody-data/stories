@@ -1,0 +1,146 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "The Destiny's Child",
+    "color_code": [
+        "#8e39c6",
+        "#cf17bf"
+    ],
+    "user_name": "AlessiaValentini",
+    "id": "1687431570.16364",
+    "subtitle": "Overview of the girl bands born in the United States leading to the record-breaking group \"The Destiny's Child\"",
+    "curator": "Alessia Valentini, Elisa Nicoli, Benedetta Poli and Riccardo La Forgia",
+    "description": "Our story aims at providing an overview of the amount of girl bands that have populated the music scene since the very beginning of the last century. Girl bands, especially the ones who have their origins in the United States of America, are many and diverse. This is the reason why, after delineating very briefly the amount of girl bands, the number of members they are (and were) composed of, we decided to focus on a particular girl band whose career is marked by an impressive amount of records and hits. Scroll down to discover who we are talking about.  ",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?girlband) AS ?count)\r\nWHERE {\r\n     ?girlband wdt:P31 wd:Q641066 . \r\n}\r\n",
+            "count_label": "Number of Girl Bands in the World",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The United States have a long-time tradition of bands, and in particular of those bands which can be defined as all-girl or all-boy bands, a very successful concept in the world of music. Here, we will focus in particular on the amount of girl bands originating in the United States.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?girlband) AS ?count)\r\nWHERE {\r\n     ?girlband ?a wd:Q641066 .\r\n     ?girlband wdt:P495 wd:Q30 .\r\n}\r\n",
+            "count_label": "Number of Girl Bands from the United States",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Girl Bands find their origins in different historic periods. However, as visible in the chart below, the peak of girl band creation is clearly at the very beginning of the 90s.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "When they started their activity",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?girlband ?a wd:Q641066 . \r\n     ?girlband wdt:P495 wd:Q30 . \r\n     ?girlband wdt:P2031 ?date .       \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?girlband rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 100",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "text",
+            "text": "<p>xxxxx</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Members for each Girl Band ",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?girlband ?a wd:Q641066 . \r\n     ?girlband wdt:P495 wd:Q30 . \r\n     ?girlband wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?girlband rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 20\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Group Name",
+                "y": "Members"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "text",
+            "text": "<p>A particular girlband we decided to analyze is the multi-award winning all-female group The Destiny's Child. Here is a table delineating the details about each member of this group.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "table",
+            "table_title": "Members of The Destiny's Child ",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel ?Pic \r\nWHERE { wd:Q153056 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P19 ?BirthPlace.}  \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       OPTIONAL {?Member wdt:P18 ?Pic.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Music Genres Performed by The Destiny's Child",
+            "chart_query": "SELECT (?genreLabel as ?label) WHERE { wd:Q153056 wdt:P136 ?genre. ?genre rdfs:label ?genreLabel. FILTER (lang(?genreLabel) = \"en\"). }",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The Destiny's Child has a very substantial musical discography. Apart from all the collaborations, compilations and tracks. However, this is the amount of studio album they published in the years of their activity, The table contains the main studio albums with the titil</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?album) AS ?count)\r\nWHERE {\r\n     ?album wdt:P31/wdt:P279* wd:Q482994. \r\n     ?album wdt:P175 wd:Q153056 . \r\n}\r\n",
+            "count_label": "Number of Studio Albums by The Destiny's Child",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "table",
+            "table_title": "Album Titles and Years of Publication ",
+            "table_query": "SELECT DISTINCT (?label AS ?album) (year(xsd:dateTime(?date)) as ?date) \r\nWHERE {\r\n     ?album wdt:P31 wd:Q482994 . \r\n     ?album wdt:P175 wd:Q153056 . \r\n     ?album wdt:P577 ?date .    \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?album rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?label ?date\r\nORDER BY ?date\r\nLIMIT 30\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
