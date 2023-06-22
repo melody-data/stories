@@ -1,0 +1,50 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring musical instruments: the piano ",
+    "color_code": [
+        "#fffc41",
+        "#17cf31"
+    ],
+    "user_name": "RossellaVerolino",
+    "id": "1687423234.179632",
+    "subtitle": "Piano music: the background ",
+    "curator": "Rossella Verolino - Giovanna De Felice ",
+    "description": "The aim of our story is to present some information about the piano and to look more closely at the story of one of the world's best-known pianists, Ludwig van Beethoven.\r\n\r\nThe piano is one of the most popular instruments and the most harmonically complete one but, at the same time, it is also the most challenging to master.\r\nThe piano was invented by the Italian Bartolomeo Cristofori around 1700. However, before his invention, the piano had precursors such as the clavichord, harpsichord and dulcimer. As a result of this complex evolution, the piano can be classified as a string, percussion and keyboard instrument.\r\n",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?piano) AS ?count)\r\nWHERE {\r\n     ?piano wdt:P31 wd:Q5994 .\r\n}\r\n",
+            "count_label": "Types of pianos ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(153, 153, 153);\">As far as the different types of piano are concerned, they are mainly divided into three primary categories, Grand, Upright, and Electronic, which in turn can be further sub-divided. In fact, as the search result above shows, at least 26 types of piano can be identified, a number that also includes unique pianos such as Pleyel, exhibited at the Museum of Romanticism in Madrid.</span></p><p><span style=\"color: rgb(153, 153, 153);\">Below, you can see some pictures of prominent pianos.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "table",
+            "table_title": "Piano images ",
+            "table_query": "#defaultView:ImageGrid\r\nSELECT ?item ?itemLabel ?pic\r\nWHERE \r\n { \r\n?item wdt:P31 wd:Q5994 . \r\n   ?item wdt:P18 ?pic\r\n         SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } \r\n    } \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The following tables show some important male and female musicians who play the piano.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
