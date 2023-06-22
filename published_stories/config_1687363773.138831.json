@@ -71,7 +71,7 @@
             "position": 5,
             "operations": [],
             "type": "text",
-            "text": "<p>Performing in the streets in their early days, M\u00e5neskin rose to prominence after coming second in the eleventh season of the Italian version of X Factor in 2017. As for their unique name, it was suggested by the bassist Victoria De Angelis, who is half Danish. After a short brainstorming session, they agreed on M\u00e5neskin, which means moonlight.</p><p>If you want to learn more about their history, <a href=\"click here\" target=\"_blank\">click here</a>.</p>",
+            "text": "<p>Performing in the streets in their early days, M\u00e5neskin rose to prominence after coming second in the eleventh season of the Italian version of X Factor in 2017. As for their unique name, it was suggested by the bassist Victoria De Angelis, who is half Danish. After a short brainstorming session, they agreed on M\u00e5neskin, which means moonlight.</p><p>If you want to learn more about their history, <a href=\"https://en.wikipedia.org/wiki/M%C3%A5neskin#History\" target=\"_blank\">click here</a>.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -115,12 +115,21 @@
             "operations": [],
             "type": "action",
             "action_title": "Show members of the band",
-            "action_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel ?Pic WHERE { wd:Q56884561 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . OPTIONAL {?Member wdt:P19 ?BirthPlace.} OPTIONAL {?Member wdt:P412 ?VoiceType.} OPTIONAL {?Member wdt:P18 ?Pic.} SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } LIMIT 10",
+            "action_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) ?VoiceType ?VoiceTypeLabel ?Pic WHERE { wd:Q56884561 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . OPTIONAL {?Member wdt:P412 ?VoiceType.} OPTIONAL {?Member wdt:P18 ?Pic.} SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } LIMIT 10",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 10,
+            "operations": [],
+            "type": "map",
+            "map_title": "Places of birth",
+            "map_points_query": "SELECT ?person ?personLabel ?birthplace ?birthplaceLabel ?node ?nodeLabel ?lat ?long\r\nWHERE {\r\n  ?person wdt:P463 wd:Q56884561.   \r\n  ?person wdt:P19 ?birthplace .\r\n\r\n\r\n  ?birthplace p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language\"en\".}\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
             "operations": [],
             "type": "table",
             "table_title": "Instruments they play",
@@ -129,7 +138,7 @@
             "map_filters": []
         },
         {
-            "position": 11,
+            "position": 12,
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q482994 . # album\r\n     ?band wdt:P175 wd:Q56884561 . # from maneskin\r\n}",
@@ -138,7 +147,7 @@
             "map_filters": []
         },
         {
-            "position": 12,
+            "position": 13,
             "operations": [],
             "type": "table",
             "table_title": "Publication date of their albums",
@@ -147,7 +156,7 @@
             "map_filters": []
         },
         {
-            "position": 13,
+            "position": 14,
             "operations": [],
             "type": "table",
             "table_title": "Some of their most famous songs",
@@ -156,7 +165,7 @@
             "map_filters": []
         },
         {
-            "position": 14,
+            "position": 15,
             "operations": [],
             "type": "table",
             "table_title": "Number of nominations they received",
@@ -165,7 +174,7 @@
             "map_filters": []
         },
         {
-            "position": 15,
+            "position": 16,
             "operations": [],
             "type": "table",
             "table_title": "Number of awards they won",
