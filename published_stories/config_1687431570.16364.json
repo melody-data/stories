@@ -141,6 +141,29 @@
             "table_query": "SELECT DISTINCT (?label AS ?album) (year(xsd:dateTime(?date)) as ?date) \r\nWHERE {\r\n     ?album wdt:P31 wd:Q482994 . \r\n     ?album wdt:P175 wd:Q153056 . \r\n     ?album wdt:P577 ?date .    \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?album rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?label ?date\r\nORDER BY ?date\r\nLIMIT 30\r\n",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Apart from the many nominations, The Destiny's Child actually received many awards of different types. They were recognized for their songs, their dances, their videos and their performances in general. </p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Awards Received by the Destiny's Child ",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?award) as ?count) \r\nWHERE {\r\n     ?destiny ?a wd:Q153056 . \r\n     ?destiny wdt:P166 ?award .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?award rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 15",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
