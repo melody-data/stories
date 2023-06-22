@@ -243,6 +243,46 @@
             "table_query": "SELECT DISTINCT ?image\r\nWHERE {\r\n  wd:Q3867604 wdt:P18 ?image .\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 26,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(0, 0, 0); background-color: transparent;\">The Gaspare Spontini Museum is located in Maiolata Spontini, in the house where the composer and his wife spent the last years of their lives. Inside, we can find some music sheets, manuscripts, two pianos and some paintings depicting the staging of Spontini's French works, like </span><em style=\"color: rgb(0, 0, 0); background-color: transparent;\">The Miltondel, The Vestal</em><span style=\"color: rgb(0, 0, 0); background-color: transparent;\"> and others.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 27,
+            "operations": [],
+            "type": "map",
+            "map_title": "Location of the museum:",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long\r\nWHERE {\r\nwd:Q3867604 wdt:P131 ?point .\r\n?point p:P625 ?statement.\r\n?statement psv:P625 ?node.\r\n?node wikibase:geoLatitude ?lat ;\r\n        \twikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language 'en'. }\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 28,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Visitors per year:",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  ?count\r\nWHERE {\r\n \twd:Q3867604 p:P1174 ?statement.\r\n \t?statement ps:P1174 ?count.\r\n \t?statement pq:P585 ?date.     \t\r\n \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n  \t}\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\n",
+            "chart_series": "Visitors per year",
+            "chart_legend": {
+                "x": "Year",
+                "y": "Visitors per year"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 29,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(0, 0, 0);\">This last chart shows us the number of visitors per year to the museum. In 2019 there was a high increase, however, probably due to Covid-19, the number of visitors decreased drastically in 2020.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
