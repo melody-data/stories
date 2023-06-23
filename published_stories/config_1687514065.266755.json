@@ -1,0 +1,108 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring musical instruments: the piano ",
+    "color_code": [
+        "#77bb41",
+        "#f5ec00"
+    ],
+    "user_name": "RossellaVerolino",
+    "id": "1687514065.266755",
+    "subtitle": "The musical background of the piano ",
+    "curator": "Rossella Verolino - Giovanna De Felice ",
+    "description": "The aim of our story is to present some information about the piano and to look more closely at the story of one of the world's best-known pianists, Ludwig van Beethoven.\r\n\r\nThe piano is one of the most popular instruments and the most harmonically complete one but, at the same time, it is also the most challenging to master.\r\nThe piano was invented by the Italian Bartolomeo Cristofori around 1700. However, before his invention, the piano had precursors such as the clavichord, harpsichord and dulcimer. As a result of this complex evolution, the piano can be classified as a string, percussion and keyboard instrument.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?piano) AS ?count)\r\nWHERE {\r\n     ?piano wdt:P31 wd:Q5994 .\r\n}",
+            "count_label": "Types of pianos ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(153, 153, 153);\">As far as the different types of piano are concerned, they are mainly divided into three primary categories, Grand, Upright, and Electronic, which in turn can be further sub-divided. In fact, as the search result above shows, at least 26 types of piano can be identified, a number that also includes unique pianos such as Pleyel, exhibited at the Museum of Romanticism in Madrid.</span></p><p><span style=\"color: rgb(153, 153, 153);\">Below, you can see some pictures of prominent pianos.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "table",
+            "table_title": "Piano images ",
+            "table_query": "#defaultView:ImageGrid\r\nSELECT ?item ?itemLabel ?pic\r\nWHERE \r\n { \r\n?item wdt:P31 wd:Q5994 . \r\n   ?item wdt:P18 ?pic\r\n         SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } \r\n    } \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The following tables show some important male and female musicians who play the piano.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Male pianists ",
+            "table_query": "SELECT DISTINCT ?men ?menLabel\r\nWHERE\r\n { \r\n   ?men wdt:P31 wd:Q5 .\r\n   ?men wdt:P21 wd:Q6581097 .\r\n   ?men wdt:P106/wdt:P279* wd:Q486748 . # pianists\r\n   SERVICE wikibase:label {bd:serviceParam wikibase:language \"en\" }\r\n   }\r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "Female pianists ",
+            "table_query": "SELECT DISTINCT ?women ?womenLabel\r\nWHERE\r\n { \r\n   ?women wdt:P31 wd:Q5 .\r\n   ?women wdt:P21 wd:Q6581072 .\r\n   ?women wdt:P106/wdt:P279* wd:Q486748 . # pianists\r\n   SERVICE wikibase:label {bd:serviceParam wikibase:language \"en\" }\r\n   }\r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">To give an idea of the number and distribution of pianists around the world, the visualization in the map below is useful. From the data retrieved, it can be seen that the largest number of pianists is found in Europe, with a greater concentration in the areas between Germany and Austria.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "map",
+            "map_title": "Pianists and their origins ",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P106 wd:Q486748 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 100",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Over the years, the talent of many outstanding pianists has produced timeless works. Below are some examples of renowned piano pieces.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Famous piano pieces",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?pianist) as ?count) \r\nWHERE {\r\n     ?pianist ?a wd:Q36834 . # pianist\r\n      ?pianist wdt:P800 ?notablework . \r\n   \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?notablework rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
