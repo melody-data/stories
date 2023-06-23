@@ -125,7 +125,7 @@
             "position": 12,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Beethoven was born in Bonn, Germany, in 1770 and is known as one of the most important pianists of all time. He was active in the music field from 1798 to 1827: the chart below shows the most important work of the musician and composer.&nbsp;</span></p>",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Beethoven was born in Bonn, Germany, in 1770 and is known as one of the most important pianists of all time. He was active in the music field from 1798 to 1827: the table below shows the most important work of the musician and composer.&nbsp;</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
