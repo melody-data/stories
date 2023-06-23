@@ -156,12 +156,7 @@
         },
         {
             "position": 16,
-            "operations": [
-                {
-                    "action": "count",
-                    "param": "label"
-                }
-            ],
+            "operations": [],
             "type": "chart",
             "chart_type": "barchart",
             "chart_title": "Number of works composed by violinists",
@@ -171,6 +166,74 @@
                 "x": "Violinists",
                 "y": "Number of works"
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">The map below is useful to have an idea of the number and distribution of violinists around the world.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 18,
+            "operations": [],
+            "type": "map",
+            "map_title": "Violinists in Europe",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P106 wd:Q1259917 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 300",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 19,
+            "operations": [],
+            "type": "text",
+            "text": "<p>George Frideric Handel is a famous violinist</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 20,
+            "operations": [],
+            "type": "table",
+            "table_title": "George Frideric Handel",
+            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q7302 wdt:P18 ?image . }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 21,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Biography</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 22,
+            "operations": [],
+            "type": "table",
+            "table_title": "Handel biography",
+            "table_query": "SELECT DISTINCT (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?DeathPlace ?DeathPlaceLabel\r\n\r\n\r\n\r\nWHERE { \r\nwd:Q7302 wdt:P569 ?BirthDate . \r\nwd:Q7302 wdt:P570 ?DeathDate . \r\nwd:Q7302 wdt:P19 ?BirthPlace . \r\nwd:Q7302 wdt:P20 ?DeathPlace . \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n} \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 23,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Info about the works</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 24,
+            "operations": [],
+            "type": "table",
+            "table_title": "Handel works",
+            "table_query": "SELECT DISTINCT ?musicalwork ?musicalworkLabel ?publicationdate\r\nWHERE {\r\n  wd:Q7302 wdt:P800 ?musicalwork. # musical work\r\n  ?musicalwork wdt:P577 ?publicationdate. #publication date\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n}",
             "extra_queries": [],
             "map_filters": []
         }
