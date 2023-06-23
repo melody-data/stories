@@ -103,6 +103,55 @@
             },
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">As observed in the chart above, some of the most famous and important piano pieces, such as the top three Symphony No. 4, Symphony No. 1 and Symphony No. 3, were created by the pianist, composer and conductor Ludwig van Beethoven.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "table",
+            "table_title": "Beethoven ",
+            "table_query": "SELECT DISTINCT (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?DeathPlace ?DeathPlaceLabel\r\n\r\n\r\n\r\n\r\nWHERE { \r\nwd:Q255 wdt:P569 ?BirthDate . \r\nwd:Q255 wdt:P570 ?DeathDate . \r\nwd:Q255 wdt:P19 ?BirthPlace . \r\nwd:Q255 wdt:P20 ?DeathPlace . \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n} \r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Beethoven was born in Bonn, Germany, in 1770 and is known as one of the most important pianists of all time. He was active in the music field from 1798 to 1827: the chart below shows the most important work of the musician and composer.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "table",
+            "table_title": "Beethoven's notable work ",
+            "table_query": "SELECT ?notablework ?image ?notableworkLabel \r\nWHERE { wd:Q255 wdt:P800 ?notablework. ?notablework wdt:P18 ?image. ?notablework rdfs:label ?notableworkLabel \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } \r\n       FILTER(LANG(?notableworkLabel)=\"en\"). }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Beethoven's compositions over the years ",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label) (COUNT(?label) AS ?count) \r\nWHERE { ?work ?a wd:Q255 . ?work wdt:P86 wd:Q255 . ?work wdt:P577 ?date . \r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?work rdfs:label ?label. }\r\n      } \r\nGROUP BY ?count ?date \r\nORDER BY ?label \r\nLIMIT 30",
+            "chart_series": "Beethoven's compositions",
+            "chart_legend": {
+                "x": "Years",
+                "y": "Compositions "
+            },
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
