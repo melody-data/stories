@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(239, 239, 239);\">At the beginning, we proceeded with an exploration of the WikiData knowledge base in order to discover the quantity/amount of string instruments and then we carried out the sae research in the MusicBo knowledge base, comparing the results.</span></p>",
+            "text": "<p><span style=\"color: rgb(239, 239, 239); background-color: transparent;\">At the beginning, we proceeded with an exploration of the WikiData knowledge base in order to discover the quantity/amount of string instruments and then we carried out the sae research in the MusicBo knowledge base, comparing the results.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -33,7 +33,7 @@
             "position": 2,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(239, 239, 239);\">Then we narrowed-down our research: we proceeded with the exploration of the number of bowed string instruments inside both WikiData and MusicBo, eventually comparing the results.</span></p>",
+            "text": "<p><span style=\"color: rgb(239, 239, 239); background-color: transparent;\">Then we narrowed-down our research: we proceeded with the exploration of the number of bowed string instruments inside both WikiData and MusicBo, eventually comparing the results.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -50,7 +50,7 @@
             "position": 4,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">At this point, we looked for an instrument that had a lot of information both in WikiData and in the Polifonia corpus, and we ultimately chose the violin.</span></p>",
+            "text": "<p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">At this point, we looked for an instrument that had a lot of information both in WikiData and in the Polifonia corpus, and we ultimately chose the violin.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -67,7 +67,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">The violin is a bowed string instrument with four strings tuned in perfect fifths. It is the smallest and highest-pitched member of the violin family of string instruments, which also includes the viola, cello and double bass.</span></p><p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">A violin is sometimes informally called a fiddle, no matter what kind of music is played on it. The word \"violin\" comes to us through the Romance languages from the Middle Latin word vitula, meaning \"stringed instrument\" this word may also be the source of the Germanic \"fiddle\". \". A person who plays the violin is called a violinist or fiddler, and a person who makes or repairs them is called a luthier, or simply a violin maker.</span></p><p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">\ufeff</span></p><p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">Violins have been traditionally used as an accompaniment to singing and dancing. It is also an important classical solo instrument, as well as taking pride of place at the front of orchestras.</span></p><p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">The violin is both an object of great beauty and symmetry as well as an ingenious work of mechanical design. In the following table, we will look more closely at the main parts that make up this instrument.</span></p>",
+            "text": "<p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">The violin is a bowed string instrument with four strings tuned in perfect fifths. It is the smallest and highest-pitched member of the violin family of string instruments, which also includes the viola, cello and double bass.</span></p><p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">A violin is sometimes informally called a fiddle, no matter what kind of music is played on it. The word \"violin\" comes to us through the Romance languages from the Middle Latin word vitula, meaning \"stringed instrument\" this word may also be the source of the Germanic \"fiddle\". \". A person who plays the violin is called a violinist or fiddler, and a person who makes or repairs them is called a luthier, or simply a violin maker.</span></p><p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">\ufeff</span></p><p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">Violins have been traditionally used as an accompaniment to singing and dancing. It is also an important classical solo instrument, as well as taking pride of place at the front of orchestras.</span></p><p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">The violin is both an object of great beauty and symmetry as well as an ingenious work of mechanical design. In the following table, we will look more closely at the main parts that make up this instrument.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -84,7 +84,7 @@
             "position": 8,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">The violin has represented orchestral music in the general public for a very long time. However, many people aren\u2019t music enthusiasts who don\u2019t know that violins exist in many different types. This instrument has changed its lifespan for various reasons, leading to the production of different types</span></p><p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">Here we can find some of the most famous variants of this beautiful instrument, from the first standard violins that existed in the sixteenth century, such as the baroque violin (which is considered to be the forefather of the modern violin), to more modern variants: for example, we have the neolin, an electro-acoustic violin which incorporates a fretted fingerboard, cutaway body, and tremolo mechanism based on the electric guitar.</span></p>",
+            "text": "<p><span style=\"color: rgb(204, 204, 204); background-color: transparent;\">The violin has represented orchestral music in the general public for a very long time. However, many people aren\u2019t music enthusiasts who don\u2019t know that violins exist in many different types. This instrument has changed its lifespan for various reasons, leading to the production of different types</span></p><p><span style=\"color: rgb(204, 204, 204); background-color: transparent;\">Here we can find some of the most famous variants of this beautiful instrument, from the first standard violins that existed in the sixteenth century, such as the baroque violin (which is considered to be the forefather of the modern violin), to more modern variants: for example, we have the neolin, an electro-acoustic violin which incorporates a fretted fingerboard, cutaway body, and tremolo mechanism based on the electric guitar.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -101,7 +101,7 @@
             "position": 10,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">As previously said, the current popularity of the violin is also due to all the incredible musicians that, thanks to their virtuosity and outstanding works, managed to play a crucial role in musical history, leaving an heritage to future generations. At first, we looked for the number of male and female violinists inside WikiData. </span></p>",
+            "text": "<p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">As previously said, the current popularity of the violin is also due to all the incredible musicians that, thanks to their virtuosity and outstanding works, managed to play a crucial role in musical history, leaving an heritage to future generations. At first, we looked for the number of male and female violinists inside WikiData. </span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -127,7 +127,7 @@
             "position": 13,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(204, 204, 204); background-color: transparent;\">Then we narrowed down our research, focusing on the influence that these artists still have in musical history and practice. As a consequence, we searched for the ten most influential violinists.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">Then we narrowed down our research, focusing on the influence that these artists still have in musical history and practice. As a consequence, we searched for the ten most influential violinists.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -150,7 +150,7 @@
             "position": 15,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">We also made a comparison between the number of musical compositions that several famous violinists composed.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(183, 183, 183);\">We also made a comparison between the number of musical compositions that several famous violinists composed.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -173,7 +173,7 @@
             "position": 17,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">The map below is useful to have an idea of the number and distribution of violinists around the world.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(183, 183, 183);\">The map below is useful to have an idea of the number and distribution of violinists around the world.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
