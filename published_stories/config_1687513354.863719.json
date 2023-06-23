@@ -1,0 +1,34 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Pink Floyd",
+    "color_code": [
+        "#d530a0",
+        "#df0c36"
+    ],
+    "user_name": "aisselaap",
+    "id": "1687513354.863719",
+    "subtitle": "A unique journey with Wikidata to discover one of the most renowned British music bands of all time",
+    "curator": "Alessia Perrone and Martina Santarini",
+    "description": "We started our investigation analysing the number of British music bands. In particular, we focused on the rock genre as we are really interested in, and of course we couldn\u2019t help but to center deeply on probably the most renowned and influencing music band of all time: Pink Floyd. They became known for their biting political, social and emotional commentary.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}",
+            "count_label": "Number of British music bands",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}",
+            "count_label": "Number of British rock bands",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
