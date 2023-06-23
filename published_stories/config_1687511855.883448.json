@@ -122,6 +122,57 @@
             "count_label": "Female violinists",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(204, 204, 204); background-color: transparent;\">Then we narrowed down our research, focusing on the influence that these artists still have in musical history and practice. As a consequence, we searched for the ten most influential violinists.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Top ten most influential violinists",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE {  \r\n  ?violinist wdt:P106 wd:Q1259917. \r\n  ?violinist wdt:P106 wd:Q36834 .\r\n  ?violinist wdt:P31 ?item . \r\n  ?violinist wdt:P737 ?influencer .\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" . \r\n                     ?violinist rdfs:label ?label .\r\n                            }\r\n}\r\nGROUP BY ?label \r\nORDER BY DESC(?count) \r\nLIMIT 10",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">We also made a comparison between the number of musical compositions that several famous violinists composed.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [
+                {
+                    "action": "count",
+                    "param": "label"
+                }
+            ],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Number of works composed by violinists",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?violinist ?a wd:Q1259917 . # violinist\r\n     ?violinist wdt:P800 ?item . \r\n     ?item wdt:P31 wd:Q105543609 . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?violinist rdfs:label         ?label.\r\n      }\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Violinists",
+                "y": "Number of works"
+            },
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
