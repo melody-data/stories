@@ -154,7 +154,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Instruments played",
-            "table_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count)\r\nWHERE { wd:Q2306 wdt:P527 ?member. ?member wdt:P1303 ?instrument. ?instrument rdfs:label ?instrumentLabel. \r\n       FILTER (lang(?instrumentLabel) = \"en\"). } \r\nGROUP BY ?instrument ?instrumentLabel\r\nORDER BY DESC(?count)",
+            "table_query": "SELECT (?instrumentLabel AS ?instrument)\r\nWHERE { wd:Q2306 wdt:P527 ?member. ?member wdt:P1303 ?instrument. ?instrument rdfs:label ?instrumentLabel. \r\n       FILTER (lang(?instrumentLabel) = \"en\"). }\r\nGROUP BY ?instrument ?instrumentLabel \r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
         },
@@ -172,6 +172,30 @@
             "type": "table",
             "table_title": "Released albums (47)",
             "table_query": "SELECT DISTINCT (?label AS ?album) (year(xsd:dateTime(?date)) as ?date) \r\nWHERE { ?album wdt:P31 wd:Q482994 . ?album wdt:P175 wd:Q2306 . ?album wdt:P577 ?date .\r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?album rdfs:label ?label. } }\r\nGROUP BY ?label ?date \r\nORDER BY ?date",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "table",
+            "table_title": "Some of their masterpieces",
+            "table_query": "SELECT DISTINCT ?song ?songLabel \r\n\r\nWHERE { ?song wdt:P175 wd:Q2306; wdt:P407 wd:Q1860. ?song wdt:P577 ?publicationDate. \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } } \r\n\r\nLIMIT 20",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Sources of inspiration and influences",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE { ?band ?a wd:Q2306 . # pink floyd\r\n       ?band wdt:P495 wd:Q38 . # from italy \r\n       ?band wdt:P737 ?influencer . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?influencer rdfs:label ?label. } } \r\nGROUP BY ?label ?count ORDER BY DESC(?count) \r\nLIMIT 10",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
             "extra_queries": [],
             "map_filters": []
         }
