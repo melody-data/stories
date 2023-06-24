@@ -43,8 +43,8 @@
             "position": 3,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT (COUNT(?award) AS ?count)\r\nWHERE {\r\n  ?blur wdt:P31 wd:Q2088357.  \r\n  ?blur wdt:P166 ?award.       \r\n}",
-            "count_label": "Number of awards won",
+            "count_query": "SELECT (SUM(?followers) AS ?count)\r\nWHERE {\r\n    ?band ?a wd:Q215380.    \r\n    ?band wdt:P8687 ?followers . \r\n    FILTER (?band = wd:Q485820)  \r\n}",
+            "count_label": "Number of social media followers on Twitter",
             "extra_queries": [],
             "map_filters": []
         },
@@ -78,6 +78,15 @@
                 "x": "",
                 "y": ""
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "Names of the band's record labels",
+            "table_query": "SELECT ?recordLabel ?recordLabelLabel\r\nWHERE {\r\n  wd:Q485820 wdt:P264 ?recordLabel. # Blur entity\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}",
             "extra_queries": [],
             "map_filters": []
         }
