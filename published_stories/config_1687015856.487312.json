@@ -35,7 +35,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Album and release year ",
-            "table_query": "SELECT ?album ?albumLabel ?year ?yearLabel\r\nWHERE {\r\n  ?band wdt:P31 wd:Q215380.                 # Specify that the entity is a band\r\n  ?band rdfs:label \"Blur\"@en.               # Specify the band's name (in this case, \"Blur\")\r\n  ?album wdt:P31 wd:Q482994.                # Specify that the entity is an album\r\n  ?album wdt:P175 ?band.                    # Specify that the album is released by the band\r\n  ?album wdt:P577 ?year.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY DESC (?year)",
+            "table_query": "SELECT ?album ?albumLabel ?year ?yearLabel\r\nWHERE {\r\n  ?band wdt:P31 wd:Q215380.                 \r\n  ?band rdfs:label \"Blur\"@en.              \r\n  ?album wdt:P31 wd:Q482994.                \r\n  ?album wdt:P175 ?band.                    \r\n  ?album wdt:P577 ?year.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nORDER BY DESC (?year)",
             "extra_queries": [],
             "map_filters": []
         },
@@ -52,22 +52,13 @@
             "position": 4,
             "operations": [],
             "type": "map",
-            "map_title": "Birthplace of the members",
-            "map_points_query": "SELECT ?person ?personLabel ?birthplace ?birthplaceLabel ?node ?nodeLabel ?lat ?long\r\nWHERE {\r\n  ?person wdt:P463 wd:Q485820 .   \r\n  ?person wdt:P19 ?birthplace .\r\n\r\n\r\n  ?birthplace p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  }\r\n\r\n",
+            "map_title": "Birthplace of the members of Sonic Youth",
+            "map_points_query": "SELECT ?person ?personLabel ?birthplace ?birthplaceLabel ?node ?nodeLabel ?lat ?long\r\nWHERE {\r\n  ?person wdt:P463 wd:Q188626 .   \r\n  ?person wdt:P19 ?birthplace .\r\n\r\n\r\n  ?birthplace p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language\"en\".}\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 5,
-            "operations": [],
-            "type": "map",
-            "map_title": "",
-            "map_points_query": "SELECT ?song ?songLabel ?recordingstudio ?recordingstudioLabel ?node ?nodeLabel ?lat ?long \r\nWHERE {\r\n   ?song wdt:P483 ?recordingstudio ;\r\n          wdt:P175 wd:Q485820 .\r\n  ?recordingstudio p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  } ",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 6,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -82,11 +73,20 @@
             "map_filters": []
         },
         {
+            "position": 6,
+            "operations": [],
+            "type": "map",
+            "map_title": "Recording studios of the band Blur",
+            "map_points_query": "SELECT ?song ?songLabel ?recordingstudio ?recordingstudioLabel ?node ?nodeLabel ?lat ?long \r\nWHERE {\r\n   ?song wdt:P483 ?recordingstudio ;\r\n          wdt:P175 wd:Q485820 .\r\n  ?recordingstudio p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  } ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
             "position": 7,
             "operations": [],
             "type": "table",
-            "table_title": "Names of the band's record labels",
-            "table_query": "SELECT ?recordLabel ?recordLabelLabel\r\nWHERE {\r\n  wd:Q485820 wdt:P264 ?recordLabel. # Blur entity\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}",
+            "table_title": "Sonic Youth record labels",
+            "table_query": "SELECT ?recordLabel ?recordLabelLabel\r\nWHERE {\r\n  wd:Q188626 wdt:P264 ?recordLabel. \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}",
             "extra_queries": [],
             "map_filters": []
         },
