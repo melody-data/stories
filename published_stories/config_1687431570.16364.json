@@ -164,6 +164,23 @@
             },
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "table",
+            "table_title": "The Destiny's Child at the 47th edition of the Super Bowl in 2013",
+            "table_query": "SELECT ?Picture\r\nWHERE {\r\n  wd:Q153056 wdt:P18 ?Picture. \r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "text",
+            "text": "<p>To conclude, The Destiny's Child's career consists of many records and unforgettable successful songs. The group, though not active anymore, remains one of the greatest hip-hop girl bands to ever dominate the global scene. </p>",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
