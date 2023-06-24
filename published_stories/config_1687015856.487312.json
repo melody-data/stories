@@ -89,6 +89,30 @@
             "table_query": "SELECT ?recordLabel ?recordLabelLabel\r\nWHERE {\r\n  wd:Q485820 wdt:P264 ?recordLabel. # Blur entity\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Number of nominations of the band Sonic Youth",
+            "chart_query": "SELECT ?label \r\nWHERE { \r\n  ?sonic ?a wd:Q188626 . \r\n  ?sonic wdt:P1411 ?nomination . \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?nomination rdfs:label ?label. } \r\n}\r\nLIMIT 10",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "members of Sonic Youth",
+            "table_query": "SELECT DISTINCT ?member ?memberLabel ?image \r\nWHERE { wd:Q188626 wdt:P527 ?member . \r\n     OPTIONAL { ?member wdt:P18 ?image . }\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } \r\n} LIMIT 5",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
