@@ -176,6 +176,15 @@
             "table_query": "SELECT DISTINCT (?label AS ?album) (year(xsd:dateTime(?date)) as ?date)\r\nWHERE {\r\n  ?album wdt:P31 wd:Q482994 .\r\n  ?album wdt:P175 wd:Q45188 .\r\n  ?album wdt:P577 ?date .\r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?album rdfs:label ?label. }\r\n}\r\nGROUP BY ?label ?date\r\nORDER BY ?date\r\nLIMIT 20",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "map",
+            "map_title": "Events found on Wikidata",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{ \r\n  ?event wdt:P710 wd:Q45188.\r\n  {?event wdt:P17 ?point}\r\n   UNION\r\n  {?event wdt:P276 ?point}\r\n  ?point wdt:P131 ?villeId.\r\n  ?point p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
