@@ -177,6 +177,31 @@
             "table_query": "SELECT DISTINCT ?song ?songLabel (year(xsd:dateTime(?publicationDate)) as ?publication) \r\nWHERE { ?song wdt:P676 wd:Q180453 ; wdt:P407 wd:Q1860 . ?song wdt:P577 ?publicationDate . \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\nORDER BY ?publicationDate \r\nLIMIT 20",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 18,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Even though the phenomenon of country music has spread a lot around America and around the world, the tradition remains particularly linked to the United States and to the southern countries.&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 19,
+            "operations": [],
+            "type": "map",
+            "map_title": "Map of the Country Singers in the World",
+            "map_points_query": "SELECT ?person ?personLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?person wdt:P106 wd:Q66763708 .\r\n?person wdt:P27 ?country .\r\n?country p:P625 ?statement .\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label {bd:serviceParam wikibase:language \"en\". } }\r\nLIMIT 500",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 20,
+            "operations": [],
+            "type": "text",
+            "text": "<p>To conclude, we can say <strong><em>Dolly Parton</em></strong>'s contribution has played a major role in shaping American music and its very country touch. Apart from all her records, awards, nominations and versatile roles on the scene, she will always be remembered as the <strong><em>Queen of Country Music</em></strong> born in Tennessee. </p>",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
