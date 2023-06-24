@@ -106,19 +106,10 @@
         {
             "position": 8,
             "operations": [],
-            "type": "table",
-            "table_title": "Instruments",
-            "table_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count)\r\nWHERE {\r\n  wd:Q45188 wdt:P527 ?member.\r\n  ?member wdt:P1303 ?instrument.\r\n  ?instrument rdfs:label ?instrumentLabel.\r\n  \r\n  FILTER (lang(?instrumentLabel) = \"en\").\r\n}\r\nGROUP BY ?instrument ?instrumentLabel\r\nORDER BY DESC(?count)",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 9,
-            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Coldplay influences",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(DISTINCT ?band) AS ?count)\r\nWHERE {\r\n  ?band ?a wd:Q5741069.  # rock band\r\n  ?band wdt:P495 wd:Q38.  # from Italy\r\n  ?band wdt:P737 ?influencer.\r\n  \r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?influencer rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?label ?count\r\nORDER BY DESC(?count)\r\nLIMIT 10",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(DISTINCT ?band) AS ?count)\r\nWHERE {\r\n  ?band ?a wd:Q5741069.  # rock band\r\n  ?band wdt:P495 wd:Q145.  # from UK\r\n  ?band wdt:P737 ?influencer.\r\n  \r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?influencer rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?label ?count\r\nORDER BY DESC(?count)\r\nLIMIT 10",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
@@ -128,7 +119,7 @@
             "map_filters": []
         },
         {
-            "position": 10,
+            "position": 9,
             "operations": [],
             "type": "text",
             "text": "<p>Welcome to our story! To kick off our project, may we present you Coldplay members!</p><p>A little side note, Phil Harvey is known as the creative director of the band, which makes him the fifth \u201cessence\u201d of the band.</p>",
@@ -136,7 +127,7 @@
             "map_filters": []
         },
         {
-            "position": 11,
+            "position": 10,
             "operations": [],
             "type": "table",
             "table_title": "Top 10 most famous songs",
@@ -145,7 +136,7 @@
             "map_filters": []
         },
         {
-            "position": 12,
+            "position": 11,
             "operations": [],
             "type": "text",
             "text": "<p>The band members met at University College of London and, after having changed the band\u2019s name a few times between 1996 and 1998, in the end \u201cColdplay\u201d was the final choice, which was inspired by a book of children\u2019s poems called \u201cChild\u2019s Reflections: Cold Play\u201d.</p>",
@@ -153,7 +144,7 @@
             "map_filters": []
         },
         {
-            "position": 13,
+            "position": 12,
             "operations": [],
             "type": "text",
             "text": "<p>Now, let\u2019s have a look at Coldplay\u2019s multiple souls (which mix multiple genres), as well as other bands that share the same musical styles and the country of origin.</p>",
@@ -161,7 +152,7 @@
             "map_filters": []
         },
         {
-            "position": 14,
+            "position": 13,
             "operations": [],
             "type": "text",
             "text": "<p>Moving on, you\u2019ll be able to dive into Coldplay\u2019s instruments, musical influences, top songs, and albums. Enjoy! :)</p>",
@@ -169,7 +160,7 @@
             "map_filters": []
         },
         {
-            "position": 15,
+            "position": 14,
             "operations": [],
             "type": "table",
             "table_title": "Albums",
@@ -178,11 +169,38 @@
             "map_filters": []
         },
         {
-            "position": 16,
+            "position": 15,
             "operations": [],
             "type": "map",
             "map_title": "Events found on Wikidata",
             "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{ \r\n  ?event wdt:P710 wd:Q45188.\r\n  {?event wdt:P17 ?point}\r\n   UNION\r\n  {?event wdt:P276 ?point}\r\n  ?point wdt:P131 ?villeId.\r\n  ?point p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "table",
+            "table_title": "Instruments",
+            "table_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count) ?pic\r\nWHERE {\r\n  wd:Q45188 wdt:P527 ?member.\r\n  ?member wdt:P1303 ?instrument.\r\n  ?instrument rdfs:label ?instrumentLabel.\r\n  ?instrument wdt:P18 ?pic.\r\n  \r\n  FILTER (lang(?instrumentLabel) = \"en\").\r\n}\r\nGROUP BY ?instrument ?instrumentLabel ?pic \r\nORDER BY DESC(?count)",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "table",
+            "table_title": "Award conferred by United Nation",
+            "table_query": "SELECT DISTINCT ?award ?awardLabel WHERE { \r\n  wd:Q45188 wdt:P166 ?award . \r\n  ?award rdfs:label ?awardLabel. \r\n  FILTER(LANG(?awardLabel)=\"en\").\r\n} \r\nORDER BY ?awardLabel",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 18,
+            "operations": [],
+            "type": "table",
+            "table_title": "Chris Martin, the singer",
+            "table_query": "SELECT DISTINCT ?image \r\nWHERE { wd:Q712860 wdt:P18 ?image . }",
             "extra_queries": [],
             "map_filters": []
         }
