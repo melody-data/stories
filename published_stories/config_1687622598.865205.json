@@ -88,6 +88,15 @@
             "table_query": "SELECT DISTINCT ?image WHERE { wd:Q167546 wdt:P1442 ?image . }",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "map",
+            "map_title": "PLACE OF LUCIO DALLA'S BURIAL",
+            "map_points_query": "SELECT DISTINCT ?cemetery ?cemeteryLabel ?coor ?range\r\nWHERE\r\n{\r\n  ?cemetery wdt:P31 wd:Q39614;\r\n          ?range wd:Q1891;\r\n          wdt:P625 ?coor.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n                 }",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
