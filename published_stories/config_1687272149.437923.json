@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "text",
-            "text": "<p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\"><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">Driven by technological advancement and changing consumer preferences, the music industry has witnessed, over the past two decades, significant transformations in relation to the way music is accessed and consumed. This data story delves into the distribution formats of albums released between 2000-2020, focusing on </span><span style=\"background-color: transparent; color: rgb(184, 118, 249);\">vinyls/LPs</span><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">, </span><span style=\"background-color: transparent; color: rgb(184, 118, 249);\">CDs</span><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">, and </span><span style=\"background-color: transparent; color: rgb(184, 118, 249);\">streaming platforms</span><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">.</span></p><p class=\"ql-align-justify\"><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">\ufeff</span></p>",
+            "text": "<p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\"><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">Driven by technological advancement and changing consumer preferences, the music industry has witnessed, over the past two decades, significant transformations in relation to the way music is accessed and consumed. This data story delves into the distribution formats of albums released between 2000-2020, focusing on </span><span style=\"color: rgb(184, 118, 249); background-color: transparent;\">vinyls/LPs</span><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">, </span><span style=\"color: rgb(184, 118, 249); background-color: transparent;\">CDs</span><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">, and </span><span style=\"color: rgb(184, 118, 249); background-color: transparent;\">streaming platforms</span><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">.</span></p><p class=\"ql-align-justify\"><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">\ufeff</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -72,7 +72,7 @@
             "chart_series": "",
             "chart_legend": {
                 "x": "years",
-                "y": "n. of CD"
+                "y": "n. of CDs"
             },
             "extra_queries": [],
             "map_filters": []
@@ -81,7 +81,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">The advent of digital technology and streaming platforms has revolutionised the way music is distributed, leading to the decline of physical formats \u2013 including but not limited to compact discs (CDs). Of late, however, a surprising trend has emerged, driven by nostalgia: vinyl revival.</span></p><p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">\ufeff</span></p>",
+            "text": "<p><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">The advent of digital technology and streaming platforms has revolutionised the way music is distributed, leading to the decline of physical formats \u2013 including but not limited to compact discs (CDs). Of late, however, a surprising trend has emerged, driven by nostalgia: vinyl revival.</span></p><p><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">\ufeff</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -90,12 +90,12 @@
             "operations": [],
             "type": "chart",
             "chart_type": "linechart",
-            "chart_title": "Albums released on vinyls between 2000-2020 ",
+            "chart_title": "Albums released on vinyl between 2000-2020 ",
             "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?item ?a wd:Q482994;\r\n           wdt:P577 ?date.\r\n  {?item wdt:P437 wd:Q178588} # vinyl record\r\n  UNION\r\n  {?item wdt:P437 wd:Q841983} # LP record\r\n\r\n\r\n  BIND(YEAR(?date) AS ?label) FILTER(YEAR(?date) <= 2020 && YEAR(?date) > 1999)\r\n}\r\n\r\nGROUP BY ?label ?count\r\nORDER BY ?label\r\n",
             "chart_series": "",
             "chart_legend": {
                 "x": "years",
-                "y": "n. of albums"
+                "y": "n. of vinyls"
             },
             "extra_queries": [],
             "map_filters": []
@@ -128,7 +128,7 @@
             "position": 10,
             "operations": [],
             "type": "text",
-            "text": "<p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\"><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">The table above lists some of the most renowned music streaming platforms; they have shaped the digital music landscape, and \u2013 by providing access to a vast repository of songs \u2013 revolutionised the way music is enjoyed. A visual representation of the spatial distribution of a handful of music streaming platforms can be seen in the map below. Each marker pinpoints the headquarters location of a given platform, revealing the international reach of the music streaming industry.</span></p><p class=\"ql-align-justify\"><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">\ufeff</span></p>",
+            "text": "<p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\"><span style=\"color: rgb(255, 255, 255); background-color: transparent;\">The table above lists some of the most renowned music streaming platforms; they have shaped the digital music landscape, and \u2013 by providing access to a vast repository of songs \u2013 revolutionised the way music is enjoyed. A visual representation of the spatial distribution of a handful of music streaming platforms can be seen in the map below. Each marker pinpoints the headquarters location of a given platform, revealing the international reach of the music streaming industry.</span></p><p class=\"ql-align-justify\"><span style=\"background-color: transparent; color: rgb(255, 255, 255);\">\ufeff</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
