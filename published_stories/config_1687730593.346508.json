@@ -79,7 +79,7 @@
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
-            "textsearch_title": "OTHER ITALIAN MUSICIANS",
+            "textsearch_title": "OTHER MUSICIANS",
             "textsearch_query": "SELECT DISTINCT ?singers ?singersLabel ?category ?categoryLabel   WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search \"Cremonini\";\r\n                      mwapi:language \"it\".\r\n      ?singer wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?singers wdt:P31 ?category ; wdt:P495  wd:Q38 .\r\n              ?category wdt:P31 wd:Q60723829 . }\r\n    UNION\r\n   {?singers wdt:P31 ?category ; wdt:P495 wd:Q38.\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 20",
             "textsearch": {
                 "genre": [
@@ -106,7 +106,7 @@
             "operations": [],
             "type": "action",
             "action_title": "show same genre musicians",
-            "action_query": "SELECT DISTINCT ?musician ?musicianLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n    ?musician wdt:P31 ?category ; wdt:P495 wd:Q38 ; wdt:P136 <<item>> .\r\n    ?category wdt:P279 wd:Q2088357 \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n\r\n",
+            "action_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n    ?band wdt:P31 ?category ; wdt:P495 wd:Q38 ; wdt:P136 <<item>> .\r\n    ?category wdt:P279 wd:Q2088357 \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -123,7 +123,7 @@
             "position": 11,
             "operations": [],
             "type": "table",
-            "table_title": "HIS FOLLOWERS ON SOCIAL MEDIA",
+            "table_title": "FOLLOWERS ON SOCIAL MEDIA",
             "table_query": "SELECT DISTINCT ?followers WHERE { wd:Q1056805 wdt:P8687 ?followers . }",
             "extra_queries": [],
             "map_filters": []
