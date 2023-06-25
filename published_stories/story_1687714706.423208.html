@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SSDBXGCXK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-9SSDBXGCXK');
+	</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>
+		MELODY - 
+	</title>
+
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<!-- <link rel="icon" href="static/img/icon.ico" type="image/x-icon" /> -->
+	<link rel="icon" type="image/png" href="static/favicon.png" />
+	<link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+
+	<!-- Fonts and icons -->
+	<script src="static/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: { "families": ["Karla:300,400,700,900"] },
+			custom: {
+				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+				urls: ['static/css/fonts.min.css']
+			},
+			active: function () { sessionStorage.fonts = true; }
+		});
+	</script>
+	<!-- IQuill stylesheet -->
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/atlantis.min.css">
+	<link rel="stylesheet" href="static/css/style.css">
+
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<!-- <link rel="stylesheet" href="/static/css/demo.css"> -->
+
+	<!-- Specific Page CSS goes HERE  -->
+	
+<link rel="stylesheet" href="static/css/templates.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+  <script src="static/js/babel.min.js"></script>
+  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="static/css/MarkerCluster.css">
+  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
+
+  <script type="text/javascript">
+    var datastory_data = {"color_code": ["#c63940", "#173ccf"], "curator": "John Patrick Bulseco Nulud, Arianna Mendrano, Natasha Bevilacqua", "description": " Let yourself be guided by this study to find out more about the Russian music scene, in particular in the 19th century! From the popular composers\u2019 group The Five, you will learn how classical musical had a significant role not only Russia during this period, but in the whole world! \r\n", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003eLet\u2019s first have a look at how many composers are mentioned in the \u003cstrong\u003eMusicBo corpus\u003c/strong\u003e in order to grasp how classical music held its significance from the 1800s to our days.\u003c/p\u003e", "type": "text"}, {"count_label": "COMPOSERS", "count_query": "PREFIX owl: \u003chttp://www.w3.org/2002/07/owl#\u003e \r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e \r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e \r\n\r\n\r\nSELECT DISTINCT (COUNT(distinct ?label) AS ?count)\r\n\r\nWHERE {\r\n  ?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e;          \r\n    owl:sameAs ?wikidata . \r\n  FILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\n\r\n\tSERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e  {\r\n\t?wikidata wdt:P106 wd:Q36834 ; \r\n\t rdfs:label ?label .\r\n               FILTER(lang(?label) = \"en\")\r\n  } \r\n\r\n}\r\n\r\n", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "count"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 2, "text": "\u003cp\u003e\u201c\u003cem\u003eThe new virtuosity: Before embarking on this new stage, we have to consider a certain number of elements in musical life at the time, personalities as well as circumstances, coinciding with the careers of the first great \u0027classical composers\u0027, going into the nineteenth century while still belonging in spirit to an earlier age\u003c/em\u003e.\u201d\u003c/p\u003e\u003cp\u003e\u003cu\u003eSource\u003c/u\u003e: An illustrated history of Music, Marc Pincherle (1959)\u003c/p\u003e\u003cp\u003e\u0026nbsp;\u003c/p\u003e\u003cp\u003eTherefore, as the sentence from the MusicBo corpus is supported by the number of composers found, it is clear how the 19th century was the prime for classical music.\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "map_points_query": "PREFIX owl: \u003chttp://www.w3.org/2002/07/owl#\u003e\r\nPREFIX p: \u003chttp://www.wikidata.org/prop/\u003e\r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e \r\nPREFIX psv: \u003chttp://www.wikidata.org/prop/statement/value/\u003e \r\nPREFIX wikibase: \u003chttp://wikiba.se/ontology#\u003e\r\nPREFIX bd: \u003chttp://www.bigdata.com/rdf#\u003e\r\n\r\nSELECT DISTINCT ?point ?lat ?long\r\n\r\nWHERE {\r\n  ?s a \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e; \r\n    owl:sameAs ?point .\r\n  FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\")) \r\nSERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e {\r\n?point wdt:P106 wd:Q36834 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n}\r\n}\r\n\r\nLIMIT 690\r\n", "map_title": "Country of origin of composers in MusicBo", "operations": [], "position": 3, "type": "map"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 4, "text": "\u003cp\u003eThe majority of composers are found in \u003cstrong\u003eEurope\u003c/strong\u003e, of course, due to the fact that particularly classical music started to develop from there and then it expanded worldwide. In particular, it is worth mentioning the role of classical composers in \u003cstrong\u003eRussia\u003c/strong\u003e, thanks to whom classical music and folklore came together.\u0026nbsp;\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 5, "text": "\u003cp\u003eSo, what are the most popular and cited Russian composers according to MusicBo?\u0026nbsp;\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "PREFIX owl: \u003chttp://www.w3.org/2002/07/owl#\u003e\r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\nPREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e\r\nSELECT DISTINCT ?label (count(?label) as ?count)\r\nWHERE\r\n{?musician rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e;\r\nowl:sameAs ?wikidata. \r\nFILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\n\r\nSERVICE  \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e \r\n  {\r\n\t?wikidata wdt:P106 wd:Q36834  . \r\n\r\n    {?wikidata ?origin wd:Q159}  \r\n    UNION\r\n    {?wikidata ?origin wd:Q34266} \r\n    ?wikidata rdfs:label ?label .\r\n    FILTER (lang(?label) = \"en\")\r\n}\r\n}\r\nGROUP BY  ?label ?count\r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n", "chart_series": "", "chart_title": "Top 10 most cited Russian composers in MusicBo", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 6, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 7, "text": "\u003cp\u003eIt is quite interesting to notice that 5 out of the 10 composers are all part of the same composition group: \u003cstrong\u003eThe Five\u003c/strong\u003e, a Russian composition group made up of the greatest Russian composers of that time: \u003cstrong\u003eKorsakov\u003c/strong\u003e, \u003cstrong\u003eBorodin\u003c/strong\u003e, \u003cstrong\u003eBalakirev\u003c/strong\u003e, \u003cstrong\u003eCui\u003c/strong\u003e and \u003cstrong\u003eMussorgsky\u003c/strong\u003e. The Five revolutionized the Russian music scene of the 19th century.\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 8, "text": "\u003cp\u003e\u0026nbsp;The following sentences, retrieved from the MusicBo corpus, reveal the importance and the great influence of The Five on the development and success of classical compositions in Russia:\u003c/p\u003e\u003cp\u003e\u0026nbsp;\u003c/p\u003e\u003cp\u003e\u201c\u003cem\u003eWith Mili Balakirev (1837-1910) we come to the famous \"Group of Five\" (or \"Mighty handful\") composed of himself and his four chief disciples, four amateurs named Cesar Cui, Mussorgsky (both army officers), Borodin (chemist) and Rimsky-Korsakov (naval officer)\u003c/em\u003e.\u201d\u003c/p\u003e\u003cp\u003e\u003cu\u003eSource\u003c/u\u003e: An illustrated history of Music, Marc Pincherle (1959)\u003c/p\u003e\u003cp\u003e\u0026nbsp;\u003c/p\u003e\u003cp\u003e\u201c\u003cem\u003eBalakirev had taught himself composition and orchestration by analysing the works of the great composers\u003c/em\u003e.\u201d\u003c/p\u003e\u003cp\u003e\u003cu\u003eSource\u003c/u\u003e: An illustrated history of Music, Marc Pincherle (1959)\u003c/p\u003e\u003cp\u003e\u0026nbsp;\u003c/p\u003e\u003cp\u003e\u201c\u003cem\u003eHis genius as an orchestrator, so dazzlingly revealed, for example, in Mussorgsky\u0027s Pictures from an Exhibition, is based on the most minute and thorough exploration of every instrumental possibility.\u003c/em\u003e\u201d\u003c/p\u003e\u003cp\u003e\u003cu\u003eSource\u003c/u\u003e: An illustrated history of Music, Marc Pincherle (1959)\u003c/p\u003e\u003cp\u003e\u0026nbsp;\u003c/p\u003e\u003cp\u003eLet\u2019s learn more about these five great composers!\u0026nbsp;\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 9, "table_query": "PREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e\r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\n\r\nSELECT ?memberName (YEAR(?birthDate) AS ?birthyear) ?birthPlace   (YEAR(?deathDate) AS ?deathyear)  ?occupation ?pic\r\n\r\nWHERE{\r\n  SERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e {\r\n?member wdt:P463 wd:Q190390; # is member of the 5\r\n        rdfs:label ?memberName\r\n    FILTER (lang(?memberName) = \"en\")\r\n\r\nOPTIONAL { ?member  wdt:P569 ?birthDate . }\r\nOPTIONAL { ?member  wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace . }\r\n  FILTER (lang(?birthPlace) = \"en\")\r\nOPTIONAL { ?member  wdt:P570 ?deathDate . }\r\n#OPTIONAL { ?member  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\n#FILTER (lang(?deathPlace) = \"en\")  (tolto perch\u00e9 si impalla, troppe colonne)\r\nOPTIONAL { ?member  wdt:P106 ?occ . ?occ rdfs:label ?occupation .  }   \r\n    FILTER (lang(?occupation) = \"en\")\r\n    FILTER (regex(?occupation, \"chemist\", \"i\") || regex(?occupation, \"military personnel\", \"i\") || regex(?occupation, \"pedagogue\", \"i\")) \r\nOPTIONAL {?member  wdt:P18 ?pic.}\r\n  }\r\n}\r\nORDER BY ASC (?memberName)\r\n", "table_title": "The Mighty Five members", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 10, "text": "\u003cp\u003eYou would think it would be odd to find as their \u003cstrong\u003eoccupations\u003c/strong\u003e chemist, military officers and pedagogue. However, it was quite common during the Russian Empire for artists to have more than one job, often more practical ones.\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 11, "text": "\u003cp\u003eClick here to listen to one of their works!\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 12, "table_query": "PREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e\r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\nSELECT ?name ?audio\r\nWHERE{\r\n  SERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e {\r\n{?member wdt:P463 wd:Q190390; #member of the five\r\n      wdt:P800 wd:Q285976;\r\n        rdfs:label ?name. \r\n   wd:Q285976 wdt:P51 ?audio .    \r\n      FILTER (lang(?name) = \"en\")\r\n  }\r\n}\r\n}\r\n\r\n", "table_title": "Balakirev: \"Chopin Suite / Overtures\"", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 13, "text": "\u003cp\u003e\u0026nbsp;The Five were the prominent composers of the 19th century in Russia. As a matter of fact, they introduced their country to a distinct national style of classical music, and they had so much influence on the music scene of the time, that many Russian artists followed their lead, and the practice of classical music grew exponentially. Look at how many Russian classical composers can be found after the guidance of The Five!\u003c/p\u003e", "type": "text"}, {"count_label": "RUSSIAN COMPOSITION GROUPS", "count_query": "PREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e\r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\nSELECT (COUNT(DISTINCT ?label) as ?count)\r\nWHERE{\r\n  SERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e \r\n{\r\n?composer wdt:P463 ?group;  # is member of \r\nwdt:P106 wd:Q36834. # has occupation composer\r\n?composer ?origin wd:Q34266. # has origin in Russian Empire\r\n?group rdfs:label ?label\r\nFILTER (lang(?label) = \"en\")\r\n       FILTER (!regex(str(?label), \"American\")) \r\n       FILTER (!regex(str(?label), \"Swedish\"))\r\n       FILTER (!regex(str(?label), \"Soviet\")) \r\n       FILTER(!regex(str(?label), \"USSR\"))\r\n}\r\n}\r\n\r\n", "extra_queries": [], "map_filters": [], "operations": [], "position": 14, "type": "count"}, {"chart_legend": {"x": "year", "y": "work of art"}, "chart_query": "PREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e\r\nPREFIX bd: \u003chttp://www.bigdata.com/rdf#\u003e\r\nPREFIX wikibase: \u003chttp://wikiba.se/ontology#\u003e\r\nPREFIX xsd: \u003chttp://www.w3.org/2001/XMLSchema#\u003e\r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\n\r\nSELECT DISTINCT (?year as ?label) (COUNT(DISTINCT ?label) AS ?count) #(year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\n\r\nWHERE {\r\n\r\nSERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e  {\r\n  ?woa wdt:P86 ?composer .\r\n   ?woa wdt:P571 ?date .   \r\n    \r\n   BIND (YEAR(xsd:dateTime(?date)) as ?year)\r\n   ?composer ?origin wd:Q34266 # has origin in Russian Empire\r\n      #FILTER (YEAR(?date) \u003e 1600 \u0026\u0026 YEAR(?date) \u003c 1999 ).\r\n    SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?woa rdfs:label ?label.\r\n      }\r\n  }}\r\nGROUP BY ?year\r\nORDER BY ?label\r\n", "chart_series": "", "chart_title": "Work of art of Russian classical music", "chart_type": "linechart", "extra_queries": [], "map_filters": [], "operations": [], "position": 15, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 16, "text": "\u003cp\u003e\u0026nbsp;As you can see from the line chart, the 1800s was a flourishing period for classical music in Russia. And guess what? We owe it all to Emperor \u003cstrong\u003ePeter the Great\u003c/strong\u003e, whose openness to Europe brought the whole musical scene to Russia.\u003c/p\u003e\u003cp\u003eThere is another peak, during the Soviet Union. You\u0027re probably wondering, why? Among the followers of the Five, we find the most popular Soviet composers. We\u0027re talking about legends, including \u003cstrong\u003eShostakovich\u003c/strong\u003e, \u003cstrong\u003eProkofiev\u003c/strong\u003e, and \u003cstrong\u003eStravinsky\u003c/strong\u003e.\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 17, "text": "\u003cp\u003eHow about the \u003cstrong\u003erest of the world\u003c/strong\u003e? Did composers thrive the most during the 19th century also in other countries? Let\u2019s find out by seeing how many composers can be found in each country during the 1800s.\u003c/p\u003e\u003cp\u003e\u0026nbsp;\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 18, "textsearch_query": "PREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e\r\nPREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nPREFIX rdf: \u003chttp://www.w3.org/1999/02/22-rdf-syntax-ns#\u003e\r\nPREFIX bd: \u003chttp://www.bigdata.com/rdf#\u003e\r\nPREFIX wikibase: \u003chttp://wikiba.se/ontology#\u003e\r\nPREFIX mwapi: \u003chttps://www.mediawiki.org/ontology#API/\u003e\r\nSELECT DISTINCT ?composer  (year(?birthDate) as ?birthYear)?birthPlace (year(?deathDate) as ?deathYear) ?deathPlace ?pic \r\nWHERE {\r\n  SERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e {\r\n       FILTER CONTAINS (?birthPlace, \u003c\u003csearchterm\u003e\u003e). \r\n \t?person wdt:P136 wd:Q9730 ; #\u003chas genre\u003e \u003cclassical music\u003e\r\n            rdfs:label ?composer ;\r\n          wdt:P19 ?bplace. \r\n          ?bplace rdfs:label ?birthPlace .\r\n\r\nOPTIONAL { ?person  wdt:P569 ?birthDate . }\r\nOPTIONAL { ?person  wdt:P570 ?deathDate . }\r\nOPTIONAL { ?person  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\n  OPTIONAL { ?person wdt:P18 ?pic . }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n  FILTER (lang(?composer) = \"en\")\r\n  FILTER (lang(?birthPlace) = \"en\")\r\n FILTER (lang(?deathPlace) = \"en\")\r\nFILTER (YEAR(?birthDate) \u003e 1799 \u0026\u0026 YEAR(?birthDate) \u003c 1901 )\r\n} }\r\nLIMIT 10\r\n", "textsearch_title": "Try this tool by entering the name of a city to find composers and composition groups from there!", "textsearch_userinput": "", "type": "textsearch"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 19, "text": "\u003cp\u003eThe 19th century was a musical revolution in Russia, all thanks to a group of highly influential composers known as The Five. They completely transformed the music scene and left a lasting legacy. And you won\u0027t believe it, but their genius even spread to the Soviet Union, legendary composers such as Shostakovich, Prokofiev, and Stravinsky. \u003c/p\u003e\u003cp\u003eThe evidence from the MusicBo corpus confirms the significant contributions of The Five and other Russian composers. As we have seen, they left an indelible mark on Russia\u0027s musical landscape, and their influence continues to be felt today. Indeed, they laid the foundations for an extraordinary musical journey that continues to inspire musicians around the world, thereby planting the seeds of musical greatness that continue to blossom with each beautiful note.\u003c/p\u003e", "type": "text"}], "id": "1687714706.423208", "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql", "subtitle": "An insight into the representation of Russian composers and classical music in the MusicBo corpus.", "template_mode": "statistics", "title": "Melodies from the East: Uncovering Russian Classical Music", "user_name": "natashabevilacqua"};
+  </script>
+
+
+</head>
+
+<body data-background-color="dark">
+	<div class="wrapper">
+
+		<div class="main-header">
+
+	<!-- Logo Header -->
+	<div class="logo-header" data-background-color="dark2">
+
+		<a href="/melody/" class="logo">MELODY</a>
+		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+			data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">
+				<i class="icon-menu"></i>
+			</span>
+		</button>
+		<div class="nav-toggle">
+			<button class="btn btn-toggle toggle-sidebar">
+				<i class="icon-menu"></i>
+			</button>
+		</div>
+	</div>
+	<!-- End Logo Header -->
+
+	<!-- Navbar Header -->
+	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
+
+		<div class="container">
+			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Create a story
+					</a>
+				</li>
+				
+				<li class="nav-item">
+					
+					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Sign in
+					</a>
+					
+				</li>
+
+			</ul>
+		</div>
+
+
+	</nav>
+
+	<!-- End Navbar -->
+</div>
+
+		<!-- Sidebar -->
+<div class="sidebar sidebar-style-2" data-background-color="dark2">
+	<div class="sidebar-wrapper scrollbar scrollbar-inner">
+		<div class="sidebar-content">
+			<ul class="nav nav-primary">
+				
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
+						<p>Bells</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu1">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
+									<!-- href="/overview_of_bells_in_liguria"> -->
+									Overview of bells in Liguria
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
+						<p>choco</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu2">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
+									<!-- href="/chord_corpus_statistics"> -->
+									Chord Corpus Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
+						<p>fonn</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu3">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
+									<!-- href="/frequently_occurring_patterns"> -->
+									Frequently Occurring Patterns 
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/tune_families_in_the_session_and_mtcann">
+									<!-- href="/tune_families_in_the_session_and_mtcann"> -->
+									Tune families in The Session and MTC-ANN
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg">
+									<!-- href="/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg"> -->
+									Statistics on The Session (annotated subset) and Meertens Tune Collections (MTC-ANN) Pattern KG
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
+						<p>MusicBo</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu4">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
+									<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
+									Music in Bologna - Knowledge Graph Overview
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
+						<p>musoW</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu5">
+						<ul class="nav nav-collapse">
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
+									<!-- href="/discover_music_data_on_the_web"> -->
+									Discover music data on the Web
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu6" aria-expanded="true">
+						<p>organs</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu6">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/organs/organs_statistics">
+									<!-- href="/organs_statistics"> -->
+									ORGANS Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
+						<p>Sound and Vision</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu7">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
+									<!-- href="/dutch_broadcast_concert_collection"> -->
+									Dutch Broadcast Concert Collection
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
+						<p>Tonalities</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu8">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tonalities/tonalities">
+									<!-- href="/tonalities"> -->
+									Tonalities 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
+						<p>tunes</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu9">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tunes/tunes_statistics">
+									<!-- href="/tunes_statistics"> -->
+									Tunes Statistics
+								</a>
+								
+								
+								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
+									<!-- href="/explore_similarity_relations_among_songs"> -->
+									Explore similarity relations among songs
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
+						<p>wikidata</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu10">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_museums">
+									<!-- href="/relations_between_museums"> -->
+									Relations between museums
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_music_bands_an_exploration">
+									<!-- href="/relations_between_music_bands_an_exploration"> -->
+									Relations between music bands - An exploration
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/mapping_us_recording_studios">
+									<!-- href="/mapping_us_recording_studios"> -->
+									Mapping US Recording Studios
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/through_the_prism_of_diversity">
+									<!-- href="/through_the_prism_of_diversity"> -->
+									Through the Prism of Diversity
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Sidebar -->
+
+		<div class="main-panel">
+
+			
+
+<div class="content row datastorypage" id="dwn">
+  <section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
+  <section id="secondarymenuinner" class="secondarymenuinner">
+
+    <h4>About this story</h4>
+    
+    <p>Authors: John Patrick Bulseco Nulud, Arianna Mendrano, Natasha Bevilacqua </p>
+    
+    
+
+    <p>Source: <a href="https://polifonia.disi.unibo.it/musicbo/sparql">SPARQL endpoint</a></p>
+    <p>Export</p>
+    <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
+    <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
+        download="Melodies from the East: Uncovering Russian Classical Music.html">HTML</a></button>
+    <button class="exportbutton" type="button">
+      <a href="#" data-toggle="modal" data-target="#queryModal"
+        id="sparqlQuery">JSON</a></button>
+
+    <!-- publish button -->
+    
+    <!-- modify button -->
+    
+  </section>
+
+  <div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
+    aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card">
+        <div class="modal-header">
+          <h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://polifonia.disi.unibo.it/musicbo/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Melodies from the East: Uncovering Russian Classical Music&#39;, &#39;color_code&#39;: [&#39;#c63940&#39;, &#39;#173ccf&#39;], &#39;user_name&#39;: &#39;natashabevilacqua&#39;, &#39;id&#39;: &#39;1687714706.423208&#39;, &#39;subtitle&#39;: &#39;An insight into the representation of Russian composers and classical music in the MusicBo corpus.&#39;, &#39;curator&#39;: &#39;John Patrick Bulseco Nulud, Arianna Mendrano, Natasha Bevilacqua&#39;, &#39;description&#39;: &#39; Let yourself be guided by this study to find out more about the Russian music scene, in particular in the 19th century! From the popular composers’ group The Five, you will learn how classical musical had a significant role not only Russia during this period, but in the whole world! \r\n&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;Let’s first have a look at how many composers are mentioned in the &lt;strong&gt;MusicBo corpus&lt;/strong&gt; in order to grasp how classical music held its significance from the 1800s to our days.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt; \r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt; \r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt; \r\n\r\n\r\nSELECT DISTINCT (COUNT(distinct ?label) AS ?count)\r\n\r\nWHERE {\r\n  ?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt;;          \r\n    owl:sameAs ?wikidata . \r\n  FILTER (regex(str(?wikidata), &#34;http://www.wikidata.org/entity/&#34;, &#34;i&#34;)) \r\n\r\n\tSERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt;  {\r\n\t?wikidata wdt:P106 wd:Q36834 ; \r\n\t rdfs:label ?label .\r\n               FILTER(lang(?label) = &#34;en&#34;)\r\n  } \r\n\r\n}\r\n\r\n&#39;, &#39;count_label&#39;: &#39;COMPOSERS&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#34;&lt;p&gt;“&lt;em&gt;The new virtuosity: Before embarking on this new stage, we have to consider a certain number of elements in musical life at the time, personalities as well as circumstances, coinciding with the careers of the first great &#39;classical composers&#39;, going into the nineteenth century while still belonging in spirit to an earlier age&lt;/em&gt;.”&lt;/p&gt;&lt;p&gt;&lt;u&gt;Source&lt;/u&gt;: An illustrated history of Music, Marc Pincherle (1959)&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Therefore, as the sentence from the MusicBo corpus is supported by the number of composers found, it is clear how the 19th century was the prime for classical music.&lt;/p&gt;&#34;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;Country of origin of composers in MusicBo&#39;, &#39;map_points_query&#39;: &#39;PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;\r\nPREFIX p: &lt;http://www.wikidata.org/prop/&gt;\r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt; \r\nPREFIX psv: &lt;http://www.wikidata.org/prop/statement/value/&gt; \r\nPREFIX wikibase: &lt;http://wikiba.se/ontology#&gt;\r\nPREFIX bd: &lt;http://www.bigdata.com/rdf#&gt;\r\n\r\nSELECT DISTINCT ?point ?lat ?long\r\n\r\nWHERE {\r\n  ?s a &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt;; \r\n    owl:sameAs ?point .\r\n  FILTER (regex(str(?point), &#34;http://www.wikidata.org/entity/&#34;, &#34;i&#34;)) \r\nSERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt; {\r\n?point wdt:P106 wd:Q36834 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.} \r\n}\r\n}\r\n\r\nLIMIT 690\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;The majority of composers are found in &lt;strong&gt;Europe&lt;/strong&gt;, of course, due to the fact that particularly classical music started to develop from there and then it expanded worldwide. In particular, it is worth mentioning the role of classical composers in &lt;strong&gt;Russia&lt;/strong&gt;, thanks to whom classical music and folklore came together.&amp;nbsp;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;So, what are the most popular and cited Russian composers according to MusicBo?&amp;nbsp;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Top 10 most cited Russian composers in MusicBo&#39;, &#39;chart_query&#39;: &#39;PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;\r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\nPREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;\r\nSELECT DISTINCT ?label (count(?label) as ?count)\r\nWHERE\r\n{?musician rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt;;\r\nowl:sameAs ?wikidata. \r\nFILTER (regex(str(?wikidata), &#34;http://www.wikidata.org/entity/&#34;, &#34;i&#34;)) \r\n\r\nSERVICE  &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt; \r\n  {\r\n\t?wikidata wdt:P106 wd:Q36834  . \r\n\r\n    {?wikidata ?origin wd:Q159}  \r\n    UNION\r\n    {?wikidata ?origin wd:Q34266} \r\n    ?wikidata rdfs:label ?label .\r\n    FILTER (lang(?label) = &#34;en&#34;)\r\n}\r\n}\r\nGROUP BY  ?label ?count\r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 7, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;It is quite interesting to notice that 5 out of the 10 composers are all part of the same composition group: &lt;strong&gt;The Five&lt;/strong&gt;, a Russian composition group made up of the greatest Russian composers of that time: &lt;strong&gt;Korsakov&lt;/strong&gt;, &lt;strong&gt;Borodin&lt;/strong&gt;, &lt;strong&gt;Balakirev&lt;/strong&gt;, &lt;strong&gt;Cui&lt;/strong&gt; and &lt;strong&gt;Mussorgsky&lt;/strong&gt;. The Five revolutionized the Russian music scene of the 19th century.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 8, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&amp;nbsp;The following sentences, retrieved from the MusicBo corpus, reveal the importance and the great influence of The Five on the development and success of classical compositions in Russia:&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;“&lt;em&gt;With Mili Balakirev (1837-1910) we come to the famous &#34;Group of Five&#34; (or &#34;Mighty handful&#34;) composed of himself and his four chief disciples, four amateurs named Cesar Cui, Mussorgsky (both army officers), Borodin (chemist) and Rimsky-Korsakov (naval officer)&lt;/em&gt;.”&lt;/p&gt;&lt;p&gt;&lt;u&gt;Source&lt;/u&gt;: An illustrated history of Music, Marc Pincherle (1959)&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;“&lt;em&gt;Balakirev had taught himself composition and orchestration by analysing the works of the great composers&lt;/em&gt;.”&lt;/p&gt;&lt;p&gt;&lt;u&gt;Source&lt;/u&gt;: An illustrated history of Music, Marc Pincherle (1959)&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;“&lt;em&gt;His genius as an orchestrator, so dazzlingly revealed, for example, in Mussorgsky\&#39;s Pictures from an Exhibition, is based on the most minute and thorough exploration of every instrumental possibility.&lt;/em&gt;”&lt;/p&gt;&lt;p&gt;&lt;u&gt;Source&lt;/u&gt;: An illustrated history of Music, Marc Pincherle (1959)&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Let’s learn more about these five great composers!&amp;nbsp;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 9, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;The Mighty Five members&#39;, &#39;table_query&#39;: &#39;PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;\r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\n\r\nSELECT ?memberName (YEAR(?birthDate) AS ?birthyear) ?birthPlace   (YEAR(?deathDate) AS ?deathyear)  ?occupation ?pic\r\n\r\nWHERE{\r\n  SERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt; {\r\n?member wdt:P463 wd:Q190390; # is member of the 5\r\n        rdfs:label ?memberName\r\n    FILTER (lang(?memberName) = &#34;en&#34;)\r\n\r\nOPTIONAL { ?member  wdt:P569 ?birthDate . }\r\nOPTIONAL { ?member  wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace . }\r\n  FILTER (lang(?birthPlace) = &#34;en&#34;)\r\nOPTIONAL { ?member  wdt:P570 ?deathDate . }\r\n#OPTIONAL { ?member  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\n#FILTER (lang(?deathPlace) = &#34;en&#34;)  (tolto perché si impalla, troppe colonne)\r\nOPTIONAL { ?member  wdt:P106 ?occ . ?occ rdfs:label ?occupation .  }   \r\n    FILTER (lang(?occupation) = &#34;en&#34;)\r\n    FILTER (regex(?occupation, &#34;chemist&#34;, &#34;i&#34;) || regex(?occupation, &#34;military personnel&#34;, &#34;i&#34;) || regex(?occupation, &#34;pedagogue&#34;, &#34;i&#34;)) \r\nOPTIONAL {?member  wdt:P18 ?pic.}\r\n  }\r\n}\r\nORDER BY ASC (?memberName)\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 10, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;You would think it would be odd to find as their &lt;strong&gt;occupations&lt;/strong&gt; chemist, military officers and pedagogue. However, it was quite common during the Russian Empire for artists to have more than one job, often more practical ones.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 11, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;Click here to listen to one of their works!&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 12, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Balakirev: &#34;Chopin Suite / Overtures&#34;&#39;, &#39;table_query&#39;: &#39;PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;\r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\nSELECT ?name ?audio\r\nWHERE{\r\n  SERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt; {\r\n{?member wdt:P463 wd:Q190390; #member of the five\r\n      wdt:P800 wd:Q285976;\r\n        rdfs:label ?name. \r\n   wd:Q285976 wdt:P51 ?audio .    \r\n      FILTER (lang(?name) = &#34;en&#34;)\r\n  }\r\n}\r\n}\r\n\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 13, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&amp;nbsp;The Five were the prominent composers of the 19th century in Russia. As a matter of fact, they introduced their country to a distinct national style of classical music, and they had so much influence on the music scene of the time, that many Russian artists followed their lead, and the practice of classical music grew exponentially. Look at how many Russian classical composers can be found after the guidance of The Five!&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 14, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;\r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\nSELECT (COUNT(DISTINCT ?label) as ?count)\r\nWHERE{\r\n  SERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt; \r\n{\r\n?composer wdt:P463 ?group;  # is member of \r\nwdt:P106 wd:Q36834. # has occupation composer\r\n?composer ?origin wd:Q34266. # has origin in Russian Empire\r\n?group rdfs:label ?label\r\nFILTER (lang(?label) = &#34;en&#34;)\r\n       FILTER (!regex(str(?label), &#34;American&#34;)) \r\n       FILTER (!regex(str(?label), &#34;Swedish&#34;))\r\n       FILTER (!regex(str(?label), &#34;Soviet&#34;)) \r\n       FILTER(!regex(str(?label), &#34;USSR&#34;))\r\n}\r\n}\r\n\r\n&#39;, &#39;count_label&#39;: &#39;RUSSIAN COMPOSITION GROUPS&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 15, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;linechart&#39;, &#39;chart_title&#39;: &#39;Work of art of Russian classical music&#39;, &#39;chart_query&#39;: &#39;PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;\r\nPREFIX bd: &lt;http://www.bigdata.com/rdf#&gt;\r\nPREFIX wikibase: &lt;http://wikiba.se/ontology#&gt;\r\nPREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;\r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\n\r\nSELECT DISTINCT (?year as ?label) (COUNT(DISTINCT ?label) AS ?count) #(year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\n\r\nWHERE {\r\n\r\nSERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt;  {\r\n  ?woa wdt:P86 ?composer .\r\n   ?woa wdt:P571 ?date .   \r\n    \r\n   BIND (YEAR(xsd:dateTime(?date)) as ?year)\r\n   ?composer ?origin wd:Q34266 # has origin in Russian Empire\r\n      #FILTER (YEAR(?date) &gt; 1600 &amp;&amp; YEAR(?date) &lt; 1999 ).\r\n    SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.\r\n          ?woa rdfs:label ?label.\r\n      }\r\n  }}\r\nGROUP BY ?year\r\nORDER BY ?label\r\n&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;year&#39;, &#39;y&#39;: &#39;work of art&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 16, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#34;&lt;p&gt;&amp;nbsp;As you can see from the line chart, the 1800s was a flourishing period for classical music in Russia. And guess what? We owe it all to Emperor &lt;strong&gt;Peter the Great&lt;/strong&gt;, whose openness to Europe brought the whole musical scene to Russia.&lt;/p&gt;&lt;p&gt;There is another peak, during the Soviet Union. You&#39;re probably wondering, why? Among the followers of the Five, we find the most popular Soviet composers. We&#39;re talking about legends, including &lt;strong&gt;Shostakovich&lt;/strong&gt;, &lt;strong&gt;Prokofiev&lt;/strong&gt;, and &lt;strong&gt;Stravinsky&lt;/strong&gt;.&lt;/p&gt;&#34;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 17, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;How about the &lt;strong&gt;rest of the world&lt;/strong&gt;? Did composers thrive the most during the 19th century also in other countries? Let’s find out by seeing how many composers can be found in each country during the 1800s.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 18, &#39;operations&#39;: [], &#39;type&#39;: &#39;textsearch&#39;, &#39;textsearch_userinput&#39;: &#39;&#39;, &#39;textsearch_title&#39;: &#39;Try this tool by entering the name of a city to find composers and composition groups from there!&#39;, &#39;textsearch_query&#39;: &#39;PREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;\r\nPREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nPREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;\r\nPREFIX bd: &lt;http://www.bigdata.com/rdf#&gt;\r\nPREFIX wikibase: &lt;http://wikiba.se/ontology#&gt;\r\nPREFIX mwapi: &lt;https://www.mediawiki.org/ontology#API/&gt;\r\nSELECT DISTINCT ?composer  (year(?birthDate) as ?birthYear)?birthPlace (year(?deathDate) as ?deathYear) ?deathPlace ?pic \r\nWHERE {\r\n  SERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt; {\r\n       FILTER CONTAINS (?birthPlace, &lt;&lt;searchterm&gt;&gt;). \r\n \t?person wdt:P136 wd:Q9730 ; #&lt;has genre&gt; &lt;classical music&gt;\r\n            rdfs:label ?composer ;\r\n          wdt:P19 ?bplace. \r\n          ?bplace rdfs:label ?birthPlace .\r\n\r\nOPTIONAL { ?person  wdt:P569 ?birthDate . }\r\nOPTIONAL { ?person  wdt:P570 ?deathDate . }\r\nOPTIONAL { ?person  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\n  OPTIONAL { ?person wdt:P18 ?pic . }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. }\r\n  FILTER regex(str(?pic), &#34;jpg&#34;).\r\n  FILTER (lang(?composer) = &#34;en&#34;)\r\n  FILTER (lang(?birthPlace) = &#34;en&#34;)\r\n FILTER (lang(?deathPlace) = &#34;en&#34;)\r\nFILTER (YEAR(?birthDate) &gt; 1799 &amp;&amp; YEAR(?birthDate) &lt; 1901 )\r\n} }\r\nLIMIT 10\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 19, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#34;&lt;p&gt;The 19th century was a musical revolution in Russia, all thanks to a group of highly influential composers known as The Five. They completely transformed the music scene and left a lasting legacy. And you won&#39;t believe it, but their genius even spread to the Soviet Union, legendary composers such as Shostakovich, Prokofiev, and Stravinsky. &lt;/p&gt;&lt;p&gt;The evidence from the MusicBo corpus confirms the significant contributions of The Five and other Russian composers. As we have seen, they left an indelible mark on Russia&#39;s musical landscape, and their influence continues to be felt today. Indeed, they laid the foundations for an extraordinary musical journey that continues to inspire musicians around the world, thereby planting the seeds of musical greatness that continue to blossom with each beautiful note.&lt;/p&gt;&#34;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
+    <div class="page-inner py-5">
+      <div class="align-items-left align-items-md-center flex-column flex-md-row">
+
+          <h1 class="text-white pb-2 fw-bold">Melodies from the East: Uncovering Russian Classical Music</h1>
+
+<h2 class="text-white op-7 mb-2">
+  An insight into the representation of Russian composers and classical music in the MusicBo corpus.
+</h2>
+
+
+<p class="card-category">
+   Let yourself be guided by this study to find out more about the Russian music scene, in particular in the 19th century! From the popular composers’ group The Five, you will learn how classical musical had a significant role not only Russia during this period, but in the whole world! 
+
+</p>
+
+          <span id='loader' class='lds-dual-ring hidden overlay'></span>
+          <div id="sortable"></div>
+          <script src="static/js/react/Error.js" type="text/babel"></script>
+          <script src="static/js/react/Map.js" type="text/babel"></script>
+          <script src="static/js/react/Table.js" type="text/babel"></script>
+          <script src="static/js/react/Chart.js" type="text/babel"></script>
+          <script src="static/js/react/Textbox.js" type="text/babel"></script>
+          <script src="static/js/react/Count.js" type="text/babel"></script>
+          <script src="static/js/react/Action.js" type="text/babel"></script>
+          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+          <script src="static/js/react/add_components.js" type="text/babel"></script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+			<footer class="footer">
+	<div class="container-fluid d-flex align-items-start">
+		<div class="p-2 col-md-3">
+			<h6>MELODY</h6>
+			<p><a target="_blank" href="/melody">Home</a></p>
+			<p><a target="_blank" href="/melody/asklogin">Create a story</a></p>
+			<p><a target="_blank" href="https://melody-data.github.io/stories/#catalogue">Data stories' catalaogue</a>
+			</p>
+		</div>
+		<div class="p-2 col-md-3">
+			<h6>Links</h6>
+			<p>Read the <a href="https://polifonia-project.github.io/dashboard/" target="_blank">documentation</a></p>
+			<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
+			<p>Theme <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+					Flask Atlantis Dark
+				</a></p>
+		</div>
+
+		<div class="copyright ml-auto p-2 col-md-4">
+			<p>MELODY is part of</p>
+			<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
+			<p>Polifonia has received funding from the European Union’s Horizon 2020 research
+				and innovation programme under grant agreement N. 101004746</p>
+		</div>
+	</div>
+</footer>
+
+		</div>
+
+	</div>
+
+	<!--   Core JS Files   -->
+<script src="static/js/core/jquery.3.2.1.min.js"></script>
+<script src="static/js/core/popper.min.js"></script>
+<script src="static/js/core/bootstrap.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+<!-- Chart JS -->
+<script src="static/js/plugin/chart.js/chart.min.js"></script>
+
+<!-- Import D3 Scale Chromatic via CDN -->
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!-- jQuery Sparkline -->
+<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Chart Circle -->
+<script src="static/js/plugin/chart-circle/circles.min.js"></script>
+
+<!-- Datatables -->
+<script src="static/js/plugin/datatables/datatables.min.js"></script>
+
+<!-- Bootstrap Notify -->
+<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<!-- jQuery Vector Maps -->
+<script src="static/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+<!-- Sweet Alert -->
+<script src="static/js/plugin/sweetalert/sweetalert.min.js "></script>
+
+<!-- Atlantis JS -->
+<script src="static/js/atlantis.min.js"></script>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+<script type="text/javascript" src="static/js/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="static/js/leaflet-sidebar.js"></script>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+	<!-- utils js -->
+	<!-- <script src="static/js/utils.js" type="module"></script> -->
+
+	<script src="static/js/main.js"></script>
+
+	
+	<script>
+		overwriteCSS();
+	</script>
+	
+
+	<!-- Specific Page JS goes HERE  -->
+	
+<script type="text/javascript">
+  $('footer').detach();
+</script>
+
+<script>
+  let hostname = window.location.hostname;
+  if (!hostname.includes('github')) {
+    let beforeUnloadAlert = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!beforeUnloadAlert) return;
+
+      // etc
+      e.preventDefault();
+      e.returnValue = '';
+    });
+
+    function myFunction() {
+      beforeUnloadAlert = false;
+    }
+    var myObj = document.getElementsByClassName('prevent_alert')
+    console.log(myObj);
+    for (el of myObj) {
+      el.addEventListener('click', myFunction);
+    }
+  }
+</script>
+
+
+
+</body>
+
+</html>
