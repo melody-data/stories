@@ -66,13 +66,22 @@
             "position": 5,
             "operations": [],
             "type": "table",
+            "table_title": "NOMINATION RECEIVED",
+            "table_query": "SELECT DISTINCT ?label (COUNT(DISTINCT ?nomination) AS ?count) WHERE {\r\n  ?lucio ?a wd:Q167546;\r\n    wdt:P1411 ?nomination.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?nomination rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?label ?count\r\nORDER BY DESC (?count)\r\nLIMIT 20",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "table",
             "table_title": "RECEIVED AWARDS",
             "table_query": "SELECT DISTINCT ?Awards ?AwardsLabel WHERE {\r\n  wd:Q167546 wdt:P166 ?Awards.\r\n  ?Awards rdfs:label ?AwardsLabel.\r\n  FILTER((LANG(?AwardsLabel)) = \"en\")\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 7,
             "operations": [],
             "type": "table",
             "table_title": "LUCIO DALLA'S GRAVE",
