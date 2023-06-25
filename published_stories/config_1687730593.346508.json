@@ -1,0 +1,24 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Cesare Cremonini",
+    "color_code": [
+        "#c098fb",
+        "#243dff"
+    ],
+    "user_name": "mirialonghitano",
+    "id": "1687730593.346508",
+    "subtitle": "An overview on Cesare Cremonini's life and music",
+    "curator": "Miriam Longhitano, Laura Cigno, Anna Avona",
+    "description": "This project will be about one of the best Italian singer songwirter from Bologna: Cesare Cremonini. He was of the best Italian singer-songwriters. As a substantial part of Italian culture, we will analyze his life and works.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Cesare Cremonini was born in 1980 in Bologna. He is an Italian singer-songwriter and actor. Cremonini was the leader of L\u00f9napop, a successful and popular Italian pop band between 1999 and 2002. He has since pursued a successful solo career.&nbsp;The singer's biggest solo hits include \"Vieni a vedere perch\u00e9\", \"Latin Lover\", \"Gongi-Boy\", \"Marmellata #25\", \"Dicono di me\", \"Figlio di un re\", \"Il Comico\", \"Mondo\", \"Buon viaggio (Share The Love)\", \"Poetica\" and \"Nessuno Vuole Essere Robin\". Since going solo, he has released six albums: Bagus, Maggese, 1+8+24, Il primo bacio sulla Luna, La Teoria dei Colori, Logico and Possibili Scenari.&nbsp;</p><p>If you want to learn more on Cremonini's life and works please <a href=\"https://en.wikipedia.org/wiki/Cesare_Cremonini_(musician)\" target=\"_blank\">click here</a></p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
