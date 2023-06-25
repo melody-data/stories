@@ -1,0 +1,197 @@
+{
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "Melodies from the East: Uncovering Russian Classical Music",
+    "color_code": [
+        "#c63940",
+        "#173ccf"
+    ],
+    "user_name": "natashabevilacqua",
+    "id": "1687714706.423208",
+    "subtitle": "An insight into the representation of Russian composers and classical music in the MusicBo corpus.",
+    "curator": "John Patrick Bulseco Nulud, Arianna Mendrano, Natasha Bevilacqua",
+    "description": " Let yourself be guided by this study to find out more about the Russian music scene, in particular in the 19th century! From the popular composers\u2019 group The Five, you will learn how classical musical had a significant role not only Russia during this period, but in the whole world! \r\n",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Let\u2019s first have a look at how many composers are mentioned in the <strong>MusicBo corpus</strong> in order to grasp how classical music held its significance from the 1800s to our days.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX wd: <http://www.wikidata.org/entity/> \r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/> \r\n\r\n\r\nSELECT DISTINCT (COUNT(distinct ?label) AS ?count)\r\n\r\nWHERE {\r\n  ?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person>;          \r\n    owl:sameAs ?wikidata . \r\n  FILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\n\r\n\tSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  {\r\n\t?wikidata wdt:P106 wd:Q36834 ; \r\n\t rdfs:label ?label .\r\n               FILTER(lang(?label) = \"en\")\r\n  } \r\n\r\n}\r\n\r\n",
+            "count_label": "COMPOSERS",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p>\u201c<em>The new virtuosity: Before embarking on this new stage, we have to consider a certain number of elements in musical life at the time, personalities as well as circumstances, coinciding with the careers of the first great 'classical composers', going into the nineteenth century while still belonging in spirit to an earlier age</em>.\u201d</p><p><u>Source</u>: An illustrated history of Music, Marc Pincherle (1959)</p><p>&nbsp;</p><p>Therefore, as the sentence from the MusicBo corpus is supported by the number of composers found, it is clear how the 19th century was the prime for classical music.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "map",
+            "map_title": "Country of origin of composers in MusicBo",
+            "map_points_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/> \r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/> \r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\n\r\nSELECT DISTINCT ?point ?lat ?long\r\n\r\nWHERE {\r\n  ?s a <http://www.ontologydesignpatterns.org/ont/amr/Person>; \r\n    owl:sameAs ?point .\r\n  FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\")) \r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n?point wdt:P106 wd:Q36834 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n\r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n}\r\n}\r\n\r\nLIMIT 690\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The majority of composers are found in <strong>Europe</strong>, of course, due to the fact that particularly classical music started to develop from there and then it expanded worldwide. In particular, it is worth mentioning the role of classical composers in <strong>Russia</strong>, thanks to whom classical music and folklore came together.&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "text",
+            "text": "<p>So, what are the most popular and cited Russian composers according to MusicBo?&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Top 10 most cited Russian composers in MusicBo",
+            "chart_query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT DISTINCT ?label (count(?label) as ?count)\r\nWHERE\r\n{?musician rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person>;\r\nowl:sameAs ?wikidata. \r\nFILTER (regex(str(?wikidata), \"http://www.wikidata.org/entity/\", \"i\")) \r\n\r\nSERVICE  <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n  {\r\n\t?wikidata wdt:P106 wd:Q36834  . \r\n\r\n    {?wikidata ?origin wd:Q159}  \r\n    UNION\r\n    {?wikidata ?origin wd:Q34266} \r\n    ?wikidata rdfs:label ?label .\r\n    FILTER (lang(?label) = \"en\")\r\n}\r\n}\r\nGROUP BY  ?label ?count\r\nORDER BY DESC (?count)\r\nLIMIT 10\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "text",
+            "text": "<p>It is quite interesting to notice that 5 out of the 10 composers are all part of the same composition group: <strong>The Five</strong>, a Russian composition group made up of the greatest Russian composers of that time: <strong>Korsakov</strong>, <strong>Borodin</strong>, <strong>Balakirev</strong>, <strong>Cui</strong> and <strong>Mussorgsky</strong>. The Five revolutionized the Russian music scene of the 19th century.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p>&nbsp;The following sentences, retrieved from the MusicBo corpus, reveal the importance and the great influence of The Five on the development and success of classical compositions in Russia:</p><p>&nbsp;</p><p>\u201c<em>With Mili Balakirev (1837-1910) we come to the famous \"Group of Five\" (or \"Mighty handful\") composed of himself and his four chief disciples, four amateurs named Cesar Cui, Mussorgsky (both army officers), Borodin (chemist) and Rimsky-Korsakov (naval officer)</em>.\u201d</p><p><u>Source</u>: An illustrated history of Music, Marc Pincherle (1959)</p><p>&nbsp;</p><p>\u201c<em>Balakirev had taught himself composition and orchestration by analysing the works of the great composers</em>.\u201d</p><p><u>Source</u>: An illustrated history of Music, Marc Pincherle (1959)</p><p>&nbsp;</p><p>\u201c<em>His genius as an orchestrator, so dazzlingly revealed, for example, in Mussorgsky's Pictures from an Exhibition, is based on the most minute and thorough exploration of every instrumental possibility.</em>\u201d</p><p><u>Source</u>: An illustrated history of Music, Marc Pincherle (1959)</p><p>&nbsp;</p><p>Let\u2019s learn more about these five great composers!&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "The Mighty Five members",
+            "table_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n\r\nSELECT ?memberName (YEAR(?birthDate) AS ?birthyear) ?birthPlace   (YEAR(?deathDate) AS ?deathyear)  ?occupation ?pic\r\n\r\nWHERE{\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n?member wdt:P463 wd:Q190390; # is member of the 5\r\n        rdfs:label ?memberName\r\n    FILTER (lang(?memberName) = \"en\")\r\n\r\nOPTIONAL { ?member  wdt:P569 ?birthDate . }\r\nOPTIONAL { ?member  wdt:P19 ?bplace . ?bplace rdfs:label ?birthPlace . }\r\n  FILTER (lang(?birthPlace) = \"en\")\r\nOPTIONAL { ?member  wdt:P570 ?deathDate . }\r\n#OPTIONAL { ?member  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\n#FILTER (lang(?deathPlace) = \"en\")  (tolto perch\u00e9 si impalla, troppe colonne)\r\nOPTIONAL { ?member  wdt:P106 ?occ . ?occ rdfs:label ?occupation .  }   \r\n    FILTER (lang(?occupation) = \"en\")\r\n    FILTER (regex(?occupation, \"chemist\", \"i\") || regex(?occupation, \"military personnel\", \"i\") || regex(?occupation, \"pedagogue\", \"i\")) \r\nOPTIONAL {?member  wdt:P18 ?pic.}\r\n  }\r\n}\r\nORDER BY ASC (?memberName)\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>You would think it would be odd to find as their <strong>occupations</strong> chemist, military officers and pedagogue. However, it was quite common during the Russian Empire for artists to have more than one job, often more practical ones.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Click here to listen to one of their works!</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "table",
+            "table_title": "Balakirev: \"Chopin Suite / Overtures\"",
+            "table_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nSELECT ?name ?audio\r\nWHERE{\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n{?member wdt:P463 wd:Q190390; #member of the five\r\n      wdt:P800 wd:Q285976;\r\n        rdfs:label ?name. \r\n   wd:Q285976 wdt:P51 ?audio .    \r\n      FILTER (lang(?name) = \"en\")\r\n  }\r\n}\r\n}\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "text",
+            "text": "<p>&nbsp;The Five were the prominent composers of the 19th century in Russia. As a matter of fact, they introduced their country to a distinct national style of classical music, and they had so much influence on the music scene of the time, that many Russian artists followed their lead, and the practice of classical music grew exponentially. Look at how many Russian classical composers can be found after the guidance of The Five!</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nSELECT (COUNT(DISTINCT ?label) as ?count)\r\nWHERE{\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> \r\n{\r\n?composer wdt:P463 ?group;  # is member of \r\nwdt:P106 wd:Q36834. # has occupation composer\r\n?composer ?origin wd:Q34266. # has origin in Russian Empire\r\n?group rdfs:label ?label\r\nFILTER (lang(?label) = \"en\")\r\n       FILTER (!regex(str(?label), \"American\")) \r\n       FILTER (!regex(str(?label), \"Swedish\"))\r\n       FILTER (!regex(str(?label), \"Soviet\")) \r\n       FILTER(!regex(str(?label), \"USSR\"))\r\n}\r\n}\r\n\r\n",
+            "count_label": "RUSSIAN COMPOSITION GROUPS",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "Work of art of Russian classical music",
+            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n\r\nSELECT DISTINCT (?year as ?label) (COUNT(DISTINCT ?label) AS ?count) #(year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\n\r\nWHERE {\r\n\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  {\r\n  ?woa wdt:P86 ?composer .\r\n   ?woa wdt:P571 ?date .   \r\n    \r\n   BIND (YEAR(xsd:dateTime(?date)) as ?year)\r\n   ?composer ?origin wd:Q34266 # has origin in Russian Empire\r\n      #FILTER (YEAR(?date) > 1600 && YEAR(?date) < 1999 ).\r\n    SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?woa rdfs:label ?label.\r\n      }\r\n  }}\r\nGROUP BY ?year\r\nORDER BY ?label\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "year",
+                "y": "work of art"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "text",
+            "text": "<p>&nbsp;As you can see from the line chart, the 1800s was a flourishing period for classical music in Russia. And guess what? We owe it all to Emperor <strong>Peter the Great</strong>, whose openness to Europe brought the whole musical scene to Russia.</p><p>There is another peak, during the Soviet Union. You're probably wondering, why? Among the followers of the Five, we find the most popular Soviet composers. We're talking about legends, including <strong>Shostakovich</strong>, <strong>Prokofiev</strong>, and <strong>Stravinsky</strong>.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "text",
+            "text": "<p>How about the <strong>rest of the world</strong>? Did composers thrive the most during the 19th century also in other countries? Let\u2019s find out by seeing how many composers can be found in each country during the 1800s.</p><p>&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 18,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Try this tool by entering the name of a city to find composers and composition groups from there!",
+            "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nSELECT DISTINCT ?composer  (year(?birthDate) as ?birthYear)?birthPlace (year(?deathDate) as ?deathYear) ?deathPlace ?pic \r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n       FILTER CONTAINS (?birthPlace, <<searchterm>>). \r\n \t?person wdt:P136 wd:Q9730 ; #<has genre> <classical music>\r\n            rdfs:label ?composer ;\r\n          wdt:P19 ?bplace. \r\n          ?bplace rdfs:label ?birthPlace .\r\n\r\nOPTIONAL { ?person  wdt:P569 ?birthDate . }\r\nOPTIONAL { ?person  wdt:P570 ?deathDate . }\r\nOPTIONAL { ?person  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\n  OPTIONAL { ?person wdt:P18 ?pic . }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n  FILTER (lang(?composer) = \"en\")\r\n  FILTER (lang(?birthPlace) = \"en\")\r\n FILTER (lang(?deathPlace) = \"en\")\r\nFILTER (YEAR(?birthDate) > 1799 && YEAR(?birthDate) < 1901 )\r\n} }\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 19,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The 19th century was a musical revolution in Russia, all thanks to a group of highly influential composers known as The Five. They completely transformed the music scene and left a lasting legacy. And you won't believe it, but their genius even spread to the Soviet Union, legendary composers such as Shostakovich, Prokofiev, and Stravinsky. </p><p>The evidence from the MusicBo corpus confirms the significant contributions of The Five and other Russian composers. As we have seen, they left an indelible mark on Russia's musical landscape, and their influence continues to be felt today. Indeed, they laid the foundations for an extraordinary musical journey that continues to inspire musicians around the world, thereby planting the seeds of musical greatness that continue to blossom with each beautiful note.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
