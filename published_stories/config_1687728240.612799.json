@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Cesare Cremonini",
+    "color_code": [
+        "#996ffb",
+        "#2e46ff"
+    ],
+    "user_name": "mirialonghitano",
+    "id": "1687728240.612799",
+    "subtitle": "An overview on Cesare Cremonini's life and music",
+    "curator": "Miriam Longhitano, Laura Cigno, Anna Avona",
+    "description": "This project will be about one of the best Italian singer songwriter: Cesare Cremonini. He was of the best Italian singer-songwriters. As a substantial part of Italian culture, we will analyze his life and works.",
+    "dynamic_elements": []
+}
