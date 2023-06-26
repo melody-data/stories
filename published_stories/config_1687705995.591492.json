@@ -74,7 +74,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p>We added a \"text search\", that is a fonction used to perform a specific research. We looked for the rock band \"Red Hot Chili Peppers\" and we found a lot of information about it. By adding actions to the object of the text search, we found the components of the band and their photos, their music genres, their masterpieces, the awards they won, the nominations they received, the albums they released, the number of their followers on social media. We added actions also to the category \"rock group\", to show other American bands of the same genre. </p>",
+            "text": "<p>We added a \"text search\", that is a fonction used to perform a specific research. We looked for the rock band \"Red Hot Chili Peppers\" and we found a lot of information about it. By adding actions to the object of the text search, we found the components of the band and their photos, their music genres, their masterpieces, the awards they won, the nominations they received, the albums they released, the number of their followers on social media. We added actions also to the category \"rock group\", to show other American bands of the same genre.</p>",
             "extra_queries": [],
             "map_filters": []
         },
