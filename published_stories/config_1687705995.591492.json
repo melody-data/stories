@@ -15,6 +15,14 @@
         {
             "position": 0,
             "operations": [],
+            "type": "text",
+            "text": "<p>The music scene in the United States has been a breeding ground for diverse musical genres, each contributing to the country's cultural fabric. Among these genres, rock music has emerged as a powerful and enduring force, captivating audiences with its energetic rhythms. The counters below show the number of music bands and the number of rock bands in the USA.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q30 . # from usa\r\n}",
             "count_label": "Number of bands in the USA ",
@@ -22,7 +30,7 @@
             "map_filters": []
         },
         {
-            "position": 1,
+            "position": 2,
             "operations": [],
             "type": "count",
             "count_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) WHERE{\r\n  ?band ?a wd:Q5741069 . # rock band\r\n  ?band wdt:P495 wd:Q30 . # from usa \r\n  ?band wdt:P527 ?item . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10",
@@ -31,7 +39,15 @@
             "map_filters": []
         },
         {
-            "position": 2,
+            "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The following chart shows the relation between American rock bands and the number of their components. In addition, we added a map that shows the collocation of the recording studios in the USA: we found 75 recording studios spread around the country.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
             "operations": [],
             "type": "chart",
             "chart_type": "linechart",
@@ -46,7 +62,7 @@
             "map_filters": []
         },
         {
-            "position": 3,
+            "position": 5,
             "operations": [],
             "type": "map",
             "map_title": "Recording studios in the US",
@@ -55,7 +71,15 @@
             "map_filters": []
         },
         {
-            "position": 4,
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>We added a \"text search\", that is a fonction used to perform a specific research. We looked for the rock band \"Red Hot Chili Peppers\" and we found a lot of information about it. By adding actions to the object of the text search, we found the components of the band and their photos, their music genres, their masterpieces, the awards they won, the nominations they received, the albums they released, the number of their followers on social media. We added actions also to the category \"rock group\", to show other American bands of the same genre. </p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
@@ -80,7 +104,7 @@
             "map_filters": []
         },
         {
-            "position": 5,
+            "position": 8,
             "operations": [],
             "type": "action",
             "action_title": "Music genres",
@@ -89,7 +113,7 @@
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 9,
             "operations": [],
             "type": "action",
             "action_title": "Instruments they play",
@@ -98,7 +122,7 @@
             "map_filters": []
         },
         {
-            "position": 7,
+            "position": 10,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -113,7 +137,7 @@
             "map_filters": []
         },
         {
-            "position": 8,
+            "position": 11,
             "operations": [],
             "type": "action",
             "action_title": "Some of their masterpieces",
@@ -122,7 +146,7 @@
             "map_filters": []
         },
         {
-            "position": 9,
+            "position": 12,
             "operations": [],
             "type": "action",
             "action_title": "Awards they won",
@@ -131,7 +155,7 @@
             "map_filters": []
         },
         {
-            "position": 10,
+            "position": 13,
             "operations": [],
             "type": "action",
             "action_title": "Nominations they received",
@@ -140,7 +164,7 @@
             "map_filters": []
         },
         {
-            "position": 11,
+            "position": 14,
             "operations": [],
             "type": "action",
             "action_title": "Released albums and date",
@@ -149,7 +173,7 @@
             "map_filters": []
         },
         {
-            "position": 12,
+            "position": 15,
             "operations": [],
             "type": "action",
             "action_title": "Number of followers on social medias ",
@@ -158,7 +182,7 @@
             "map_filters": []
         },
         {
-            "position": 13,
+            "position": 16,
             "operations": [],
             "type": "chart",
             "chart_type": "barchart",
@@ -173,7 +197,7 @@
             "map_filters": []
         },
         {
-            "position": 14,
+            "position": 17,
             "operations": [],
             "type": "action",
             "action_title": "Components of The Red Hot Chili Peppers",
@@ -182,7 +206,7 @@
             "map_filters": []
         },
         {
-            "position": 15,
+            "position": 18,
             "operations": [],
             "type": "action",
             "action_title": "Show other bands from this genre ",
