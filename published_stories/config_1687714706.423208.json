@@ -122,7 +122,7 @@
             "position": 12,
             "operations": [],
             "type": "table",
-            "table_title": "Balakirev: \"Chopin Suite / Overtures\"",
+            "table_title": "Modest Mussorgsky: \"Night on Bald Mountain\"",
             "table_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nSELECT ?name ?audio\r\nWHERE{\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n{?member wdt:P463 wd:Q190390; #member of the five\r\n      wdt:P800 wd:Q285976;\r\n        rdfs:label ?name. \r\n   wd:Q285976 wdt:P51 ?audio .    \r\n      FILTER (lang(?name) = \"en\")\r\n  }\r\n}\r\n}\r\n\r\n",
             "extra_queries": [],
             "map_filters": []
@@ -131,7 +131,7 @@
             "position": 13,
             "operations": [],
             "type": "text",
-            "text": "<p>&nbsp;The Five were the prominent composers of the 19th century in Russia. As a matter of fact, they introduced their country to a distinct national style of classical music, and they had so much influence on the music scene of the time, that many Russian artists followed their lead, and the practice of classical music grew exponentially. Look at how many Russian classical composers can be found after the guidance of The Five!</p>",
+            "text": "<p>The Five were the prominent composers of the 19th century in Russia. As a matter of fact, they introduced their country to a distinct national style of classical music, and they had so much influence on the music scene of the time, that many Russian artists followed their lead, and the practice of classical music grew exponentially. Look at how many Russian composition groups can be found after the guidance of The Five!</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -149,8 +149,8 @@
             "operations": [],
             "type": "chart",
             "chart_type": "linechart",
-            "chart_title": "Work of art of Russian classical music",
-            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n\r\nSELECT DISTINCT (?year as ?label) (COUNT(DISTINCT ?label) AS ?count) #(year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\n\r\nWHERE {\r\n\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  {\r\n  ?woa wdt:P86 ?composer .\r\n   ?woa wdt:P571 ?date .   \r\n    \r\n   BIND (YEAR(xsd:dateTime(?date)) as ?year)\r\n   ?composer ?origin wd:Q34266 # has origin in Russian Empire\r\n      #FILTER (YEAR(?date) > 1600 && YEAR(?date) < 1999 ).\r\n    SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?woa rdfs:label ?label.\r\n      }\r\n  }}\r\nGROUP BY ?year\r\nORDER BY ?label\r\n",
+            "chart_title": "Works of art of Russian classical music over time",
+            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\n\r\nSELECT DISTINCT (?year as ?label) (COUNT(DISTINCT ?label) AS ?count) #(year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\n\r\nWHERE {\r\n\r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  {\r\n  ?woa wdt:P86 ?composer .\r\n   ?woa wdt:P571 ?date .   \r\n    \r\n   BIND (YEAR(xsd:dateTime(?date)) as ?year)\r\n   ?composer ?origin wd:Q34266 # has origin in Russian Empire\r\n      #FILTER (YEAR(?date) > 1600 && YEAR(?date) < 1999 ).\r\n    SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?woa rdfs:label ?label.\r\n      }\r\n  }}\r\nGROUP BY ?year\r\nORDER BY ?label\r\nOFFSET 1\r\n",
             "chart_series": "",
             "chart_legend": {
                 "x": "year",
@@ -163,7 +163,7 @@
             "position": 16,
             "operations": [],
             "type": "text",
-            "text": "<p>&nbsp;As you can see from the line chart, the 1800s was a flourishing period for classical music in Russia. And guess what? We owe it all to Emperor <strong>Peter the Great</strong>, whose openness to Europe brought the whole musical scene to Russia.</p><p>There is another peak, during the Soviet Union. You're probably wondering, why? Among the followers of the Five, we find the most popular Soviet composers. We're talking about legends, including <strong>Shostakovich</strong>, <strong>Prokofiev</strong>, and <strong>Stravinsky</strong>.</p>",
+            "text": "<p>As you can see from the line chart, the 1800s was a flourishing period for classical music in Russia. And guess what? We owe it all to Emperor <strong>Peter the Great</strong>, whose openness to Europe brought the whole musical scene to Russia.</p><p>There is another peak, during the Soviet Union. You're probably wondering, why? Among the followers of the Five, we find the most popular Soviet composers. We're talking about legends, including <strong>Shostakovich</strong>, <strong>Prokofiev</strong>, and <strong>Stravinsky</strong>.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -189,7 +189,7 @@
             "position": 19,
             "operations": [],
             "type": "text",
-            "text": "<p>The 19th century was a musical revolution in Russia, all thanks to a group of highly influential composers known as The Five. They completely transformed the music scene and left a lasting legacy. And you won't believe it, but their genius even spread to the Soviet Union, legendary composers such as Shostakovich, Prokofiev, and Stravinsky. </p><p>The evidence from the MusicBo corpus confirms the significant contributions of The Five and other Russian composers. As we have seen, they left an indelible mark on Russia's musical landscape, and their influence continues to be felt today. Indeed, they laid the foundations for an extraordinary musical journey that continues to inspire musicians around the world, thereby planting the seeds of musical greatness that continue to blossom with each beautiful note.</p>",
+            "text": "<p>The 19th century was a musical revolution in Russia, all thanks to a group of highly influential composers known as The Five. They completely transformed the music scene and left a lasting legacy. And you won't believe it, but their genius even spread to the Soviet Union, legendary composers such as Shostakovich, Prokofiev, and Stravinsky.</p><p>The evidence from the MusicBo corpus confirms the significant contributions of The Five and other Russian composers. As we have seen, they left an indelible mark on Russia's musical landscape, and their influence continues to be felt today. Indeed, they laid the foundations for an extraordinary musical journey that continues to inspire musicians around the world, thereby planting the seeds of musical greatness that continue to blossom with each beautiful note.</p>",
             "extra_queries": [],
             "map_filters": []
         }
