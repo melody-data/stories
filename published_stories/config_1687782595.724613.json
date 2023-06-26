@@ -1,0 +1,32 @@
+{
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "Orchestra exploration on MusicBo",
+    "color_code": [
+        "#39c6b4",
+        "#ebebeb"
+    ],
+    "user_name": "DariaKanev",
+    "id": "1687782595.724613",
+    "subtitle": "Data-driven storytelling",
+    "curator": "Daria Kaneva, Fidan Hajili, Elizaveta Britvenkova",
+    "description": "Our focus is on orchestras and their historical and contemporary significance in the musical landscape. ",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Orchestra</p><p><span style=\"color: rgb(0, 0, 0);\">\u201c</span><span style=\"color: rgb(51, 51, 51); background-color: white;\">a musical organization consisting of a group of instrumentalists including string players\"</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
