@@ -74,7 +74,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p>We added a \"text search\", that is a fonction used to perform a specific research. We looked for the rock band \"Red Hot Chili Peppers\" and we found a lot of information about it. By adding actions to the object of the text search, we found the components of the band and their photos, their music genres, their masterpieces, the awards they won, the nominations they received, the albums they released, the number of their followers on social media. We added actions also to the category \"rock group\", to show other American bands of the same genre.</p>",
+            "text": "<p>We added a \"text search\", that is a function used to perform a specific research. We looked for the rock band \"Red Hot Chili Peppers\" and we found a lot of information about it. By adding actions to the object of the text search, we found the components of the band and their photos, their music genres, their masterpieces, the awards they won, the nominations they received, the albums they released, the number of their followers on social media. We added actions also to the category \"rock group\", to show other American bands of the same genre.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -82,19 +82,19 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "",
+            "textsearch_userinput": "red hot chili peppers",
             "textsearch_title": "Search band by a name",
             "textsearch_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search \"red hot chili peppers\";\r\n                      mwapi:language \"en\".\r\n      ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n              ?category wdt:P31 wd:Q105756498 . }\r\n    UNION\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n\r\n",
             "textsearch": {
                 "band": [
                     "Music genres",
                     "Instruments they play",
-                    "Some of their masterpieces",
                     "Awards they won",
                     "Nominations they received",
                     "Number of followers on social medias ",
                     "Released albums and date",
-                    "Components of The Red Hot Chili Peppers"
+                    "Components of The Red Hot Chili Peppers",
+                    "Most famous songs"
                 ],
                 "category": [
                     "Show other bands from this genre "
@@ -140,7 +140,7 @@
             "position": 11,
             "operations": [],
             "type": "action",
-            "action_title": "Some of their masterpieces",
+            "action_title": "Most famous songs",
             "action_query": "SELECT DISTINCT ?song ?songLabel (year(xsd:dateTime(?publicationDate)) as ?publication) WHERE { ?song wdt:P175 wd:Q10708 ; wdt:P407 wd:Q1860 . ?song wdt:P577 ?publicationDate . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } ORDER BY ?publicationDate LIMIT 20",
             "extra_queries": [],
             "map_filters": []
