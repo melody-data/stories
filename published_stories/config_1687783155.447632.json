@@ -1,0 +1,106 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Orchestras around the world",
+    "color_code": [
+        "#5e30eb",
+        "#d6d6d6"
+    ],
+    "user_name": "DariaKanev",
+    "id": "1687783155.447632",
+    "subtitle": "Addition to the data story \"Orchestra exploration on MusicBo\"",
+    "curator": "Daria Kaneva, Fidan Hajili, Elizaveta Britvenkova ",
+    "description": "Completion of the data about orchestras extracted from Wikidata Knowledge Graph",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?orchestra) AS ?count)\r\nWHERE {\r\n     ?orchestra wdt:P31 wd:Q42998. # orchestras \r\n     ?orchestra wdt:P495 wd:Q38 . # from Italy\r\n}\r\n",
+            "count_label": "Number of orchestras in Italy",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "Orchestras in Italy",
+            "table_query": "SELECT DISTINCT ?Orchestra ?OrchestraLabel ?Location ?LocationLabel (year(xsd:dateTime(?InceptionDate)) as ?Inception)?pic\r\nWHERE {\r\n     ?Orchestra wdt:P31 wd:Q42998. # orchestras \r\n     ?Orchestra wdt:P495 wd:Q38 . # from Italy\r\n     OPTIONAL {?Orchestra wdt:P571 ?InceptionDate.}\r\n     OPTIONAL {\r\n      {?Orchestra wdt:P159 ?Location.}\r\n    UNION\r\n      {?Orchestra wdt:P740 ?Location.}\r\n     }\r\n     OPTIONAL {?Orchestra wdt:P18 ?pic.}\r\n     \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          \r\n      }\r\n}\r\nORDER BY ASC (?OrchestraLabel)\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p>We started to explore what kind of data can be found on Wikidata about orchestras from Italy and decided to organise them as a counter and a table .</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "map",
+            "map_title": "Orchestras in the world",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{\r\n  ?point ?a wd:Q42998. # orchestra \r\n  ?point wdt:P131 ?villeId.\r\n  ?point p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Number of orchestras in European countries",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?orchestra) AS ?count)\r\nWHERE {\r\n     ?orchestra ?a wd:Q42998. # orchestra \r\n     ?orchestra wdt:P495 ?country. \r\n     ?country ?a wd:Q6256.\r\n     {?country wdt:P361 wd:Q46.}\r\n  union\r\n    {?country wdt:P463 wd:Q458}\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?country rdfs:label         ?label.\r\n      }\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 20\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Country",
+                "y": "Number of orchestras"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "text",
+            "text": "<p>We thought it would be also interesting to compare it with the number of orchestras in the world and in other European countries. The map in our data story displays orchestras in the world while the numbers for orchestras in Europe are organised in a bar chart.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Country and its orchestras",
+            "textsearch_query": "SELECT DISTINCT  ?orchestra ?orchestraLabel ?leader ?leaderLabel ?country ?countryLabel \r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>; #country\r\n                      mwapi:language \"en\".\r\n      ?country wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?orchestra wdt:P31 wd:Q42998.\r\n  ?orchestra wdt:P495 ?country.\r\n  OPTIONAL {\r\n    {?orchestra wdt:P527 ?leader.}\r\n  UNION\r\n    {?orchestra wdt:P3300 ?leader}\r\n    UNION\r\n    {?orchestra wdt:P3174 ?leader}\r\n    }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n  \r\n}\r\nORDER BY ?orchestraLabel\r\nLIMIT 10\r\n",
+            "textsearch": {
+                "leader": [
+                    "Other orchestras"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "action",
+            "action_title": "Other orchestras",
+            "action_query": "SELECT DISTINCT ?result ?resultLabel\r\nWHERE { \r\nBIND(<<item>> as ?item)  \r\nOPTIONAL{ {?item wdt:P361 ?result} union {?item wdt:P463 ?result} }.\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Since we haven\u2019t found a direct connection between orchestras and people in the MusicBo KG, we launched queries to explore it on Wikidata service and Wikidata endpoint. The most obvious connection was with conductors or art directors. We created a text search for orchestras from different countries where we presented the names of the orchestras with their country of origin as well as the orchestras\u2019 leaders.</p><p>Some of these prominent musicians were mentioned on Wikidata in connection with several orchestras. For this reason, we added an action to display all the musical organisations where these musicians participate when this information is available.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
