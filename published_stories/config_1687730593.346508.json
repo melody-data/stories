@@ -68,9 +68,15 @@
         {
             "position": 6,
             "operations": [],
-            "type": "table",
-            "table_title": "CREMONINI'S  MUSIC",
-            "table_query": "SELECT DISTINCT ?genre ?genreLabel WHERE {\r\n  wd:Q1056805 wdt:P136 ?genre.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}",
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "NUMBER OF MUSICAL WORKS BY GENRE",
+            "chart_query": "SELECT DISTINCT (?genre AS ?label) (COUNT(?label) AS ?count) WHERE {\r\n  ?item wdt:P175 wd:Q1056805;\r\n   wdt:P136 ?genre.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?item rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?count ?genre\r\nORDER BY (?label)\r\nLIMIT 50",
+            "chart_series": "WORKS BY GENRE",
+            "chart_legend": {
+                "x": "GENRE",
+                "y": "WORKS"
+            },
             "extra_queries": [],
             "map_filters": []
         },
@@ -79,8 +85,8 @@
             "operations": [],
             "type": "textsearch",
             "textsearch_userinput": "",
-            "textsearch_title": "OTHER MUSICIANS",
-            "textsearch_query": "SELECT DISTINCT ?singers ?singersLabel ?category ?categoryLabel   WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search \"Cremonini\";\r\n                      mwapi:language \"it\".\r\n      ?singer wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?singers wdt:P31 ?category ; wdt:P495  wd:Q38 .\r\n              ?category wdt:P31 wd:Q60723829 . }\r\n    UNION\r\n   {?singers wdt:P31 ?category ; wdt:P495 wd:Q38.\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 20",
+            "textsearch_title": "OTHER POP MUSICIANS",
+            "textsearch_query": "SELECT DISTINCT ?singers ?singersLabel ?category ?categoryLabel   WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search \"Cremonini\";\r\n                      mwapi:language \"it\".\r\n      ?singer wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?singers wdt:P31 ?category ; wdt:P495  wd:Q38 .\r\n              ?category wdt:P31 wd:Q60723829 . }\r\n    UNION\r\n   {?singers wdt:P31 ?category ; wdt:P495 wd:Q38.\r\n    ?category wdt:P279 wd:Q215380 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 20",
             "textsearch": {
                 "genre": [
                     "show same genre musicians"
