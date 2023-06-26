@@ -97,6 +97,21 @@
             "table_query": "SELECT DISTINCT ?image WHERE { wd:Q167546 wdt:P1442 ?image . }",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "MUSICAL WORKS BY DATE",
+            "chart_query": "SELECT DISTINCT (YEAR(xsd:dateTime(?date)) AS ?label) (COUNT(?label) AS ?count) WHERE {\r\n  ?item wdt:P175 wd:Q167546;\r\n    wdt:P577 ?date.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?item rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY (?label)\r\nLIMIT 100",
+            "chart_series": "MUSICAL WORKS",
+            "chart_legend": {
+                "x": "YEAR",
+                "y": "WORKS"
+            },
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
