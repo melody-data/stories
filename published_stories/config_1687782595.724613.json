@@ -64,7 +64,7 @@
             "position": 5,
             "operations": [],
             "type": "text",
-            "text": "<p>Last&nbsp;but&nbsp;not&nbsp;least,&nbsp;while querying the KG (Knowledge Graph), we attempted to establish a connection between orchestras and people mentioned. The queries returned no results for triples containing both these entities. However, when we used an additional variable, we retrieved results, although all of them referred to San Petronio as a person or as a name for the orchestra. We decided to explore this connection using a more extensive KG, namely Wikidata </p>",
+            "text": "<p>Last&nbsp;but&nbsp;not&nbsp;least,&nbsp;while querying the KG (Knowledge Graph), we attempted to establish a connection between orchestras and people mentioned. The queries returned no results for triples containing both these entities. However, when we used an additional variable, we retrieved results, although all of them referred to San Petronio as a person or as a name for the orchestra. We decided to explore this connection using a more extensive KG, namely Wikidata <a href=\"https://melody-data.github.io/stories/published_stories/story_1687783155.447632.html\" target=\"_blank\">story_1687783155.447632.html</a></p>",
             "extra_queries": [],
             "map_filters": []
         }
