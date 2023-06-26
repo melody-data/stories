@@ -71,8 +71,8 @@
             "chart_query": "SELECT DISTINCT (YEAR(xsd:dateTime(?date)) AS ?label) (COUNT(?label) AS ?count) WHERE {\r\n  ?item wdt:P175 wd:Q167546;\r\n    wdt:P577 ?date.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?item rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY (?label)\r\nLIMIT 100",
             "chart_series": "MUSICAL WORKS",
             "chart_legend": {
-                "x": "YEAR",
-                "y": "WORKS"
+                "x": "RELEASING DATE",
+                "y": "NUMBER OF WORKS"
             },
             "extra_queries": [],
             "map_filters": []
