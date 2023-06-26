@@ -25,7 +25,7 @@
             "position": 1,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(153, 153, 153);\">As far as the different types of piano are concerned, they are mainly divided into three primary categories, Grand, Upright, and Electronic, which in turn can be further sub-divided. In fact, as the search result above shows, at least 26 types of piano can be identified, a number that also includes unique pianos such as Pleyel, exhibited at the Museum of Romanticism in Madrid.</span></p><p><span style=\"color: rgb(153, 153, 153);\">Below, you can see some pictures of prominent pianos.</span></p>",
+            "text": "<p><span style=\"color: rgb(153, 153, 153);\">As far as the different types of piano are concerned, they are mainly divided into three primary categories, Grand, Upright, and Electronic, which in turn can be further sub-divided. In fact, as the search result above shows, at least 26 types of piano can be identified, a number that also includes unique pianos such as the orphica, a portable piano invented in the 18th century; </span><span style=\"color: rgb(153, 153, 153); background-color: transparent;\">looking for this piano on the web, we also found out that Beethoven, the composer we focus on this story, wrote some composition for the orphica.&nbsp;</span></p><p><span style=\"color: rgb(153, 153, 153);\">Below, you can see the pictures of these types of pianos.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -34,7 +34,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Piano images ",
-            "table_query": "#defaultView:ImageGrid\r\nSELECT ?item ?itemLabel ?pic\r\nWHERE \r\n { \r\n?item wdt:P31 wd:Q5994 . \r\n   ?item wdt:P18 ?pic\r\n         SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } \r\n    } \r\n",
+            "table_query": "SELECT DISTINCT ?PianoType ?PianoTypeLabel ?image \r\nWHERE { ?PianoType wdt:P279 wd:Q5994 . \r\n       OPTIONAL { ?PianoType wdt:P18 ?image . } \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n      } \r\n\r\n",
             "extra_queries": [],
             "map_filters": []
         },
