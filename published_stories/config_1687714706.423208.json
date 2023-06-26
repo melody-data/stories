@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
     "template_mode": "statistics",
-    "title": "Melodies from the East: Uncovering Russian Classical Music",
+    "title": "Melodies from the East: Uncovering Russian Classical Music in MusicBo",
     "color_code": [
         "#c63940",
         "#173ccf"
