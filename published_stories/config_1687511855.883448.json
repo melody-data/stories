@@ -3,8 +3,8 @@
     "template_mode": "statistics",
     "title": "Exploring musical instruments: the violin",
     "color_code": [
-        "#90c7ea",
-        "#3e48d0"
+        "#89ecea",
+        "#403de6"
     ],
     "user_name": "Elena875",
     "id": "1687511855.883448",
@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(239, 239, 239);\">At the beginning, we proceeded with an exploration of WikiData in order to discover the amount of stringed instruments that were mentioned inside the knowledge base. A stringed instrument can be defined as any musical instrument having strings as the medium of sound production.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(239, 239, 239);\">At the beginning, we proceeded with an exploration of WikiData in order to discover the amount of string instruments that were mentioned inside the knowledge base. A stringed instrument can be defined as any musical instrument having strings as the medium of sound production.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -25,7 +25,7 @@
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?StringedInstrument) AS ?count) \r\nWHERE { \r\n \t?StringedInstrument ?a wd:Q1798603 . # stringed instrument \r\n} ",
-            "count_label": "Stringed instruments in WikiData",
+            "count_label": "Stringed instruments",
             "extra_queries": [],
             "map_filters": []
         },
@@ -42,7 +42,7 @@
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?BowedStringInstrument) AS ?count) \r\nWHERE { \r\n \t?BowedStringInstrument ?a wd:Q192096 . # bowed string instrument \r\n}",
-            "count_label": "Bowed string instruments in WikiData",
+            "count_label": "Bowed string instruments",
             "extra_queries": [],
             "map_filters": []
         },
@@ -189,15 +189,23 @@
         {
             "position": 19,
             "operations": [],
-            "type": "textsearch",
-            "textsearch_userinput": "",
-            "textsearch_title": "Text search for violinists by their bith place",
-            "textsearch_query": "SELECT DISTINCT ?violinist ?violinistLabel ?birthPlace ?birthPlaceLabel ?pic\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n   bd:serviceParam wikibase:endpoint \"www.wikidata.org\" ;\r\n         \twikibase:api \"EntitySearch\" ;\r\n         \tmwapi:search <<searchterm>> ;\r\n         \tmwapi:language \"en\".\r\n   ?birthPlace wikibase:apiOutputItem mwapi:item.\r\n  }\r\n \r\n ?violinist wdt:P106 wd:Q1259917 .\r\n ?violinist wdt:P19 ?birthPlace .\r\n OPTIONAL {?violinist wdt:P18 ?pic}\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n FILTER regex(str(?pic), \"jpg\").\r\n} \r\nORDER BY ?violinist\r\nLIMIT 10",
+            "type": "text",
+            "text": "<p>Click on the text search below to find other famous violinists according to their birth place</p>",
             "extra_queries": [],
             "map_filters": []
         },
         {
             "position": 20,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Here you can find violinists by searching for their birthplace",
+            "textsearch_query": "SELECT DISTINCT ?violinist ?violinistLabel ?birthPlace ?birthPlaceLabel ?pic\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n   bd:serviceParam wikibase:endpoint \"www.wikidata.org\" ;\r\n         \twikibase:api \"EntitySearch\" ;\r\n         \tmwapi:search <<searchterm>> ;\r\n         \tmwapi:language \"en\".\r\n   ?birthPlace wikibase:apiOutputItem mwapi:item.\r\n  }\r\n \r\n ?violinist wdt:P106 wd:Q1259917 .\r\n ?violinist wdt:P19 ?birthPlace .\r\n OPTIONAL {?violinist wdt:P18 ?pic}\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n FILTER regex(str(?pic), \"jpg\").\r\n} \r\nORDER BY ?violinist\r\nLIMIT 10",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 21,
             "operations": [],
             "type": "text",
             "text": "<p>Among the violinist who have been mentioned during the course of this research, there is one famous musician that deserves our attention: George Frideric Handel.</p>",
@@ -205,7 +213,7 @@
             "map_filters": []
         },
         {
-            "position": 21,
+            "position": 22,
             "operations": [],
             "type": "table",
             "table_title": "George Frideric Handel",
@@ -214,7 +222,7 @@
             "map_filters": []
         },
         {
-            "position": 22,
+            "position": 23,
             "operations": [],
             "type": "text",
             "text": "<p>George Frideric Handel was a German-British violinist and composer. He was born and raised in Halle (Germany), but spent the majority of his life in Italy and finally in London, where he died in 1759.</p>",
@@ -222,7 +230,7 @@
             "map_filters": []
         },
         {
-            "position": 23,
+            "position": 24,
             "operations": [],
             "type": "table",
             "table_title": "Handel biography",
@@ -231,7 +239,7 @@
             "map_filters": []
         },
         {
-            "position": 24,
+            "position": 25,
             "operations": [],
             "type": "text",
             "text": "<p>Handel was a composer of the late Baroque era, and he's deemed to be one of the most prominent composers of his time, influencing a whole generation of composers with his unique blend of Italian, German, and English musical styles. Handel\u2019s works spanned a variety of musical genres, including opera, orchestral music, chamber music, and choral works. He is most famous for his oratorios, which are large-scale musical works for choirs, soloists, and orchestras.</p>",
@@ -239,7 +247,7 @@
             "map_filters": []
         },
         {
-            "position": 25,
+            "position": 26,
             "operations": [],
             "type": "table",
             "table_title": "Music genres",
@@ -248,7 +256,7 @@
             "map_filters": []
         },
         {
-            "position": 26,
+            "position": 27,
             "operations": [],
             "type": "text",
             "text": "<p>Handel\u2019s musical style was heavily influenced by the Italian Baroque style, which he encountered during his time in Italy. He incorporated elements of the Italian style into his own compositions, blending them with elements of German and English musical traditions. In the following table, some of his most notable works can be observed.</p>",
@@ -256,7 +264,7 @@
             "map_filters": []
         },
         {
-            "position": 27,
+            "position": 28,
             "operations": [],
             "type": "table",
             "table_title": "Main works",
@@ -265,7 +273,7 @@
             "map_filters": []
         },
         {
-            "position": 28,
+            "position": 29,
             "operations": [],
             "type": "text",
             "text": "<p>Handel\u2019s musical style was influential in his time and continues to be celebrated today for its combination of beauty, grandeur, and emotional depth. His works are considered milestones of the Baroque era and are an enduring testament to his mastery of the musical arts.</p>",
