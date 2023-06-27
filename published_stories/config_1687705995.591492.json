@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "text",
-            "text": "<p>The music scene in the United States has been a breeding ground for diverse musical genres, each contributing to the country's cultural fabric. Among these genres, rock music has emerged as a powerful and enduring force, captivating audiences with its energetic rhythms. The counters below show the number of music bands and the number of rock bands in the USA.</p>",
+            "text": "<p>The music scene in the United States has been a breeding ground for diverse musical genres, each contributing to the country's cultural fabric. Among these genres, rock music has emerged as a powerful and enduring force, captivating audiences with its energetic rhythms. For this reason, a lot of music bands and, in particularly, rock bands were born in this country. </p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -42,7 +42,7 @@
             "position": 3,
             "operations": [],
             "type": "text",
-            "text": "<p>The following chart shows the relation between American rock bands and the number of their components. In addition, we added a map that shows the collocation of the recording studios in the USA: we found 75 recording studios spread around the country.</p>",
+            "text": "<p>As we can see,  the relation between American rock bands and the number of their components is not related to their success: in fact, with just six members, Red Hot Chili Peppers is one of the most important rock bands at the moment. In addition, by using a map that shows the collocation of the recording studios in the USA, we found that there are 75 recording studios spread around the country.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -74,7 +74,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p>We added a \"text search\", that is a function used to perform a specific research. We looked for the rock band \"Red Hot Chili Peppers\" and we found a lot of information about it. By adding actions to the object of the text search, we found the components of the band and their photos, their music genres, their masterpieces, the awards they won, the nominations they received, the albums they released, the number of their followers on social media. We added actions also to the category \"rock group\", to show other American bands of the same genre.</p>",
+            "text": "<p>The Red Hot Chili Peppers (often abbreviated as RHCP) are an American rock band known for their energetic blend of rock, funk, and punk music. The band was formed in Los Angeles, California, in 1983. The original lineup consisted of lead vocalist Anthony Kiedis, bassist Flea (Michael Balzary), guitarist Hillel Slovak, and drummer Jack Irons.</p><p>Over the years, the Red Hot Chili Peppers have gone through several lineup changes, with members coming and going. The band's music is characterized by a unique fusion of different genres, incorporating elements of funk, punk rock, alternative rock, and psychedelic rock. They are known for their energetic and often eccentric live performances.</p><p>Some of their most popular songs include \"Under the Bridge,\" \"Californication,\" \"Scar Tissue,\" \"Dani California,\" and \"Give It Away.\" They have released numerous successful albums throughout their career, including \"Blood Sugar Sex Magik,\" \"Californication,\" and \"Stadium Arcadium.\" Their music has earned them several Grammy Awards and a dedicated fanbase worldwide.</p><p>The Red Hot Chili Peppers have been influential in shaping the alternative rock and funk rock genres and they continue to tour and create music nowadays. </p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -82,7 +82,7 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "red hot chili peppers",
+            "textsearch_userinput": "",
             "textsearch_title": "Search band by a name",
             "textsearch_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search \"red hot chili peppers\";\r\n                      mwapi:language \"en\".\r\n      ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n              ?category wdt:P31 wd:Q105756498 . }\r\n    UNION\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n\r\n",
             "textsearch": {
