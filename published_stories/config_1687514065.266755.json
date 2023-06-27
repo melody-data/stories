@@ -42,7 +42,7 @@
             "position": 3,
             "operations": [],
             "type": "text",
-            "text": "<p>The following tables show some important male and female musicians who play the piano.</p>",
+            "text": "<p>The piano is one of the most popular musical instruments, this is why these two following tables show some important male and female pianists. Some of them are not only pianists, but they are also active in other fields.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -108,7 +108,7 @@
             "position": 10,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(139, 146, 169);\">As observed in the chart above, some of the most famous and important piano pieces, such as the top three Symphony No. 4, Symphony No. 1 and Symphony No. 3, were created by the pianist, composer and conductor Ludwig van Beethoven.</span></p>",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">As observed in the chart above, some of the most famous and important piano pieces, such as the top three Symphony No. 4, Symphony No. 1 and Symphony No. 3, were created by the pianist, composer and conductor Ludwig van Beethoven. Below there are some informations related to this important musician. </span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -125,7 +125,7 @@
             "position": 12,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Beethoven was born in Bonn, Germany, in 1770 and is known as one of the most important pianists of all time. He was active in the music field from 1798 to 1827: the table below shows the most important work of the musician and composer.&nbsp;</span></p>",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Beethoven was born in Bonn, Germany, in 1770 and is known as one of the most important pianists of all time. He was active in the music field from 1789 to 1827: the tables below show the most important work of the musician and composer, and the number of composition he created each year. </span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -157,7 +157,7 @@
             "position": 15,
             "operations": [],
             "type": "text",
-            "text": "<p>Table 1 occupation</p>",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Ludwig van Beethoven, a prominent figure in the history of classical music mostly known for being a composer and pianist, actually held various occupations throughout his life. Here in the table below are some of the key occupations associated with Beethoven:</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -174,7 +174,7 @@
             "position": 17,
             "operations": [],
             "type": "text",
-            "text": "<p>B. grave</p>",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Another important information we retrieved from wikidata, is that his grave is located in the biggest cemetery of Vienna: Vienna Central Cemetery, where other musicians\u2019 graves are located too, such as Schubert\u2019s.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
