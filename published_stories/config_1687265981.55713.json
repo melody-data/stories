@@ -203,6 +203,15 @@
             "table_query": "SELECT DISTINCT ?image \r\nWHERE { wd:Q712860 wdt:P18 ?image . }",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 19,
+            "operations": [],
+            "type": "table",
+            "table_title": "Record Label",
+            "table_query": "SELECT ?recordLabel ?recordLabelLabel WHERE {\r\n   wd:Q45188 wdt:P264 ?recordLabel.\r\n  ?recordLabel rdfs:label ?recordLabelLabel.\r\n  FILTER(LANG(?recordLabelLabel) = \"en\").\r\n}\r\nORDER BY ?recordLabelLabel",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
