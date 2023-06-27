@@ -157,7 +157,7 @@
             "position": 15,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Ludwig van Beethoven, a prominent figure in the history of classical music mostly known for being a composer and pianist, actually held various occupations throughout his life. Here in the table below are some of the key occupations associated with Beethoven:</span></p>",
+            "text": "<p>Beethoven represents a prominent figure in the history of classical music, but he actually dedicated his pieces to different genres. Here in the table below are some of the fields of work associated with the musician.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -166,7 +166,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Beethoven's fields of work ",
-            "table_query": "SELECT DISTINCT ?label (COUNT(DISTINCT ?occupation) AS ?count) \r\nWHERE { ?beethoven ?a wd:Q255; wdt:P106 ?occupation. \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?occupation rdfs:label ?label. } \r\n      } \r\nGROUP BY ?label ?count \r\nORDER BY DESC (?count) \r\nLIMIT 5\r\n",
+            "table_query": "SELECT DISTINCT ?fieldofwork ?fieldofworkLabel WHERE { wd:Q255 wdt:P101 ?fieldofwork . ?fieldofwork rdfs:label ?fieldofworkLabel. FILTER(LANG(?fieldofworkLabel)=\"en\"). }",
             "extra_queries": [],
             "map_filters": []
         },
