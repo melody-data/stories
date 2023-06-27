@@ -1,0 +1,123 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Raffaella Carr\u00e0",
+    "color_code": [
+        "#008a17",
+        "#48fe61"
+    ],
+    "user_name": "mirialonghitano",
+    "id": "1687888241.377548",
+    "subtitle": "An overview on Raffaella Carr\u00e0's life and work",
+    "curator": "Miriam Longhitano, Laura Cigno, Anna Avona",
+    "description": "This project will be about one of the best Italian singer songwriters from Bologna: Raffaella Carr\u00e0.  She was of the best Italian singer-songwriters. As a substantial part of Italian culture, we will analyze her life and works.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>If you want to learn more about her life and works please <a href=\"https://en.wikipedia.org/wiki/Raffaella_Carr%C3%A0\" target=\"_blank\">click here</a>.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "RAFFAELLA CARR\u00c0",
+            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q266640 wdt:P18 ?image . }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "MORE THAN A SINGER",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(DISTINCT ?occupation) AS ?count) WHERE {\r\n  ?raffaella ?a wd:Q266640;\r\n    wdt:P106 ?occupation.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?occupation rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?label ?count\r\nORDER BY DESC (?count)\r\nLIMIT 20\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?singer) AS ?count)\r\nWHERE {\r\n     ?singer ?a wd:Q482994 .\r\n     ?singer wdt:P175 wd:Q266640.\r\n}\r\n",
+            "count_label": "HER ALBUMS",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "SOME OF HER MASTERPIECES",
+            "table_query": "SELECT DISTINCT ?song ?songLabel (YEAR(xsd:dateTime(?publicationDate)) AS ?publication) WHERE {\r\n  ?song wdt:P175 wd:Q266640;\r\n    wdt:P407 wd:Q652;\r\n    wdt:P577 ?publicationDate.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\nORDER BY (?publicationDate)\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "table",
+            "table_title": "LANGUAGE SHE SPOKE",
+            "table_query": "SELECT DISTINCT ?language ?languageLabel WHERE {\r\n  wd:Q266640 wdt:P1412 ?language.\r\n  ?language rdfs:label ?languageLabel.\r\n  FILTER((LANG(?languageLabel)) = \"en\")\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "table",
+            "table_title": "ACTIVITY PERIOD",
+            "table_query": "SELECT DISTINCT ?Start ?End WHERE { wd:Q266640 wdt:P2031 ?Start . wd:Q266640 wdt:P2032 ?End . }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "TREND OF SALES PER YEAR",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) WHERE {\r\n  ?sales ?a wd:Q266640;\r\n    wdt:P577 ?date.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?date rdfs:label ?label.\r\n  }\r\n  FILTER(((YEAR(?date)) >= 1990 ) && ((YEAR(?date)) <= 2020 ))\r\n}\r\nGROUP BY ?label\r\nORDER BY (?label)\r\n\r\n",
+            "chart_series": "SALES",
+            "chart_legend": {
+                "x": "YEARS",
+                "y": "SALES"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "table",
+            "table_title": "LIST OF MOVIES WHERE SHE PLAYED",
+            "table_query": "SELECT DISTINCT ?item ?itemLabel ?sitelinks (GROUP_CONCAT(DISTINCT ?directorLabel; SEPARATOR = \", \") AS ?directors) WHERE {\r\n  ?item wdt:P161 wd:Q266640;\r\n    wikibase:sitelinks ?sitelinks.\r\n  OPTIONAL {\r\n    ?item wdt:P57 ?director.\r\n    ?director rdfs:label ?directorLabel.\r\n    FILTER((LANG(?directorLabel)) = \"[AUTO_LANGUAGE]\")\r\n  }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nGROUP BY ?item ?itemLabel ?sitelinks \r\nORDER BY DESC (?sitelinks)\r\nLIMIT 30\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "GNERE OF THE MOVIES IN WHICH SHE PLAYED",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) WHERE {\r\n  ?sales wdt:P161 wd:Q266640;\r\n    wdt:P136 ?date.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?date rdfs:label ?label.\r\n  \r\n}}\r\nGROUP BY ?label\r\nORDER BY (?label)",
+            "chart_series": "MOVIES' GENRE",
+            "chart_legend": {
+                "x": "GENRE",
+                "y": "MOVIE"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
