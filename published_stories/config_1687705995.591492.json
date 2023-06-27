@@ -82,7 +82,7 @@
             "position": 7,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "Red Hot Chili Peppers",
+            "textsearch_userinput": "",
             "textsearch_title": "Search band by a name",
             "textsearch_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search \"red hot chili peppers\";\r\n                      mwapi:language \"en\".\r\n      ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n              ?category wdt:P31 wd:Q105756498 . }\r\n    UNION\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n\r\n",
             "textsearch": {
@@ -169,8 +169,8 @@
             "position": 14,
             "operations": [],
             "type": "action",
-            "action_title": "Released albums and date",
-            "action_query": "SELECT ?album ?albumLabel ?year ?yearLabel WHERE { ?band wdt:P31 wd:Q215380. ?band rdfs:label \"Blur\"@en. ?album wdt:P31 wd:Q482994. ?album wdt:P175 ?band. ?album wdt:P577 ?year. SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } } ORDER BY DESC (?year)\r\n",
+            "action_title": "Components of The Red Hot Chili Peppers",
+            "action_query": "SELECT DISTINCT ?member ?memberLabel ?image\r\nWHERE { \r\n wd:Q10708 wdt:P527 ?member . \r\n OPTIONAL { ?member wdt:P18 ?image . }\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20",
             "extra_queries": [],
             "map_filters": []
         },
@@ -178,8 +178,8 @@
             "position": 15,
             "operations": [],
             "type": "action",
-            "action_title": "Number of followers on social medias ",
-            "action_query": "SELECT DISTINCT ?followers WHERE { wd:Q10708 wdt:P8687 ?followers . }",
+            "action_title": "Released albums and date",
+            "action_query": "SELECT ?album ?albumLabel ?year ?yearLabel WHERE { ?band wdt:P31 wd:Q215380. ?band rdfs:label \"Blur\"@en. ?album wdt:P31 wd:Q482994. ?album wdt:P175 ?band. ?album wdt:P577 ?year. SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } } ORDER BY DESC (?year)\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -187,8 +187,8 @@
             "position": 16,
             "operations": [],
             "type": "action",
-            "action_title": "Components of The Red Hot Chili Peppers",
-            "action_query": "SELECT DISTINCT ?member ?memberLabel ?image\r\nWHERE { \r\n wd:Q10708 wdt:P527 ?member . \r\n OPTIONAL { ?member wdt:P18 ?image . }\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20",
+            "action_title": "Number of followers on social medias ",
+            "action_query": "SELECT DISTINCT ?followers WHERE { wd:Q10708 wdt:P8687 ?followers . }",
             "extra_queries": [],
             "map_filters": []
         },
