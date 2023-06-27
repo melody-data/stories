@@ -179,7 +179,7 @@
             "position": 18,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "Paris",
+            "textsearch_userinput": "",
             "textsearch_title": "Try this tool by entering the name of a city to find composers and composition groups from there!",
             "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\nSELECT DISTINCT ?composer  (year(?birthDate) as ?birthYear)?birthPlace (year(?deathDate) as ?deathYear) ?deathPlace ?pic \r\nWHERE {\r\n  SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {\r\n       FILTER CONTAINS (?birthPlace, <<searchterm>>). \r\n \t?person wdt:P136 wd:Q9730 ; #<has genre> <classical music>\r\n            rdfs:label ?composer ;\r\n          wdt:P19 ?bplace. \r\n          ?bplace rdfs:label ?birthPlace .\r\n\r\nOPTIONAL { ?person  wdt:P569 ?birthDate . }\r\nOPTIONAL { ?person  wdt:P570 ?deathDate . }\r\nOPTIONAL { ?person  wdt:P20 ?dplace. ?dplace rdfs:label ?deathPlace . }\r\n  OPTIONAL { ?person wdt:P18 ?pic . }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n  FILTER (lang(?composer) = \"en\")\r\n  FILTER (lang(?birthPlace) = \"en\")\r\n FILTER (lang(?deathPlace) = \"en\")\r\nFILTER (YEAR(?birthDate) > 1799 && YEAR(?birthDate) < 1901 )\r\n} }\r\nLIMIT 10\r\n",
             "extra_queries": [],
