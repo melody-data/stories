@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(239, 239, 239); background-color: transparent;\">At the beginning, we proceeded with an exploration of WikiData in order to discover the amount of string instruments that were mentioned inside the knowledge base. A stringed instrument can be defined as any musical instrument having strings as the medium of sound production.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(239, 239, 239);\">At the beginning, we proceeded with an exploration of WikiData in order to discover the amount of string instruments that were mentioned inside the knowledge base. A stringed instrument can be defined as any musical instrument having strings as the medium of sound production.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -33,7 +33,7 @@
             "position": 2,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(239, 239, 239); background-color: transparent;\">Then we narrowed-down our research and we proceeded with the exploration of the number of bowed string instruments: they are a subcategory of string instruments that are played by a bow rubbing the strings.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(239, 239, 239);\">Then we narrowed-down our research and we proceeded with the exploration of the number of bowed string instruments: they are a subcategory of string instruments that are played by a bow rubbing the strings.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -50,7 +50,7 @@
             "position": 4,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">At this point, we looked for an instrument that had a lot of information both in WikiData and in the Polifonia corpus, and we ultimately chose the violin.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">At this point, we looked for an instrument that had a lot of information both in WikiData and in the Polifonia corpus, and we ultimately chose the violin.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -67,7 +67,7 @@
             "position": 6,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">The violin is a bowed string instrument with four strings tuned in perfect fifths. It is the smallest and highest-pitched member of the violin family of string instruments, which also includes the viola, cello and double bass.</span></p><p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">A violin is sometimes informally called a fiddle, no matter what kind of music is played on it. The word \"violin\" comes to us through the Romance languages from the Middle Latin word vitula, meaning \"stringed instrument\" this word may also be the source of the Germanic \"fiddle\". A person who plays the violin is called a violinist or fiddler, and a person who makes or repairs them is called a luthier, or simply a violin maker.</span></p><p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">\ufeff</span></p><p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">Violins have been traditionally used as an accompaniment to singing and dancing. It is also an important classical solo instrument, as well as taking pride of place at the front of orchestras.</span></p><p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">The violin is both an object of great beauty and symmetry as well as an ingenious work of mechanical design. In the following table, we will look more closely at the main parts that make up this instrument.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">The violin is a bowed string instrument with four strings tuned in perfect fifths. It is the smallest and highest-pitched member of the violin family of string instruments, which also includes the viola, cello and double bass.</span></p><p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">A violin is sometimes informally called a fiddle, no matter what kind of music is played on it. The word \"violin\" comes to us through the Romance languages from the Middle Latin word vitula, meaning \"stringed instrument\" this word may also be the source of the Germanic \"fiddle\". A person who plays the violin is called a violinist or fiddler, and a person who makes or repairs them is called a luthier, or simply a violin maker.</span></p><p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">\ufeff</span></p><p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">Violins have been traditionally used as an accompaniment to singing and dancing. It is also an important classical solo instrument, as well as taking pride of place at the front of orchestras.</span></p><p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">The violin is both an object of great beauty and symmetry as well as an ingenious work of mechanical design. In the following table, we will look more closely at the main parts that make up this instrument.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -84,7 +84,7 @@
             "position": 8,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(204, 204, 204); background-color: transparent;\">The violin has represented orchestral music in the general public for a very long time. However, many people aren\u2019t music enthusiasts who don\u2019t know that violins exist in many different types. This instrument has changed its lifespan for various reasons, leading to the production of different types.</span></p><p><span style=\"color: rgb(204, 204, 204); background-color: transparent;\">Here you can find some of the most famous variants, from the first standard violins that already existed in the sixteenth century, such as the baroque violin (which is considered to be the forefather of the modern violin), to more modern variants: for example, the neolin, an electro-acoustic violin which incorporates a fretted fingerboard, cutaway body, and tremolo mechanism based on the electric guitar.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">The violin has represented orchestral music in the general public for a very long time. However, many people aren\u2019t music enthusiasts who don\u2019t know that violins exist in many different types. This instrument has changed its lifespan for various reasons, leading to the production of different types.</span></p><p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">Here you can find some of the most famous variants, from the first standard violins that already existed in the sixteenth century, such as the baroque violin (which is considered to be the forefather of the modern violin), to more modern variants: for example, the neolin, an electro-acoustic violin which incorporates a fretted fingerboard, cutaway body, and tremolo mechanism based on the electric guitar.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -101,7 +101,7 @@
             "position": 10,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(217, 217, 217); background-color: transparent;\">As previously said, the current popularity of the violin is also due to all the incredible musicians that, thanks to their virtuosity and outstanding works, managed to play a crucial role in violin history, leaving an heritage to future generations. At first, we looked for the number of male and female violinists inside WikiData. </span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">As previously said, the current popularity of the violin is also due to all the incredible musicians that, thanks to their virtuosity and outstanding works, managed to play a crucial role in violin history, leaving an heritage to future generations. At first, we looked for the number of male and female violinists inside WikiData. </span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -127,7 +127,7 @@
             "position": 13,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">Then we narrowed down our research, focusing on the influence that these artists still have in musical history and practice. As a consequence, we searched for the ten most influential violinists.</span></p>",
+            "text": "<p><span style=\"color: rgb(204, 204, 204); background-color: transparent;\">Then we narrowed down our research, focusing on the influence that these artists still have in musical history and practice. As a consequence, we searched for the ten most influential violinists.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -150,7 +150,7 @@
             "position": 15,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(183, 183, 183);\">We also made a comparison between the number of musical compositions that several famous violinists composed in their lives.</span></p>",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">We also made a comparison between the number of musical compositions that several famous violinists composed in their lives.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -173,7 +173,7 @@
             "position": 17,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(183, 183, 183);\">The map below is useful to have an idea of the number and distribution of violinists around the world.</span></p>",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">The map below is useful to have an idea of the number and distribution of violinists around the world.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -198,7 +198,7 @@
             "position": 20,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "paris",
+            "textsearch_userinput": "",
             "textsearch_title": "Here you can find violinists by searching for their birthplace",
             "textsearch_query": "SELECT DISTINCT ?violinist ?violinistLabel ?birthPlace ?birthPlaceLabel ?pic\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n   bd:serviceParam wikibase:endpoint \"www.wikidata.org\" ;\r\n         \twikibase:api \"EntitySearch\" ;\r\n         \tmwapi:search <<searchterm>> ;\r\n         \tmwapi:language \"en\".\r\n   ?birthPlace wikibase:apiOutputItem mwapi:item.\r\n  }\r\n \r\n ?violinist wdt:P106 wd:Q1259917 .\r\n ?violinist wdt:P19 ?birthPlace .\r\n OPTIONAL {?violinist wdt:P18 ?pic}\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n FILTER regex(str(?pic), \"jpg\").\r\n} \r\nORDER BY ?violinist\r\nLIMIT 10",
             "textsearch": {
@@ -222,7 +222,7 @@
             "position": 22,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(183, 183, 183);\">Among the violinists who have been mentioned during the course of this research, there is one famous musician that deserves our attention: George Frideric Handel.</span></p>",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">Among the violinists who have been mentioned during the course of this research, there is one famous musician that deserves our attention: George Frideric Handel.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -239,7 +239,7 @@
             "position": 24,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(183, 183, 183);\">George Frideric Handel was a German-British composer and violinist. He was born and raised in Halle (Germany), but spent the majority of his life in Italy and finally in London, where he died in 1759.</span></p>",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">George Frideric Handel was a German-British composer and violinist. He was born and raised in Halle (Germany), but spent the majority of his life in Italy and finally in London, where he died in 1759.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -256,7 +256,7 @@
             "position": 26,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(183, 183, 183);\">Handel was a composer of the late Baroque era, and he's deemed to be one of the most prominent composers of his time, influencing a whole generation of composers with his unique blend of Italian, German, and English musical styles. Handel\u2019s works spanned a variety of musical genres, including opera, orchestral music, chamber music, and choral works. He is most famous for his oratorios, which are large-scale musical works for choirs, soloists, and orchestras.</span></p>",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">Handel was a composer of the late Baroque era, and he's deemed to be one of the most prominent composers of his time, influencing a whole generation of composers with his unique blend of Italian, German, and English musical styles. Handel\u2019s works spanned a variety of musical genres, including opera, orchestral music, chamber music, and choral works. He is most famous for his oratorios, which are large-scale musical works for choirs, soloists, and orchestras.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -290,7 +290,7 @@
             "position": 30,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">Handel\u2019s musical style was influential in his time and continues to be celebrated today for its combination of beauty, grandeur, and emotional depth. His works are considered milestones of the Baroque era and are an enduring testament to his mastery of the musical arts.</span></p>",
+            "text": "<p><span style=\"color: rgb(204, 204, 204); background-color: transparent;\">Handel\u2019s musical style was influential in his time and continues to be celebrated today for its combination of beauty, grandeur, and emotional depth. His works are considered milestones of the Baroque era and are an enduring testament to his mastery of the musical arts.</span></p>",
             "extra_queries": [],
             "map_filters": []
         }
