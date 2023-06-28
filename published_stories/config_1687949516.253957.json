@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://130.136.9.56/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "A Musical Heritage Knowledge Graph",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "anonymous-iswc23",
+    "id": "1687949516.253957",
+    "subtitle": "Exploring Bologna's role in music history through Knowledge Extraction",
+    "curator": "Anonymous",
+    "description": "The MusicBO Knowledge Graph (KG), documenting Bologna's pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.",
+    "dynamic_elements": []
+}
