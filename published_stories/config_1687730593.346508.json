@@ -67,11 +67,16 @@
         },
         {
             "position": 6,
-            "operations": [],
+            "operations": [
+                {
+                    "action": "count",
+                    "param": "label"
+                }
+            ],
             "type": "chart",
-            "chart_type": "barchart",
-            "chart_title": "NUMBER OF MUSICAL WORKS BY GENRE",
-            "chart_query": "SELECT DISTINCT (?genre AS ?label) (COUNT(?label) AS ?count) WHERE {\r\n  ?item wdt:P175 wd:Q1056805;\r\n   wdt:P136 ?genre.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?item rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?count ?genre\r\nORDER BY (?label)\r\nLIMIT 50",
+            "chart_type": "doughnutchart",
+            "chart_title": "TREND OF WORKS BY GENRE",
+            "chart_query": "SELECT DISTINCT (?genre AS ?label) (COUNT(?label) AS ?count) WHERE {\r\n  ?item wdt:P175 wd:Q1056805;\r\n   wdt:P136 ?genre.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?item rdfs:label ?label.\r\n  }\r\n}\r\nGROUP BY ?count ?genre\r\nORDER BY (?label)\r\nLIMIT 50\r\n",
             "chart_series": "WORKS BY GENRE",
             "chart_legend": {
                 "x": "GENRE",
