@@ -1,0 +1,226 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Gaspare Spontini",
+    "color_code": [
+        "#567bd2",
+        "#15c691"
+    ],
+    "user_name": "verospena",
+    "id": "1687961906.215169",
+    "subtitle": "An 18th century Italian composer",
+    "curator": "Alessia Mazza and Veronica Spena",
+    "description": "The following story will explore the WikiData knowledge base to discover the most significant points and events in the Italian composer Gaspare Spontini\u2019s personal and professional life.  \r\n\r\nAfter a general exploration of the WikiData knowledge base with the aim to discover the quantity of people and artists in comparison with MusicBO, we will then narrow down our research analyzing the composers recorded in WikiData, to eventually focus on our main object of the story: Gaspare Spontini.    \r\n\r\nIn particular, the story will present an overview of his biography, his occupations and fields of work, as well as the awards he received during his life, the academy where he worked and the cities where he lived.  \r\n\r\nAt the end of the story, there will be an insight into the Museum Gaspare Spontini, its location and the visitors he had per year. ",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?person) AS ?count) \r\n\r\nWHERE { \r\n\r\n?person wdt:P31 wd:Q5 . \r\n\r\n} ",
+            "count_label": "People in Wikidata",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?artist) AS ?count) \r\n\r\nWHERE { \r\n\r\n?artist wdt:P106 wd:Q483501.    \r\n\r\n} ",
+            "count_label": "Artists",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n?composer wdt:P106 wd:Q36834 . \r\n\r\n} ",
+            "count_label": "Composers",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(231, 230, 230);\">The aim of these counters is to compare the amount of data recorded on the</span><strong style=\"background-color: transparent; color: rgb(231, 230, 230);\"> Wikidata</strong><span style=\"background-color: transparent; color: rgb(231, 230, 230);\"> and knowledge database, concerning the categories of Items we are interested in. The counters start form the broader category of </span><em style=\"background-color: transparent; color: rgb(231, 230, 230);\">\u201cperson\u201d</em><span style=\"background-color: transparent; color: rgb(231, 230, 230);\"> to narrow down till the more specific one of </span><em style=\"background-color: transparent; color: rgb(231, 230, 230);\">\u201ccomposer\u201d</em></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Composers divided by gender",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n     ?composer wdt:P106 wd:Q36834;  # composer \r\n\r\n               wdt:P21 ?gender . # gender \r\n\r\n      \r\n\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n\r\n          ?gender rdfs:label  ?label   } \r\n\r\n} \r\n\r\nGROUP BY ?label \r\n\r\nORDER BY DESC(?count) \r\n\r\nLIMIT 3 ",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Gender",
+                "y": "Total amount"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Male and female composers born in Italy",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n     ?composer wdt:P106 wd:Q36834;  # composer \r\n\r\n               wdt:P19 wd:Q38; #italian \r\n\r\n               wdt:P21 ?gender . # gender \r\n\r\n      \r\n\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n\r\n          ?gender rdfs:label  ?label. \r\n\r\n      }\r\n \r\n\r\n} \r\n\r\nGROUP BY ?label \r\n\r\nORDER BY DESC(?count) ",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Use this text search to write a country or a city and discover the main composers born there:  ",
+            "textsearch_query": "SELECT DISTINCT ?composer ?composerLabel ?birthPlace ?birthPlaceLabel ?pic \r\n\r\nWHERE { \r\n\r\n  SERVICE wikibase:mwapi { \r\n\r\n   bd:serviceParam wikibase:endpoint \"www.wikidata.org\" ; \r\n\r\n         \twikibase:api \"EntitySearch\" ; \r\n\r\n         \tmwapi:search <<searchterm>> ; \r\n\r\n         \tmwapi:language \"en\". \r\n\r\n   ?birthPlace wikibase:apiOutputItem mwapi:item. \r\n\r\n  } \r\n\r\n  \r\n\r\n ?composer wdt:P106 wd:Q36834 . \r\n\r\n ?composer wdt:P19 ?birthPlace . \r\n\r\n OPTIONAL {?composer wdt:P18 ?pic} \r\n\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n\r\n FILTER regex(str(?pic), \"jpg\"). \r\n\r\n}  \r\n\r\nORDER BY ?composer \r\n\r\nLIMIT 10 ",
+            "textsearch": {
+                "composer": [
+                    "Genre",
+                    "Notable works"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "action",
+            "action_title": "Genre",
+            "action_query": "SELECT DISTINCT ?genre ?genreLabel \r\n\r\nWHERE {  \r\n\r\n  <<item>> wdt:P136 ?genre . \r\n\r\nSERVICE wikibase:label {   bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" \r\n\r\n  } \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "action",
+            "action_title": "Notable works",
+            "action_query": "SELECT DISTINCT ?notablework ?notableworkLabel \r\n\r\nWHERE {  \r\n\r\n  <<item>> wdt:P800 ?notablework . \r\n\r\nSERVICE wikibase:label {  \r\n\r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" \r\n\r\n  } \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "text",
+            "text": "<p class=\"ql-align-justify\"><span style=\"color: rgb(231, 230, 230); background-color: transparent;\">Among the Italian composer there is </span><strong style=\"color: rgb(231, 230, 230); background-color: transparent;\">Gaspare Spontini</strong><span style=\"color: rgb(231, 230, 230); background-color: transparent;\">, perhaps less known than his main contemporary artist of the 18th century, but he is an artist of remarkable talent. We discovered this composer by digging in the</span><em style=\"color: rgb(231, 230, 230); background-color: transparent;\"> Polifonia corpus</em><span style=\"color: rgb(231, 230, 230); background-color: transparent;\"> and we were curious to know more about him.&nbsp;</span><span style=\"color: rgb(231, 230, 230);\">&nbsp;</span></p><p class=\"ql-align-justify\"><span style=\"color: rgb(231, 230, 230); background-color: transparent;\">Here it is an example of context from </span><em style=\"color: rgb(231, 230, 230); background-color: transparent;\">MusicBO:</em><span style=\"color: rgb(231, 230, 230);\">&nbsp;</span></p><p class=\"ql-align-justify\"><em style=\"color: rgb(231, 230, 230); background-color: transparent;\">\u201c[...] a few of the chorus gathered in a semicircle around </em><strong style=\"color: rgb(231, 230, 230); background-color: transparent;\"><em>Spontini</em></strong><em style=\"color: rgb(231, 230, 230); background-color: transparent;\">, in order to have a </em><span style=\"color: rgb(231, 230, 230);\">\t</span><em style=\"color: rgb(231, 230, 230); background-color: transparent;\">look at that remarkable man, as he held forth with wonderful effect on the requirements </em><span style=\"color: rgb(231, 230, 230);\">\t</span><em style=\"color: rgb(231, 230, 230); background-color: transparent;\">of true theatrical art.\u201d</em><span style=\"color: rgb(231, 230, 230);\">&nbsp;</span></p><p class=\"ql-align-justify\"><span style=\"color: rgb(231, 230, 230); background-color: transparent;\">Scroll down to discover more about this artist, admired and respected in all Europe and who\u2019s worthy of attention.</span><span style=\"color: rgb(231, 230, 230);\">&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "table",
+            "table_title": "Gaspare Spontini, portrayed by Jean-Baptiste Aubry-Lecomte in the 19th century. ",
+            "table_query": "SELECT DISTINCT ?image \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P18 ?image . \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "table",
+            "table_title": "Biography: ",
+            "table_query": "SELECT DISTINCT (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?DeathPlace ?DeathPlaceLabel  \r\n\r\nWHERE {  \r\n\r\nwd:Q168485 wdt:P569 ?BirthDate; \r\n\r\n           wdt:P570 ?DeathDate;  \r\n\r\n           wdt:P19 ?BirthPlace; \r\n\r\n           wdt:P20 ?DeathPlace .   \r\n\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}   \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "composers born in Maiolata Spontini",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?composer) as ?count) \r\n\r\nWHERE { \r\n\r\n        \t?composer ?a wd:Q36834 ; # composer \r\n\r\n        \t\t      wdt:P19 wd:Q124139 . #Born in Maiolata Spontini \r\n\r\n \r\n\r\n        \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n\r\n  \t  \t?composer rdfs:label \t    \t?label. \r\n\r\n        \t} \r\n\r\n} \r\n\r\nGROUP BY ?label ?count \r\n\r\nORDER BY DESC(?count)  ",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "map",
+            "map_title": "States where Spontini lived",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long \r\n\r\nWHERE \r\n\r\n{ \r\n\r\n  wd:Q168485 wdt:P27 ?point . \r\n\r\n  ?point p:P625 ?statement. \r\n\r\n  ?statement psv:P625 ?node. \r\n\r\n  ?node wikibase:geoLatitude ?lat. \r\n\r\n  ?node wikibase:geoLongitude ?long. \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(208, 206, 206);\">After studying at the conservatory in </span><em style=\"color: rgb(208, 206, 206);\">Naples</em><span style=\"color: rgb(208, 206, 206);\"> with </span><strong style=\"color: rgb(208, 206, 206);\">Nicola Sala </strong><span style=\"color: rgb(208, 206, 206);\">as teacher, he then started working at some comedies in Italy. However, he spent most of his career life in </span><em style=\"color: rgb(208, 206, 206);\">Paris</em><span style=\"color: rgb(208, 206, 206);\">, where he started working at the Op\u00e9ra becoming one of the greatest Italian composers of his age, admired by </span><em style=\"color: rgb(208, 206, 206);\">Cherubini, Beethoven, Weber and Rossini</em><span style=\"color: rgb(208, 206, 206);\">.&nbsp;</span></p><p><span style=\"color: rgb(208, 206, 206);\">Because of the Bourbon Restoration, his works weren't considered as before, leading him to leave Paris for </span><em style=\"color: rgb(208, 206, 206);\">Berlin </em><span style=\"color: rgb(208, 206, 206);\">(at the time under the </span><em style=\"color: rgb(208, 206, 206);\">Kingdom of Prussia</em><span style=\"color: rgb(208, 206, 206);\">), where his operas had already achieved success, where he stayed until 1842.&nbsp;</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?composer) AS ?count)  \r\n\r\nWHERE {  \r\n\r\n?composer wdt:P106 wd:Q36834; #composer \r\n\r\n           wdt:P1066 wd:Q708209 . #studnet of Nicola Sala \r\n\r\n} ",
+            "count_label": "Nicola Sala's students",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 16,
+            "operations": [],
+            "type": "table",
+            "table_title": "Occupation",
+            "table_query": "SELECT DISTINCT ?occupation ?occupationLabel \r\n\r\n WHERE { \r\n\r\n  wd:Q168485 wdt:P106 ?occupation . \r\n\r\n  ?occupation rdfs:label ?occupationLabel. \r\n\r\n  \r\n\r\n  FILTER(LANG(?occupationLabel)=\"en\"). \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 17,
+            "operations": [],
+            "type": "table",
+            "table_title": "Field of work",
+            "table_query": "SELECT DISTINCT ?fieldofwork ?fieldofworkLabel \r\n\r\n  \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P101 ?fieldofwork . \r\n\r\n  ?fieldofwork rdfs:label ?fieldofworkLabel. \r\n\r\n  \r\n\r\n  FILTER(LANG(?fieldofworkLabel)=\"en\"). \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 18,
+            "operations": [],
+            "type": "map",
+            "map_title": "Acad\u00e9mie des Beaux Arts ",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long \r\n\r\nWHERE \r\n\r\n{ \r\n\r\n  wd:Q168485 wdt:P463 ?point . \r\n\r\n  ?point p:P625 ?statement. \r\n\r\n  ?statement psv:P625 ?node. \r\n\r\n  ?node wikibase:geoLatitude ?lat. \r\n\r\n  ?node wikibase:geoLongitude ?long. \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 19,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(231, 230, 230);\">Spontini was a member of the </span><em style=\"background-color: transparent; color: rgb(231, 230, 230);\">Acad\u00e9mie des Beaux-Arts</em><span style=\"background-color: transparent; color: rgb(231, 230, 230);\"> from June 15th 1839 when he replaced</span><em style=\"background-color: transparent; color: rgb(231, 230, 230);\"> Ferdinando Paer</em><span style=\"background-color: transparent; color: rgb(231, 230, 230);\">, an Italian composer of German origins, to January 14th 1851 when he was then replaced by </span><em style=\"background-color: transparent; color: rgb(231, 230, 230);\">Ambroise Thomas</em><span style=\"background-color: transparent; color: rgb(231, 230, 230);\">, a French composer particularly famous for his work </span><em style=\"background-color: transparent; color: rgb(231, 230, 230);\">Mignon</em><span style=\"background-color: transparent; color: rgb(231, 230, 230);\">..</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 20,
+            "operations": [],
+            "type": "table",
+            "table_title": "Awards received",
+            "table_query": "SELECT DISTINCT ?award ?awardLabel ?serviceribbonimage ?image \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P166 ?award. \r\n\r\n  OPTIONAL { ?award wdt:P2425 ?serviceribbonimage } \r\n\r\n  OPTIONAL { ?award wdt:P18 ?image } \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n\r\n} ",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
