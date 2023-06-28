@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SSDBXGCXK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-9SSDBXGCXK');
+	</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>
+		MELODY - 
+	</title>
+
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<!-- <link rel="icon" href="static/img/icon.ico" type="image/x-icon" /> -->
+	<link rel="icon" type="image/png" href="static/favicon.png" />
+	<link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+
+	<!-- Fonts and icons -->
+	<script src="static/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: { "families": ["Karla:300,400,700,900"] },
+			custom: {
+				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+				urls: ['static/css/fonts.min.css']
+			},
+			active: function () { sessionStorage.fonts = true; }
+		});
+	</script>
+	<!-- IQuill stylesheet -->
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/atlantis.min.css">
+	<link rel="stylesheet" href="static/css/style.css">
+
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<!-- <link rel="stylesheet" href="/static/css/demo.css"> -->
+
+	<!-- Specific Page CSS goes HERE  -->
+	
+<link rel="stylesheet" href="static/css/templates.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+  <script src="static/js/babel.min.js"></script>
+  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="static/css/MarkerCluster.css">
+  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
+
+  <script type="text/javascript">
+    var datastory_data = {"color_code": ["#567bd2", "#15c691"], "curator": "Alessia Mazza and Veronica Spena", "description": "The following story will explore the WikiData knowledge base to discover the most significant points and events in the Italian composer Gaspare Spontini\u2019s personal and professional life.  \r\n\r\nAfter a general exploration of the WikiData knowledge base with the aim to discover the quantity of people and artists in comparison with MusicBO, we will then narrow down our research analyzing the composers recorded in WikiData, to eventually focus on our main object of the story: Gaspare Spontini.    \r\n\r\nIn particular, the story will present an overview of his biography, his occupations and fields of work, as well as the awards he received during his life, the academy where he worked and the cities where he lived.  \r\n\r\nAt the end of the story, there will be an insight into the Museum Gaspare Spontini, its location and the visitors he had per year. ", "dynamic_elements": [{"count_label": "People in Wikidata", "count_query": "SELECT (COUNT(?person) AS ?count) \r\n\r\nWHERE { \r\n\r\n?person wdt:P31 wd:Q5 . \r\n\r\n} ", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "count"}, {"count_label": "Artists", "count_query": "SELECT (COUNT(?artist) AS ?count) \r\n\r\nWHERE { \r\n\r\n?artist wdt:P106 wd:Q483501.    \r\n\r\n} ", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "count"}, {"count_label": "Composers", "count_query": "SELECT (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n?composer wdt:P106 wd:Q36834 . \r\n\r\n} ", "extra_queries": [], "map_filters": [], "operations": [], "position": 2, "type": "count"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 3, "text": "\u003cp\u003e\u003cspan style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003eThe aim of these counters is to compare the amount of data recorded on the\u003c/span\u003e\u003cstrong style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e Wikidata\u003c/strong\u003e\u003cspan style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e and knowledge database, concerning the categories of Items we are interested in. The counters start form the broader category of \u003c/span\u003e\u003cem style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e\u201cperson\u201d\u003c/em\u003e\u003cspan style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e to narrow down till the more specific one of \u003c/span\u003e\u003cem style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e\u201ccomposer\u201d\u003c/em\u003e\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "Gender", "y": "Total amount"}, "chart_query": "SELECT DISTINCT ?label (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n     ?composer wdt:P106 wd:Q36834;  # composer \r\n\r\n               wdt:P21 ?gender . # gender \r\n\r\n      \r\n\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n\r\n          ?gender rdfs:label  ?label   } \r\n\r\n} \r\n\r\nGROUP BY ?label \r\n\r\nORDER BY DESC(?count) \r\n\r\nLIMIT 3 ", "chart_series": "", "chart_title": "Composers divided by gender", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 4, "type": "chart"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT DISTINCT ?label (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n     ?composer wdt:P106 wd:Q36834;  # composer \r\n\r\n               wdt:P19 wd:Q38; #italian \r\n\r\n               wdt:P21 ?gender . # gender \r\n\r\n      \r\n\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n\r\n          ?gender rdfs:label  ?label. \r\n\r\n      }\r\n \r\n\r\n} \r\n\r\nGROUP BY ?label \r\n\r\nORDER BY DESC(?count) ", "chart_series": "", "chart_title": "Male and female composers born in Italy", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 5, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 6, "textsearch": {"composer": ["Genre", "Notable works"]}, "textsearch_query": "SELECT DISTINCT ?composer ?composerLabel ?birthPlace ?birthPlaceLabel ?pic \r\n\r\nWHERE { \r\n\r\n  SERVICE wikibase:mwapi { \r\n\r\n   bd:serviceParam wikibase:endpoint \"www.wikidata.org\" ; \r\n\r\n         \twikibase:api \"EntitySearch\" ; \r\n\r\n         \tmwapi:search \u003c\u003csearchterm\u003e\u003e ; \r\n\r\n         \tmwapi:language \"en\". \r\n\r\n   ?birthPlace wikibase:apiOutputItem mwapi:item. \r\n\r\n  } \r\n\r\n  \r\n\r\n ?composer wdt:P106 wd:Q36834 . \r\n\r\n ?composer wdt:P19 ?birthPlace . \r\n\r\n OPTIONAL {?composer wdt:P18 ?pic} \r\n\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n\r\n FILTER regex(str(?pic), \"jpg\"). \r\n\r\n}  \r\n\r\nORDER BY ?composer \r\n\r\nLIMIT 10 ", "textsearch_title": "Use this text search to write a country or a city and discover the main composers born there:  ", "textsearch_userinput": "", "type": "textsearch"}, {"action_query": "SELECT DISTINCT ?genre ?genreLabel \r\n\r\nWHERE {  \r\n\r\n  \u003c\u003citem\u003e\u003e wdt:P136 ?genre . \r\n\r\nSERVICE wikibase:label {   bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" \r\n\r\n  } \r\n\r\n} ", "action_title": "Genre", "extra_queries": [], "map_filters": [], "operations": [], "position": 7, "type": "action"}, {"action_query": "SELECT DISTINCT ?notablework ?notableworkLabel \r\n\r\nWHERE {  \r\n\r\n  \u003c\u003citem\u003e\u003e wdt:P800 ?notablework . \r\n\r\nSERVICE wikibase:label {  \r\n\r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" \r\n\r\n  } \r\n\r\n} ", "action_title": "Notable works", "extra_queries": [], "map_filters": [], "operations": [], "position": 8, "type": "action"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 9, "text": "\u003cp class=\"ql-align-justify\"\u003e\u003cspan style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003eAmong the Italian composer there is \u003c/span\u003e\u003cstrong style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003eGaspare Spontini\u003c/strong\u003e\u003cspan style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003e, perhaps less known than his main contemporary artist of the 18th century, but he is an artist of remarkable talent. We discovered this composer by digging in the\u003c/span\u003e\u003cem style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003e Polifonia corpus\u003c/em\u003e\u003cspan style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003e and we were curious to know more about him.\u0026nbsp;\u003c/span\u003e\u003cspan style=\"color: rgb(231, 230, 230);\"\u003e\u0026nbsp;\u003c/span\u003e\u003c/p\u003e\u003cp class=\"ql-align-justify\"\u003e\u003cspan style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003eHere it is an example of context from \u003c/span\u003e\u003cem style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003eMusicBO:\u003c/em\u003e\u003cspan style=\"color: rgb(231, 230, 230);\"\u003e\u0026nbsp;\u003c/span\u003e\u003c/p\u003e\u003cp class=\"ql-align-justify\"\u003e\u003cem style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003e\u201c[...] a few of the chorus gathered in a semicircle around \u003c/em\u003e\u003cstrong style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003e\u003cem\u003eSpontini\u003c/em\u003e\u003c/strong\u003e\u003cem style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003e, in order to have a \u003c/em\u003e\u003cspan style=\"color: rgb(231, 230, 230);\"\u003e\t\u003c/span\u003e\u003cem style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003elook at that remarkable man, as he held forth with wonderful effect on the requirements \u003c/em\u003e\u003cspan style=\"color: rgb(231, 230, 230);\"\u003e\t\u003c/span\u003e\u003cem style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003eof true theatrical art.\u201d\u003c/em\u003e\u003cspan style=\"color: rgb(231, 230, 230);\"\u003e\u0026nbsp;\u003c/span\u003e\u003c/p\u003e\u003cp class=\"ql-align-justify\"\u003e\u003cspan style=\"color: rgb(231, 230, 230); background-color: transparent;\"\u003eScroll down to discover more about this artist, admired and respected in all Europe and who\u2019s worthy of attention.\u003c/span\u003e\u003cspan style=\"color: rgb(231, 230, 230);\"\u003e\u0026nbsp;\u003c/span\u003e\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 10, "table_query": "SELECT DISTINCT ?image \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P18 ?image . \r\n\r\n} ", "table_title": "Gaspare Spontini, portrayed by Jean-Baptiste Aubry-Lecomte in the 19th century. ", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 11, "table_query": "SELECT DISTINCT (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?DeathPlace ?DeathPlaceLabel  \r\n\r\nWHERE {  \r\n\r\nwd:Q168485 wdt:P569 ?BirthDate; \r\n\r\n           wdt:P570 ?DeathDate;  \r\n\r\n           wdt:P19 ?BirthPlace; \r\n\r\n           wdt:P20 ?DeathPlace .   \r\n\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}   \r\n\r\n} ", "table_title": "Biography: ", "type": "table"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?composer) as ?count) \r\n\r\nWHERE { \r\n\r\n        \t?composer ?a wd:Q36834 ; # composer \r\n\r\n        \t\t      wdt:P19 wd:Q124139 . #Born in Maiolata Spontini \r\n\r\n \r\n\r\n        \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". \r\n\r\n  \t  \t?composer rdfs:label \t    \t?label. \r\n\r\n        \t} \r\n\r\n} \r\n\r\nGROUP BY ?label ?count \r\n\r\nORDER BY DESC(?count)  ", "chart_series": "", "chart_title": "composers born in Maiolata Spontini", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 12, "type": "chart"}, {"extra_queries": [], "map_filters": [], "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long \r\n\r\nWHERE \r\n\r\n{ \r\n\r\n  wd:Q168485 wdt:P27 ?point . \r\n\r\n  ?point p:P625 ?statement. \r\n\r\n  ?statement psv:P625 ?node. \r\n\r\n  ?node wikibase:geoLatitude ?lat. \r\n\r\n  ?node wikibase:geoLongitude ?long. \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } \r\n\r\n} ", "map_title": "States where Spontini lived", "operations": [], "position": 13, "type": "map"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 14, "text": "\u003cp\u003e\u003cspan style=\"color: rgb(208, 206, 206);\"\u003eAfter studying at the conservatory in \u003c/span\u003e\u003cem style=\"color: rgb(208, 206, 206);\"\u003eNaples\u003c/em\u003e\u003cspan style=\"color: rgb(208, 206, 206);\"\u003e with \u003c/span\u003e\u003cstrong style=\"color: rgb(208, 206, 206);\"\u003eNicola Sala \u003c/strong\u003e\u003cspan style=\"color: rgb(208, 206, 206);\"\u003eas teacher, he then started working at some comedies in Italy. However, he spent most of his career life in \u003c/span\u003e\u003cem style=\"color: rgb(208, 206, 206);\"\u003eParis\u003c/em\u003e\u003cspan style=\"color: rgb(208, 206, 206);\"\u003e, where he started working at the Op\u00e9ra becoming one of the greatest Italian composers of his age, admired by \u003c/span\u003e\u003cem style=\"color: rgb(208, 206, 206);\"\u003eCherubini, Beethoven, Weber and Rossini\u003c/em\u003e\u003cspan style=\"color: rgb(208, 206, 206);\"\u003e.\u0026nbsp;\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"color: rgb(208, 206, 206);\"\u003eBecause of the Bourbon Restoration, his works weren\u0027t considered as before, leading him to leave Paris for \u003c/span\u003e\u003cem style=\"color: rgb(208, 206, 206);\"\u003eBerlin \u003c/em\u003e\u003cspan style=\"color: rgb(208, 206, 206);\"\u003e(at the time under the \u003c/span\u003e\u003cem style=\"color: rgb(208, 206, 206);\"\u003eKingdom of Prussia\u003c/em\u003e\u003cspan style=\"color: rgb(208, 206, 206);\"\u003e), where his operas had already achieved success, where he stayed until 1842.\u0026nbsp;\u003c/span\u003e\u003c/p\u003e", "type": "text"}, {"count_label": "Nicola Sala\u0027s students", "count_query": "SELECT (COUNT(?composer) AS ?count)  \r\n\r\nWHERE {  \r\n\r\n?composer wdt:P106 wd:Q36834; #composer \r\n\r\n           wdt:P1066 wd:Q708209 . #studnet of Nicola Sala \r\n\r\n} ", "extra_queries": [], "map_filters": [], "operations": [], "position": 15, "type": "count"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 16, "table_query": "SELECT DISTINCT ?occupation ?occupationLabel \r\n\r\n WHERE { \r\n\r\n  wd:Q168485 wdt:P106 ?occupation . \r\n\r\n  ?occupation rdfs:label ?occupationLabel. \r\n\r\n  \r\n\r\n  FILTER(LANG(?occupationLabel)=\"en\"). \r\n\r\n} ", "table_title": "Occupation", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 17, "table_query": "SELECT DISTINCT ?fieldofwork ?fieldofworkLabel \r\n\r\n  \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P101 ?fieldofwork . \r\n\r\n  ?fieldofwork rdfs:label ?fieldofworkLabel. \r\n\r\n  \r\n\r\n  FILTER(LANG(?fieldofworkLabel)=\"en\"). \r\n\r\n} ", "table_title": "Field of work", "type": "table"}, {"extra_queries": [], "map_filters": [], "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?lat ?long \r\n\r\nWHERE \r\n\r\n{ \r\n\r\n  wd:Q168485 wdt:P463 ?point . \r\n\r\n  ?point p:P625 ?statement. \r\n\r\n  ?statement psv:P625 ?node. \r\n\r\n  ?node wikibase:geoLatitude ?lat. \r\n\r\n  ?node wikibase:geoLongitude ?long. \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } \r\n\r\n} ", "map_title": "Acad\u00e9mie des Beaux Arts ", "operations": [], "position": 18, "type": "map"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 19, "text": "\u003cp\u003e\u003cspan style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003eSpontini was a member of the \u003c/span\u003e\u003cem style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003eAcad\u00e9mie des Beaux-Arts\u003c/em\u003e\u003cspan style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e from June 15th 1839 when he replaced\u003c/span\u003e\u003cem style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e Ferdinando Paer\u003c/em\u003e\u003cspan style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e, an Italian composer of German origins, to January 14th 1851 when he was then replaced by \u003c/span\u003e\u003cem style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003eAmbroise Thomas\u003c/em\u003e\u003cspan style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e, a French composer particularly famous for his work \u003c/span\u003e\u003cem style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003eMignon\u003c/em\u003e\u003cspan style=\"background-color: transparent; color: rgb(231, 230, 230);\"\u003e..\u003c/span\u003e\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 20, "table_query": "SELECT DISTINCT ?award ?awardLabel ?serviceribbonimage ?image \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P166 ?award. \r\n\r\n  OPTIONAL { ?award wdt:P2425 ?serviceribbonimage } \r\n\r\n  OPTIONAL { ?award wdt:P18 ?image } \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} \r\n\r\n} ", "table_title": "Awards received", "type": "table"}], "id": "1687961906.215169", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "An 18th century Italian composer", "template_mode": "statistics", "title": "Gaspare Spontini", "user_name": "verospena"};
+  </script>
+
+
+</head>
+
+<body data-background-color="dark">
+	<div class="wrapper">
+
+		<div class="main-header">
+
+	<!-- Logo Header -->
+	<div class="logo-header" data-background-color="dark2">
+
+		<a href="/melody/" class="logo">MELODY</a>
+		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+			data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">
+				<i class="icon-menu"></i>
+			</span>
+		</button>
+		<div class="nav-toggle">
+			<button class="btn btn-toggle toggle-sidebar">
+				<i class="icon-menu"></i>
+			</button>
+		</div>
+	</div>
+	<!-- End Logo Header -->
+
+	<!-- Navbar Header -->
+	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
+
+		<div class="container">
+			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Create a story
+					</a>
+				</li>
+				
+				<li class="nav-item">
+					
+					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Sign in
+					</a>
+					
+				</li>
+
+			</ul>
+		</div>
+
+
+	</nav>
+
+	<!-- End Navbar -->
+</div>
+
+		<!-- Sidebar -->
+<div class="sidebar sidebar-style-2" data-background-color="dark2">
+	<div class="sidebar-wrapper scrollbar scrollbar-inner">
+		<div class="sidebar-content">
+			<ul class="nav nav-primary">
+				
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
+						<p>Bells</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu1">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
+									<!-- href="/overview_of_bells_in_liguria"> -->
+									Overview of bells in Liguria
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
+						<p>choco</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu2">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
+									<!-- href="/chord_corpus_statistics"> -->
+									Chord Corpus Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
+						<p>fonn</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu3">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
+									<!-- href="/frequently_occurring_patterns"> -->
+									Frequently Occurring Patterns 
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/tune_families_in_the_session_and_mtcann">
+									<!-- href="/tune_families_in_the_session_and_mtcann"> -->
+									Tune families in The Session and MTC-ANN
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg">
+									<!-- href="/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg"> -->
+									Statistics on The Session (annotated subset) and Meertens Tune Collections (MTC-ANN) Pattern KG
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
+						<p>MusicBo</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu4">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
+									<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
+									Music in Bologna - Knowledge Graph Overview
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
+						<p>musoW</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu5">
+						<ul class="nav nav-collapse">
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
+									<!-- href="/discover_music_data_on_the_web"> -->
+									Discover music data on the Web
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu6" aria-expanded="true">
+						<p>organs</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu6">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/organs/organs_statistics">
+									<!-- href="/organs_statistics"> -->
+									ORGANS Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
+						<p>Sound and Vision</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu7">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
+									<!-- href="/dutch_broadcast_concert_collection"> -->
+									Dutch Broadcast Concert Collection
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
+						<p>Tonalities</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu8">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tonalities/tonalities">
+									<!-- href="/tonalities"> -->
+									Tonalities 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
+						<p>tunes</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu9">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tunes/tunes_statistics">
+									<!-- href="/tunes_statistics"> -->
+									Tunes Statistics
+								</a>
+								
+								
+								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
+									<!-- href="/explore_similarity_relations_among_songs"> -->
+									Explore similarity relations among songs
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
+						<p>wikidata</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu10">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_museums">
+									<!-- href="/relations_between_museums"> -->
+									Relations between museums
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_music_bands_an_exploration">
+									<!-- href="/relations_between_music_bands_an_exploration"> -->
+									Relations between music bands - An exploration
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/mapping_us_recording_studios">
+									<!-- href="/mapping_us_recording_studios"> -->
+									Mapping US Recording Studios
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/through_the_prism_of_diversity">
+									<!-- href="/through_the_prism_of_diversity"> -->
+									Through the Prism of Diversity
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Sidebar -->
+
+		<div class="main-panel">
+
+			
+
+<div class="content row datastorypage" id="dwn">
+  <section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
+  <section id="secondarymenuinner" class="secondarymenuinner">
+
+    <h4>About this story</h4>
+    
+    <p>Authors: Alessia Mazza and Veronica Spena </p>
+    
+    
+
+    <p>Source: <a href="https://query.wikidata.org/sparql">SPARQL endpoint</a></p>
+    <p>Export</p>
+    <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
+    <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
+        download="Gaspare Spontini.html">HTML</a></button>
+    <button class="exportbutton" type="button">
+      <a href="#" data-toggle="modal" data-target="#queryModal"
+        id="sparqlQuery">JSON</a></button>
+
+    <!-- publish button -->
+    
+    <!-- modify button -->
+    
+  </section>
+
+  <div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
+    aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card">
+        <div class="modal-header">
+          <h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Gaspare Spontini&#39;, &#39;color_code&#39;: [&#39;#567bd2&#39;, &#39;#15c691&#39;], &#39;user_name&#39;: &#39;verospena&#39;, &#39;id&#39;: &#39;1687961906.215169&#39;, &#39;subtitle&#39;: &#39;An 18th century Italian composer&#39;, &#39;curator&#39;: &#39;Alessia Mazza and Veronica Spena&#39;, &#39;description&#39;: &#39;The following story will explore the WikiData knowledge base to discover the most significant points and events in the Italian composer Gaspare Spontini’s personal and professional life.  \r\n\r\nAfter a general exploration of the WikiData knowledge base with the aim to discover the quantity of people and artists in comparison with MusicBO, we will then narrow down our research analyzing the composers recorded in WikiData, to eventually focus on our main object of the story: Gaspare Spontini.    \r\n\r\nIn particular, the story will present an overview of his biography, his occupations and fields of work, as well as the awards he received during his life, the academy where he worked and the cities where he lived.  \r\n\r\nAt the end of the story, there will be an insight into the Museum Gaspare Spontini, its location and the visitors he had per year. &#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?person) AS ?count) \r\n\r\nWHERE { \r\n\r\n?person wdt:P31 wd:Q5 . \r\n\r\n} &#39;, &#39;count_label&#39;: &#39;People in Wikidata&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?artist) AS ?count) \r\n\r\nWHERE { \r\n\r\n?artist wdt:P106 wd:Q483501.    \r\n\r\n} &#39;, &#39;count_label&#39;: &#39;Artists&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n?composer wdt:P106 wd:Q36834 . \r\n\r\n} &#39;, &#39;count_label&#39;: &#39;Composers&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&lt;span style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;The aim of these counters is to compare the amount of data recorded on the&lt;/span&gt;&lt;strong style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt; Wikidata&lt;/strong&gt;&lt;span style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt; and knowledge database, concerning the categories of Items we are interested in. The counters start form the broader category of &lt;/span&gt;&lt;em style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;“person”&lt;/em&gt;&lt;span style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt; to narrow down till the more specific one of &lt;/span&gt;&lt;em style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;“composer”&lt;/em&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Composers divided by gender&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n     ?composer wdt:P106 wd:Q36834;  # composer \r\n\r\n               wdt:P21 ?gender . # gender \r\n\r\n      \r\n\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. \r\n\r\n          ?gender rdfs:label  ?label   } \r\n\r\n} \r\n\r\nGROUP BY ?label \r\n\r\nORDER BY DESC(?count) \r\n\r\nLIMIT 3 &#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;Gender&#39;, &#39;y&#39;: &#39;Total amount&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Male and female composers born in Italy&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(?composer) AS ?count) \r\n\r\nWHERE { \r\n\r\n     ?composer wdt:P106 wd:Q36834;  # composer \r\n\r\n               wdt:P19 wd:Q38; #italian \r\n\r\n               wdt:P21 ?gender . # gender \r\n\r\n      \r\n\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. \r\n\r\n          ?gender rdfs:label  ?label. \r\n\r\n      }\r\n \r\n\r\n} \r\n\r\nGROUP BY ?label \r\n\r\nORDER BY DESC(?count) &#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;textsearch&#39;, &#39;textsearch_userinput&#39;: &#39;&#39;, &#39;textsearch_title&#39;: &#39;Use this text search to write a country or a city and discover the main composers born there:  &#39;, &#39;textsearch_query&#39;: &#39;SELECT DISTINCT ?composer ?composerLabel ?birthPlace ?birthPlaceLabel ?pic \r\n\r\nWHERE { \r\n\r\n  SERVICE wikibase:mwapi { \r\n\r\n   bd:serviceParam wikibase:endpoint &#34;www.wikidata.org&#34; ; \r\n\r\n         \twikibase:api &#34;EntitySearch&#34; ; \r\n\r\n         \tmwapi:search &lt;&lt;searchterm&gt;&gt; ; \r\n\r\n         \tmwapi:language &#34;en&#34;. \r\n\r\n   ?birthPlace wikibase:apiOutputItem mwapi:item. \r\n\r\n  } \r\n\r\n  \r\n\r\n ?composer wdt:P106 wd:Q36834 . \r\n\r\n ?composer wdt:P19 ?birthPlace . \r\n\r\n OPTIONAL {?composer wdt:P18 ?pic} \r\n\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.} \r\n\r\n FILTER regex(str(?pic), &#34;jpg&#34;). \r\n\r\n}  \r\n\r\nORDER BY ?composer \r\n\r\nLIMIT 10 &#39;, &#39;textsearch&#39;: {&#39;composer&#39;: [&#39;Genre&#39;, &#39;Notable works&#39;]}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 7, &#39;operations&#39;: [], &#39;type&#39;: &#39;action&#39;, &#39;action_title&#39;: &#39;Genre&#39;, &#39;action_query&#39;: &#39;SELECT DISTINCT ?genre ?genreLabel \r\n\r\nWHERE {  \r\n\r\n  &lt;&lt;item&gt;&gt; wdt:P136 ?genre . \r\n\r\nSERVICE wikibase:label {   bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34; \r\n\r\n  } \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 8, &#39;operations&#39;: [], &#39;type&#39;: &#39;action&#39;, &#39;action_title&#39;: &#39;Notable works&#39;, &#39;action_query&#39;: &#39;SELECT DISTINCT ?notablework ?notableworkLabel \r\n\r\nWHERE {  \r\n\r\n  &lt;&lt;item&gt;&gt; wdt:P800 ?notablework . \r\n\r\nSERVICE wikibase:label {  \r\n\r\n    bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34; \r\n\r\n  } \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 9, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p class=&#34;ql-align-justify&#34;&gt;&lt;span style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;Among the Italian composer there is &lt;/span&gt;&lt;strong style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;Gaspare Spontini&lt;/strong&gt;&lt;span style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;, perhaps less known than his main contemporary artist of the 18th century, but he is an artist of remarkable talent. We discovered this composer by digging in the&lt;/span&gt;&lt;em style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt; Polifonia corpus&lt;/em&gt;&lt;span style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt; and we were curious to know more about him.&amp;nbsp;&lt;/span&gt;&lt;span style=&#34;color: rgb(231, 230, 230);&#34;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p class=&#34;ql-align-justify&#34;&gt;&lt;span style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;Here it is an example of context from &lt;/span&gt;&lt;em style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;MusicBO:&lt;/em&gt;&lt;span style=&#34;color: rgb(231, 230, 230);&#34;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p class=&#34;ql-align-justify&#34;&gt;&lt;em style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;“[...] a few of the chorus gathered in a semicircle around &lt;/em&gt;&lt;strong style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;&lt;em&gt;Spontini&lt;/em&gt;&lt;/strong&gt;&lt;em style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;, in order to have a &lt;/em&gt;&lt;span style=&#34;color: rgb(231, 230, 230);&#34;&gt;\t&lt;/span&gt;&lt;em style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;look at that remarkable man, as he held forth with wonderful effect on the requirements &lt;/em&gt;&lt;span style=&#34;color: rgb(231, 230, 230);&#34;&gt;\t&lt;/span&gt;&lt;em style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;of true theatrical art.”&lt;/em&gt;&lt;span style=&#34;color: rgb(231, 230, 230);&#34;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p class=&#34;ql-align-justify&#34;&gt;&lt;span style=&#34;color: rgb(231, 230, 230); background-color: transparent;&#34;&gt;Scroll down to discover more about this artist, admired and respected in all Europe and who’s worthy of attention.&lt;/span&gt;&lt;span style=&#34;color: rgb(231, 230, 230);&#34;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 10, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Gaspare Spontini, portrayed by Jean-Baptiste Aubry-Lecomte in the 19th century. &#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?image \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P18 ?image . \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 11, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Biography: &#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?DeathPlace ?DeathPlaceLabel  \r\n\r\nWHERE {  \r\n\r\nwd:Q168485 wdt:P569 ?BirthDate; \r\n\r\n           wdt:P570 ?DeathDate;  \r\n\r\n           wdt:P19 ?BirthPlace; \r\n\r\n           wdt:P20 ?DeathPlace .   \r\n\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.}   \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 12, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;composers born in Maiolata Spontini&#39;, &#39;chart_query&#39;: &#39;SELECT DISTINCT ?label (COUNT(distinct ?composer) as ?count) \r\n\r\nWHERE { \r\n\r\n        \t?composer ?a wd:Q36834 ; # composer \r\n\r\n        \t\t      wdt:P19 wd:Q124139 . #Born in Maiolata Spontini \r\n\r\n \r\n\r\n        \tSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. \r\n\r\n  \t  \t?composer rdfs:label \t    \t?label. \r\n\r\n        \t} \r\n\r\n} \r\n\r\nGROUP BY ?label ?count \r\n\r\nORDER BY DESC(?count)  &#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 13, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;States where Spontini lived&#39;, &#39;map_points_query&#39;: &#39;SELECT DISTINCT ?point ?pointLabel ?lat ?long \r\n\r\nWHERE \r\n\r\n{ \r\n\r\n  wd:Q168485 wdt:P27 ?point . \r\n\r\n  ?point p:P625 ?statement. \r\n\r\n  ?statement psv:P625 ?node. \r\n\r\n  ?node wikibase:geoLatitude ?lat. \r\n\r\n  ?node wikibase:geoLongitude ?long. \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. } \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 14, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&lt;span style=&#34;color: rgb(208, 206, 206);&#34;&gt;After studying at the conservatory in &lt;/span&gt;&lt;em style=&#34;color: rgb(208, 206, 206);&#34;&gt;Naples&lt;/em&gt;&lt;span style=&#34;color: rgb(208, 206, 206);&#34;&gt; with &lt;/span&gt;&lt;strong style=&#34;color: rgb(208, 206, 206);&#34;&gt;Nicola Sala &lt;/strong&gt;&lt;span style=&#34;color: rgb(208, 206, 206);&#34;&gt;as teacher, he then started working at some comedies in Italy. However, he spent most of his career life in &lt;/span&gt;&lt;em style=&#34;color: rgb(208, 206, 206);&#34;&gt;Paris&lt;/em&gt;&lt;span style=&#34;color: rgb(208, 206, 206);&#34;&gt;, where he started working at the Opéra becoming one of the greatest Italian composers of his age, admired by &lt;/span&gt;&lt;em style=&#34;color: rgb(208, 206, 206);&#34;&gt;Cherubini, Beethoven, Weber and Rossini&lt;/em&gt;&lt;span style=&#34;color: rgb(208, 206, 206);&#34;&gt;.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&#34;color: rgb(208, 206, 206);&#34;&gt;Because of the Bourbon Restoration, his works weren\&#39;t considered as before, leading him to leave Paris for &lt;/span&gt;&lt;em style=&#34;color: rgb(208, 206, 206);&#34;&gt;Berlin &lt;/em&gt;&lt;span style=&#34;color: rgb(208, 206, 206);&#34;&gt;(at the time under the &lt;/span&gt;&lt;em style=&#34;color: rgb(208, 206, 206);&#34;&gt;Kingdom of Prussia&lt;/em&gt;&lt;span style=&#34;color: rgb(208, 206, 206);&#34;&gt;), where his operas had already achieved success, where he stayed until 1842.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 15, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(?composer) AS ?count)  \r\n\r\nWHERE {  \r\n\r\n?composer wdt:P106 wd:Q36834; #composer \r\n\r\n           wdt:P1066 wd:Q708209 . #studnet of Nicola Sala \r\n\r\n} &#39;, &#39;count_label&#39;: &#34;Nicola Sala&#39;s students&#34;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 16, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Occupation&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?occupation ?occupationLabel \r\n\r\n WHERE { \r\n\r\n  wd:Q168485 wdt:P106 ?occupation . \r\n\r\n  ?occupation rdfs:label ?occupationLabel. \r\n\r\n  \r\n\r\n  FILTER(LANG(?occupationLabel)=&#34;en&#34;). \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 17, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Field of work&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?fieldofwork ?fieldofworkLabel \r\n\r\n  \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P101 ?fieldofwork . \r\n\r\n  ?fieldofwork rdfs:label ?fieldofworkLabel. \r\n\r\n  \r\n\r\n  FILTER(LANG(?fieldofworkLabel)=&#34;en&#34;). \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 18, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;Académie des Beaux Arts &#39;, &#39;map_points_query&#39;: &#39;SELECT DISTINCT ?point ?pointLabel ?lat ?long \r\n\r\nWHERE \r\n\r\n{ \r\n\r\n  wd:Q168485 wdt:P463 ?point . \r\n\r\n  ?point p:P625 ?statement. \r\n\r\n  ?statement psv:P625 ?node. \r\n\r\n  ?node wikibase:geoLatitude ?lat. \r\n\r\n  ?node wikibase:geoLongitude ?long. \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. } \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 19, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&lt;span style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;Spontini was a member of the &lt;/span&gt;&lt;em style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;Académie des Beaux-Arts&lt;/em&gt;&lt;span style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt; from June 15th 1839 when he replaced&lt;/span&gt;&lt;em style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt; Ferdinando Paer&lt;/em&gt;&lt;span style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;, an Italian composer of German origins, to January 14th 1851 when he was then replaced by &lt;/span&gt;&lt;em style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;Ambroise Thomas&lt;/em&gt;&lt;span style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;, a French composer particularly famous for his work &lt;/span&gt;&lt;em style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;Mignon&lt;/em&gt;&lt;span style=&#34;background-color: transparent; color: rgb(231, 230, 230);&#34;&gt;..&lt;/span&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 20, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Awards received&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?award ?awardLabel ?serviceribbonimage ?image \r\n\r\nWHERE { \r\n\r\n  wd:Q168485 wdt:P166 ?award. \r\n\r\n  OPTIONAL { ?award wdt:P2425 ?serviceribbonimage } \r\n\r\n  OPTIONAL { ?award wdt:P18 ?image } \r\n\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;.} \r\n\r\n} &#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
+    <div class="page-inner py-5">
+      <div class="align-items-left align-items-md-center flex-column flex-md-row">
+
+          <h1 class="text-white pb-2 fw-bold">Gaspare Spontini</h1>
+
+<h2 class="text-white op-7 mb-2">
+  An 18th century Italian composer
+</h2>
+
+
+<p class="card-category">
+  The following story will explore the WikiData knowledge base to discover the most significant points and events in the Italian composer Gaspare Spontini’s personal and professional life.  
+
+After a general exploration of the WikiData knowledge base with the aim to discover the quantity of people and artists in comparison with MusicBO, we will then narrow down our research analyzing the composers recorded in WikiData, to eventually focus on our main object of the story: Gaspare Spontini.    
+
+In particular, the story will present an overview of his biography, his occupations and fields of work, as well as the awards he received during his life, the academy where he worked and the cities where he lived.  
+
+At the end of the story, there will be an insight into the Museum Gaspare Spontini, its location and the visitors he had per year. 
+</p>
+
+          <span id='loader' class='lds-dual-ring hidden overlay'></span>
+          <div id="sortable"></div>
+          <script src="static/js/react/Error.js" type="text/babel"></script>
+          <script src="static/js/react/Map.js" type="text/babel"></script>
+          <script src="static/js/react/Table.js" type="text/babel"></script>
+          <script src="static/js/react/Chart.js" type="text/babel"></script>
+          <script src="static/js/react/Textbox.js" type="text/babel"></script>
+          <script src="static/js/react/Count.js" type="text/babel"></script>
+          <script src="static/js/react/Action.js" type="text/babel"></script>
+          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+          <script src="static/js/react/add_components.js" type="text/babel"></script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+			<footer class="footer">
+	<div class="container-fluid d-flex align-items-start">
+		<div class="p-2 col-md-3">
+			<h6>MELODY</h6>
+			<p><a target="_blank" href="/melody">Home</a></p>
+			<p><a target="_blank" href="/melody/asklogin">Create a story</a></p>
+			<p><a target="_blank" href="https://melody-data.github.io/stories/#catalogue">Data stories' catalaogue</a>
+			</p>
+		</div>
+		<div class="p-2 col-md-3">
+			<h6>Links</h6>
+			<p>Read the <a href="https://polifonia-project.github.io/dashboard/" target="_blank">documentation</a></p>
+			<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
+			<p>Theme <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+					Flask Atlantis Dark
+				</a></p>
+		</div>
+
+		<div class="copyright ml-auto p-2 col-md-4">
+			<p>MELODY is part of</p>
+			<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
+			<p>Polifonia has received funding from the European Union’s Horizon 2020 research
+				and innovation programme under grant agreement N. 101004746</p>
+		</div>
+	</div>
+</footer>
+
+		</div>
+
+	</div>
+
+	<!--   Core JS Files   -->
+<script src="static/js/core/jquery.3.2.1.min.js"></script>
+<script src="static/js/core/popper.min.js"></script>
+<script src="static/js/core/bootstrap.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+<!-- Chart JS -->
+<script src="static/js/plugin/chart.js/chart.min.js"></script>
+
+<!-- Import D3 Scale Chromatic via CDN -->
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!-- jQuery Sparkline -->
+<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Chart Circle -->
+<script src="static/js/plugin/chart-circle/circles.min.js"></script>
+
+<!-- Datatables -->
+<script src="static/js/plugin/datatables/datatables.min.js"></script>
+
+<!-- Bootstrap Notify -->
+<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<!-- jQuery Vector Maps -->
+<script src="static/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+<!-- Sweet Alert -->
+<script src="static/js/plugin/sweetalert/sweetalert.min.js "></script>
+
+<!-- Atlantis JS -->
+<script src="static/js/atlantis.min.js"></script>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+<script type="text/javascript" src="static/js/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="static/js/leaflet-sidebar.js"></script>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+	<!-- utils js -->
+	<!-- <script src="static/js/utils.js" type="module"></script> -->
+
+	<script src="static/js/main.js"></script>
+
+	
+	<script>
+		overwriteCSS();
+	</script>
+	
+
+	<!-- Specific Page JS goes HERE  -->
+	
+<script type="text/javascript">
+  $('footer').detach();
+</script>
+
+<script>
+  let hostname = window.location.hostname;
+  if (!hostname.includes('github')) {
+    let beforeUnloadAlert = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!beforeUnloadAlert) return;
+
+      // etc
+      e.preventDefault();
+      e.returnValue = '';
+    });
+
+    function myFunction() {
+      beforeUnloadAlert = false;
+    }
+    var myObj = document.getElementsByClassName('prevent_alert')
+    console.log(myObj);
+    for (el of myObj) {
+      el.addEventListener('click', myFunction);
+    }
+  }
+</script>
+
+
+
+</body>
+
+</html>
