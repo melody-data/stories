@@ -11,5 +11,169 @@
     "subtitle": "Exploring Bologna's role in music history through Knowledge Extraction",
     "curator": "Anonymous",
     "description": "The MusicBO Knowledge Graph (KG), documenting Bologna's pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.",
-    "dynamic_elements": []
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person>}",
+            "count_label": "people",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Organization>}",
+            "count_label": "organizations",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Country>}",
+            "count_label": "countries",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/City>}",
+            "count_label": "cities",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) WHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Work-of-art>}",
+            "count_label": "works of art",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Publication>}",
+            "count_label": "publications",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Top 10 types of entity",
+            "chart_query": "SELECT ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type ?class; <http://www.ontologydesignpatterns.org/ont/amr/name> ?name   \r\nFILTER regex(str(?class), \"(?:^http://www.ontologydesignpatterns.org/ont/amr/)\")      BIND (REPLACE(STR(?class), \"^.+?([^/#]+)$\", \"$1\") as ?label)} \r\nGROUP BY ?label   \r\nORDER BY DESC (?count) \r\nLIMIT 10  ",
+            "chart_series": "entities",
+            "chart_legend": {
+                "x": "entity type",
+                "y": "count"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "text",
+            "text": "<p>We analysed MusicBO corpus through the lens of Named Entities Recognition (NER), a standard Natural Language Processing task. We discovered that the entanglement of Bologna and music history is a composite network of people, places, and organizations. Publications, works of art and books are frequently mentioned in the corpus, revealing that Bologna was an important centre for artistic production.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Top 10 situations involving people",
+            "chart_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  \r\nSELECT distinct ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person> . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?label }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10",
+            "chart_series": "event type",
+            "chart_legend": {
+                "x": "situation",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Persons in situations",
+            "chart_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>    \r\nSELECT ?label (count(distinct ?frameInstance) as ?count)  \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person> . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?frameLabel . ?frame rdfs:subClassOf dul:Event .   \r\n?s <http://www.ontologydesignpatterns.org/ont/amr/name> ?label  \r\nFILTER (!regex(str(?s), \"san_petronio\",'i'))}  \r\n   \r\nGROUP BY ?label   \r\nORDER BY DESC (?count)\r\nLIMIT 10 ",
+            "chart_series": "events",
+            "chart_legend": {
+                "x": "persons",
+                "y": "frequency"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Among the many people in the MusicBO corpus, Rossini is the most frequently mentioned as involved in events and situations.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Top 10 roles played by people in different types of situations",
+            "chart_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT distinct ?label (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person> . ?frameInstance ?p ?s ; rdf:type ?frame . \r\n#?frame rdfs:label ?label  \r\nBIND (REPLACE(STR(?p), \"^.*/([^/]*)$\", \"$1\") as ?label)  \r\nFILTER (!regex(str(?p), \"entity_\"))  \r\nFILTER (!regex(str(?p), \"#\"))  \r\nFILTER (!regex(str(?p), \"subset\")) }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10 ",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "text",
+            "text": "<p>What roles did people linked to music and the city of Bologna played? Characters relevant to the music scene that crossed Bologna over the centuries were mostly authors and artists, but also office holders, writers, agents, and editors. Such insights suggest that Bologna was both a point of reference for artistic production and for music-related activities, as criticism and business. Last but not least, Bologna attracted music students.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "map",
+            "map_title": "Bologna as a lively cultural centre in Europe",
+            "map_points_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX dbpedia: <http://dbpedia.org/resource/>\r\nPREFIX sc: <http://purl.org/science/owl/sciencecommons/>\r\nPREFIX schema: <http://schema.org/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX wdr: <http://www.w3.org/2007/05/powder#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> \r\nSELECT DISTINCT ?point ?label ?frameInstance ?lat ?long\r\nWHERE { ?cityUri rdf:type amr:City ;  owl:sameAs ?point ;  amr:name ?label .  \r\n\tFILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))  \r\n\t?frameInstance ?p ?cityUri ; rdf:type ?frame .  \r\nSERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql> { \r\n\t?point wdt:P31/wdt:P279* wd:Q515 .  \r\n\t?point p:P625 ?coords_stmt .  \r\n\t?coords_stmt ps:P625 ?coords; \r\n\tpsv:P625 [  wikibase:geoLatitude ?lat;  wikibase:geoLongitude ?long ] . }\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
 }
