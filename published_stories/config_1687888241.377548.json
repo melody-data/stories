@@ -99,7 +99,7 @@
             "position": 8,
             "operations": [],
             "type": "table",
-            "table_title": "LIST OF MOVIES WHERE SHE PLAYED",
+            "table_title": "LIST OF MOVIES IN WHICH SHE PLAYED",
             "table_query": "SELECT DISTINCT ?item ?itemLabel ?sitelinks (GROUP_CONCAT(DISTINCT ?directorLabel; SEPARATOR = \", \") AS ?directors) WHERE {\r\n  ?item wdt:P161 wd:Q266640;\r\n    wikibase:sitelinks ?sitelinks.\r\n  OPTIONAL {\r\n    ?item wdt:P57 ?director.\r\n    ?director rdfs:label ?directorLabel.\r\n    FILTER((LANG(?directorLabel)) = \"[AUTO_LANGUAGE]\")\r\n  }\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\r\n}\r\nGROUP BY ?item ?itemLabel ?sitelinks \r\nORDER BY DESC (?sitelinks)\r\nLIMIT 30\r\n\r\n",
             "extra_queries": [],
             "map_filters": []
@@ -109,7 +109,7 @@
             "operations": [],
             "type": "chart",
             "chart_type": "barchart",
-            "chart_title": "GNERE OF THE MOVIES IN WHICH SHE PLAYED",
+            "chart_title": "GNERES OF THE MOVIES IN WHICH SHE PLAYED",
             "chart_query": "SELECT DISTINCT ?label (COUNT(?date) AS ?count) WHERE {\r\n  ?sales wdt:P161 wd:Q266640;\r\n    wdt:P136 ?date.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?date rdfs:label ?label.\r\n  \r\n}}\r\nGROUP BY ?label\r\nORDER BY (?label)",
             "chart_series": "MOVIES' GENRE",
             "chart_legend": {
