@@ -125,7 +125,7 @@
             "position": 12,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Beethoven was born in Bonn, Germany, in 1770 and is known as one of the most important pianists of all time. He was active in the music field from 1789 to 1827: the tables below show the most important work of the musician and composer, and the number of composition he created each year. </span></p>",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Beethoven was born in Bonn, Germany, in 1770 and is known as one of the most important pianists of all time. He was active in the music field from 1798 to 1827: the table below shows the most important work of the musician and composer. </span></p><p><span style=\"color: rgb(139, 146, 169);\"><span class=\"ql-cursor\">\ufeff</span>However during his career, Beethoven produced an enormous number of musical compositions. </span></p><p><span style=\"color: rgb(139, 146, 169);\">Therefore, the bar chart proves useful in showing visually, and thus more immediately, how prolific his production was. In particular, on the x-axis we find the variable \u201cyears\u201d, which runs from 1789 to 1827, while on the y-axis there is the variable \u201ccompositions\u201d: it shows the trend of works produced during all those years.&nbsp;</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -184,6 +184,14 @@
             "type": "table",
             "table_title": "Beethoven's grave",
             "table_query": "SELECT DISTINCT ?image WHERE { wd:Q255 wdt:P1442 ?image . }",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 19,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(139, 146, 169);\">Ludwig van Beethoven's legacy as a composer and musician is an indelible mark on the history of Western classical music. His groundbreaking symphonies, sonatas, concertos, and chamber music compositions have left an enduring impact on the development of classical music. Beyond his compositional ability, Beethoven's artistic vision was fueled by his desire to convey profound human experiences and universal truths through music. His works encapsulate a wide spectrum of emotions, from despair and anguish to joy and triumph, reflecting the complexities of the human condition.&nbsp;</span></p>",
             "extra_queries": [],
             "map_filters": []
         }
