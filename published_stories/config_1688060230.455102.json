@@ -1,0 +1,43 @@
+{
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "Exploring MusicBo dataset",
+    "color_code": [
+        "#24bc6e",
+        "#1b92c5"
+    ],
+    "user_name": "verospena",
+    "id": "1688060230.455102",
+    "subtitle": "People, Artists and instrumaents inside the musicBo database ",
+    "curator": "Alessia Mazza and Veronica Spena",
+    "description": "This story presents the first step of our project. It deals with the exploration of the Musicbo Knowledge database starting from the general concept of people  in the one hand, and of instruments in the other hand. Concerning people,  we than narrowing the research down to the category of artists. By consequence, the  aim of these counters is e to make a comparison between the amount of data present in the database we have used: MusicBo and  WikiData.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\t\r\nSELECT (COUNT(?person) as ?count) \r\nWHERE {\r\n?person rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person> .\t\r\n?person <http://www.ontologydesignpatterns.org/ont/amr/name> ?label \r\n}  \r\n",
+            "count_label": "Peopl",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX pblr: <https://w3id.org/framester/pb/localrole/>\r\nSELECT (COUNT(?artist) AS ?count)\r\nWHERE {\r\n\t?artist pblr:artist ?person .\r\n\t?person rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person> .    \r\n}\r\n",
+            "count_label": "Artists",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wn30: <https://w3id.org/framester/wn/wn30/instances/>\r\n\r\nSELECT (COUNT(?instrument) AS ?count)\r\n\r\nWHERE {\r\n\r\n  ?instrument rdf:type ?instrumentType .\r\n  ?instrumentType rdfs:subClassOf wn30:supersense-noun_artifact .\r\n}",
+            "count_label": "Instruments",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
