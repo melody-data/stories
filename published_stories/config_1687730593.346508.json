@@ -34,7 +34,7 @@
             "operations": [],
             "type": "table",
             "table_title": "BEGINNING OF HIS CARREER",
-            "table_query": "SELECT DISTINCT ?Start ?End WHERE { wd:Q1056805 wdt:P2031 ?Start . }",
+            "table_query": "SELECT DISTINCT ?Start ?StartLabel WHERE { wd:Q1056805 wdt:P2031 ?Start . }",
             "extra_queries": [],
             "map_filters": []
         },
@@ -67,12 +67,7 @@
         },
         {
             "position": 6,
-            "operations": [
-                {
-                    "action": "count",
-                    "param": "label"
-                }
-            ],
+            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "TREND OF WORKS BY GENRE",
