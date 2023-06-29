@@ -33,7 +33,7 @@
             "position": 2,
             "operations": [],
             "type": "table",
-            "table_title": "BEGINNING OF HIS CARREER",
+            "table_title": "BEGINNING OF HIS CAREER",
             "table_query": "SELECT DISTINCT ?Start ?StartLabel WHERE { wd:Q1056805 wdt:P2031 ?Start . }",
             "extra_queries": [],
             "map_filters": []
