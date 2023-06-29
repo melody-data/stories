@@ -32,6 +32,15 @@
         {
             "position": 2,
             "operations": [],
+            "type": "table",
+            "table_title": "DATES OF BIRTH AND OF DEATH",
+            "table_query": "SELECT DISTINCT ?datebirth ?datebirthLabel ?datedeath ?datedeathLabel WHERE {\r\n  wd:Q167546 wdt:P569 ?datebirth;\r\n    wdt:P570 ?datedeath.\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "HIS OCCUPATIONS",
@@ -45,7 +54,7 @@
             "map_filters": []
         },
         {
-            "position": 3,
+            "position": 4,
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?singer) AS ?count)\r\nWHERE {\r\n     ?singer ?a wd:Q482994 . # album\r\n     ?singer wdt:P175 wd:Q167546 . # from lucio dalla\r\n}\r\n",
@@ -54,7 +63,7 @@
             "map_filters": []
         },
         {
-            "position": 4,
+            "position": 5,
             "operations": [],
             "type": "table",
             "table_title": "CHRONOLOGICAL LIST OF HIS ALBUMS",
@@ -63,7 +72,7 @@
             "map_filters": []
         },
         {
-            "position": 5,
+            "position": 6,
             "operations": [],
             "type": "chart",
             "chart_type": "linechart",
@@ -78,7 +87,7 @@
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 7,
             "operations": [],
             "type": "table",
             "table_title": "NOMINATION RECEIVED",
@@ -87,7 +96,7 @@
             "map_filters": []
         },
         {
-            "position": 7,
+            "position": 8,
             "operations": [],
             "type": "table",
             "table_title": "RECEIVED AWARDS",
@@ -96,20 +105,11 @@
             "map_filters": []
         },
         {
-            "position": 8,
+            "position": 9,
             "operations": [],
             "type": "map",
             "map_title": "SQUARES IN BOLOGNA",
             "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE { \r\n  ?point wdt:P31 wd:Q174782; wdt:P131 wd:Q1891;\r\n         wdt:P131 ?villeId; p:P625 ?statement.\r\n         ?statement psv:P625 ?node.?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 9,
-            "operations": [],
-            "type": "table",
-            "table_title": "DATES OF BIRTH AND OF DEATH",
-            "table_query": "SELECT DISTINCT ?datebirth ?datebirthLabel ?datedeath ?datedeathLabel WHERE {\r\n  wd:Q167546 wdt:P569 ?datebirth;\r\n    wdt:P570 ?datedeath.\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
         },
