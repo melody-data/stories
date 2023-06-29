@@ -3,8 +3,8 @@
     "template_mode": "statistics",
     "title": "Indie rock music: Blur and Sonic Youth",
     "color_code": [
-        "#39c6b4",
-        "#17cf31"
+        "#2be37b",
+        "#4daeea"
     ],
     "user_name": "Ilariamassa",
     "id": "1687016728.436494",
@@ -27,7 +27,7 @@
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Most influential artists in the development of the  indie rock scene",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) WHERE { ?band wdt:P136 wd:Q183504 . ?band wdt:P737 ?influencer . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?influencer rdfs:label ?label. } } GROUP BY ?label ?count ORDER BY DESC(?count) LIMIT 10",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) WHERE { ?band wdt:P136 wd:Q183504 . ?band wdt:P737 ?influencer . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?influencer rdfs:label ?label. } } GROUP BY ?label ?count ORDER BY DESC(?count) LIMIT 9",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
@@ -101,7 +101,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Sonic Youth members ",
-            "table_query": "SELECT DISTINCT ?member ?memberLabel ?image WHERE { wd:Q188626 wdt:P527 ?member . OPTIONAL { ?member wdt:P18 ?image . } SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } } LIMIT 5\r\n",
+            "table_query": "SELECT DISTINCT ?member ?memberLabel ?image WHERE { wd:Q188626 wdt:P527 ?member . OPTIONAL { ?member wdt:P18 ?image . } SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\" } } \r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -135,6 +135,38 @@
                 "x": "",
                 "y": ""
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Let us now return to indie rock music. This genre has been gaining more and more popularity in recent years, not only in the US or the UK. If you are interested in discovering indie rock bands from a particular country, enter the name of the country in the search bar below!</p><p>You can also view individual band members by clicking on \"Show band members\".</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "Enter the name of a country to get the indie-rock bands based there.",
+            "textsearch_query": "SELECT DISTINCT ?pic ?indierockgroup ?indierockgroupLabel ?country ?countryLabel\r\nWHERE {\r\nSERVICE wikibase:mwapi {\r\nbd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\nwikibase:api \"EntitySearch\";\r\nmwapi:search <<searchterm>>; #country\r\nmwapi:language \"en\".\r\n?country wikibase:apiOutputItem mwapi:item.\r\n}\r\n?indierockgroup wdt:P31 wd:Q215380.\r\n?indierockgroup wdt:P495 ?country .\r\n?indierockgroup wdt:P136 ?band .\r\n?indierockgroup wdt:P136 wd:Q183504. #indierock genre\r\nOPTIONAL {?indierockgroup wdt:P18 ?pic ; }\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\nFILTER regex(str(?pic), \"jpg\").\r\n}\r\nORDER BY ?indierockgroup\r\nLIMIT 5",
+            "textsearch": {
+                "indierockgroup": [
+                    "Show band members"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show band members",
+            "action_query": "SELECT DISTINCT ?member ?memberLabel ?image\r\nWHERE { \r\n  <<item>> wdt:P527 ?member . \r\n OPTIONAL { ?member wdt:P18 ?image . }\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20",
             "extra_queries": [],
             "map_filters": []
         }
