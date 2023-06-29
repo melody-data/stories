@@ -8,9 +8,9 @@
     ],
     "user_name": "Elena875",
     "id": "1687511855.883448",
-    "subtitle": "An overview about the violin's main features, its history and the violinists that have made the history of music",
+    "subtitle": "An overview about the violin's main features, its history and the violinists who have made the history of music",
     "curator": "Elena Benelli Domiziana Leorin",
-    "description": "The purpose of this story is to provide a general insight of a very renowned musical instrument that has marked an important turning point in the history of music thanks to its remarkable elegance: the violin. In particular, in the following story we will observe and analyse the main features and the history of this beautiful instrument. In addition, we will also provide a general insight of the most influential and talented violinists that with their remarkable works achieved lasting fame and played a fundamental role in the history of violin music.",
+    "description": "The purpose of this story is to provide a general insight of a very renowned musical instrument that has marked an important turning point in the history of music: the violin. In particular, in the following story we will observe and analyse the main features and the history of this beautiful instrument. In addition, we will also provide a general insight of the most influential and talented violinists that, with their remarkable works, managed to achieve lasting fame and played a fundamental role in the history of violin music.",
     "dynamic_elements": [
         {
             "position": 0,
@@ -25,7 +25,7 @@
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?StringedInstrument) AS ?count) \r\nWHERE { \r\n \t?StringedInstrument ?a wd:Q1798603 . # stringed instrument \r\n} ",
-            "count_label": "Stringed instruments",
+            "count_label": "Stringed instruments in WikiData",
             "extra_queries": [],
             "map_filters": []
         },
@@ -42,7 +42,7 @@
             "operations": [],
             "type": "count",
             "count_query": "SELECT (COUNT(?BowedStringInstrument) AS ?count) \r\nWHERE { \r\n \t?BowedStringInstrument ?a wd:Q192096 . # bowed string instrument \r\n}",
-            "count_label": "Bowed string instruments",
+            "count_label": "Bowed string instruments in WikiData",
             "extra_queries": [],
             "map_filters": []
         },
@@ -50,7 +50,7 @@
             "position": 4,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">At this point, we looked for an instrument that had a lot of information both in WikiData and in the Polifonia corpus, and we ultimately chose the violin.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">At this point, we looked for an instrument that had a lot of information both in WikiData and in the Polifonia corpus, and we ultimately chose the violin. </span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -84,7 +84,7 @@
             "position": 8,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">The violin has represented orchestral music in the general public for a very long time. However, many people aren\u2019t music enthusiasts who don\u2019t know that violins exist in many different types. This instrument has changed its lifespan for various reasons, leading to the production of different types.</span></p><p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">Here you can find some of the most famous variants, from the first standard violins that already existed in the sixteenth century, such as the baroque violin (which is considered to be the forefather of the modern violin), to more modern variants: for example, the neolin, an electro-acoustic violin which incorporates a fretted fingerboard, cutaway body, and tremolo mechanism based on the electric guitar.</span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">The violin has represented orchestral music in the general public for a very long time. However, many people aren\u2019t music enthusiasts and they don\u2019t know that violins exist in many different types. This instrument has changed its lifespan for various reasons, leading to the production of different varieties.</span></p><p><span style=\"background-color: transparent; color: rgb(204, 204, 204);\">In the table below you can find some of the most famous variants, from the first standard violins that already existed in the sixteenth century, such as the baroque violin (which is considered to be the forefather of the modern violin), to more modern variants: for example, the neolin, an electro-acoustic violin which incorporates a fretted fingerboard, cutaway body, and tremolo mechanism based on the electric guitar.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -101,7 +101,7 @@
             "position": 10,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">As previously said, the current popularity of the violin is also due to all the incredible musicians that, thanks to their virtuosity and outstanding works, managed to play a crucial role in violin history, leaving an heritage to future generations. At first, we looked for the number of male and female violinists inside WikiData. </span></p>",
+            "text": "<p><span style=\"background-color: transparent; color: rgb(217, 217, 217);\">As previously said, the current popularity of the violin is also due to all the incredible musicians that, thanks to their virtuosity and outstanding works, managed to play a crucial role in violin history, leaving an heritage to future generations. At this stage of the research, we looked for the number of male and female violinists inside WikiData. </span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -137,7 +137,7 @@
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Top ten most influential violinists",
-            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) \r\nWHERE {  \r\n  ?violinist wdt:P106 wd:Q1259917. \r\n  ?violinist wdt:P31 ?item . \r\n  ?violinist wdt:P737 ?influencer .\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" . \r\n                     ?violinist rdfs:label ?label .\r\n                            }\r\n}\r\nGROUP BY ?label \r\nORDER BY DESC(?count) \r\nLIMIT 10",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?violinist) AS ?count) \r\nWHERE {  \r\n  ?violinist ?a wd:Q1259917. \r\n  ?violinist wdt:P737 ?influencer .\r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" . \r\n                     ?violinist rdfs:label ?label .\r\n                            }\r\n}\r\nGROUP BY ?label ?count\r\nORDER BY DESC(?count) \r\nLIMIT 10",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
@@ -150,7 +150,7 @@
             "position": 15,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">We also made a comparison between the number of musical compositions that several famous violinists composed in their lives.</span></p>",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">We also made a comparison between the number of musical compositions that several famous violinists composed during the course of their lives.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -163,7 +163,7 @@
             "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?violinist ?a wd:Q1259917 . # violinist\r\n     ?violinist wdt:P800 ?item . \r\n     ?item wdt:P31 wd:Q105543609 . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?violinist rdfs:label         ?label.\r\n      }\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 15",
             "chart_series": "",
             "chart_legend": {
-                "x": "Violinists",
+                "x": "Violinist name",
                 "y": "Number of works"
             },
             "extra_queries": [],
@@ -173,7 +173,7 @@
             "position": 17,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">The map below is useful to have an idea of the number and distribution of violinists around the world.</span></p>",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">The map below is useful to have an idea of the number and distribution of violinists around the world. thanks to this useful instrument, it is possible to observe that the largest number of violinists is concentrated in Europe, notably in the area between Germany, Austria and Czech Republic.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -190,7 +190,7 @@
             "position": 19,
             "operations": [],
             "type": "text",
-            "text": "<p>Click on the text search below to find other famous violinists according to their birth place. It is also possible to observe the violinists' notable compositions, as long as the data is present in the WikiData.</p>",
+            "text": "<p>Click on the text search below to find other famous violinists according to their birth place. For each violinist, It is also possible to observe their most famous works, if the data are available in the WikiData knowledge base.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -198,7 +198,7 @@
             "position": 20,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "",
+            "textsearch_userinput": "genoa",
             "textsearch_title": "Here you can find violinists by searching for their birthplace",
             "textsearch_query": "SELECT DISTINCT ?violinist ?violinistLabel ?birthPlace ?birthPlaceLabel ?pic\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n   bd:serviceParam wikibase:endpoint \"www.wikidata.org\" ;\r\n         \twikibase:api \"EntitySearch\" ;\r\n         \tmwapi:search <<searchterm>> ;\r\n         \tmwapi:language \"en\".\r\n   ?birthPlace wikibase:apiOutputItem mwapi:item.\r\n  }\r\n \r\n ?violinist wdt:P106 wd:Q1259917 .\r\n ?violinist wdt:P19 ?birthPlace .\r\n OPTIONAL {?violinist wdt:P18 ?pic}\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".}\r\n FILTER regex(str(?pic), \"jpg\").\r\n} \r\nORDER BY ?violinist\r\nLIMIT 10",
             "textsearch": {
@@ -214,7 +214,7 @@
             "operations": [],
             "type": "action",
             "action_title": "Notable works",
-            "action_query": "SELECT DISTINCT ?genre ?genreLabel\r\nWHERE { \r\n  <<item>> wdt:P136 ?genre .\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}",
+            "action_query": "SELECT DISTINCT ?notablework ?notableworkLabel\r\nWHERE { \r\n  <<item>> wdt:P800 ?notablework .\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}",
             "extra_queries": [],
             "map_filters": []
         },
@@ -222,7 +222,7 @@
             "position": 22,
             "operations": [],
             "type": "text",
-            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">Among the violinists who have been mentioned during the course of this research, there is one famous musician that deserves our attention: George Frideric Handel.</span></p>",
+            "text": "<p><span style=\"color: rgb(183, 183, 183); background-color: transparent;\">Among the influential violinists who have been mentioned during the course of this research, there is one famous musician that deserves our attention: George Frideric Handel.</span></p>",
             "extra_queries": [],
             "map_filters": []
         },
