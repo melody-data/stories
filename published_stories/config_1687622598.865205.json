@@ -108,8 +108,8 @@
             "position": 9,
             "operations": [],
             "type": "table",
-            "table_title": "PIAZZA GRANDE",
-            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q634917 wdt:P18 ?image . }",
+            "table_title": "DATES OF BIRTH AND OF DEATH",
+            "table_query": "SELECT DISTINCT ?datebirth ?datebirthLabel ?datedeath ?datedeathLabel WHERE {\r\n  wd:Q167546 wdt:P569 ?datebirth;\r\n    wdt:P570 ?datedeath.\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -117,8 +117,8 @@
             "position": 10,
             "operations": [],
             "type": "table",
-            "table_title": "DATES OF BIRTH AND OF DEATH",
-            "table_query": "SELECT DISTINCT ?datebirth ?datebirthLabel ?datedeath ?datedeathLabel WHERE {\r\n  wd:Q167546 wdt:P569 ?datebirth;\r\n    wdt:P570 ?datedeath.\r\n}\r\n",
+            "table_title": "PIAZZA GRANDE",
+            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q634917 wdt:P18 ?image . }",
             "extra_queries": [],
             "map_filters": []
         }
