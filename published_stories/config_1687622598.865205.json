@@ -99,8 +99,8 @@
             "position": 8,
             "operations": [],
             "type": "map",
-            "map_title": "CEMETERIES IN BOLOGNA",
-            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE { \r\n  ?point wdt:P31 wd:Q39614; wdt:P131 wd:Q1891;\r\n         wdt:P131 ?villeId; p:P625 ?statement.\r\n         ?statement psv:P625 ?node.?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
+            "map_title": "SQUARES IN BOLOGNA",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE { \r\n  ?point wdt:P31 wd:Q174782; wdt:P131 wd:Q1891;\r\n         wdt:P131 ?villeId; p:P625 ?statement.\r\n         ?statement psv:P625 ?node.?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
             "extra_queries": [],
             "map_filters": []
         },
@@ -108,8 +108,8 @@
             "position": 9,
             "operations": [],
             "type": "table",
-            "table_title": "LUCIO DALLA'S GRAVE",
-            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q167546 wdt:P1442 ?image . }",
+            "table_title": "PIAZZA GRANDE",
+            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q634917 wdt:P18 ?image . }",
             "extra_queries": [],
             "map_filters": []
         },
