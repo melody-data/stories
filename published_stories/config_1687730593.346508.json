@@ -129,7 +129,7 @@
             "position": 11,
             "operations": [],
             "type": "table",
-            "table_title": "FOLLOWERS ON SOCIAL MEDIA",
+            "table_title": "FOLLOWERS ON YOUTUBE",
             "table_query": "SELECT DISTINCT ?followers WHERE { wd:Q1056805 wdt:P8687 ?followers . }",
             "extra_queries": [],
             "map_filters": []
