@@ -8,16 +8,16 @@
     ],
     "user_name": "verospena",
     "id": "1688060230.455102",
-    "subtitle": "People, Artists and instrumaents inside the musicBo database ",
+    "subtitle": "People, Artists and instruments inside the musicBo database ",
     "curator": "Alessia Mazza and Veronica Spena",
-    "description": "This story presents the first step of our project. It deals with the exploration of the Musicbo Knowledge database starting from the general concept of people  in the one hand, and of instruments in the other hand. Concerning people,  we than narrowing the research down to the category of artists. By consequence, the  aim of these counters is e to make a comparison between the amount of data present in the database we have used: MusicBo and  WikiData.",
+    "description": "This story presents the first step of our project. It deals with the exploration of the Musicbo Knowledge database starting from the general concept of people  in the one hand, and of instruments in the other hand. Concerning people,  we than narrowed the research down to the category of artists. By consequence, the  aim of these counters is  to make a comparison between the amount of data present in the database we have used: MusicBo and  WikiData.",
     "dynamic_elements": [
         {
             "position": 0,
             "operations": [],
             "type": "count",
             "count_query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\t\r\nSELECT (COUNT(?person) as ?count) \r\nWHERE {\r\n?person rdf:type <http://www.ontologydesignpatterns.org/ont/amr/Person> .\t\r\n?person <http://www.ontologydesignpatterns.org/ont/amr/name> ?label \r\n}  \r\n",
-            "count_label": "Peopl",
+            "count_label": "People",
             "extra_queries": [],
             "map_filters": []
         },
