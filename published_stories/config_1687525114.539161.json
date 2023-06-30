@@ -34,7 +34,7 @@
             "position": 2,
             "operations": [],
             "type": "text",
-            "text": "",
+            "text": "<p>The primacy of ABBA as first most successful Swedish group of all time was retained also during the following decades, even though at the turn of 1980s and 1990s many other Swedish pop bands entered the world music scene and whose songs have become world hits, such as the Roxette (formed in 1986) and the Ace Of Base (formed in 1990).</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -57,7 +57,7 @@
             "position": 4,
             "operations": [],
             "type": "text",
-            "text": "",
+            "text": "<p>The band was formed in 1972 by <strong>Agnetha F\u00e4ltskog</strong>, <strong>Bj\u00f6rn Ulvaeus</strong>, <strong>Benny Andersson</strong>, and <strong>Anni-Frid Lyngstad</strong>. The group's name is an acronym of the first letters of their first names arranged as a palindrome.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -65,7 +65,7 @@
             "position": 5,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "ABBA",
+            "textsearch_userinput": "",
             "textsearch_title": "ABBA",
             "textsearch_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n              ?category wdt:P31 wd:Q105756498 . }\r\n    UNION\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n",
             "textsearch": {
@@ -111,7 +111,7 @@
             "position": 8,
             "operations": [],
             "type": "text",
-            "text": "",
+            "text": "<p>Countless are the songs of the ABBA that got into the hearts of their fans, leaving their indelible imprint to the point of being listened still today, more than forty years later. \u201cDancing Queen\u201d, \u201cMoney, Money, Money\u201d, \u201cVoulez-Vous\u201d, \u201cAngeleyes\u201d are just some of the most beloved titles of the present day.</p>",
             "extra_queries": [],
             "map_filters": []
         },
