@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SSDBXGCXK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-9SSDBXGCXK');
+	</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>
+		MELODY - 
+	</title>
+
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<!-- <link rel="icon" href="static/img/icon.ico" type="image/x-icon" /> -->
+	<link rel="icon" type="image/png" href="static/favicon.png" />
+	<link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+
+	<!-- Fonts and icons -->
+	<script src="static/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: { "families": ["Karla:300,400,700,900"] },
+			custom: {
+				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+				urls: ['static/css/fonts.min.css']
+			},
+			active: function () { sessionStorage.fonts = true; }
+		});
+	</script>
+	<!-- IQuill stylesheet -->
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/atlantis.min.css">
+	<link rel="stylesheet" href="static/css/style.css">
+
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<!-- <link rel="stylesheet" href="/static/css/demo.css"> -->
+
+	<!-- Specific Page CSS goes HERE  -->
+	
+<link rel="stylesheet" href="static/css/templates.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+  <script src="static/js/babel.min.js"></script>
+  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="static/css/MarkerCluster.css">
+  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
+
+  <script type="text/javascript">
+    var datastory_data = {"color_code": ["#14b6c2", "#d27232"], "curator": "Giulia Bergamaschi, Federica Ceccoli", "description": "This project has the aim to investigate the popularity of rock bands and rock singers born in Emilia Romagna. The investigation retrieves information from the Wikidata corpus and takes into account Twitter followers of famous rock singers and rock bands born in the Emilia Romagna region after 1940. Furthermore, the project provides the reader with images, charts, tables and maps in order to better understand the impact and popularity of the most famous rock musicians and bands formed in Emilia Romagna.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003eFirstly, let\u2019s take a look at the number of rock singers born in Emilia Romagna after 1940. Our aim was to investigate the popularity of rock music in Emilia Romagna and their ongoing impact. That is why we decided to rule out singers who were born before 1940. Moreover, we wanted to understand how many singers can be considered to belong to the rock genre according to the Wikidata corpus.\u003c/p\u003e", "type": "text"}, {"count_label": "Rock singers born in Emilia-Romagna (after 1940)", "count_query": "SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279*  wd:Q177220; # singer\r\n          \twdt:P19 ?place; # place of birth: Emilia Romagna\r\n          \twdt:P569 ?birth; # date of birth\r\n      \t\r\n            wdt:P136 wd:Q11399.  # rock musicians\r\n \r\n          \t?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n          \t?province wdt:P131 wd:Q1263.\r\n  \t \r\n          \tFILTER (YEAR(?birth) \u003e 1940)        \t# Filter for birth after 1940\r\n  \t \r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\".\r\n                                 \t} }\r\n\r\n", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "count"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 2, "text": "\u003cp\u003eAs we can see, the Wikidata corpus does not retrieve many rock singers born in Emilia Romagna. Without adding the property \u201csubclass of\u201d Wikidata only finds 8 singers. That is why we thought that by adding said property we would be able to get more results. Unfortunately, if we include other subclasses of \u201csinger\u201d such as \u201csongwriter\u201d or \u201cmusician\u201d we only get 1 more result.\u003c/p\u003e\u003cp\u003eNow let\u2019s observe who are the first 10 rock singers born in Emilia Romagna after 1940, ordered from the oldest to the youngest. This table provides us with the singers\u0027 full name, their birthdate, their birthplace, their sex and, if available, an image of each singer.\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 3, "table_query": "SELECT DISTINCT ?name ?nameLabel ?birth ?birthLabel ?place ?placeLabel ?sex ?sexLabel ?image\r\nWHERE { ?name wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: Emilia Romagna\r\n              wdt:P569 ?birth; # date of birth\r\n              wdt:P21 ?sex;  # sex\r\n              wdt:P136 wd:Q11399.  # rock musicians       \t\r\n              ?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n   \t\r\n              FILTER (YEAR(?birth) \u003e 1940)        \t# Filter for birth after 1940\r\n              OPTIONAL { ?name wdt:P18 ?image . }\r\n              SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } }\r\nORDER BY ?birth LIMIT 10\r\n", "table_title": "List of rock singers born in Emilia Romagna (after 1940)", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 4, "text": "\u003cp\u003eWith this research we wanted to understand who are the 9 rock singers present in the Wikidata corpus. Moreover, we wanted to observe their birthdate, birthplace and sex. We also decided to include an image, if available. One of the most interesting observations we made is the fact that there is only one female singer in this list, Laura Pausini. This highlights the fact that in Emilia Romagna it is easier to find male rather than female rock singers.\u003c/p\u003e\u003cp\u003eNow let\u2019s take a look at a doughnut chart containing the first 7 genres in Emilia Romagna after 1940 according to the number of singers. This query is useful to investigate the impact and popularity of rock music compared to other music genres.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: Emilia Romagna\r\n              wdt:P569 ?birth; # date of birth\r\n           \r\n              wdt:P136 ?genre.  # genre\r\n       \t\r\n              ?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n   \t\r\n              FILTER (YEAR(?birth) \u003e 1940)        \t# Filter for birth after 1940\r\n   \t\r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\".\r\n                                 \t?genre rdfs:label ?label.} }\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 7\r\n", "chart_series": "", "chart_title": "The most popular genres in Emilia Romagna (after 1940)", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 5, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 6, "text": "\u003cp\u003eThe results show us that rock music is not the most popular genre in Emilia Romagna. Pop music is at the top with 23 singers, whereas rock music is actually in second place with only 9 singers. What is interesting is the fact that the third most popular genre is opera music (6 singers). In fact, this genre seems to be even more popular than pop rock music (only 1 singer), according to the Wikidata corpus.\u003c/p\u003e\u003cp\u003eAfter focusing mainly on rock singers, let\u2019s take a look at a list of rock bands formed in Emilia Romagna (after 1940). This research provides us with the name of the band, its date and city of formation and, if available, an image of the band.\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 7, "table_query": "SELECT DISTINCT ?name ?nameLabel ?birth ?birthLabel ?city ?cityLabel ?image\r\nWHERE { ?name wdt:P31 wd:Q215380; # musical group\r\n\t                \t \r\n \t               \t wdt:P571 ?birth; # date of birth\r\n\t                \t wdt:P740 ?city;  # city of formation\r\n    \t\twdt:P495 wd:Q38;  # country of origin is Italy\r\n \t               \t wdt:P136/wdt:P279* wd:Q11399. # genre rock music\r\n                               \t \r\n \t               \t ?city wdt:P131 ?province.    \t                \t # Located in Emilia Romagna\r\n \t               \t ?province wdt:P131 wd:Q1263.\r\n\t                \t \r\n \t               \t OPTIONAL { ?name wdt:P18 ?image . }\r\n \t               \t SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } }\r\nORDER BY ?birth LIMIT 50\r\n\r\n", "table_title": "Rock bands formed in Emilia Romagna (after 1940)", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 8, "text": "\u003cp\u003eThe results show us that there are more rock bands (21) than rock singers (9) according to the Wikidata corpus. Moreover, more than half of them were formed in Bologna.\u003c/p\u003e\u003cp\u003eNow we aim at showing in which city rock singers and rock bands were born. Indeed, we want to verify which is the province with the highest number of rock artists and which is the one with the lowest.\u0026nbsp;\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{\r\n  {\r\n  ?point wdt:P31 wd:Q215380; # musical group\r\n  wdt:P495 wd:Q38;  # country of origin is Italy\r\n  wdt:P136/wdt:P279* wd:Q11399; # genre rock music\r\n  wdt:P740 ?villeId.  # city of formation\r\n \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n  }\r\n  UNION\r\n  {\r\n  ?point wdt:P106/wdt:P279* wd:Q177220; # singer\r\n  wdt:P19 ?villeId; # place of birth\r\n  wdt:P136 wd:Q11399.  # rock musicians    \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n \r\n  }\r\n \r\n  ?villeId p:P625 ?statement.\r\n \r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n\r\n", "map_title": "Rock singers and rock bands in Emilia Romagna", "operations": [], "position": 9, "type": "map"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 10, "text": "\u003cp\u003eAs we can state from our results there are 2 rock artists in the province of Piacenza, 5 in the province of Parma, 4 in the province of Reggio Emilia, 6 in the province of Modena, 14 in the province of Bologna, 1 in the province of Ravenna, 1 in the province of Forl\u00ec-Cesena and 1 in the province of Rimini. Therefore, Bologna is the province with the highest number of rock singers and groups in Emilia-Romagna. On the other hand, Rimini is the province with the lowest number of rock artists.\u003c/p\u003e\u003cp\u003eNow let\u2019s focus on their Twitter followers. First of all, we\u2019ve decided to take a look at the number of Twitter followers of rock singers born in Emilia-Romagna after 1940. Then, we\u2019ve decided to compare the previous results with the number of Twitter followers of rock bands born in Emilia-Romagna after 1940. We want to verify if rock singers actually have more followers than rock bands since rock bands tend to be more world famous than singers.\u003c/p\u003e", "type": "text"}, {"count_label": "Twitter followers of rock singers from Emilia Romagna", "count_query": "SELECT (SUM(?followers) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: emilia romagna \r\n              wdt:P569 ?birth; # date of birth\r\n             \r\n              wdt:P136 wd:Q11399.  # rock musicians\r\n           \r\n              ?place wdt:P131 ?province.                 # Located in Emilia-Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n       \r\n              FILTER (YEAR(?birth) \u003e 1940)            # Filter for birth after 1940\r\n             OPTIONAL {?item wdt:P8687 ?followers.} \r\n              \r\n              SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } }\r\nLIMIT 100\r\n", "extra_queries": [], "map_filters": [], "operations": [], "position": 11, "type": "count"}, {"count_label": "Twitter followers of rock bands from Emilia Romagna", "count_query": "SELECT (SUM(?followers) AS ?count)\r\nWHERE { ?item wdt:P31/wdt:P279* wd:Q215380; # musical group\r\n   \t\t \r\n\t\t\t  wdt:P571 ?birth; # date of birth\r\n\t\t\t  wdt:P740 ?city;  # city of formation\r\n   \t\t wdt:P495 wd:Q38;  # country of origin is Italy\r\n\t\t\t  wdt:P136/wdt:P279* wd:Q11399. # genre rock music (and all subgenre of it)\r\n          \t\t\t \r\n\t\t\t  ?city wdt:P131 ?province.   \t\t\t  # located in Emilia Romagna\r\n\t\t\t  ?province wdt:P131 wd:Q1263.\r\n\r\n         \tOPTIONAL {?item wdt:P8687 ?followers.}\r\n         \t \r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } }\r\nLIMIT 100\r\n", "extra_queries": [], "map_filters": [], "operations": [], "position": 12, "type": "count"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 13, "text": "\u003cp\u003eThe results show us that Twitter followers of rock singers are 787.933. Therefore, rock singers have more Twitter followers than rock bands. This result is surprising due to the fact that rock bands are usually more well-known than singers and when we think about rock music in general, bands are the first to come to mind.\u0026nbsp;\u003c/p\u003e\u003cp\u003eLastly, let\u2019s take a look at a barchart showing us who are the singers and bands with the highest number of followers on Twitter.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "Rock singer or rock band from Emilia Romagna", "y": "Number of followers on Twitter"}, "chart_query": "SELECT ?label (SUM(?followers) AS ?count)\r\nWHERE {\r\n   {\r\n  ?item wdt:P31 wd:Q215380; # musical group\r\n  wdt:P495 wd:Q38;  # country of origin is Italy\r\n  wdt:P8687 ?followers;\r\n  wdt:P136/wdt:P279* wd:Q11399; # genre rock music\r\n  wdt:P740 ?villeId.  # city of formation\r\n \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n\r\n  }\r\n  UNION\r\n  {\r\n  ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n  wdt:P19 ?villeId; # place of birth\r\n  wdt:P8687 ?followers;\r\n  wdt:P136 wd:Q11399.  # rock musicians    \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n  }\r\n \r\n \r\n  ?item rdfs:label ?label .\r\n  FILTER(lang(?label) = \"en\")\r\n  }\r\n\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n", "chart_series": "Followers", "chart_title": "Top 10 most followed bands and singers from Emilia Romagna on Twitter", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 14, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 15, "text": "\u003cp\u003eLuciano Ligabue appears to be the most followed artist on Twitter in Emilia-Romagna. Besides, the second one is Laura Pausini. The former is a rock singer, meanwhile the latter belongs to the music genre pop-rock that is a subcategory of rock music. Vasco Rossi is the third artist mentioned, although there is a significant difference in the number of followers between him and Laura Pausini. The remaining artists are presented in the following order: Zucchero, Neck, Pooh, Lo Stato Sociale, Helia, Marta sui Tubi and Alessandro Cortini. The presence of Laura Pausini as the only female singer in the above-mentioned chart is noteworthy since we tend to believe that there are more male rock artists than female. Furthermore, four out of ten names are male bands, that are Pooh, Lo Stato Sociale, Helia and Marta sui Tubi. Lastly, Alessandro Corsini is the only composer and music producer present in the chart.\u003c/p\u003e", "type": "text"}], "id": "1688112091.78641", "sparql_endpoint": "https://query.wikidata.org/sparql", "subtitle": "An investigation on who are the most famous rock singers and rock bands from Emilia Romagna", "template_mode": "statistics", "title": "The Popularity of Rock Music in Emilia-Romagna", "user_name": "uniboITS"};
+  </script>
+
+
+</head>
+
+<body data-background-color="dark">
+	<div class="wrapper">
+
+		<div class="main-header">
+
+	<!-- Logo Header -->
+	<div class="logo-header" data-background-color="dark2">
+
+		<a href="/melody/" class="logo">MELODY</a>
+		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+			data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">
+				<i class="icon-menu"></i>
+			</span>
+		</button>
+		<div class="nav-toggle">
+			<button class="btn btn-toggle toggle-sidebar">
+				<i class="icon-menu"></i>
+			</button>
+		</div>
+	</div>
+	<!-- End Logo Header -->
+
+	<!-- Navbar Header -->
+	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
+
+		<div class="container">
+			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Create a story
+					</a>
+				</li>
+				
+				<li class="nav-item">
+					
+					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Sign in
+					</a>
+					
+				</li>
+
+			</ul>
+		</div>
+
+
+	</nav>
+
+	<!-- End Navbar -->
+</div>
+
+		<!-- Sidebar -->
+<div class="sidebar sidebar-style-2" data-background-color="dark2">
+	<div class="sidebar-wrapper scrollbar scrollbar-inner">
+		<div class="sidebar-content">
+			<ul class="nav nav-primary">
+				
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
+						<p>Bells</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu1">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
+									<!-- href="/overview_of_bells_in_liguria"> -->
+									Overview of bells in Liguria
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
+						<p>choco</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu2">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
+									<!-- href="/chord_corpus_statistics"> -->
+									Chord Corpus Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
+						<p>fonn</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu3">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
+									<!-- href="/frequently_occurring_patterns"> -->
+									Frequently Occurring Patterns 
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/tune_families_in_the_session_and_mtcann">
+									<!-- href="/tune_families_in_the_session_and_mtcann"> -->
+									Tune families in The Session and MTC-ANN
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg">
+									<!-- href="/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg"> -->
+									Statistics on The Session (annotated subset) and Meertens Tune Collections (MTC-ANN) Pattern KG
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
+						<p>MusicBo</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu4">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
+									<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
+									Music in Bologna - Knowledge Graph Overview
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
+						<p>musoW</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu5">
+						<ul class="nav nav-collapse">
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
+									<!-- href="/discover_music_data_on_the_web"> -->
+									Discover music data on the Web
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu6" aria-expanded="true">
+						<p>organs</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu6">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/organs/organs_statistics">
+									<!-- href="/organs_statistics"> -->
+									ORGANS Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
+						<p>Sound and Vision</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu7">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
+									<!-- href="/dutch_broadcast_concert_collection"> -->
+									Dutch Broadcast Concert Collection
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
+						<p>Tonalities</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu8">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tonalities/tonalities">
+									<!-- href="/tonalities"> -->
+									Tonalities 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
+						<p>tunes</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu9">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tunes/tunes_statistics">
+									<!-- href="/tunes_statistics"> -->
+									Tunes Statistics
+								</a>
+								
+								
+								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
+									<!-- href="/explore_similarity_relations_among_songs"> -->
+									Explore similarity relations among songs
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
+						<p>wikidata</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu10">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_museums">
+									<!-- href="/relations_between_museums"> -->
+									Relations between museums
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_music_bands_an_exploration">
+									<!-- href="/relations_between_music_bands_an_exploration"> -->
+									Relations between music bands - An exploration
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/mapping_us_recording_studios">
+									<!-- href="/mapping_us_recording_studios"> -->
+									Mapping US Recording Studios
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/through_the_prism_of_diversity">
+									<!-- href="/through_the_prism_of_diversity"> -->
+									Through the Prism of Diversity
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Sidebar -->
+
+		<div class="main-panel">
+
+			
+
+<div class="content row datastorypage" id="dwn">
+  <section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
+  <section id="secondarymenuinner" class="secondarymenuinner">
+
+    <h4>About this story</h4>
+    
+    <p>Authors: Giulia Bergamaschi, Federica Ceccoli </p>
+    
+    
+
+    <p>Source: <a href="https://query.wikidata.org/sparql">SPARQL endpoint</a></p>
+    <p>Export</p>
+    <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
+    <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
+        download="The Popularity of Rock Music in Emilia-Romagna.html">HTML</a></button>
+    <button class="exportbutton" type="button">
+      <a href="#" data-toggle="modal" data-target="#queryModal"
+        id="sparqlQuery">JSON</a></button>
+
+    <!-- publish button -->
+    
+    <!-- modify button -->
+    
+  </section>
+
+  <div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
+    aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card">
+        <div class="modal-header">
+          <h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;The Popularity of Rock Music in Emilia-Romagna&#39;, &#39;color_code&#39;: [&#39;#14b6c2&#39;, &#39;#d27232&#39;], &#39;user_name&#39;: &#39;uniboITS&#39;, &#39;id&#39;: &#39;1688112091.78641&#39;, &#39;subtitle&#39;: &#39;An investigation on who are the most famous rock singers and rock bands from Emilia Romagna&#39;, &#39;curator&#39;: &#39;Giulia Bergamaschi, Federica Ceccoli&#39;, &#39;description&#39;: &#39;This project has the aim to investigate the popularity of rock bands and rock singers born in Emilia Romagna. The investigation retrieves information from the Wikidata corpus and takes into account Twitter followers of famous rock singers and rock bands born in the Emilia Romagna region after 1940. Furthermore, the project provides the reader with images, charts, tables and maps in order to better understand the impact and popularity of the most famous rock musicians and bands formed in Emilia Romagna.&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;Firstly, let’s take a look at the number of rock singers born in Emilia Romagna after 1940. Our aim was to investigate the popularity of rock music in Emilia Romagna and their ongoing impact. That is why we decided to rule out singers who were born before 1940. Moreover, we wanted to understand how many singers can be considered to belong to the rock genre according to the Wikidata corpus.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279*  wd:Q177220; # singer\r\n          \twdt:P19 ?place; # place of birth: Emilia Romagna\r\n          \twdt:P569 ?birth; # date of birth\r\n      \t\r\n            wdt:P136 wd:Q11399.  # rock musicians\r\n \r\n          \t?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n          \t?province wdt:P131 wd:Q1263.\r\n  \t \r\n          \tFILTER (YEAR(?birth) &gt; 1940)        \t# Filter for birth after 1940\r\n  \t \r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;.\r\n                                 \t} }\r\n\r\n&#39;, &#39;count_label&#39;: &#39;Rock singers born in Emilia-Romagna (after 1940)&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#34;&lt;p&gt;As we can see, the Wikidata corpus does not retrieve many rock singers born in Emilia Romagna. Without adding the property “subclass of” Wikidata only finds 8 singers. That is why we thought that by adding said property we would be able to get more results. Unfortunately, if we include other subclasses of “singer” such as “songwriter” or “musician” we only get 1 more result.&lt;/p&gt;&lt;p&gt;Now let’s observe who are the first 10 rock singers born in Emilia Romagna after 1940, ordered from the oldest to the youngest. This table provides us with the singers&#39; full name, their birthdate, their birthplace, their sex and, if available, an image of each singer.&lt;/p&gt;&#34;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;List of rock singers born in Emilia Romagna (after 1940)&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?name ?nameLabel ?birth ?birthLabel ?place ?placeLabel ?sex ?sexLabel ?image\r\nWHERE { ?name wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: Emilia Romagna\r\n              wdt:P569 ?birth; # date of birth\r\n              wdt:P21 ?sex;  # sex\r\n              wdt:P136 wd:Q11399.  # rock musicians       \t\r\n              ?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n   \t\r\n              FILTER (YEAR(?birth) &gt; 1940)        \t# Filter for birth after 1940\r\n              OPTIONAL { ?name wdt:P18 ?image . }\r\n              SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;. } }\r\nORDER BY ?birth LIMIT 10\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;With this research we wanted to understand who are the 9 rock singers present in the Wikidata corpus. Moreover, we wanted to observe their birthdate, birthplace and sex. We also decided to include an image, if available. One of the most interesting observations we made is the fact that there is only one female singer in this list, Laura Pausini. This highlights the fact that in Emilia Romagna it is easier to find male rather than female rock singers.&lt;/p&gt;&lt;p&gt;Now let’s take a look at a doughnut chart containing the first 7 genres in Emilia Romagna after 1940 according to the number of singers. This query is useful to investigate the impact and popularity of rock music compared to other music genres.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;The most popular genres in Emilia Romagna (after 1940)&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: Emilia Romagna\r\n              wdt:P569 ?birth; # date of birth\r\n           \r\n              wdt:P136 ?genre.  # genre\r\n       \t\r\n              ?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n   \t\r\n              FILTER (YEAR(?birth) &gt; 1940)        \t# Filter for birth after 1940\r\n   \t\r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;.\r\n                                 \t?genre rdfs:label ?label.} }\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 7\r\n&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;The results show us that rock music is not the most popular genre in Emilia Romagna. Pop music is at the top with 23 singers, whereas rock music is actually in second place with only 9 singers. What is interesting is the fact that the third most popular genre is opera music (6 singers). In fact, this genre seems to be even more popular than pop rock music (only 1 singer), according to the Wikidata corpus.&lt;/p&gt;&lt;p&gt;After focusing mainly on rock singers, let’s take a look at a list of rock bands formed in Emilia Romagna (after 1940). This research provides us with the name of the band, its date and city of formation and, if available, an image of the band.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 7, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;Rock bands formed in Emilia Romagna (after 1940)&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?name ?nameLabel ?birth ?birthLabel ?city ?cityLabel ?image\r\nWHERE { ?name wdt:P31 wd:Q215380; # musical group\r\n\t                \t \r\n \t               \t wdt:P571 ?birth; # date of birth\r\n\t                \t wdt:P740 ?city;  # city of formation\r\n    \t\twdt:P495 wd:Q38;  # country of origin is Italy\r\n \t               \t wdt:P136/wdt:P279* wd:Q11399. # genre rock music\r\n                               \t \r\n \t               \t ?city wdt:P131 ?province.    \t                \t # Located in Emilia Romagna\r\n \t               \t ?province wdt:P131 wd:Q1263.\r\n\t                \t \r\n \t               \t OPTIONAL { ?name wdt:P18 ?image . }\r\n \t               \t SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;. } }\r\nORDER BY ?birth LIMIT 50\r\n\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 8, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;The results show us that there are more rock bands (21) than rock singers (9) according to the Wikidata corpus. Moreover, more than half of them were formed in Bologna.&lt;/p&gt;&lt;p&gt;Now we aim at showing in which city rock singers and rock bands were born. Indeed, we want to verify which is the province with the highest number of rock artists and which is the one with the lowest.&amp;nbsp;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 9, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;Rock singers and rock bands in Emilia Romagna&#39;, &#39;map_points_query&#39;: &#39;SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{\r\n  {\r\n  ?point wdt:P31 wd:Q215380; # musical group\r\n  wdt:P495 wd:Q38;  # country of origin is Italy\r\n  wdt:P136/wdt:P279* wd:Q11399; # genre rock music\r\n  wdt:P740 ?villeId.  # city of formation\r\n \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n  }\r\n  UNION\r\n  {\r\n  ?point wdt:P106/wdt:P279* wd:Q177220; # singer\r\n  wdt:P19 ?villeId; # place of birth\r\n  wdt:P136 wd:Q11399.  # rock musicians    \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n \r\n  }\r\n \r\n  ?villeId p:P625 ?statement.\r\n \r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;en&#34;. }\r\n}\r\n\r\n&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 10, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;As we can state from our results there are 2 rock artists in the province of Piacenza, 5 in the province of Parma, 4 in the province of Reggio Emilia, 6 in the province of Modena, 14 in the province of Bologna, 1 in the province of Ravenna, 1 in the province of Forlì-Cesena and 1 in the province of Rimini. Therefore, Bologna is the province with the highest number of rock singers and groups in Emilia-Romagna. On the other hand, Rimini is the province with the lowest number of rock artists.&lt;/p&gt;&lt;p&gt;Now let’s focus on their Twitter followers. First of all, we’ve decided to take a look at the number of Twitter followers of rock singers born in Emilia-Romagna after 1940. Then, we’ve decided to compare the previous results with the number of Twitter followers of rock bands born in Emilia-Romagna after 1940. We want to verify if rock singers actually have more followers than rock bands since rock bands tend to be more world famous than singers.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 11, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (SUM(?followers) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: emilia romagna \r\n              wdt:P569 ?birth; # date of birth\r\n             \r\n              wdt:P136 wd:Q11399.  # rock musicians\r\n           \r\n              ?place wdt:P131 ?province.                 # Located in Emilia-Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n       \r\n              FILTER (YEAR(?birth) &gt; 1940)            # Filter for birth after 1940\r\n             OPTIONAL {?item wdt:P8687 ?followers.} \r\n              \r\n              SERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;. } }\r\nLIMIT 100\r\n&#39;, &#39;count_label&#39;: &#39;Twitter followers of rock singers from Emilia Romagna&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 12, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (SUM(?followers) AS ?count)\r\nWHERE { ?item wdt:P31/wdt:P279* wd:Q215380; # musical group\r\n   \t\t \r\n\t\t\t  wdt:P571 ?birth; # date of birth\r\n\t\t\t  wdt:P740 ?city;  # city of formation\r\n   \t\t wdt:P495 wd:Q38;  # country of origin is Italy\r\n\t\t\t  wdt:P136/wdt:P279* wd:Q11399. # genre rock music (and all subgenre of it)\r\n          \t\t\t \r\n\t\t\t  ?city wdt:P131 ?province.   \t\t\t  # located in Emilia Romagna\r\n\t\t\t  ?province wdt:P131 wd:Q1263.\r\n\r\n         \tOPTIONAL {?item wdt:P8687 ?followers.}\r\n         \t \r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language &#34;[AUTO_LANGUAGE],en&#34;. } }\r\nLIMIT 100\r\n&#39;, &#39;count_label&#39;: &#39;Twitter followers of rock bands from Emilia Romagna&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 13, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;The results show us that Twitter followers of rock singers are 787.933. Therefore, rock singers have more Twitter followers than rock bands. This result is surprising due to the fact that rock bands are usually more well-known than singers and when we think about rock music in general, bands are the first to come to mind.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Lastly, let’s take a look at a barchart showing us who are the singers and bands with the highest number of followers on Twitter.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 14, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Top 10 most followed bands and singers from Emilia Romagna on Twitter&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (SUM(?followers) AS ?count)\r\nWHERE {\r\n   {\r\n  ?item wdt:P31 wd:Q215380; # musical group\r\n  wdt:P495 wd:Q38;  # country of origin is Italy\r\n  wdt:P8687 ?followers;\r\n  wdt:P136/wdt:P279* wd:Q11399; # genre rock music\r\n  wdt:P740 ?villeId.  # city of formation\r\n \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n\r\n  }\r\n  UNION\r\n  {\r\n  ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n  wdt:P19 ?villeId; # place of birth\r\n  wdt:P8687 ?followers;\r\n  wdt:P136 wd:Q11399.  # rock musicians    \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n  }\r\n \r\n \r\n  ?item rdfs:label ?label .\r\n  FILTER(lang(?label) = &#34;en&#34;)\r\n  }\r\n\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n&#39;, &#39;chart_series&#39;: &#39;Followers&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;Rock singer or rock band from Emilia Romagna&#39;, &#39;y&#39;: &#39;Number of followers on Twitter&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 15, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;Luciano Ligabue appears to be the most followed artist on Twitter in Emilia-Romagna. Besides, the second one is Laura Pausini. The former is a rock singer, meanwhile the latter belongs to the music genre pop-rock that is a subcategory of rock music. Vasco Rossi is the third artist mentioned, although there is a significant difference in the number of followers between him and Laura Pausini. The remaining artists are presented in the following order: Zucchero, Neck, Pooh, Lo Stato Sociale, Helia, Marta sui Tubi and Alessandro Cortini. The presence of Laura Pausini as the only female singer in the above-mentioned chart is noteworthy since we tend to believe that there are more male rock artists than female. Furthermore, four out of ten names are male bands, that are Pooh, Lo Stato Sociale, Helia and Marta sui Tubi. Lastly, Alessandro Corsini is the only composer and music producer present in the chart.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
+    <div class="page-inner py-5">
+      <div class="align-items-left align-items-md-center flex-column flex-md-row">
+
+          <h1 class="text-white pb-2 fw-bold">The Popularity of Rock Music in Emilia-Romagna</h1>
+
+<h2 class="text-white op-7 mb-2">
+  An investigation on who are the most famous rock singers and rock bands from Emilia Romagna
+</h2>
+
+
+<p class="card-category">
+  This project has the aim to investigate the popularity of rock bands and rock singers born in Emilia Romagna. The investigation retrieves information from the Wikidata corpus and takes into account Twitter followers of famous rock singers and rock bands born in the Emilia Romagna region after 1940. Furthermore, the project provides the reader with images, charts, tables and maps in order to better understand the impact and popularity of the most famous rock musicians and bands formed in Emilia Romagna.
+</p>
+
+          <span id='loader' class='lds-dual-ring hidden overlay'></span>
+          <div id="sortable"></div>
+          <script src="static/js/react/Error.js" type="text/babel"></script>
+          <script src="static/js/react/Map.js" type="text/babel"></script>
+          <script src="static/js/react/Table.js" type="text/babel"></script>
+          <script src="static/js/react/Chart.js" type="text/babel"></script>
+          <script src="static/js/react/Textbox.js" type="text/babel"></script>
+          <script src="static/js/react/Count.js" type="text/babel"></script>
+          <script src="static/js/react/Action.js" type="text/babel"></script>
+          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+          <script src="static/js/react/add_components.js" type="text/babel"></script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+			<footer class="footer">
+	<div class="container-fluid d-flex align-items-start">
+		<div class="p-2 col-md-3">
+			<h6>MELODY</h6>
+			<p><a target="_blank" href="/melody">Home</a></p>
+			<p><a target="_blank" href="/melody/asklogin">Create a story</a></p>
+			<p><a target="_blank" href="https://melody-data.github.io/stories/#catalogue">Data stories' catalaogue</a>
+			</p>
+		</div>
+		<div class="p-2 col-md-3">
+			<h6>Links</h6>
+			<p>Read the <a href="https://polifonia-project.github.io/dashboard/" target="_blank">documentation</a></p>
+			<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
+			<p>Theme <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+					Flask Atlantis Dark
+				</a></p>
+		</div>
+
+		<div class="copyright ml-auto p-2 col-md-4">
+			<p>MELODY is part of</p>
+			<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
+			<p>Polifonia has received funding from the European Union’s Horizon 2020 research
+				and innovation programme under grant agreement N. 101004746</p>
+		</div>
+	</div>
+</footer>
+
+		</div>
+
+	</div>
+
+	<!--   Core JS Files   -->
+<script src="static/js/core/jquery.3.2.1.min.js"></script>
+<script src="static/js/core/popper.min.js"></script>
+<script src="static/js/core/bootstrap.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+<!-- Chart JS -->
+<script src="static/js/plugin/chart.js/chart.min.js"></script>
+
+<!-- Import D3 Scale Chromatic via CDN -->
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!-- jQuery Sparkline -->
+<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Chart Circle -->
+<script src="static/js/plugin/chart-circle/circles.min.js"></script>
+
+<!-- Datatables -->
+<script src="static/js/plugin/datatables/datatables.min.js"></script>
+
+<!-- Bootstrap Notify -->
+<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<!-- jQuery Vector Maps -->
+<script src="static/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+<!-- Sweet Alert -->
+<script src="static/js/plugin/sweetalert/sweetalert.min.js "></script>
+
+<!-- Atlantis JS -->
+<script src="static/js/atlantis.min.js"></script>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+<script type="text/javascript" src="static/js/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="static/js/leaflet-sidebar.js"></script>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+	<!-- utils js -->
+	<!-- <script src="static/js/utils.js" type="module"></script> -->
+
+	<script src="static/js/main.js"></script>
+
+	
+	<script>
+		overwriteCSS();
+	</script>
+	
+
+	<!-- Specific Page JS goes HERE  -->
+	
+<script type="text/javascript">
+  $('footer').detach();
+</script>
+
+<script>
+  let hostname = window.location.hostname;
+  if (!hostname.includes('github')) {
+    let beforeUnloadAlert = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!beforeUnloadAlert) return;
+
+      // etc
+      e.preventDefault();
+      e.returnValue = '';
+    });
+
+    function myFunction() {
+      beforeUnloadAlert = false;
+    }
+    var myObj = document.getElementsByClassName('prevent_alert')
+    console.log(myObj);
+    for (el of myObj) {
+      el.addEventListener('click', myFunction);
+    }
+  }
+</script>
+
+
+
+</body>
+
+</html>
