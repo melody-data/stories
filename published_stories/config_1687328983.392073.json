@@ -16,7 +16,7 @@
             "position": 0,
             "operations": [],
             "type": "text",
-            "text": "<pre class=\"ql-syntax\" spellcheck=\"false\">The cultural phenomenon of the 27 Club\r\nA sense of unease surrounds the history of the so-called 27 Club, a group of young talented musicians, mainly rockstars, who are united by a sudden and premature death. We all know the most famous of them: Kurt Cobain, lead singer of Nirvana who committed suicide, Jim Morrison, frontman of The Doors who died of an overdose, as well as Amy Winehouse and Janis Joplin, Brian Jones and Jimi Hendrix. But there are more of them. It would therefore be interesting to look into this creepy Club, that has now turned into a cultural phenomenon.\r\n</pre>",
+            "text": "<h1>The cultural phenomenon of the 27 Club</h1><p>A sense of unease surrounds the history of the so-called 27 Club, a group of young talented musicians, mainly rockstars, who are united by a sudden and premature death. We all know the most famous of them: Kurt Cobain, lead singer of Nirvana who committed suicide, Jim Morrison, frontman of The Doors who died of an overdose, as well as Amy Winehouse and Janis Joplin, Brian Jones and Jimi Hendrix. But there are more of them. It would be therefore interesting to look into this creepy Club, that has now turned into a cultural phenomenon, in order to know more about its members.</p><p>If you want to have more details about the 27 Club, please click <a href=\"https://en.wikipedia.org/wiki/27_Club\" target=\"_blank\">here</a>.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -35,8 +35,15 @@
             "type": "map",
             "map_title": "Origins of the 27 Club members",
             "map_points_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT DISTINCT ?point ?pointLabel ?countryLabel ?lat ?long\r\nWHERE {\r\n?point wdt:P463 wd:Q326461 .\r\n?point wdt:P27 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
-            "extra_queries": [],
-            "map_filters": []
+            "map_filters": [
+                {
+                    "map_filter_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT DISTINCT ?point ?filter ?filterLabel\r\nWHERE {\r\n?point wdt:P463 wd:Q326461 .\r\n?point wdt:P19 ?filter. ?filter rdfs:label ?filterLabel .\r\nFILTER(LANG(?filterLabel) = '' || LANGMATCHES(LANG(?filterLabel), 'en')). }\r\n",
+                    "extra_id": "1688136201126_0",
+                    "position": 0,
+                    "map_filter_title": "27 Club members' city of birth"
+                }
+            ],
+            "extra_queries": []
         },
         {
             "position": 3,
@@ -71,7 +78,7 @@
             "type": "chart",
             "chart_type": "linechart",
             "chart_title": "27 Club members' start career",
-            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT  ?label ?count\r\nWHERE {\r\n  ?singer wdt:P2031 ?count . \r\n  ?singer wdt:P463 wd:Q326461\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?singer rdfs:label         ?label.\r\n      }\r\n\r\n}\r\n\r\nORDER BY DESC(?count)\r\n",
+            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count) \r\nWHERE {?singer wdt:P463 wd:Q326461. \r\n  ?singer wdt:P2031 ?date. \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?singer rdfs:label         ?label.\r\n      }\r\n\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY DESC(?label) \r\nLIMIT 20\r\n\r\n",
             "chart_series": "Start career",
             "chart_legend": {
                 "x": "Members",
@@ -99,9 +106,65 @@
             "position": 8,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "Kurt Cobain",
+            "textsearch_userinput": "",
             "textsearch_title": "27 Club members",
             "textsearch_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT DISTINCT ?singer ?singerLabel  ?genre ?genreLabel  ?voice ?voiceLabel ?band ?bandLabel    WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search \"kurt cobain\"\r\n                     ;\r\n                      mwapi:language \"en\".\r\n      ?singer wikibase:apiOutputItem mwapi:item.\r\n  }\r\n\r\n   {?singer wdt:P31 wd:Q5; wdt:P136 ?genre .\r\n    ?singer wdt:P31 wd:Q5; wdt:P412 ?voice .\r\n\r\n              ?category wdt:P31 wd:Q177220 . \r\n  \r\n    \r\n   }\r\n   OPTIONAL {?singer wdt:P463 ?band .}\r\n     \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\n",
+            "textsearch": {
+                "band": [
+                    "Band's members"
+                ],
+                "singer": [
+                    "Albums & Songs"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "action",
+            "action_title": "Band's members",
+            "action_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT DISTINCT ?member ?memberLabel \r\nWHERE { \r\n  <<item>> wdt:P527 ?member . \r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "action",
+            "action_title": "Albums & Songs",
+            "action_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT DISTINCT ?album ?albumLabel ?song ?songLabel\r\nWHERE { \r\n <<item>> wdt:P800 ?album .\r\n              \r\nOPTIONAL { ?song wdt:P361 ?album. }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nORDER BY ?albumLabel\r\nLIMIT 50\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "linechart",
+            "chart_title": "27 Club members' end activity",
+            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count) \r\nWHERE {?singer wdt:P463 wd:Q326461. \r\n  ?singer wdt:P2032 ?date. \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?singer rdfs:label         ?label.\r\n      }\r\n\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY DESC(?label) \r\nLIMIT 20\r\n",
+            "chart_series": "End year",
+            "chart_legend": {
+                "x": "Years",
+                "y": "Members"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "27 Club members' death years",
+            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?singer wdt:P463 wd:Q326461 .  \r\n     \r\n     ?singer wdt:P570 ?date .        \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?singer rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 20\r\n",
+            "chart_series": "Death year",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
             "extra_queries": [],
             "map_filters": []
         }
