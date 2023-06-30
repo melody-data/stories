@@ -118,7 +118,7 @@
             "operations": [],
             "type": "table",
             "table_title": "PIAZZA GRANDE",
-            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q634917 wdt:P18 ?image . }",
+            "table_query": "SELECT DISTINCT ?image WHERE { wd:Q106223357 wdt:P18 ?image . }",
             "extra_queries": [],
             "map_filters": []
         }
