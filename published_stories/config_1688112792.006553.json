@@ -1,0 +1,143 @@
+{
+    "sparql_endpoint": "https://dbpedia.org/sparql",
+    "template_mode": "statistics",
+    "title": "Popularity of Musical Artists from Emilia-Romagna",
+    "color_code": [
+        "#ff6250",
+        "#00a1d8"
+    ],
+    "user_name": "uniboITS",
+    "id": "1688112792.006553",
+    "subtitle": "An investigation on how much Wikipedia can tell us about the popularity of musical artists born in Emilia-Romagna",
+    "curator": "Greta Roana, Silvia Bellavite",
+    "description": "This project aims to explore the potential of Wikipedia as a reliable source for understanding the popularity and impact of musical artists born in the Emilia-Romagna region. Wikipedia has emerged as a significant platform for documenting and disseminating information on various topics, including the arts and entertainment industry. By analysing the content and metrics associated with Emilia-Romagna-born musicians' Wikipedia pages, this investigation seeks to evaluate the extent to which Wikipedia reflects the popularity and influence of these artists.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(204, 204, 204);\">First of all, let's have a look at the </span><strong style=\"color: rgb(217, 217, 217);\">list of musical artists from Emilia-Romagna</strong><span style=\"color: rgb(204, 204, 204);\">. Below is a partial list of the musical artists that Emilia-Romagna has given us, taken from </span><strong style=\"color: rgb(217, 217, 217);\">DBpedia</strong><span style=\"color: rgb(204, 204, 204);\"> and arranged chronologically by year of birth. Look at the table to discover their places of birth, the exact dates of birth and to see the reference images.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "table",
+            "table_title": "List of musical artists born in Emilia-Romagna",
+            "table_query": "SELECT DISTINCT ?singer ?singerLabel ?birthPlace ?birthPlaceLabel ?birthDate (SAMPLE(?image) AS ?sampleImage) # to extract just one image\r\nWHERE {\r\n?singer rdf:type dbo:MusicalArtist ; # Musical artists\r\n?placeProperty ?birthPlace ;\r\ndbo:birthDate ?birthDate ;\r\nrdfs:label ?singerLabel.\r\n?birthPlace dbo:subdivision dbr:Emilia-Romagna ; # birthPlace is in Emilia Romagna\r\nrdfs:label ?birthPlaceLabel.\r\nFILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\nFILTER (langMatches(lang(?singerLabel), \"en\")) # just English language\r\nFILTER (langMatches(lang(?birthPlaceLabel), \"en\")) # just English language\r\nOPTIONAL { ?singer foaf:depiction ?image }\r\n}\r\nORDER BY ?birthDate\r\nLIMIT 12",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(204, 204, 204);\">The DBpedia database</span><strong style=\"color: rgb(204, 204, 204);\"> </strong><span style=\"color: rgb(204, 204, 204);\">provides the </span><strong style=\"color: rgb(217, 217, 217);\">length of the corresponding Wikipedia page</strong><strong style=\"color: rgb(204, 204, 204);\"> </strong><span style=\"color: rgb(204, 204, 204);\">for each artist. Therefore, we wonder whether this length might be a good indicator of the level of popularity of the musical artist abroad. Indeed, the Wikipedia pages considered are in English. Below we provide the ranking of the TOP 10 artists according to the number of characters on the corresponding Wikipedia page.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Top 10 artists by number of characters on Wikipedia \u201cEN\u201d pages",
+            "chart_query": "SELECT ?label (SUM(?length) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n      \t?placeProperty ?birthPlace ;\r\n      \trdfs:label ?singerLabel;\r\n      \tdbo:wikiPageLength   ?length.   # Length of wikipedia page of the artist\r\n  ?birthPlace dbo:subdivision  dbr:Emilia-Romagna .   \t# birthPlace is in Emilia Romagna\r\n\r\n   FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown)       \t# birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\n  FILTER(lang(?label) = \"en\")\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\n LIMIT 10",
+            "chart_series": "characters",
+            "chart_legend": {
+                "x": "Musical artists",
+                "y": "Wikipedia page length"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(204, 204, 204);\">The results show that </span><strong style=\"color: rgb(217, 217, 217);\">Raffaella Carr\u00e0</strong><strong style=\"color: rgb(204, 204, 204);\"> </strong><span style=\"color: rgb(204, 204, 204);\">has the longest and most detailed Wikipedia page, by a considerable margin over all the others. In fact, the number of characters on her page is more than double that of the second artist on the list, the singer Nek. While Raffaella Carr\u00e0's popularity is unquestionable, as she is internationally loved, it is plausible to speculate that other factors, such as the fact that her life is already over, explain the data obtained.</span></p><p><span style=\"color: rgb(204, 204, 204);\">Let's now explore another possible measure of artists' popularity by looking at which musical artists have the </span><strong style=\"color: rgb(217, 217, 217);\">highest number of mentions</strong><strong style=\"color: rgb(204, 204, 204);\"> </strong><span style=\"color: rgb(204, 204, 204);\">(always accompanied by a hyperlink) </span><strong style=\"color: rgb(217, 217, 217);\">on Wikipedia</strong><span style=\"color: rgb(204, 204, 204);\">. Below is the ranking of the TOP 10 artists based on this new criterion.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Top 10 musical artists by number of mentions on other Wikipedia \u201cEN\u201d pages ",
+            "chart_query": "SELECT ?label (COUNT(?linkedPages) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n      \t?placeProperty ?birthPlace ;\r\n      \trdfs:label ?singerLabel.\r\n  ?linkedPages dbo:wikiPageWikiLink ?singer.\r\n  ?birthPlace dbo:subdivision  dbr:Emilia-Romagna .   \t# birthPlace is in Emilia Romagna\r\n\r\n   FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown)       \t# birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\n  FILTER(lang(?label) = \"en\")\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\n LIMIT 10",
+            "chart_series": "link",
+            "chart_legend": {
+                "x": "musical artists",
+                "y": "number of links"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(204, 204, 204);\">We observe a clear difference with the results of the previous query. </span><strong style=\"color: rgb(217, 217, 217);\">Lucio Dalla</strong><span style=\"color: rgb(204, 204, 204);\"> is now the most cited Emilian musical artist on other Wikipedia pages. This may suggest the fact that Lucio Dalla participated in more cultural events than other Emilian artists.</span></p><p><span style=\"color: rgb(204, 204, 204);\">Knowing the prestige and popularity of the Sanremo Festival in Italy, we will check the number of times Dalla has been cited on the </span><strong style=\"color: rgb(217, 217, 217);\">Wikipedia pages of Sanremo Festivals</strong><span style=\"color: rgb(204, 204, 204);\"> over the years and compare it with the number of times Carr\u00e0 has been cited on the same pages.</span></p><p><span style=\"color: rgb(204, 204, 204);\">Of course, it has to be taken into account that Dalla participated in the Sanremo Festival six times, while Carr\u00e0 only took part in it three times.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE {\r\n  ?item rdf:type dbo:SocietalEvent ;  \t# societal Event\r\n    \tdbo:wikiPageWikiLink ?link;    \r\n    \trdfs:label ?label .\r\n  ?link rdfs:label \"Lucio Dalla\"@en.\r\n  FILTER (regex(?label, \"Sanremo Music Festival.*\", \"i\"))\r\n}",
+            "count_label": "Lucio Dalla mentions in Sanremo Festival Wikipedia pages",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE {\r\n  ?item rdf:type dbo:SocietalEvent ;  \t# societal Event\r\n    \tdbo:wikiPageWikiLink ?link;    \r\n    \trdfs:label ?label .\r\n  ?link rdfs:label \"Raffaella Carr\u00e0\"@en.\r\n  FILTER (regex(?label, \"Sanremo Music Festival.*\", \"i\"))\r\n}",
+            "count_label": "Raffaella Carr\u00e0 mentions in Sanremo Festival Wikipedia pages",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "text",
+            "text": "<p><span style=\"color: rgb(204, 204, 204);\">To conclude the research, we looked at the popularity of other Italian singers, this time </span><strong style=\"color: rgb(217, 217, 217);\"><em>not</em></strong><span style=\"color: rgb(204, 204, 204);\"> born in Emilia-Romagna. The aim was to compare the new data with the previous results obtained specifically for this region, in order to obtain a </span><strong style=\"color: rgb(217, 217, 217);\">more complete assessment</strong><span style=\"color: rgb(217, 217, 217);\"> </span><span style=\"color: rgb(204, 204, 204);\">of the popularity of the musical artists and its correlation with the number of online mentions.</span></p><p><span style=\"color: rgb(204, 204, 204);\">For this reason, the number of mentions of other Italian musical artists in Wikipedia is reported below, as well as the length of their own Wikipedia pages in terms of number of characters.</span></p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Top 10 italian musical artists by number of mentions on other Wikipedia \u201cEN\u201d pages",
+            "chart_query": "SELECT ?label (COUNT(?linkedPages) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n\t\t  ?placeProperty ?birthPlace ;\r\n                   dbo:birthDate ?birthDate ;\r\n\t\t  rdfs:label ?singerLabel.\r\n  ?linkedPages dbo:wikiPageWikiLink ?singer.\r\n  ?birthPlace dbo:subdivision  ?region ;   # birthPlace is italy but not in Emilia Romagna\r\n            \trdfs:label ?birthPlaceLabel.\r\n  ?region dbo:country ?state.\r\n  ?state rdfs:label \"Italy\"@en.\r\n\t \r\n  FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) \t\t  # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\nFILTER (YEAR(?birthDate) > 1930)            # Filter for birth after 1930\r\nFILTER(lang(?label) = \"en\")\r\nFILTER (langMatches(lang(?birthPlaceLabel), \"en\"))           \t\t # just English language\r\n}\r\nORDER BY DESC(?count)\r\nLIMIT 12",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Top 10 italian musical artists by length of their corrispective Wikipedia \u201cEN\u201d page",
+            "chart_query": "SELECT ?label (SUM(?length) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n\t\t  ?placeProperty ?birthPlace ;\r\n                   dbo:birthDate ?birthDate ;\r\n\t\t  rdfs:label ?singerLabel;\r\n                  dbo:wikiPageLength ?length.   # Length of wikipedia page of the artist\r\n  ?birthPlace dbo:subdivision  ?region ;   # birthPlace is italy but not in Emilia Romagna\r\n            \trdfs:label ?birthPlaceLabel.\r\n  ?region dbo:country ?state.\r\n  ?state rdfs:label \"Italy\"@en.\r\n\t \r\n  FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) \t\t  # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\nFILTER (YEAR(?birthDate) > 1930)            # Filter for birth after 1930\r\nFILTER(lang(?label) = \"en\")\r\nFILTER (langMatches(lang(?birthPlaceLabel), \"en\"))           \t\t # just English language\r\n}\r\nORDER BY DESC(?count)\r\nLIMIT 12",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
