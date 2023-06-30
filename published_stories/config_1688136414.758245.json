@@ -149,8 +149,8 @@
             "position": 13,
             "operations": [],
             "type": "table",
-            "table_title": "Some songs",
-            "table_query": "SELECT DISTINCT ?song ?songLabel (YEAR(xsd:dateTime(?publicationDate)) AS ?publication)\r\nWHERE {\r\n  ?song wdt:P175 wd:Q45188;\r\n        wdt:P407 wd:Q1860.\r\n  ?song wdt:P577 ?publicationDate.\r\n  \r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n  }\r\n}\r\nORDER BY ASC(?publicationDate)\r\nLIMIT 10",
+            "table_title": "Top songs",
+            "table_query": "SELECT ?work ?workLabel\r\nWHERE {\r\n  wd:Q45188 wdt:P800 ?work.\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n    ?work rdfs:label ?workLabel.\r\n  }\r\n}\r\n",
             "extra_queries": [],
             "map_filters": []
         },
