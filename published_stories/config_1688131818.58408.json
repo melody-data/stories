@@ -1,0 +1,131 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "ABBA - An Overview",
+    "color_code": [
+        "#b932c3",
+        "#2317cf"
+    ],
+    "user_name": "Carmela-Saracino",
+    "id": "1688131818.58408",
+    "subtitle": "An overview of the most popular pop band of all times.",
+    "curator": "Carmela Saracino, Fabiana Cei",
+    "description": "This story will explore one of the most successful pop music groups of all times: the ABBA. Even though the formation of the Swedish band dates back to fifty years ago, their resonance is still alive in the present day, since they left an indelible trace in the worldwide music culture thanks to their lively pieces of work and their unique style. No other could take over ABBA\u2019s role in shaping the pop music we listen and love today, and it\u2019s not hard to think that their legacy will continue for years to come.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q34 . # from sweden\r\n}\r\n",
+            "count_label": "Swedish Bands ",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "map",
+            "map_title": "Country of origin of ABBA",
+            "map_points_query": "SELECT DISTINCT ?countryLabel ?lat ?long\r\nWHERE {\r\nwd:Q18233 wdt:P495 ?country .\r\n?country p:P625 ?statement .  \r\n?statement psv:P625 ?node. ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?long.\r\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Swedish Bands over the Years",
+            "chart_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # musical group\r\n     ?band wdt:P495 wd:Q34 . # from sweden\r\n     ?band wdt:P2031 ?date . # formation year         \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label ?label.\r\n      }\r\n\r\n}\r\n\r\nGROUP BY ?count ?date\r\nORDER BY ?label\r\nLIMIT 50\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Year",
+                "y": "Number of Bands per Year"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "",
+            "textsearch_title": "ABBA",
+            "textsearch_query": "SELECT DISTINCT ?band ?bandLabel ?category ?categoryLabel ?country ?countryLabel WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>;\r\n                      mwapi:language \"en\".\r\n      ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  {\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n              ?category wdt:P31 wd:Q105756498 . }\r\n    UNION\r\n   {?band wdt:P31 ?category ; wdt:P495 ?country .\r\n    ?category wdt:P279 wd:Q2088357 }\r\n   }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}  LIMIT 10\r\n\r\n",
+            "textsearch": {
+                "band": [
+                    "Show Members",
+                    "Show Music Genres"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show Members",
+            "action_query": "SELECT DISTINCT ?member ?memberLabel ?image\r\nWHERE { \r\n  <<item>> wdt:P527 ?member . \r\n OPTIONAL { ?member wdt:P18 ?image . }\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "action",
+            "action_title": "Show Music Genres",
+            "action_query": "SELECT DISTINCT ?genre ?genreLabel\r\nWHERE { \r\n  <<item>> wdt:P136 ?genre .\r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nLIMIT 20\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "table",
+            "table_title": "First 20 Songs by ABBA",
+            "table_query": "SELECT DISTINCT ?song ?songLabel (year(xsd:dateTime(?publicationDate)) as ?publication) WHERE { ?song wdt:P175 wd:Q18233 ; wdt:P407 wd:Q1860 . ?song wdt:P577 ?publicationDate . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } ORDER BY ?publicationDate LIMIT 20\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Instruments played by ABBA",
+            "chart_query": "SELECT (?instrumentLabel AS ?label) (COUNT(?member) AS ?count) \r\nWHERE { \r\n  wd:Q18233 wdt:P527 ?member. \r\n  ?member wdt:P1303 ?instrument. \r\n  ?instrument rdfs:label ?instrumentLabel. \r\nFILTER (lang(?instrumentLabel) = \"en\"). }\r\nGROUP BY ?instrument ?instrumentLabel \r\nORDER BY DESC(?count)\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
