@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SSDBXGCXK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-9SSDBXGCXK');
+	</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>
+		MELODY - 
+	</title>
+
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<!-- <link rel="icon" href="static/img/icon.ico" type="image/x-icon" /> -->
+	<link rel="icon" type="image/png" href="static/favicon.png" />
+	<link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+
+	<!-- Fonts and icons -->
+	<script src="static/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: { "families": ["Karla:300,400,700,900"] },
+			custom: {
+				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+				urls: ['static/css/fonts.min.css']
+			},
+			active: function () { sessionStorage.fonts = true; }
+		});
+	</script>
+	<!-- IQuill stylesheet -->
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/atlantis.min.css">
+	<link rel="stylesheet" href="static/css/style.css">
+
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<!-- <link rel="stylesheet" href="/static/css/demo.css"> -->
+
+	<!-- Specific Page CSS goes HERE  -->
+	
+<link rel="stylesheet" href="static/css/templates.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+  <script src="static/js/babel.min.js"></script>
+  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="static/css/MarkerCluster.css">
+  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
+
+  <script type="text/javascript">
+    var datastory_data = {"color_code": ["#ff6250", "#00a1d8"], "curator": "Greta Roana, Silvia Bellavite", "description": "This project aims to explore the potential of Wikipedia as a reliable source for understanding the popularity and impact of musical artists born in the Emilia-Romagna region. Wikipedia has emerged as a significant platform for documenting and disseminating information on various topics, including the arts and entertainment industry. By analysing the content and metrics associated with Emilia-Romagna-born musicians\u0027 Wikipedia pages, this investigation seeks to evaluate the extent to which Wikipedia reflects the popularity and influence of these artists.", "dynamic_elements": [{"extra_queries": [], "map_filters": [], "operations": [], "position": 0, "text": "\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eFirst of all, let\u0027s have a look at the \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003elist of musical artists from Emilia-Romagna\u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003e. Below is a partial list of the musical artists that Emilia-Romagna has given us, taken from \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003eDBpedia\u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003e and arranged chronologically by year of birth. Look at the table to discover their places of birth, the exact dates of birth and to see the reference images.\u003c/span\u003e\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 1, "table_query": "SELECT DISTINCT ?singer ?singerLabel ?birthPlace ?birthPlaceLabel ?birthDate (SAMPLE(?image) AS ?sampleImage) # to extract just one image\r\nWHERE {\r\n?singer rdf:type dbo:MusicalArtist ; # Musical artists\r\n?placeProperty ?birthPlace ;\r\ndbo:birthDate ?birthDate ;\r\nrdfs:label ?singerLabel.\r\n?birthPlace dbo:subdivision dbr:Emilia-Romagna ; # birthPlace is in Emilia Romagna\r\nrdfs:label ?birthPlaceLabel.\r\nFILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\nFILTER (langMatches(lang(?singerLabel), \"en\")) # just English language\r\nFILTER (langMatches(lang(?birthPlaceLabel), \"en\")) # just English language\r\nOPTIONAL { ?singer foaf:depiction ?image }\r\n}\r\nORDER BY ?birthDate\r\nLIMIT 12", "table_title": "List of musical artists born in Emilia-Romagna", "type": "table"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 2, "text": "\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eThe DBpedia database\u003c/span\u003e\u003cstrong style=\"color: rgb(204, 204, 204);\"\u003e \u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eprovides the \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003elength of the corresponding Wikipedia page\u003c/strong\u003e\u003cstrong style=\"color: rgb(204, 204, 204);\"\u003e \u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003efor each artist. Therefore, we wonder whether this length might be a good indicator of the level of popularity of the musical artist abroad. Indeed, the Wikipedia pages considered are in English. Below we provide the ranking of the TOP 10 artists according to the number of characters on the corresponding Wikipedia page.\u003c/span\u003e\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "Musical artists", "y": "Wikipedia page length"}, "chart_query": "SELECT ?label (SUM(?length) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n      \t?placeProperty ?birthPlace ;\r\n      \trdfs:label ?singerLabel;\r\n      \tdbo:wikiPageLength   ?length.   # Length of wikipedia page of the artist\r\n  ?birthPlace dbo:subdivision  dbr:Emilia-Romagna .   \t# birthPlace is in Emilia Romagna\r\n\r\n   FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown)       \t# birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\n  FILTER(lang(?label) = \"en\")\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\n LIMIT 10", "chart_series": "characters", "chart_title": "Top 10 artists by number of characters on Wikipedia \u201cEN\u201d pages", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 3, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 4, "text": "\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eThe results show that \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003eRaffaella Carr\u00e0\u003c/strong\u003e\u003cstrong style=\"color: rgb(204, 204, 204);\"\u003e \u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003ehas the longest and most detailed Wikipedia page, by a considerable margin over all the others. In fact, the number of characters on her page is more than double that of the second artist on the list, the singer Nek. While Raffaella Carr\u00e0\u0027s popularity is unquestionable, as she is internationally loved, it is plausible to speculate that other factors, such as the fact that her life is already over, explain the data obtained.\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eLet\u0027s now explore another possible measure of artists\u0027 popularity by looking at which musical artists have the \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003ehighest number of mentions\u003c/strong\u003e\u003cstrong style=\"color: rgb(204, 204, 204);\"\u003e \u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003e(always accompanied by a hyperlink) \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003eon Wikipedia\u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003e. Below is the ranking of the TOP 10 artists based on this new criterion.\u003c/span\u003e\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "musical artists", "y": "number of links"}, "chart_query": "SELECT ?label (COUNT(?linkedPages) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n      \t?placeProperty ?birthPlace ;\r\n      \trdfs:label ?singerLabel.\r\n  ?linkedPages dbo:wikiPageWikiLink ?singer.\r\n  ?birthPlace dbo:subdivision  dbr:Emilia-Romagna .   \t# birthPlace is in Emilia Romagna\r\n\r\n   FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown)       \t# birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\n  FILTER(lang(?label) = \"en\")\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\n LIMIT 10", "chart_series": "link", "chart_title": "Top 10 musical artists by number of mentions on other Wikipedia \u201cEN\u201d pages ", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 5, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 6, "text": "\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eWe observe a clear difference with the results of the previous query. \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003eLucio Dalla\u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003e is now the most cited Emilian musical artist on other Wikipedia pages. This may suggest the fact that Lucio Dalla participated in more cultural events than other Emilian artists.\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eKnowing the prestige and popularity of the Sanremo Festival in Italy, we will check the number of times Dalla has been cited on the \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003eWikipedia pages of Sanremo Festivals\u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003e over the years and compare it with the number of times Carr\u00e0 has been cited on the same pages.\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eOf course, it has to be taken into account that Dalla participated in the Sanremo Festival six times, while Carr\u00e0 only took part in it three times.\u003c/span\u003e\u003c/p\u003e", "type": "text"}, {"count_label": "Lucio Dalla mentions in Sanremo Festival Wikipedia pages", "count_query": "SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE {\r\n  ?item rdf:type dbo:SocietalEvent ;  \t# societal Event\r\n    \tdbo:wikiPageWikiLink ?link;    \r\n    \trdfs:label ?label .\r\n  ?link rdfs:label \"Lucio Dalla\"@en.\r\n  FILTER (regex(?label, \"Sanremo Music Festival.*\", \"i\"))\r\n}", "extra_queries": [], "map_filters": [], "operations": [], "position": 7, "type": "count"}, {"count_label": "Raffaella Carr\u00e0 mentions in Sanremo Festival Wikipedia pages", "count_query": "SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE {\r\n  ?item rdf:type dbo:SocietalEvent ;  \t# societal Event\r\n    \tdbo:wikiPageWikiLink ?link;    \r\n    \trdfs:label ?label .\r\n  ?link rdfs:label \"Raffaella Carr\u00e0\"@en.\r\n  FILTER (regex(?label, \"Sanremo Music Festival.*\", \"i\"))\r\n}", "extra_queries": [], "map_filters": [], "operations": [], "position": 8, "type": "count"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 9, "text": "\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eTo conclude the research, we looked at the popularity of other Italian singers, this time \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003e\u003cem\u003enot\u003c/em\u003e\u003c/strong\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003e born in Emilia-Romagna. The aim was to compare the new data with the previous results obtained specifically for this region, in order to obtain a \u003c/span\u003e\u003cstrong style=\"color: rgb(217, 217, 217);\"\u003emore complete assessment\u003c/strong\u003e\u003cspan style=\"color: rgb(217, 217, 217);\"\u003e \u003c/span\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eof the popularity of the musical artists and its correlation with the number of online mentions.\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"color: rgb(204, 204, 204);\"\u003eFor this reason, the number of mentions of other Italian musical artists in Wikipedia is reported below, as well as the length of their own Wikipedia pages in terms of number of characters.\u003c/span\u003e\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label (COUNT(?linkedPages) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n\t\t  ?placeProperty ?birthPlace ;\r\n                   dbo:birthDate ?birthDate ;\r\n\t\t  rdfs:label ?singerLabel.\r\n  ?linkedPages dbo:wikiPageWikiLink ?singer.\r\n  ?birthPlace dbo:subdivision  ?region ;   # birthPlace is italy but not in Emilia Romagna\r\n            \trdfs:label ?birthPlaceLabel.\r\n  ?region dbo:country ?state.\r\n  ?state rdfs:label \"Italy\"@en.\r\n\t \r\n  FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) \t\t  # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\nFILTER (YEAR(?birthDate) \u003e 1930)            # Filter for birth after 1930\r\nFILTER(lang(?label) = \"en\")\r\nFILTER (langMatches(lang(?birthPlaceLabel), \"en\"))           \t\t # just English language\r\n}\r\nORDER BY DESC(?count)\r\nLIMIT 12", "chart_series": "", "chart_title": "Top 10 italian musical artists by number of mentions on other Wikipedia \u201cEN\u201d pages", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 10, "type": "chart"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label (SUM(?length) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n\t\t  ?placeProperty ?birthPlace ;\r\n                   dbo:birthDate ?birthDate ;\r\n\t\t  rdfs:label ?singerLabel;\r\n                  dbo:wikiPageLength ?length.   # Length of wikipedia page of the artist\r\n  ?birthPlace dbo:subdivision  ?region ;   # birthPlace is italy but not in Emilia Romagna\r\n            \trdfs:label ?birthPlaceLabel.\r\n  ?region dbo:country ?state.\r\n  ?state rdfs:label \"Italy\"@en.\r\n\t \r\n  FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) \t\t  # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\nFILTER (YEAR(?birthDate) \u003e 1930)            # Filter for birth after 1930\r\nFILTER(lang(?label) = \"en\")\r\nFILTER (langMatches(lang(?birthPlaceLabel), \"en\"))           \t\t # just English language\r\n}\r\nORDER BY DESC(?count)\r\nLIMIT 12", "chart_series": "", "chart_title": "Top 10 italian musical artists by length of their corrispective Wikipedia \u201cEN\u201d page", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 11, "type": "chart"}], "id": "1688112792.006553", "sparql_endpoint": "https://dbpedia.org/sparql", "subtitle": "An investigation on how much Wikipedia can tell us about the popularity of musical artists born in Emilia-Romagna", "template_mode": "statistics", "title": "Popularity of Musical Artists from Emilia-Romagna", "user_name": "uniboITS"};
+  </script>
+
+
+</head>
+
+<body data-background-color="dark">
+	<div class="wrapper">
+
+		<div class="main-header">
+
+	<!-- Logo Header -->
+	<div class="logo-header" data-background-color="dark2">
+
+		<a href="/melody/" class="logo">MELODY</a>
+		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+			data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">
+				<i class="icon-menu"></i>
+			</span>
+		</button>
+		<div class="nav-toggle">
+			<button class="btn btn-toggle toggle-sidebar">
+				<i class="icon-menu"></i>
+			</button>
+		</div>
+	</div>
+	<!-- End Logo Header -->
+
+	<!-- Navbar Header -->
+	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
+
+		<div class="container">
+			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Create a story
+					</a>
+				</li>
+				
+				<li class="nav-item">
+					
+					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Sign in
+					</a>
+					
+				</li>
+
+			</ul>
+		</div>
+
+
+	</nav>
+
+	<!-- End Navbar -->
+</div>
+
+		<!-- Sidebar -->
+<div class="sidebar sidebar-style-2" data-background-color="dark2">
+	<div class="sidebar-wrapper scrollbar scrollbar-inner">
+		<div class="sidebar-content">
+			<ul class="nav nav-primary">
+				
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
+						<p>Bells</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu1">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
+									<!-- href="/overview_of_bells_in_liguria"> -->
+									Overview of bells in Liguria
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
+						<p>choco</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu2">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
+									<!-- href="/chord_corpus_statistics"> -->
+									Chord Corpus Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
+						<p>fonn</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu3">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
+									<!-- href="/frequently_occurring_patterns"> -->
+									Frequently Occurring Patterns 
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/tune_families_in_the_session_and_mtcann">
+									<!-- href="/tune_families_in_the_session_and_mtcann"> -->
+									Tune families in The Session and MTC-ANN
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg">
+									<!-- href="/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg"> -->
+									Statistics on The Session (annotated subset) and Meertens Tune Collections (MTC-ANN) Pattern KG
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
+						<p>MusicBo</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu4">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
+									<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
+									Music in Bologna - Knowledge Graph Overview
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
+						<p>musoW</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu5">
+						<ul class="nav nav-collapse">
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
+									<!-- href="/discover_music_data_on_the_web"> -->
+									Discover music data on the Web
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu6" aria-expanded="true">
+						<p>organs</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu6">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/organs/organs_statistics">
+									<!-- href="/organs_statistics"> -->
+									ORGANS Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
+						<p>Sound and Vision</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu7">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
+									<!-- href="/dutch_broadcast_concert_collection"> -->
+									Dutch Broadcast Concert Collection
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
+						<p>Tonalities</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu8">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tonalities/tonalities">
+									<!-- href="/tonalities"> -->
+									Tonalities 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
+						<p>tunes</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu9">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tunes/tunes_statistics">
+									<!-- href="/tunes_statistics"> -->
+									Tunes Statistics
+								</a>
+								
+								
+								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
+									<!-- href="/explore_similarity_relations_among_songs"> -->
+									Explore similarity relations among songs
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
+						<p>wikidata</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu10">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_museums">
+									<!-- href="/relations_between_museums"> -->
+									Relations between museums
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_music_bands_an_exploration">
+									<!-- href="/relations_between_music_bands_an_exploration"> -->
+									Relations between music bands - An exploration
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/mapping_us_recording_studios">
+									<!-- href="/mapping_us_recording_studios"> -->
+									Mapping US Recording Studios
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/through_the_prism_of_diversity">
+									<!-- href="/through_the_prism_of_diversity"> -->
+									Through the Prism of Diversity
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Sidebar -->
+
+		<div class="main-panel">
+
+			
+
+<div class="content row datastorypage" id="dwn">
+  <section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
+  <section id="secondarymenuinner" class="secondarymenuinner">
+
+    <h4>About this story</h4>
+    
+    <p>Authors: Greta Roana, Silvia Bellavite </p>
+    
+    
+
+    <p>Source: <a href="https://dbpedia.org/sparql">SPARQL endpoint</a></p>
+    <p>Export</p>
+    <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
+    <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
+        download="Popularity of Musical Artists from Emilia-Romagna.html">HTML</a></button>
+    <button class="exportbutton" type="button">
+      <a href="#" data-toggle="modal" data-target="#queryModal"
+        id="sparqlQuery">JSON</a></button>
+
+    <!-- publish button -->
+    
+    <!-- modify button -->
+    
+  </section>
+
+  <div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
+    aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card">
+        <div class="modal-header">
+          <h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://dbpedia.org/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;Popularity of Musical Artists from Emilia-Romagna&#39;, &#39;color_code&#39;: [&#39;#ff6250&#39;, &#39;#00a1d8&#39;], &#39;user_name&#39;: &#39;uniboITS&#39;, &#39;id&#39;: &#39;1688112792.006553&#39;, &#39;subtitle&#39;: &#39;An investigation on how much Wikipedia can tell us about the popularity of musical artists born in Emilia-Romagna&#39;, &#39;curator&#39;: &#39;Greta Roana, Silvia Bellavite&#39;, &#39;description&#39;: &#34;This project aims to explore the potential of Wikipedia as a reliable source for understanding the popularity and impact of musical artists born in the Emilia-Romagna region. Wikipedia has emerged as a significant platform for documenting and disseminating information on various topics, including the arts and entertainment industry. By analysing the content and metrics associated with Emilia-Romagna-born musicians&#39; Wikipedia pages, this investigation seeks to evaluate the extent to which Wikipedia reflects the popularity and influence of these artists.&#34;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;First of all, let\&#39;s have a look at the &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;list of musical artists from Emilia-Romagna&lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;. Below is a partial list of the musical artists that Emilia-Romagna has given us, taken from &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;DBpedia&lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt; and arranged chronologically by year of birth. Look at the table to discover their places of birth, the exact dates of birth and to see the reference images.&lt;/span&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;table&#39;, &#39;table_title&#39;: &#39;List of musical artists born in Emilia-Romagna&#39;, &#39;table_query&#39;: &#39;SELECT DISTINCT ?singer ?singerLabel ?birthPlace ?birthPlaceLabel ?birthDate (SAMPLE(?image) AS ?sampleImage) # to extract just one image\r\nWHERE {\r\n?singer rdf:type dbo:MusicalArtist ; # Musical artists\r\n?placeProperty ?birthPlace ;\r\ndbo:birthDate ?birthDate ;\r\nrdfs:label ?singerLabel.\r\n?birthPlace dbo:subdivision dbr:Emilia-Romagna ; # birthPlace is in Emilia Romagna\r\nrdfs:label ?birthPlaceLabel.\r\nFILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\nFILTER (langMatches(lang(?singerLabel), &#34;en&#34;)) # just English language\r\nFILTER (langMatches(lang(?birthPlaceLabel), &#34;en&#34;)) # just English language\r\nOPTIONAL { ?singer foaf:depiction ?image }\r\n}\r\nORDER BY ?birthDate\r\nLIMIT 12&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;The DBpedia database&lt;/span&gt;&lt;strong style=&#34;color: rgb(204, 204, 204);&#34;&gt; &lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;provides the &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;length of the corresponding Wikipedia page&lt;/strong&gt;&lt;strong style=&#34;color: rgb(204, 204, 204);&#34;&gt; &lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;for each artist. Therefore, we wonder whether this length might be a good indicator of the level of popularity of the musical artist abroad. Indeed, the Wikipedia pages considered are in English. Below we provide the ranking of the TOP 10 artists according to the number of characters on the corresponding Wikipedia page.&lt;/span&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Top 10 artists by number of characters on Wikipedia “EN” pages&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (SUM(?length) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n      \t?placeProperty ?birthPlace ;\r\n      \trdfs:label ?singerLabel;\r\n      \tdbo:wikiPageLength   ?length.   # Length of wikipedia page of the artist\r\n  ?birthPlace dbo:subdivision  dbr:Emilia-Romagna .   \t# birthPlace is in Emilia Romagna\r\n\r\n   FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown)       \t# birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\n  FILTER(lang(?label) = &#34;en&#34;)\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\n LIMIT 10&#39;, &#39;chart_series&#39;: &#39;characters&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;Musical artists&#39;, &#39;y&#39;: &#39;Wikipedia page length&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;The results show that &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;Raffaella Carrà&lt;/strong&gt;&lt;strong style=&#34;color: rgb(204, 204, 204);&#34;&gt; &lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;has the longest and most detailed Wikipedia page, by a considerable margin over all the others. In fact, the number of characters on her page is more than double that of the second artist on the list, the singer Nek. While Raffaella Carrà\&#39;s popularity is unquestionable, as she is internationally loved, it is plausible to speculate that other factors, such as the fact that her life is already over, explain the data obtained.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;Let\&#39;s now explore another possible measure of artists\&#39; popularity by looking at which musical artists have the &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;highest number of mentions&lt;/strong&gt;&lt;strong style=&#34;color: rgb(204, 204, 204);&#34;&gt; &lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;(always accompanied by a hyperlink) &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;on Wikipedia&lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;. Below is the ranking of the TOP 10 artists based on this new criterion.&lt;/span&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Top 10 musical artists by number of mentions on other Wikipedia “EN” pages &#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(?linkedPages) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n      \t?placeProperty ?birthPlace ;\r\n      \trdfs:label ?singerLabel.\r\n  ?linkedPages dbo:wikiPageWikiLink ?singer.\r\n  ?birthPlace dbo:subdivision  dbr:Emilia-Romagna .   \t# birthPlace is in Emilia Romagna\r\n\r\n   FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown)       \t# birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\n  FILTER(lang(?label) = &#34;en&#34;)\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\n LIMIT 10&#39;, &#39;chart_series&#39;: &#39;link&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;musical artists&#39;, &#39;y&#39;: &#39;number of links&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;We observe a clear difference with the results of the previous query. &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;Lucio Dalla&lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt; is now the most cited Emilian musical artist on other Wikipedia pages. This may suggest the fact that Lucio Dalla participated in more cultural events than other Emilian artists.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;Knowing the prestige and popularity of the Sanremo Festival in Italy, we will check the number of times Dalla has been cited on the &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;Wikipedia pages of Sanremo Festivals&lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt; over the years and compare it with the number of times Carrà has been cited on the same pages.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;Of course, it has to be taken into account that Dalla participated in the Sanremo Festival six times, while Carrà only took part in it three times.&lt;/span&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 7, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE {\r\n  ?item rdf:type dbo:SocietalEvent ;  \t# societal Event\r\n    \tdbo:wikiPageWikiLink ?link;    \r\n    \trdfs:label ?label .\r\n  ?link rdfs:label &#34;Lucio Dalla&#34;@en.\r\n  FILTER (regex(?label, &#34;Sanremo Music Festival.*&#34;, &#34;i&#34;))\r\n}&#39;, &#39;count_label&#39;: &#39;Lucio Dalla mentions in Sanremo Festival Wikipedia pages&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 8, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE {\r\n  ?item rdf:type dbo:SocietalEvent ;  \t# societal Event\r\n    \tdbo:wikiPageWikiLink ?link;    \r\n    \trdfs:label ?label .\r\n  ?link rdfs:label &#34;Raffaella Carrà&#34;@en.\r\n  FILTER (regex(?label, &#34;Sanremo Music Festival.*&#34;, &#34;i&#34;))\r\n}&#39;, &#39;count_label&#39;: &#39;Raffaella Carrà mentions in Sanremo Festival Wikipedia pages&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 9, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;To conclude the research, we looked at the popularity of other Italian singers, this time &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;&lt;em&gt;not&lt;/em&gt;&lt;/strong&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt; born in Emilia-Romagna. The aim was to compare the new data with the previous results obtained specifically for this region, in order to obtain a &lt;/span&gt;&lt;strong style=&#34;color: rgb(217, 217, 217);&#34;&gt;more complete assessment&lt;/strong&gt;&lt;span style=&#34;color: rgb(217, 217, 217);&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;of the popularity of the musical artists and its correlation with the number of online mentions.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&#34;color: rgb(204, 204, 204);&#34;&gt;For this reason, the number of mentions of other Italian musical artists in Wikipedia is reported below, as well as the length of their own Wikipedia pages in terms of number of characters.&lt;/span&gt;&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 10, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Top 10 italian musical artists by number of mentions on other Wikipedia “EN” pages&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(?linkedPages) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n\t\t  ?placeProperty ?birthPlace ;\r\n                   dbo:birthDate ?birthDate ;\r\n\t\t  rdfs:label ?singerLabel.\r\n  ?linkedPages dbo:wikiPageWikiLink ?singer.\r\n  ?birthPlace dbo:subdivision  ?region ;   # birthPlace is italy but not in Emilia Romagna\r\n            \trdfs:label ?birthPlaceLabel.\r\n  ?region dbo:country ?state.\r\n  ?state rdfs:label &#34;Italy&#34;@en.\r\n\t \r\n  FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) \t\t  # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\nFILTER (YEAR(?birthDate) &gt; 1930)            # Filter for birth after 1930\r\nFILTER(lang(?label) = &#34;en&#34;)\r\nFILTER (langMatches(lang(?birthPlaceLabel), &#34;en&#34;))           \t\t # just English language\r\n}\r\nORDER BY DESC(?count)\r\nLIMIT 12&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 11, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Top 10 italian musical artists by length of their corrispective Wikipedia “EN” page&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (SUM(?length) AS ?count)\r\nWHERE {\r\n  ?singer rdf:type dbo:MusicalArtist ;   # Musical artists\r\n\t\t  ?placeProperty ?birthPlace ;\r\n                   dbo:birthDate ?birthDate ;\r\n\t\t  rdfs:label ?singerLabel;\r\n                  dbo:wikiPageLength ?length.   # Length of wikipedia page of the artist\r\n  ?birthPlace dbo:subdivision  ?region ;   # birthPlace is italy but not in Emilia Romagna\r\n            \trdfs:label ?birthPlaceLabel.\r\n  ?region dbo:country ?state.\r\n  ?state rdfs:label &#34;Italy&#34;@en.\r\n\t \r\n  FILTER (?placeProperty = dbo:birthPlace || ?placeProperty = dbo:hometown) \t\t  # birthPlace is object of property dbo:birthPlace or dbo:hometown\r\n  ?singer rdfs:label ?label .\r\nFILTER (YEAR(?birthDate) &gt; 1930)            # Filter for birth after 1930\r\nFILTER(lang(?label) = &#34;en&#34;)\r\nFILTER (langMatches(lang(?birthPlaceLabel), &#34;en&#34;))           \t\t # just English language\r\n}\r\nORDER BY DESC(?count)\r\nLIMIT 12&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
+    <div class="page-inner py-5">
+      <div class="align-items-left align-items-md-center flex-column flex-md-row">
+
+          <h1 class="text-white pb-2 fw-bold">Popularity of Musical Artists from Emilia-Romagna</h1>
+
+<h2 class="text-white op-7 mb-2">
+  An investigation on how much Wikipedia can tell us about the popularity of musical artists born in Emilia-Romagna
+</h2>
+
+
+<p class="card-category">
+  This project aims to explore the potential of Wikipedia as a reliable source for understanding the popularity and impact of musical artists born in the Emilia-Romagna region. Wikipedia has emerged as a significant platform for documenting and disseminating information on various topics, including the arts and entertainment industry. By analysing the content and metrics associated with Emilia-Romagna-born musicians&#39; Wikipedia pages, this investigation seeks to evaluate the extent to which Wikipedia reflects the popularity and influence of these artists.
+</p>
+
+          <span id='loader' class='lds-dual-ring hidden overlay'></span>
+          <div id="sortable"></div>
+          <script src="static/js/react/Error.js" type="text/babel"></script>
+          <script src="static/js/react/Map.js" type="text/babel"></script>
+          <script src="static/js/react/Table.js" type="text/babel"></script>
+          <script src="static/js/react/Chart.js" type="text/babel"></script>
+          <script src="static/js/react/Textbox.js" type="text/babel"></script>
+          <script src="static/js/react/Count.js" type="text/babel"></script>
+          <script src="static/js/react/Action.js" type="text/babel"></script>
+          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+          <script src="static/js/react/add_components.js" type="text/babel"></script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+			<footer class="footer">
+	<div class="container-fluid d-flex align-items-start">
+		<div class="p-2 col-md-3">
+			<h6>MELODY</h6>
+			<p><a target="_blank" href="/melody">Home</a></p>
+			<p><a target="_blank" href="/melody/asklogin">Create a story</a></p>
+			<p><a target="_blank" href="https://melody-data.github.io/stories/#catalogue">Data stories' catalaogue</a>
+			</p>
+		</div>
+		<div class="p-2 col-md-3">
+			<h6>Links</h6>
+			<p>Read the <a href="https://polifonia-project.github.io/dashboard/" target="_blank">documentation</a></p>
+			<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
+			<p>Theme <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+					Flask Atlantis Dark
+				</a></p>
+		</div>
+
+		<div class="copyright ml-auto p-2 col-md-4">
+			<p>MELODY is part of</p>
+			<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
+			<p>Polifonia has received funding from the European Union’s Horizon 2020 research
+				and innovation programme under grant agreement N. 101004746</p>
+		</div>
+	</div>
+</footer>
+
+		</div>
+
+	</div>
+
+	<!--   Core JS Files   -->
+<script src="static/js/core/jquery.3.2.1.min.js"></script>
+<script src="static/js/core/popper.min.js"></script>
+<script src="static/js/core/bootstrap.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+<!-- Chart JS -->
+<script src="static/js/plugin/chart.js/chart.min.js"></script>
+
+<!-- Import D3 Scale Chromatic via CDN -->
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!-- jQuery Sparkline -->
+<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Chart Circle -->
+<script src="static/js/plugin/chart-circle/circles.min.js"></script>
+
+<!-- Datatables -->
+<script src="static/js/plugin/datatables/datatables.min.js"></script>
+
+<!-- Bootstrap Notify -->
+<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<!-- jQuery Vector Maps -->
+<script src="static/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+<!-- Sweet Alert -->
+<script src="static/js/plugin/sweetalert/sweetalert.min.js "></script>
+
+<!-- Atlantis JS -->
+<script src="static/js/atlantis.min.js"></script>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+<script type="text/javascript" src="static/js/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="static/js/leaflet-sidebar.js"></script>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+	<!-- utils js -->
+	<!-- <script src="static/js/utils.js" type="module"></script> -->
+
+	<script src="static/js/main.js"></script>
+
+	
+	<script>
+		overwriteCSS();
+	</script>
+	
+
+	<!-- Specific Page JS goes HERE  -->
+	
+<script type="text/javascript">
+  $('footer').detach();
+</script>
+
+<script>
+  let hostname = window.location.hostname;
+  if (!hostname.includes('github')) {
+    let beforeUnloadAlert = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!beforeUnloadAlert) return;
+
+      // etc
+      e.preventDefault();
+      e.returnValue = '';
+    });
+
+    function myFunction() {
+      beforeUnloadAlert = false;
+    }
+    var myObj = document.getElementsByClassName('prevent_alert')
+    console.log(myObj);
+    for (el of myObj) {
+      el.addEventListener('click', myFunction);
+    }
+  }
+</script>
+
+
+
+</body>
+
+</html>
