@@ -9,15 +9,15 @@
     "user_name": "giulia2910",
     "id": "1687265981.55713",
     "subtitle": "One of the most influential bands of our time",
-    "curator": "Giulia Ceraolo e Francesca Zamparini",
+    "curator": "Giulia Ceraolo & Francesca Zamparini",
     "description": "Founded in the UK, this pop-rock band is continuing to leave an unprecedented mark in the music scene of the XXI century, becoming one of the most iconic and beloved bands of our time. With its colorful performances and hits, Coldplay has achieved extraordinary international success, blending elements of pop, rock, alternative, and electronic music with introspective lyrics and captivating melodies. The most explored themes are love, hope, introspection, and the human experience, resonating deeply with listeners worldwide. ",
     "dynamic_elements": [
         {
             "position": 0,
             "operations": [],
             "type": "table",
-            "table_title": "Coldplay members",
-            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q45188 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10",
+            "table_title": "Start of activity",
+            "table_query": "SELECT DISTINCT ?Start\r\nWHERE {\r\n  wd:Q45188 wdt:P2031 ?Start .\r\n}\r\n\r\n\r\n\r\n",
             "extra_queries": [],
             "map_filters": []
         },
@@ -25,8 +25,8 @@
             "position": 1,
             "operations": [],
             "type": "table",
-            "table_title": "Start of activity",
-            "table_query": "SELECT DISTINCT ?Start\r\nWHERE {\r\n  wd:Q45188 wdt:P2031 ?Start .\r\n}\r\n\r\n\r\n\r\n",
+            "table_title": "Coldplay members",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q45188 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
         },
@@ -210,6 +210,24 @@
             "type": "table",
             "table_title": "Record Label",
             "table_query": "SELECT ?recordLabel ?recordLabelLabel WHERE {\r\n   wd:Q45188 wdt:P264 ?recordLabel.\r\n  ?recordLabel rdfs:label ?recordLabelLabel.\r\n  FILTER(LANG(?recordLabelLabel) = \"en\").\r\n}\r\nORDER BY ?recordLabelLabel",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 20,
+            "operations": [],
+            "type": "map",
+            "map_title": "Location",
+            "map_points_query": "SELECT ?formationPlace\r\nWHERE {\r\n  wd:Q45188 wdt:P740 ?formationPlace.\r\n}",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 21,
+            "operations": [],
+            "type": "table",
+            "table_title": "The band",
+            "table_query": "SELECT DISTINCT ?image\r\nWHERE {\r\n  wd:Q45188 wdt:P18 ?image .\r\n}",
             "extra_queries": [],
             "map_filters": []
         }
