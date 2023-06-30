@@ -1,0 +1,164 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "The Popularity of Rock Music in Emilia-Romagna",
+    "color_code": [
+        "#14b6c2",
+        "#d27232"
+    ],
+    "user_name": "uniboITS",
+    "id": "1688112091.78641",
+    "subtitle": "An investigation on who are the most famous rock singers and rock bands from Emilia Romagna",
+    "curator": "Giulia Bergamaschi, Federica Ceccoli",
+    "description": "This project has the aim to investigate the popularity of rock bands and rock singers born in Emilia Romagna. The investigation retrieves information from the Wikidata corpus and takes into account Twitter followers of famous rock singers and rock bands born in the Emilia Romagna region after 1940. Furthermore, the project provides the reader with images, charts, tables and maps in order to better understand the impact and popularity of the most famous rock musicians and bands formed in Emilia Romagna.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Firstly, let\u2019s take a look at the number of rock singers born in Emilia Romagna after 1940. Our aim was to investigate the popularity of rock music in Emilia Romagna and their ongoing impact. That is why we decided to rule out singers who were born before 1940. Moreover, we wanted to understand how many singers can be considered to belong to the rock genre according to the Wikidata corpus.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279*  wd:Q177220; # singer\r\n          \twdt:P19 ?place; # place of birth: Emilia Romagna\r\n          \twdt:P569 ?birth; # date of birth\r\n      \t\r\n            wdt:P136 wd:Q11399.  # rock musicians\r\n \r\n          \t?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n          \t?province wdt:P131 wd:Q1263.\r\n  \t \r\n          \tFILTER (YEAR(?birth) > 1940)        \t# Filter for birth after 1940\r\n  \t \r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\".\r\n                                 \t} }\r\n\r\n",
+            "count_label": "Rock singers born in Emilia-Romagna (after 1940)",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "text",
+            "text": "<p>As we can see, the Wikidata corpus does not retrieve many rock singers born in Emilia Romagna. Without adding the property \u201csubclass of\u201d Wikidata only finds 8 singers. That is why we thought that by adding said property we would be able to get more results. Unfortunately, if we include other subclasses of \u201csinger\u201d such as \u201csongwriter\u201d or \u201cmusician\u201d we only get 1 more result.</p><p>Now let\u2019s observe who are the first 10 rock singers born in Emilia Romagna after 1940, ordered from the oldest to the youngest. This table provides us with the singers' full name, their birthdate, their birthplace, their sex and, if available, an image of each singer.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "table",
+            "table_title": "List of rock singers born in Emilia Romagna (after 1940)",
+            "table_query": "SELECT DISTINCT ?name ?nameLabel ?birth ?birthLabel ?place ?placeLabel ?sex ?sexLabel ?image\r\nWHERE { ?name wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: Emilia Romagna\r\n              wdt:P569 ?birth; # date of birth\r\n              wdt:P21 ?sex;  # sex\r\n              wdt:P136 wd:Q11399.  # rock musicians       \t\r\n              ?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n   \t\r\n              FILTER (YEAR(?birth) > 1940)        \t# Filter for birth after 1940\r\n              OPTIONAL { ?name wdt:P18 ?image . }\r\n              SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } }\r\nORDER BY ?birth LIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "text",
+            "text": "<p>With this research we wanted to understand who are the 9 rock singers present in the Wikidata corpus. Moreover, we wanted to observe their birthdate, birthplace and sex. We also decided to include an image, if available. One of the most interesting observations we made is the fact that there is only one female singer in this list, Laura Pausini. This highlights the fact that in Emilia Romagna it is easier to find male rather than female rock singers.</p><p>Now let\u2019s take a look at a doughnut chart containing the first 7 genres in Emilia Romagna after 1940 according to the number of singers. This query is useful to investigate the impact and popularity of rock music compared to other music genres.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "The most popular genres in Emilia Romagna (after 1940)",
+            "chart_query": "SELECT ?label (COUNT(DISTINCT ?item) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: Emilia Romagna\r\n              wdt:P569 ?birth; # date of birth\r\n           \r\n              wdt:P136 ?genre.  # genre\r\n       \t\r\n              ?place wdt:P131 ?province.             \t# Located in Emilia Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n   \t\r\n              FILTER (YEAR(?birth) > 1940)        \t# Filter for birth after 1940\r\n   \t\r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\".\r\n                                 \t?genre rdfs:label ?label.} }\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 7\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The results show us that rock music is not the most popular genre in Emilia Romagna. Pop music is at the top with 23 singers, whereas rock music is actually in second place with only 9 singers. What is interesting is the fact that the third most popular genre is opera music (6 singers). In fact, this genre seems to be even more popular than pop rock music (only 1 singer), according to the Wikidata corpus.</p><p>After focusing mainly on rock singers, let\u2019s take a look at a list of rock bands formed in Emilia Romagna (after 1940). This research provides us with the name of the band, its date and city of formation and, if available, an image of the band.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "table",
+            "table_title": "Rock bands formed in Emilia Romagna (after 1940)",
+            "table_query": "SELECT DISTINCT ?name ?nameLabel ?birth ?birthLabel ?city ?cityLabel ?image\r\nWHERE { ?name wdt:P31 wd:Q215380; # musical group\r\n\t                \t \r\n \t               \t wdt:P571 ?birth; # date of birth\r\n\t                \t wdt:P740 ?city;  # city of formation\r\n    \t\twdt:P495 wd:Q38;  # country of origin is Italy\r\n \t               \t wdt:P136/wdt:P279* wd:Q11399. # genre rock music\r\n                               \t \r\n \t               \t ?city wdt:P131 ?province.    \t                \t # Located in Emilia Romagna\r\n \t               \t ?province wdt:P131 wd:Q1263.\r\n\t                \t \r\n \t               \t OPTIONAL { ?name wdt:P18 ?image . }\r\n \t               \t SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } }\r\nORDER BY ?birth LIMIT 50\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 8,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The results show us that there are more rock bands (21) than rock singers (9) according to the Wikidata corpus. Moreover, more than half of them were formed in Bologna.</p><p>Now we aim at showing in which city rock singers and rock bands were born. Indeed, we want to verify which is the province with the highest number of rock artists and which is the one with the lowest.&nbsp;</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 9,
+            "operations": [],
+            "type": "map",
+            "map_title": "Rock singers and rock bands in Emilia Romagna",
+            "map_points_query": "SELECT DISTINCT ?point ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{\r\n  {\r\n  ?point wdt:P31 wd:Q215380; # musical group\r\n  wdt:P495 wd:Q38;  # country of origin is Italy\r\n  wdt:P136/wdt:P279* wd:Q11399; # genre rock music\r\n  wdt:P740 ?villeId.  # city of formation\r\n \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n  }\r\n  UNION\r\n  {\r\n  ?point wdt:P106/wdt:P279* wd:Q177220; # singer\r\n  wdt:P19 ?villeId; # place of birth\r\n  wdt:P136 wd:Q11399.  # rock musicians    \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n \r\n  }\r\n \r\n  ?villeId p:P625 ?statement.\r\n \r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "text",
+            "text": "<p>As we can state from our results there are 2 rock artists in the province of Piacenza, 5 in the province of Parma, 4 in the province of Reggio Emilia, 6 in the province of Modena, 14 in the province of Bologna, 1 in the province of Ravenna, 1 in the province of Forl\u00ec-Cesena and 1 in the province of Rimini. Therefore, Bologna is the province with the highest number of rock singers and groups in Emilia-Romagna. On the other hand, Rimini is the province with the lowest number of rock artists.</p><p>Now let\u2019s focus on their Twitter followers. First of all, we\u2019ve decided to take a look at the number of Twitter followers of rock singers born in Emilia-Romagna after 1940. Then, we\u2019ve decided to compare the previous results with the number of Twitter followers of rock bands born in Emilia-Romagna after 1940. We want to verify if rock singers actually have more followers than rock bands since rock bands tend to be more world famous than singers.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (SUM(?followers) AS ?count)\r\nWHERE { ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n              wdt:P19 ?place; # place of birth: emilia romagna \r\n              wdt:P569 ?birth; # date of birth\r\n             \r\n              wdt:P136 wd:Q11399.  # rock musicians\r\n           \r\n              ?place wdt:P131 ?province.                 # Located in Emilia-Romagna\r\n              ?province wdt:P131 wd:Q1263.\r\n       \r\n              FILTER (YEAR(?birth) > 1940)            # Filter for birth after 1940\r\n             OPTIONAL {?item wdt:P8687 ?followers.} \r\n              \r\n              SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } }\r\nLIMIT 100\r\n",
+            "count_label": "Twitter followers of rock singers from Emilia Romagna",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (SUM(?followers) AS ?count)\r\nWHERE { ?item wdt:P31/wdt:P279* wd:Q215380; # musical group\r\n   \t\t \r\n\t\t\t  wdt:P571 ?birth; # date of birth\r\n\t\t\t  wdt:P740 ?city;  # city of formation\r\n   \t\t wdt:P495 wd:Q38;  # country of origin is Italy\r\n\t\t\t  wdt:P136/wdt:P279* wd:Q11399. # genre rock music (and all subgenre of it)\r\n          \t\t\t \r\n\t\t\t  ?city wdt:P131 ?province.   \t\t\t  # located in Emilia Romagna\r\n\t\t\t  ?province wdt:P131 wd:Q1263.\r\n\r\n         \tOPTIONAL {?item wdt:P8687 ?followers.}\r\n         \t \r\n          \tSERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } }\r\nLIMIT 100\r\n",
+            "count_label": "Twitter followers of rock bands from Emilia Romagna",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 13,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The results show us that Twitter followers of rock singers are 787.933. Therefore, rock singers have more Twitter followers than rock bands. This result is surprising due to the fact that rock bands are usually more well-known than singers and when we think about rock music in general, bands are the first to come to mind.&nbsp;</p><p>Lastly, let\u2019s take a look at a barchart showing us who are the singers and bands with the highest number of followers on Twitter.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 14,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Top 10 most followed bands and singers from Emilia Romagna on Twitter",
+            "chart_query": "SELECT ?label (SUM(?followers) AS ?count)\r\nWHERE {\r\n   {\r\n  ?item wdt:P31 wd:Q215380; # musical group\r\n  wdt:P495 wd:Q38;  # country of origin is Italy\r\n  wdt:P8687 ?followers;\r\n  wdt:P136/wdt:P279* wd:Q11399; # genre rock music\r\n  wdt:P740 ?villeId.  # city of formation\r\n \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n\r\n  }\r\n  UNION\r\n  {\r\n  ?item wdt:P106/wdt:P279* wd:Q177220; # singer\r\n  wdt:P19 ?villeId; # place of birth\r\n  wdt:P8687 ?followers;\r\n  wdt:P136 wd:Q11399.  # rock musicians    \r\n  ?villeId wdt:P131 ?province. # located in Emilia Romagna\r\n  ?province wdt:P131 wd:Q1263.\r\n  }\r\n \r\n \r\n  ?item rdfs:label ?label .\r\n  FILTER(lang(?label) = \"en\")\r\n  }\r\n\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
+            "chart_series": "Followers",
+            "chart_legend": {
+                "x": "Rock singer or rock band from Emilia Romagna",
+                "y": "Number of followers on Twitter"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 15,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Luciano Ligabue appears to be the most followed artist on Twitter in Emilia-Romagna. Besides, the second one is Laura Pausini. The former is a rock singer, meanwhile the latter belongs to the music genre pop-rock that is a subcategory of rock music. Vasco Rossi is the third artist mentioned, although there is a significant difference in the number of followers between him and Laura Pausini. The remaining artists are presented in the following order: Zucchero, Neck, Pooh, Lo Stato Sociale, Helia, Marta sui Tubi and Alessandro Cortini. The presence of Laura Pausini as the only female singer in the above-mentioned chart is noteworthy since we tend to believe that there are more male rock artists than female. Furthermore, four out of ten names are male bands, that are Pooh, Lo Stato Sociale, Helia and Marta sui Tubi. Lastly, Alessandro Corsini is the only composer and music producer present in the chart.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
