@@ -33,7 +33,7 @@
             "position": 2,
             "operations": [],
             "type": "count",
-            "count_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count) WHERE{\r\n  ?band ?a wd:Q5741069 . # rock band\r\n  ?band wdt:P495 wd:Q30 . # from usa \r\n  ?band wdt:P527 ?item . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?band rdfs:label ?label. } } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q30 . # from usa\r\n}",
             "count_label": "Number of rock bands in the USA",
             "extra_queries": [],
             "map_filters": []
