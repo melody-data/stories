@@ -146,7 +146,7 @@
             "operations": [],
             "type": "action",
             "action_title": "Year when they started their musical activity",
-            "action_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label) (COUNT(?label) AS ?count) WHERE { ?redhotchilipeppers ?a wd:Q10708 . ?redhotchilipeppers wdt:P495 wd:Q30 . ?redhotchilipeppers wdt:P2031 ?date . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?redhotchilipeppers rdfs:label ?label. } } GROUP BY ?count ?date ORDER BY ?label LIMIT 10",
+            "action_query": "SELECT DISTINCT ?Start WHERE { wd:Q10708 wdt:P2031 ?Start . }",
             "extra_queries": [],
             "map_filters": []
         },
@@ -170,7 +170,7 @@
             "operations": [],
             "type": "action",
             "action_title": "Released albums and date",
-            "action_query": "SELECT ?album ?albumLabel ?year ?yearLabel WHERE { ?band wdt:P31 wd:Q215380. ?band rdfs:label \"Blur\"@en. ?album wdt:P31 wd:Q482994. ?album wdt:P175 ?band. ?album wdt:P577 ?year. SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } } ORDER BY DESC (?year)\r\n",
+            "action_query": "SELECT DISTINCT (?label AS ?album) (YEAR(xsd:dateTime(?date)) AS ?date) WHERE { ?album wdt:P31 wd:Q482994 . ?album wdt:P175 wd:Q10708 . ?album wdt:P577 ?date . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?album rdfs:label ?label. } } GROUP BY ?label ?date ORDER BY ?date LIMIT 20",
             "extra_queries": [],
             "map_filters": []
         },
@@ -251,7 +251,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Year when they started their activity",
-            "table_query": "SELECT DISTINCT (year(xsd:dateTime(?date)) as ?label) (COUNT(?label) AS ?count) WHERE { ?redhotchilipeppers ?a wd:Q10708 . ?redhotchilipeppers wdt:P495 wd:Q30 . ?redhotchilipeppers wdt:P2031 ?date . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?redhotchilipeppers rdfs:label ?label. } } GROUP BY ?count ?date ORDER BY ?label LIMIT 10",
+            "table_query": "SELECT DISTINCT ?Start WHERE { wd:Q10708 wdt:P2031 ?Start . }",
             "extra_queries": [],
             "map_filters": []
         },
@@ -260,7 +260,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Released albums and date",
-            "table_query": "SELECT ?album ?albumLabel ?year ?yearLabel WHERE { ?band wdt:P31 wd:Q215380. ?band rdfs:label \"Blur\"@en. ?album wdt:P31 wd:Q482994. ?album wdt:P175 ?band. ?album wdt:P577 ?year. SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". } } ORDER BY DESC (?year)",
+            "table_query": "SELECT DISTINCT (?label AS ?album) (YEAR(xsd:dateTime(?date)) AS ?date) WHERE { ?album wdt:P31 wd:Q482994 . ?album wdt:P175 wd:Q10708 . ?album wdt:P577 ?date . SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?album rdfs:label ?label. } } GROUP BY ?label ?date ORDER BY ?date LIMIT 20",
             "extra_queries": [],
             "map_filters": []
         },
