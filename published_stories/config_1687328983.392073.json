@@ -38,7 +38,7 @@
             "map_filters": [
                 {
                     "map_filter_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT DISTINCT ?point ?filter ?filterLabel\r\nWHERE {\r\n?point wdt:P463 wd:Q326461 .\r\n?point wdt:P19 ?filter. ?filter rdfs:label ?filterLabel .\r\nFILTER(LANG(?filterLabel) = '' || LANGMATCHES(LANG(?filterLabel), 'en')). }\r\n",
-                    "extra_id": "1688285992446_0",
+                    "extra_id": "1688290335215_0",
                     "position": 0,
                     "map_filter_title": "27 Club members' city of birth"
                 }
@@ -105,42 +105,6 @@
         {
             "position": 8,
             "operations": [],
-            "type": "textsearch",
-            "textsearch_userinput": "",
-            "textsearch_title": "27 Club members",
-            "textsearch_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT DISTINCT ?singer ?singerLabel  ?genre ?genreLabel  ?voice ?voiceLabel ?band ?bandLabel    WHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search \"kurt cobain\"\r\n                     ;\r\n                      mwapi:language \"en\".\r\n      ?singer wikibase:apiOutputItem mwapi:item.\r\n  }\r\n\r\n   {?singer wdt:P31 wd:Q5; wdt:P136 ?genre .\r\n    ?singer wdt:P31 wd:Q5; wdt:P412 ?voice .\r\n\r\n              ?category wdt:P31 wd:Q177220 . \r\n  \r\n    \r\n   }\r\n   OPTIONAL {?singer wdt:P463 ?band .}\r\n     \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\n",
-            "textsearch": {
-                "band": [
-                    "Band's members"
-                ],
-                "singer": [
-                    "Albums & Songs"
-                ]
-            },
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 9,
-            "operations": [],
-            "type": "action",
-            "action_title": "Band's members",
-            "action_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT DISTINCT ?member ?memberLabel \r\nWHERE { \r\n  <<item>> wdt:P527 ?member . \r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\n",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 10,
-            "operations": [],
-            "type": "action",
-            "action_title": "Albums & Songs",
-            "action_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT DISTINCT ?album ?albumLabel ?song ?songLabel\r\nWHERE { \r\n <<item>> wdt:P800 ?album .\r\n              \r\nOPTIONAL { ?song wdt:P361 ?album. }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nORDER BY ?albumLabel\r\nLIMIT 50\r\n\r\n",
-            "extra_queries": [],
-            "map_filters": []
-        },
-        {
-            "position": 11,
-            "operations": [],
             "type": "chart",
             "chart_type": "linechart",
             "chart_title": "27 Club members' end activity",
@@ -154,7 +118,7 @@
             "map_filters": []
         },
         {
-            "position": 12,
+            "position": 9,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
@@ -165,6 +129,42 @@
                 "x": "",
                 "y": ""
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 10,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "Amy Winehouse",
+            "textsearch_title": "27 Club members",
+            "textsearch_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT DISTINCT  ?singer ?singerLabel  ?genre ?genreLabel  ?voice ?voiceLabel ?band ?bandLabel ?BirthDate  ?DeathDate \r\n\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n      bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n                      wikibase:api \"EntitySearch\";\r\n                      mwapi:search <<searchterm>>\r\n                     ;\r\n                      mwapi:language \"en\".\r\n      ?singer wikibase:apiOutputItem mwapi:item.\r\n  }\r\n\r\n   {?singer wdt:P31 wd:Q5; wdt:P136 ?genre .\r\n    ?singer wdt:P31 wd:Q5; wdt:P412 ?voice .\r\n    ?singer wdt:P31 wd:Q5; wdt:P569 ?BirthDate .\r\n     \r\n\r\n              ?category wdt:P31 wd:Q177220 . \r\n    \r\n   }\r\n   OPTIONAL {?singer wdt:P463 ?band .} \r\n             ?singer wdt:P570 ?DeathDate .\r\n     \r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\n",
+            "textsearch": {
+                "band": [
+                    "Band's members"
+                ],
+                "singer": [
+                    "Albums & Songs"
+                ]
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 11,
+            "operations": [],
+            "type": "action",
+            "action_title": "Band's members",
+            "action_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT DISTINCT ?member ?memberLabel \r\nWHERE { \r\n  <<item>> wdt:P527 ?member . \r\n\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\n\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 12,
+            "operations": [],
+            "type": "action",
+            "action_title": "Albums & Songs",
+            "action_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT DISTINCT ?album ?albumLabel ?song ?songLabel\r\nWHERE { \r\n <<item>> wdt:P800 ?album .\r\n              \r\nOPTIONAL { ?song wdt:P361 ?album. }\r\nSERVICE wikibase:label { \r\n    bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\"\r\n  }\r\n}\r\nORDER BY ?albumLabel\r\nLIMIT 50\r\n",
             "extra_queries": [],
             "map_filters": []
         }
