@@ -38,7 +38,7 @@
             "map_filters": [
                 {
                     "map_filter_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT DISTINCT ?point ?filter ?filterLabel\r\nWHERE {\r\n?point wdt:P463 wd:Q326461 .\r\n?point wdt:P19 ?filter. ?filter rdfs:label ?filterLabel .\r\nFILTER(LANG(?filterLabel) = '' || LANGMATCHES(LANG(?filterLabel), 'en')). }\r\n",
-                    "extra_id": "1688136201126_0",
+                    "extra_id": "1688285992446_0",
                     "position": 0,
                     "map_filter_title": "27 Club members' city of birth"
                 }
@@ -81,8 +81,8 @@
             "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\n\r\nSELECT (year(xsd:dateTime(?date)) as ?label)  (COUNT(?label) AS ?count) \r\nWHERE {?singer wdt:P463 wd:Q326461. \r\n  ?singer wdt:P2031 ?date. \r\n  \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?singer rdfs:label         ?label.\r\n      }\r\n\r\n}\r\nGROUP BY ?count ?date\r\nORDER BY DESC(?label) \r\nLIMIT 20\r\n\r\n",
             "chart_series": "Start career",
             "chart_legend": {
-                "x": "Members",
-                "y": "Years"
+                "x": "Years",
+                "y": "Number of members"
             },
             "extra_queries": [],
             "map_filters": []
@@ -148,7 +148,7 @@
             "chart_series": "End year",
             "chart_legend": {
                 "x": "Years",
-                "y": "Members"
+                "y": "Number of members"
             },
             "extra_queries": [],
             "map_filters": []
