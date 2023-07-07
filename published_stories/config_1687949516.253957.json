@@ -1,5 +1,5 @@
 {
-    "sparql_endpoint": "https://130.136.9.56/musicbo/sparql",
+    "sparql_endpoint": "http://130.136.9.56/musicbo/sparql",
     "template_mode": "statistics",
     "title": "A Musical Heritage Knowledge Graph",
     "color_code": [
