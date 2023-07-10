@@ -1,5 +1,5 @@
 {
-    "sparql_endpoint": "http://mubosic.ddns.net/",
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
     "template_mode": "statistics",
     "title": "A Musical Heritage Knowledge Graph",
     "color_code": [
