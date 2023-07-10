@@ -1,7 +1,7 @@
 {
     "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
     "template_mode": "statistics",
-    "title": "A Musical Heritage Knowledge Graph",
+    "title": "muBOsic, A Musical Heritage Knowledge Graph",
     "color_code": [
         "#39c6b4",
         "#17cf31"
@@ -10,7 +10,7 @@
     "id": "1687949516.253957",
     "subtitle": "Exploring Bologna's role in music history through Knowledge Extraction",
     "curator": "Anonymous",
-    "description": "The MusicBO Knowledge Graph (KG), documenting Bologna's pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.",
+    "description": "The muBOsic Knowledge Graph (KG), documenting Bologna's pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.",
     "dynamic_elements": [
         {
             "position": 0,
@@ -85,7 +85,7 @@
             "position": 7,
             "operations": [],
             "type": "text",
-            "text": "<p>We analysed MusicBO corpus through the lens of Named Entities Recognition (NER), a standard Natural Language Processing task. We discovered that the entanglement of Bologna and music history is a composite network of people, places, and organizations. Publications, works of art and books are frequently mentioned in the corpus, revealing that Bologna was an important centre for artistic production.</p>",
+            "text": "<p>We analysed muBOsic KG through the lens of Named Entities Recognition (NER), a standard Natural Language Processing task. We discovered that the entanglement of Bologna and music history is a composite network of people, places, and organizations. Publications, works of art and books are frequently mentioned in the corpus, revealing that Bologna was an important centre for artistic production.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -123,7 +123,7 @@
             "position": 10,
             "operations": [],
             "type": "text",
-            "text": "<p>Among the many people in the MusicBO corpus, Rossini is the most frequently mentioned as involved in events and situations.</p>",
+            "text": "<p>Among the many people in the muBOsic corpus, Rossini is the most frequently mentioned as involved in events and situations.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -171,7 +171,7 @@
             "position": 15,
             "operations": [],
             "type": "text",
-            "text": "<p>This map shows that, in MusicBO corpus, may other places throughout Europe are mentioned in relation to Bologna. Unveiling an intricate net of connections, this data underlines Bologna's pivotal role as a pulsating hub within the European music scene.</p>",
+            "text": "<p>This map shows that, in muBosic corpus, may other places throughout Europe are mentioned in relation to Bologna. Unveiling an intricate net of connections, this data underlines Bologna's pivotal role as a pulsating hub within the European music scene.</p>",
             "extra_queries": [],
             "map_filters": []
         }
