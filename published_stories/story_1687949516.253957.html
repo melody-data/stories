@@ -14,7 +14,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 	<title>
-		MELODY -
+		MELODY - 
 	</title>
 
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -47,26 +47,26 @@
 	<!-- <link rel="stylesheet" href="/static/css/demo.css"> -->
 
 	<!-- Specific Page CSS goes HERE  -->
+	
+<link rel="stylesheet" href="static/css/templates.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+  <script src="static/js/babel.min.js"></script>
+  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="static/css/MarkerCluster.css">
+  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
-	<link rel="stylesheet" href="static/css/templates.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-		integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-	<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-	<!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
-	<script src="static/js/babel.min.js"></script>
-	<script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-		integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-		crossorigin="" />
-	<link rel="stylesheet" href="static/css/MarkerCluster.css">
-	<link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
-	<link rel="stylesheet" href="static/css/leaflet-sidebar.css">
-
-	<script type="text/javascript">
-		var datastory_data = { "color_code": ["#39c6b4", "#17cf31"], "curator": "Anonymous", "description": "The MusicBO Knowledge Graph (KG), documenting Bologna\u0027s pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.", "dynamic_elements": [{ "count_label": "people", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "count" }, { "count_label": "organizations", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Organization\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "count" }, { "count_label": "countries", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Country\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 2, "type": "count" }, { "count_label": "cities", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/City\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 3, "type": "count" }, { "count_label": "works of art", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) WHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Work-of-art\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 4, "type": "count" }, { "count_label": "publications", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Publication\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 5, "type": "count" }, { "chart_legend": { "x": "entity type", "y": "count" }, "chart_query": "SELECT ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type ?class; \u003chttp://www.ontologydesignpatterns.org/ont/amr/name\u003e ?name   \r\nFILTER regex(str(?class), \"(?:^http://www.ontologydesignpatterns.org/ont/amr/)\")      BIND (REPLACE(STR(?class), \"^.+?([^/#]+)$\", \"$1\") as ?label)} \r\nGROUP BY ?label   \r\nORDER BY DESC (?count) \r\nLIMIT 10  ", "chart_series": "entities", "chart_title": "Top 10 types of entity", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 6, "type": "chart" }, { "extra_queries": [], "map_filters": [], "operations": [], "position": 7, "text": "\u003cp\u003eWe analysed MusicBO corpus through the lens of Named Entities Recognition (NER), a standard Natural Language Processing task. We discovered that the entanglement of Bologna and music history is a composite network of people, places, and organizations. Publications, works of art and books are frequently mentioned in the corpus, revealing that Bologna was an important centre for artistic production.\u003c/p\u003e", "type": "text" }, { "chart_legend": { "x": "situation", "y": "" }, "chart_query": "PREFIX rdf: \u003chttp://www.w3.org/1999/02/22-rdf-syntax-ns#\u003e  \r\nPREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e  \r\nSELECT distinct ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?label }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10", "chart_series": "event type", "chart_title": "Top 10 situations involving people", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 8, "type": "chart" }, { "chart_legend": { "x": "persons", "y": "frequency" }, "chart_query": "PREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e  \r\nPREFIX dul: \u003chttp://www.ontologydesignpatterns.org/ont/dul/DUL.owl#\u003e    \r\nSELECT ?label (count(distinct ?frameInstance) as ?count)  \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?frameLabel . ?frame rdfs:subClassOf dul:Event .   \r\n?s \u003chttp://www.ontologydesignpatterns.org/ont/amr/name\u003e ?label  \r\nFILTER (!regex(str(?s), \"san_petronio\",\u0027i\u0027))}  \r\n   \r\nGROUP BY ?label   \r\nORDER BY DESC (?count)\r\nLIMIT 10 ", "chart_series": "events", "chart_title": "Persons in situations", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 9, "type": "chart" }, { "extra_queries": [], "map_filters": [], "operations": [], "position": 10, "text": "\u003cp\u003eAmong the many people in the MusicBO corpus, Rossini is the most frequently mentioned as involved in events and situations.\u003c/p\u003e", "type": "text" }, { "chart_legend": { "x": "", "y": "" }, "chart_query": "PREFIX rdf: \u003chttp://www.w3.org/1999/02/22-rdf-syntax-ns#\u003e \r\nPREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nSELECT distinct ?label (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e . ?frameInstance ?p ?s ; rdf:type ?frame . \r\n#?frame rdfs:label ?label  \r\nBIND (REPLACE(STR(?p), \"^.*/([^/]*)$\", \"$1\") as ?label)  \r\nFILTER (!regex(str(?p), \"entity_\"))  \r\nFILTER (!regex(str(?p), \"#\"))  \r\nFILTER (!regex(str(?p), \"subset\")) }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10 ", "chart_series": "", "chart_title": "Top 10 roles played by people in different types of situations", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 11, "type": "chart" }, { "extra_queries": [], "map_filters": [], "operations": [], "position": 12, "text": "\u003cp\u003eWhat roles did people linked to music and the city of Bologna played? Characters relevant to the music scene that crossed Bologna over the centuries were mostly authors and artists, but also office holders, writers, agents, and editors. Such insights suggest that Bologna was both a point of reference for artistic production and for music-related activities, as criticism and business. Last but not least, Bologna attracted music students.\u003c/p\u003e", "type": "text" }, { "extra_queries": [], "map_filters": [], "operations": [], "position": 13, "text": "", "type": "text" }, { "extra_queries": [], "map_filters": [], "map_points_query": "PREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nPREFIX dul: \u003chttp://www.ontologydesignpatterns.org/ont/dul/DUL.owl#\u003e\r\nPREFIX owl: \u003chttp://www.w3.org/2002/07/owl#\u003e\r\nPREFIX rdf: \u003chttp://www.w3.org/1999/02/22-rdf-syntax-ns#\u003e\r\nPREFIX dbpedia: \u003chttp://dbpedia.org/resource/\u003e\r\nPREFIX sc: \u003chttp://purl.org/science/owl/sciencecommons/\u003e\r\nPREFIX schema: \u003chttp://schema.org/\u003e\r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e\r\nPREFIX wikibase: \u003chttp://wikiba.se/ontology#\u003e\r\nPREFIX p: \u003chttp://www.wikidata.org/prop/\u003e\r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\nPREFIX ps: \u003chttp://www.wikidata.org/prop/statement/\u003e\r\nPREFIX psv: \u003chttp://www.wikidata.org/prop/statement/value/\u003e\r\nPREFIX wdr: \u003chttp://www.w3.org/2007/05/powder#\u003e\r\nPREFIX amr: \u003chttp://www.ontologydesignpatterns.org/ont/amr/\u003e \r\nSELECT DISTINCT ?point ?label ?frameInstance ?lat ?long\r\nWHERE { ?cityUri rdf:type amr:City ;  owl:sameAs ?point ;  amr:name ?label .  \r\n\tFILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))  \r\n\t?frameInstance ?p ?cityUri ; rdf:type ?frame .  \r\nSERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e { \r\n\t?point wdt:P31/wdt:P279* wd:Q515 .  \r\n\t?point p:P625 ?coords_stmt .  \r\n\t?coords_stmt ps:P625 ?coords; \r\n\tpsv:P625 [  wikibase:geoLatitude ?lat;  wikibase:geoLongitude ?long ] . }\r\n}", "map_title": "Bologna as a lively cultural centre in Europe", "operations": [], "position": 14, "type": "map" }, { "extra_queries": [], "map_filters": [], "operations": [], "position": 15, "text": "\u003cp\u003eThis map shows that, in MusicBO corpus, may other places throughout Europe are mentioned in relation to Bologna. Unveiling an intricate net of connections, this data underlines Bologna\u0027s pivotal role as a pulsating hub within the European music scene.\u003c/p\u003e", "type": "text" }], "id": "1687949516.253957", "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql", "subtitle": "Exploring Bologna\u0027s role in music history through Knowledge Extraction", "template_mode": "statistics", "title": "A Musical Heritage Knowledge Graph", "user_name": "anonymous-iswc23" };
-	</script>
+  <script type="text/javascript">
+    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "Anonymous", "description": "The muBOsic Knowledge Graph (KG), documenting Bologna\u0027s pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.", "dynamic_elements": [{"count_label": "people", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "count"}, {"count_label": "organizations", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Organization\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 1, "type": "count"}, {"count_label": "countries", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Country\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 2, "type": "count"}, {"count_label": "cities", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/City\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 3, "type": "count"}, {"count_label": "works of art", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) WHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Work-of-art\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 4, "type": "count"}, {"count_label": "publications", "count_query": "SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Publication\u003e}", "extra_queries": [], "map_filters": [], "operations": [], "position": 5, "type": "count"}, {"chart_legend": {"x": "entity type", "y": "count"}, "chart_query": "SELECT ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type ?class; \u003chttp://www.ontologydesignpatterns.org/ont/amr/name\u003e ?name   \r\nFILTER regex(str(?class), \"(?:^http://www.ontologydesignpatterns.org/ont/amr/)\")      BIND (REPLACE(STR(?class), \"^.+?([^/#]+)$\", \"$1\") as ?label)} \r\nGROUP BY ?label   \r\nORDER BY DESC (?count) \r\nLIMIT 10  ", "chart_series": "entities", "chart_title": "Top 10 types of entity", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 6, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 7, "text": "\u003cp\u003eWe analysed muBOsic KG through the lens of Named Entities Recognition (NER), a standard Natural Language Processing task. We discovered that the entanglement of Bologna and music history is a composite network of people, places, and organizations. Publications, works of art and books are frequently mentioned in the corpus, revealing that Bologna was an important centre for artistic production.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "situation", "y": ""}, "chart_query": "PREFIX rdf: \u003chttp://www.w3.org/1999/02/22-rdf-syntax-ns#\u003e  \r\nPREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e  \r\nSELECT distinct ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?label }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10", "chart_series": "event type", "chart_title": "Top 10 situations involving people", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 8, "type": "chart"}, {"chart_legend": {"x": "persons", "y": "frequency"}, "chart_query": "PREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e  \r\nPREFIX dul: \u003chttp://www.ontologydesignpatterns.org/ont/dul/DUL.owl#\u003e    \r\nSELECT ?label (count(distinct ?frameInstance) as ?count)  \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?frameLabel . ?frame rdfs:subClassOf dul:Event .   \r\n?s \u003chttp://www.ontologydesignpatterns.org/ont/amr/name\u003e ?label  \r\nFILTER (!regex(str(?s), \"san_petronio\",\u0027i\u0027))}  \r\n   \r\nGROUP BY ?label   \r\nORDER BY DESC (?count)\r\nLIMIT 10 ", "chart_series": "events", "chart_title": "Persons in situations", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 9, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 10, "text": "\u003cp\u003eAmong the many people in the muBOsic corpus, Rossini is the most frequently mentioned as involved in events and situations.\u003c/p\u003e", "type": "text"}, {"chart_legend": {"x": "", "y": ""}, "chart_query": "PREFIX rdf: \u003chttp://www.w3.org/1999/02/22-rdf-syntax-ns#\u003e \r\nPREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nSELECT distinct ?label (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type \u003chttp://www.ontologydesignpatterns.org/ont/amr/Person\u003e . ?frameInstance ?p ?s ; rdf:type ?frame . \r\n#?frame rdfs:label ?label  \r\nBIND (REPLACE(STR(?p), \"^.*/([^/]*)$\", \"$1\") as ?label)  \r\nFILTER (!regex(str(?p), \"entity_\"))  \r\nFILTER (!regex(str(?p), \"#\"))  \r\nFILTER (!regex(str(?p), \"subset\")) }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10 ", "chart_series": "", "chart_title": "Top 10 roles played by people in different types of situations", "chart_type": "doughnutchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 11, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 12, "text": "\u003cp\u003eWhat roles did people linked to music and the city of Bologna played? Characters relevant to the music scene that crossed Bologna over the centuries were mostly authors and artists, but also office holders, writers, agents, and editors. Such insights suggest that Bologna was both a point of reference for artistic production and for music-related activities, as criticism and business. Last but not least, Bologna attracted music students.\u003c/p\u003e", "type": "text"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 13, "text": "", "type": "text"}, {"extra_queries": [], "map_filters": [], "map_points_query": "PREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\r\nPREFIX dul: \u003chttp://www.ontologydesignpatterns.org/ont/dul/DUL.owl#\u003e\r\nPREFIX owl: \u003chttp://www.w3.org/2002/07/owl#\u003e\r\nPREFIX rdf: \u003chttp://www.w3.org/1999/02/22-rdf-syntax-ns#\u003e\r\nPREFIX dbpedia: \u003chttp://dbpedia.org/resource/\u003e\r\nPREFIX sc: \u003chttp://purl.org/science/owl/sciencecommons/\u003e\r\nPREFIX schema: \u003chttp://schema.org/\u003e\r\nPREFIX wdt: \u003chttp://www.wikidata.org/prop/direct/\u003e\r\nPREFIX wikibase: \u003chttp://wikiba.se/ontology#\u003e\r\nPREFIX p: \u003chttp://www.wikidata.org/prop/\u003e\r\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\r\nPREFIX ps: \u003chttp://www.wikidata.org/prop/statement/\u003e\r\nPREFIX psv: \u003chttp://www.wikidata.org/prop/statement/value/\u003e\r\nPREFIX wdr: \u003chttp://www.w3.org/2007/05/powder#\u003e\r\nPREFIX amr: \u003chttp://www.ontologydesignpatterns.org/ont/amr/\u003e \r\nSELECT DISTINCT ?point ?label ?frameInstance ?lat ?long\r\nWHERE {   \r\nSERVICE \u003chttps://query.wikidata.org/bigdata/namespace/wdq/sparql\u003e { \r\n    ?point wdt:P31/wdt:P279* wd:Q515 .  \r\n    ?point p:P625 ?coords_stmt .  \r\n    ?coords_stmt ps:P625 ?coords; \r\n    psv:P625 [  wikibase:geoLatitude ?lat;  wikibase:geoLongitude ?long ] . }\r\n\r\n  ?cityUri rdf:type amr:City ;  owl:sameAs ?point ;  amr:name ?label .  \r\n    FILTER (regex(str(?point), \"http://www.wikidata.org/entity/\", \"i\"))  \r\n    ?frameInstance ?p ?cityUri ; rdf:type ?frame .\r\n}\r\n}", "map_title": "Bologna as a lively cultural centre in Europe", "operations": [], "position": 14, "type": "map"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 15, "text": "\u003cp\u003eThis map shows that, in muBosic corpus, may other places throughout Europe are mentioned in relation to Bologna. Unveiling an intricate net of connections, this data underlines Bologna\u0027s pivotal role as a pulsating hub within the European music scene.\u003c/p\u003e", "type": "text"}], "id": "1687949516.253957", "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql", "subtitle": "Exploring Bologna\u0027s role in music history through Knowledge Extraction", "template_mode": "statistics", "title": "muBOsic, A Musical Heritage Knowledge Graph", "user_name": "anonymous-iswc23"};
+  </script>
 
 
 </head>
@@ -76,740 +76,732 @@
 
 		<div class="main-header">
 
-			<!-- Logo Header -->
-			<div class="logo-header" data-background-color="dark2">
+	<!-- Logo Header -->
+	<div class="logo-header" data-background-color="dark2">
 
-				<a href="/melody/" class="logo">MELODY</a>
-				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
-					data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon">
-						<i class="icon-menu"></i>
-					</span>
-				</button>
-				<div class="nav-toggle">
-					<button class="btn btn-toggle toggle-sidebar">
-						<i class="icon-menu"></i>
-					</button>
-				</div>
-			</div>
-			<!-- End Logo Header -->
-
-			<!-- Navbar Header -->
-			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
-
-				<div class="container">
-					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-
-						<li class="nav-item">
-							<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
-								aria-controls="search-nav">
-								Create a story
-							</a>
-						</li>
-
-						<li class="nav-item">
-
-							<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
-								aria-controls="search-nav">
-								Sign in
-							</a>
-
-						</li>
-
-					</ul>
-				</div>
-
-
-			</nav>
-
-			<!-- End Navbar -->
+		<a href="/melody/" class="logo">MELODY</a>
+		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+			data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">
+				<i class="icon-menu"></i>
+			</span>
+		</button>
+		<div class="nav-toggle">
+			<button class="btn btn-toggle toggle-sidebar">
+				<i class="icon-menu"></i>
+			</button>
 		</div>
+	</div>
+	<!-- End Logo Header -->
+
+	<!-- Navbar Header -->
+	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
+
+		<div class="container">
+			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="/melody/setup" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Create a story
+					</a>
+				</li>
+				
+				<li class="nav-item">
+					
+					<a class="nav-link" href="/melody/gitauth" role="button" aria-expanded="false"
+						aria-controls="search-nav">
+						Sign in
+					</a>
+					
+				</li>
+
+			</ul>
+		</div>
+
+
+	</nav>
+
+	<!-- End Navbar -->
+</div>
 
 		<!-- Sidebar -->
-		<div class="sidebar sidebar-style-2" data-background-color="dark2">
-			<div class="sidebar-wrapper scrollbar scrollbar-inner">
-				<div class="sidebar-content">
-					<ul class="nav nav-primary">
-
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
-								<p>Bells</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu1">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
-											<!-- href="/overview_of_bells_in_liguria"> -->
-											Overview of bells in Liguria
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
-								<p>choco</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu2">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href="/melody/choco/chord_corpus_statistics">
-											<!-- href="/chord_corpus_statistics"> -->
-											Chord Corpus Statistics
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
-								<p>fonn</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu3">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
-											<!-- href="/frequently_occurring_patterns"> -->
-											Frequently Occurring Patterns
-										</a>
-
-
-										<a class="col-8" href="/melody/fonn/tune_families_in_the_session_and_mtcann">
-											<!-- href="/tune_families_in_the_session_and_mtcann"> -->
-											Tune families in The Session and MTC-ANN
-										</a>
-
-
-										<a class="col-8"
-											href="/melody/fonn/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg">
-											<!-- href="/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg"> -->
-											Statistics on The Session (annotated subset) and Meertens Tune Collections
-											(MTC-ANN) Pattern KG
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
-								<p>MusicBo</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu4">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8"
-											href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
-											<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
-											Music in Bologna - Knowledge Graph Overview
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
-								<p>musoW</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu5">
-								<ul class="nav nav-collapse">
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
-											<!-- href="/discover_music_data_on_the_web"> -->
-											Discover music data on the Web
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu6" aria-expanded="true">
-								<p>organs</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu6">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href="/melody/organs/organs_statistics">
-											<!-- href="/organs_statistics"> -->
-											ORGANS Statistics
-										</a>
-
-
-									</li>
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
-								<p>Sound and Vision</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu7">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8"
-											href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
-											<!-- href="/dutch_broadcast_concert_collection"> -->
-											Dutch Broadcast Concert Collection
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
-								<p>Tonalities</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu8">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href="/melody/tonalities/tonalities">
-											<!-- href="/tonalities"> -->
-											Tonalities
-										</a>
-
-
-									</li>
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
-								<p>tunes</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu9">
-								<ul class="nav nav-collapse">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href="/melody/tunes/tunes_statistics">
-											<!-- href="/tunes_statistics"> -->
-											Tunes Statistics
-										</a>
-
-
-										<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
-											<!-- href="/explore_similarity_relations_among_songs"> -->
-											Explore similarity relations among songs
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-						<li class="nav-item submenu">
-							<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
-								<p>wikidata</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="submenu10">
-								<ul class="nav nav-collapse">
-
-
-
-
-									<li class="menuitem row">
-
-										<a class="col-8" href="/melody/wikidata/relations_between_museums">
-											<!-- href="/relations_between_museums"> -->
-											Relations between museums
-										</a>
-
-
-										<a class="col-8"
-											href="/melody/wikidata/relations_between_music_bands_an_exploration">
-											<!-- href="/relations_between_music_bands_an_exploration"> -->
-											Relations between music bands - An exploration
-										</a>
-
-
-										<a class="col-8" href="/melody/wikidata/mapping_us_recording_studios">
-											<!-- href="/mapping_us_recording_studios"> -->
-											Mapping US Recording Studios
-										</a>
-
-
-										<a class="col-8" href="/melody/wikidata/through_the_prism_of_diversity">
-											<!-- href="/through_the_prism_of_diversity"> -->
-											Through the Prism of Diversity
-										</a>
-
-
-									</li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-								</ul>
-							</div>
-						</li>
-
-
-					</ul>
-				</div>
-			</div>
+<div class="sidebar sidebar-style-2" data-background-color="dark2">
+	<div class="sidebar-wrapper scrollbar scrollbar-inner">
+		<div class="sidebar-content">
+			<ul class="nav nav-primary">
+				
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu1" aria-expanded="true">
+						<p>Bells</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu1">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/bells/overview_of_bells_in_liguria">
+									<!-- href="/overview_of_bells_in_liguria"> -->
+									Overview of bells in Liguria
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu2" aria-expanded="true">
+						<p>choco</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu2">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/choco/chord_corpus_statistics">
+									<!-- href="/chord_corpus_statistics"> -->
+									Chord Corpus Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu3" aria-expanded="true">
+						<p>fonn</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu3">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/fonn/frequently_occurring_patterns">
+									<!-- href="/frequently_occurring_patterns"> -->
+									Frequently Occurring Patterns 
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/tune_families_in_the_session_and_mtcann">
+									<!-- href="/tune_families_in_the_session_and_mtcann"> -->
+									Tune families in The Session and MTC-ANN
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg">
+									<!-- href="/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg"> -->
+									Statistics on The Session (annotated subset) and Meertens Tune Collections (MTC-ANN) Pattern KG
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu4" aria-expanded="true">
+						<p>MusicBo</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu4">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
+									<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
+									Music in Bologna - Knowledge Graph Overview
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu5" aria-expanded="true">
+						<p>musoW</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu5">
+						<ul class="nav nav-collapse">
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/musow/discover_music_data_on_the_web">
+									<!-- href="/discover_music_data_on_the_web"> -->
+									Discover music data on the Web
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu6" aria-expanded="true">
+						<p>organs</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu6">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/organs/organs_statistics">
+									<!-- href="/organs_statistics"> -->
+									ORGANS Statistics
+								</a>
+								
+								
+							</li>
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu7" aria-expanded="true">
+						<p>Sound and Vision</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu7">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/sound_and_vision/dutch_broadcast_concert_collection">
+									<!-- href="/dutch_broadcast_concert_collection"> -->
+									Dutch Broadcast Concert Collection
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu8" aria-expanded="true">
+						<p>Tonalities</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu8">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tonalities/tonalities">
+									<!-- href="/tonalities"> -->
+									Tonalities 
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
+						<p>tunes</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu9">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/tunes/tunes_statistics">
+									<!-- href="/tunes_statistics"> -->
+									Tunes Statistics
+								</a>
+								
+								
+								<a class="col-8" href="/melody/tunes/explore_similarity_relations_among_songs">
+									<!-- href="/explore_similarity_relations_among_songs"> -->
+									Explore similarity relations among songs
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item submenu">
+					<a data-toggle="collapse" href="#submenu10" aria-expanded="true">
+						<p>wikidata</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="submenu10">
+						<ul class="nav nav-collapse">
+							
+							
+							
+							
+							<li class="menuitem row">
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_museums">
+									<!-- href="/relations_between_museums"> -->
+									Relations between museums
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/relations_between_music_bands_an_exploration">
+									<!-- href="/relations_between_music_bands_an_exploration"> -->
+									Relations between music bands - An exploration
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/mapping_us_recording_studios">
+									<!-- href="/mapping_us_recording_studios"> -->
+									Mapping US Recording Studios
+								</a>
+								
+								
+								<a class="col-8" href="/melody/wikidata/through_the_prism_of_diversity">
+									<!-- href="/through_the_prism_of_diversity"> -->
+									Through the Prism of Diversity
+								</a>
+								
+								
+							</li>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</ul>
+					</div>
+				</li>
+				
+				
+			</ul>
 		</div>
-		<!-- End Sidebar -->
+	</div>
+</div>
+<!-- End Sidebar -->
 
 		<div class="main-panel">
 
+			
+
+<div class="content row datastorypage" id="dwn">
+  <section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
+  <section id="secondarymenuinner" class="secondarymenuinner">
+
+    <h4>About this story</h4>
+    
+    <p>Authors: Anonymous </p>
+    
+    
+
+    <p>Source: <a href="https://polifonia.disi.unibo.it/musicbo/sparql">SPARQL endpoint</a></p>
+    <p>Export</p>
+    <button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
+    <button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
+        download="muBOsic, A Musical Heritage Knowledge Graph.html">HTML</a></button>
+    <button class="exportbutton" type="button">
+      <a href="#" data-toggle="modal" data-target="#queryModal"
+        id="sparqlQuery">JSON</a></button>
+
+    <!-- publish button -->
+    
+    <!-- modify button -->
+    
+  </section>
+
+  <div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
+    aria-labelledby="queryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content card">
+        <div class="modal-header">
+          <h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://polifonia.disi.unibo.it/musicbo/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;muBOsic, A Musical Heritage Knowledge Graph&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;anonymous-iswc23&#39;, &#39;id&#39;: &#39;1687949516.253957&#39;, &#39;subtitle&#39;: &#34;Exploring Bologna&#39;s role in music history through Knowledge Extraction&#34;, &#39;curator&#39;: &#39;Anonymous&#39;, &#39;description&#39;: &#34;The muBOsic Knowledge Graph (KG), documenting Bologna&#39;s pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.&#34;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt;}&#39;, &#39;count_label&#39;: &#39;people&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Organization&gt;}&#39;, &#39;count_label&#39;: &#39;organizations&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Country&gt;}&#39;, &#39;count_label&#39;: &#39;countries&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/City&gt;}&#39;, &#39;count_label&#39;: &#39;cities&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) WHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Work-of-art&gt;}&#39;, &#39;count_label&#39;: &#39;works of art&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Publication&gt;}&#39;, &#39;count_label&#39;: &#39;publications&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Top 10 types of entity&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type ?class; &lt;http://www.ontologydesignpatterns.org/ont/amr/name&gt; ?name   \r\nFILTER regex(str(?class), &#34;(?:^http://www.ontologydesignpatterns.org/ont/amr/)&#34;)      BIND (REPLACE(STR(?class), &#34;^.+?([^/#]+)$&#34;, &#34;$1&#34;) as ?label)} \r\nGROUP BY ?label   \r\nORDER BY DESC (?count) \r\nLIMIT 10  &#39;, &#39;chart_series&#39;: &#39;entities&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;entity type&#39;, &#39;y&#39;: &#39;count&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 7, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;We analysed muBOsic KG through the lens of Named Entities Recognition (NER), a standard Natural Language Processing task. We discovered that the entanglement of Bologna and music history is a composite network of people, places, and organizations. Publications, works of art and books are frequently mentioned in the corpus, revealing that Bologna was an important centre for artistic production.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 8, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Top 10 situations involving people&#39;, &#39;chart_query&#39;: &#39;PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;  \r\nPREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;  \r\nSELECT distinct ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt; . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?label }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10&#39;, &#39;chart_series&#39;: &#39;event type&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;situation&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 9, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Persons in situations&#39;, &#39;chart_query&#39;: &#39;PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;  \r\nPREFIX dul: &lt;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&gt;    \r\nSELECT ?label (count(distinct ?frameInstance) as ?count)  \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt; . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?frameLabel . ?frame rdfs:subClassOf dul:Event .   \r\n?s &lt;http://www.ontologydesignpatterns.org/ont/amr/name&gt; ?label  \r\nFILTER (!regex(str(?s), &#34;san_petronio&#34;,\&#39;i\&#39;))}  \r\n   \r\nGROUP BY ?label   \r\nORDER BY DESC (?count)\r\nLIMIT 10 &#39;, &#39;chart_series&#39;: &#39;events&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;persons&#39;, &#39;y&#39;: &#39;frequency&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 10, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;Among the many people in the muBOsic corpus, Rossini is the most frequently mentioned as involved in events and situations.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 11, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Top 10 roles played by people in different types of situations&#39;, &#39;chart_query&#39;: &#39;PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; \r\nPREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nSELECT distinct ?label (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt; . ?frameInstance ?p ?s ; rdf:type ?frame . \r\n#?frame rdfs:label ?label  \r\nBIND (REPLACE(STR(?p), &#34;^.*/([^/]*)$&#34;, &#34;$1&#34;) as ?label)  \r\nFILTER (!regex(str(?p), &#34;entity_&#34;))  \r\nFILTER (!regex(str(?p), &#34;#&#34;))  \r\nFILTER (!regex(str(?p), &#34;subset&#34;)) }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10 &#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 12, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;What roles did people linked to music and the city of Bologna played? Characters relevant to the music scene that crossed Bologna over the centuries were mostly authors and artists, but also office holders, writers, agents, and editors. Such insights suggest that Bologna was both a point of reference for artistic production and for music-related activities, as criticism and business. Last but not least, Bologna attracted music students.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 13, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 14, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;Bologna as a lively cultural centre in Europe&#39;, &#39;map_points_query&#39;: &#39;PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nPREFIX dul: &lt;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&gt;\r\nPREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;\r\nPREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;\r\nPREFIX dbpedia: &lt;http://dbpedia.org/resource/&gt;\r\nPREFIX sc: &lt;http://purl.org/science/owl/sciencecommons/&gt;\r\nPREFIX schema: &lt;http://schema.org/&gt;\r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;\r\nPREFIX wikibase: &lt;http://wikiba.se/ontology#&gt;\r\nPREFIX p: &lt;http://www.wikidata.org/prop/&gt;\r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\nPREFIX ps: &lt;http://www.wikidata.org/prop/statement/&gt;\r\nPREFIX psv: &lt;http://www.wikidata.org/prop/statement/value/&gt;\r\nPREFIX wdr: &lt;http://www.w3.org/2007/05/powder#&gt;\r\nPREFIX amr: &lt;http://www.ontologydesignpatterns.org/ont/amr/&gt; \r\nSELECT DISTINCT ?point ?label ?frameInstance ?lat ?long\r\nWHERE {   \r\nSERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt; { \r\n    ?point wdt:P31/wdt:P279* wd:Q515 .  \r\n    ?point p:P625 ?coords_stmt .  \r\n    ?coords_stmt ps:P625 ?coords; \r\n    psv:P625 [  wikibase:geoLatitude ?lat;  wikibase:geoLongitude ?long ] . }\r\n\r\n  ?cityUri rdf:type amr:City ;  owl:sameAs ?point ;  amr:name ?label .  \r\n    FILTER (regex(str(?point), &#34;http://www.wikidata.org/entity/&#34;, &#34;i&#34;))  \r\n    ?frameInstance ?p ?cityUri ; rdf:type ?frame .\r\n}\r\n}&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 15, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#34;&lt;p&gt;This map shows that, in muBosic corpus, may other places throughout Europe are mentioned in relation to Bologna. Unveiling an intricate net of connections, this data underlines Bologna&#39;s pivotal role as a pulsating hub within the European music scene.&lt;/p&gt;&#34;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
+    <div class="page-inner py-5">
+      <div class="align-items-left align-items-md-center flex-column flex-md-row">
+
+          <h1 class="text-white pb-2 fw-bold">muBOsic, A Musical Heritage Knowledge Graph</h1>
+
+<h2 class="text-white op-7 mb-2">
+  Exploring Bologna&#39;s role in music history through Knowledge Extraction
+</h2>
 
 
-			<div class="content row datastorypage" id="dwn">
-				<section id="secondarymenu" class="secondarymenu col-md-3 col-sm-12">
-					<section id="secondarymenuinner" class="secondarymenuinner">
+<p class="card-category">
+  The muBOsic Knowledge Graph (KG), documenting Bologna&#39;s pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.
+</p>
 
-						<h4>About this story</h4>
+          <span id='loader' class='lds-dual-ring hidden overlay'></span>
+          <div id="sortable"></div>
+          <script src="static/js/react/Error.js" type="text/babel"></script>
+          <script src="static/js/react/Map.js" type="text/babel"></script>
+          <script src="static/js/react/Table.js" type="text/babel"></script>
+          <script src="static/js/react/Chart.js" type="text/babel"></script>
+          <script src="static/js/react/Textbox.js" type="text/babel"></script>
+          <script src="static/js/react/Count.js" type="text/babel"></script>
+          <script src="static/js/react/Action.js" type="text/babel"></script>
+          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+          <script src="static/js/react/add_components.js" type="text/babel"></script>
 
-						<p>Authors: Anonymous </p>
-
-
-
-						<p>Source: <a href="https://polifonia.disi.unibo.it/musicbo/sparql">SPARQL endpoint</a></p>
-						<p>Export</p>
-						<button class="exportbutton" onclick="getPDF('dwn')" type="button" name="button">PDF</button>
-						<button class="exportbutton" type="button"><a onclick="getHTML(this)" href="#"
-								download="muBOsic, A Musical Heritage Knowledge Graph.html">HTML</a></button>
-						<button class="exportbutton" type="button">
-							<a href="#" data-toggle="modal" data-target="#queryModal" id="sparqlQuery">JSON</a></button>
-
-						<!-- publish button -->
-
-						<!-- modify button -->
-
-					</section>
-
-					<div class="modal fade" id="queryModal" tabindex="-1" role="dialog"
-						aria-labelledby="queryModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content card">
-								<div class="modal-header">
-									<h4 class="card-title" id="queryModalLabel">Story components and queries</h4>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="container">
-										<code>{&#39;sparql_endpoint&#39;: &#39;https://polifonia.disi.unibo.it/musicbo/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;muBOsic, A Musical Heritage Knowledge Graph&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;anonymous-iswc23&#39;, &#39;id&#39;: &#39;1687949516.253957&#39;, &#39;subtitle&#39;: &#34;Exploring Bologna&#39;s role in music history through Knowledge Extraction&#34;, &#39;curator&#39;: &#39;Anonymous&#39;, &#39;description&#39;: &#34;The muBOsic Knowledge Graph (KG), documenting Bologna&#39;s pivotal role in the European Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a multilingual and diachronic corpus.&#34;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt;}&#39;, &#39;count_label&#39;: &#39;people&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Organization&gt;}&#39;, &#39;count_label&#39;: &#39;organizations&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Country&gt;}&#39;, &#39;count_label&#39;: &#39;countries&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 3, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/City&gt;}&#39;, &#39;count_label&#39;: &#39;cities&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 4, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) WHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Work-of-art&gt;}&#39;, &#39;count_label&#39;: &#39;works of art&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 5, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(DISTINCT ?s) AS ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Publication&gt;}&#39;, &#39;count_label&#39;: &#39;publications&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 6, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Top 10 types of entity&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type ?class; &lt;http://www.ontologydesignpatterns.org/ont/amr/name&gt; ?name   \r\nFILTER regex(str(?class), &#34;(?:^http://www.ontologydesignpatterns.org/ont/amr/)&#34;)      BIND (REPLACE(STR(?class), &#34;^.+?([^/#]+)$&#34;, &#34;$1&#34;) as ?label)} \r\nGROUP BY ?label   \r\nORDER BY DESC (?count) \r\nLIMIT 10  &#39;, &#39;chart_series&#39;: &#39;entities&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;entity type&#39;, &#39;y&#39;: &#39;count&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 7, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;We analysed muBOsic KG through the lens of Named Entities Recognition (NER), a standard Natural Language Processing task. We discovered that the entanglement of Bologna and music history is a composite network of people, places, and organizations. Publications, works of art and books are frequently mentioned in the corpus, revealing that Bologna was an important centre for artistic production.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 8, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Top 10 situations involving people&#39;, &#39;chart_query&#39;: &#39;PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;  \r\nPREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;  \r\nSELECT distinct ?label (count(distinct ?s) as ?count)  \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt; . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?label }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10&#39;, &#39;chart_series&#39;: &#39;event type&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;situation&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 9, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Persons in situations&#39;, &#39;chart_query&#39;: &#39;PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;  \r\nPREFIX dul: &lt;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&gt;    \r\nSELECT ?label (count(distinct ?frameInstance) as ?count)  \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt; . ?frameInstance ?p ?s ; rdf:type ?frame . ?frame rdfs:label ?frameLabel . ?frame rdfs:subClassOf dul:Event .   \r\n?s &lt;http://www.ontologydesignpatterns.org/ont/amr/name&gt; ?label  \r\nFILTER (!regex(str(?s), &#34;san_petronio&#34;,\&#39;i\&#39;))}  \r\n   \r\nGROUP BY ?label   \r\nORDER BY DESC (?count)\r\nLIMIT 10 &#39;, &#39;chart_series&#39;: &#39;events&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;persons&#39;, &#39;y&#39;: &#39;frequency&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 10, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;Among the many people in the muBOsic corpus, Rossini is the most frequently mentioned as involved in events and situations.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 11, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;doughnutchart&#39;, &#39;chart_title&#39;: &#39;Top 10 roles played by people in different types of situations&#39;, &#39;chart_query&#39;: &#39;PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; \r\nPREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nSELECT distinct ?label (count(distinct ?s) as ?count) \r\nWHERE {?s rdf:type &lt;http://www.ontologydesignpatterns.org/ont/amr/Person&gt; . ?frameInstance ?p ?s ; rdf:type ?frame . \r\n#?frame rdfs:label ?label  \r\nBIND (REPLACE(STR(?p), &#34;^.*/([^/]*)$&#34;, &#34;$1&#34;) as ?label)  \r\nFILTER (!regex(str(?p), &#34;entity_&#34;))  \r\nFILTER (!regex(str(?p), &#34;#&#34;))  \r\nFILTER (!regex(str(?p), &#34;subset&#34;)) }  \r\nGROUP BY ?label  \r\nORDER BY DESC(?count) \r\nLIMIT 10 &#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 12, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;What roles did people linked to music and the city of Bologna played? Characters relevant to the music scene that crossed Bologna over the centuries were mostly authors and artists, but also office holders, writers, agents, and editors. Such insights suggest that Bologna was both a point of reference for artistic production and for music-related activities, as criticism and business. Last but not least, Bologna attracted music students.&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 13, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 14, &#39;operations&#39;: [], &#39;type&#39;: &#39;map&#39;, &#39;map_title&#39;: &#39;Bologna as a lively cultural centre in Europe&#39;, &#39;map_points_query&#39;: &#39;PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;\r\nPREFIX dul: &lt;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&gt;\r\nPREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;\r\nPREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;\r\nPREFIX dbpedia: &lt;http://dbpedia.org/resource/&gt;\r\nPREFIX sc: &lt;http://purl.org/science/owl/sciencecommons/&gt;\r\nPREFIX schema: &lt;http://schema.org/&gt;\r\nPREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;\r\nPREFIX wikibase: &lt;http://wikiba.se/ontology#&gt;\r\nPREFIX p: &lt;http://www.wikidata.org/prop/&gt;\r\nPREFIX wd: &lt;http://www.wikidata.org/entity/&gt;\r\nPREFIX ps: &lt;http://www.wikidata.org/prop/statement/&gt;\r\nPREFIX psv: &lt;http://www.wikidata.org/prop/statement/value/&gt;\r\nPREFIX wdr: &lt;http://www.w3.org/2007/05/powder#&gt;\r\nPREFIX amr: &lt;http://www.ontologydesignpatterns.org/ont/amr/&gt; \r\nSELECT DISTINCT ?point ?label ?frameInstance ?lat ?long\r\nWHERE { ?cityUri rdf:type amr:City ;  owl:sameAs ?point ;  amr:name ?label .  \r\n\tFILTER (regex(str(?point), &#34;http://www.wikidata.org/entity/&#34;, &#34;i&#34;))  \r\n\t?frameInstance ?p ?cityUri ; rdf:type ?frame .  \r\nSERVICE &lt;https://query.wikidata.org/bigdata/namespace/wdq/sparql&gt; { \r\n\t?point wdt:P31/wdt:P279* wd:Q515 .  \r\n\t?point p:P625 ?coords_stmt .  \r\n\t?coords_stmt ps:P625 ?coords; \r\n\tpsv:P625 [  wikibase:geoLatitude ?lat;  wikibase:geoLongitude ?long ] . }\r\n}&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 15, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#34;&lt;p&gt;This map shows that, in muBosic corpus, may other places throughout Europe are mentioned in relation to Bologna. Unveiling an intricate net of connections, this data underlines Bologna&#39;s pivotal role as a pulsating hub within the European music scene.&lt;/p&gt;&#34;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<div class="panel-header bg-primary-gradient col-md-9 col-sm-12 datastorypagefields">
-					<div class="page-inner py-5">
-						<div class="align-items-left align-items-md-center flex-column flex-md-row">
-
-							<h1 class="text-white pb-2 fw-bold">muBOsic, A Musical Heritage Knowledge Graph</h1>
-
-							<h2 class="text-white op-7 mb-2">
-								Exploring Bologna&#39;s role in music history through Knowledge Extraction
-							</h2>
-
-
-							<p class="card-category">
-								The muBOsic Knowledge Graph (KG), documenting Bologna&#39;s pivotal role in the European
-								Musical Heritage, is created using an automated Text-to-Knowledge Graph pipeline on a
-								multilingual and diachronic corpus.
-							</p>
-
-							<span id='loader' class='lds-dual-ring hidden overlay'></span>
-							<div id="sortable"></div>
-							<script src="static/js/react/Error.js" type="text/babel"></script>
-							<script src="static/js/react/Map.js" type="text/babel"></script>
-							<script src="static/js/react/Table.js" type="text/babel"></script>
-							<script src="static/js/react/Chart.js" type="text/babel"></script>
-							<script src="static/js/react/Textbox.js" type="text/babel"></script>
-							<script src="static/js/react/Count.js" type="text/babel"></script>
-							<script src="static/js/react/Action.js" type="text/babel"></script>
-							<script src="static/js/react/TextSearch.js" type="text/babel"></script>
-							<script src="static/js/react/add_components.js" type="text/babel"></script>
-
-						</div>
-					</div>
-				</div>
-			</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
 			<footer class="footer">
-				<div class="container-fluid d-flex align-items-start">
-					<div class="p-2 col-md-3">
-						<h6>MELODY</h6>
-						<p><a target="_blank" href="/melody">Home</a></p>
-						<p><a target="_blank" href="/melody/asklogin">Create a story</a></p>
-						<p><a target="_blank" href="https://melody-data.github.io/stories/#catalogue">Data stories'
-								catalaogue</a>
-						</p>
-					</div>
-					<div class="p-2 col-md-3">
-						<h6>Links</h6>
-						<p>Read the <a href="https://polifonia-project.github.io/dashboard/"
-								target="_blank">documentation</a></p>
-						<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
-						<p>Theme <a target="_blank"
-								href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
-								Flask Atlantis Dark
-							</a></p>
-					</div>
+	<div class="container-fluid d-flex align-items-start">
+		<div class="p-2 col-md-3">
+			<h6>MELODY</h6>
+			<p><a target="_blank" href="/melody">Home</a></p>
+			<p><a target="_blank" href="/melody/asklogin">Create a story</a></p>
+			<p><a target="_blank" href="https://melody-data.github.io/stories/#catalogue">Data stories' catalaogue</a>
+			</p>
+		</div>
+		<div class="p-2 col-md-3">
+			<h6>Links</h6>
+			<p>Read the <a href="https://polifonia-project.github.io/dashboard/" target="_blank">documentation</a></p>
+			<p>Source <a href="https://github.com/polifonia-project/dashboard" target="_blank">code</a></p>
+			<p>Theme <a target="_blank" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+					Flask Atlantis Dark
+				</a></p>
+		</div>
 
-					<div class="copyright ml-auto p-2 col-md-4">
-						<p>MELODY is part of</p>
-						<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
-						<p>Polifonia has received funding from the European Union’s Horizon 2020 research
-							and innovation programme under grant agreement N. 101004746</p>
-					</div>
-				</div>
-			</footer>
+		<div class="copyright ml-auto p-2 col-md-4">
+			<p>MELODY is part of</p>
+			<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
+			<p>Polifonia has received funding from the European Union’s Horizon 2020 research
+				and innovation programme under grant agreement N. 101004746</p>
+		</div>
+	</div>
+</footer>
 
 		</div>
 
 	</div>
 
 	<!--   Core JS Files   -->
-	<script src="static/js/core/jquery.3.2.1.min.js"></script>
-	<script src="static/js/core/popper.min.js"></script>
-	<script src="static/js/core/bootstrap.min.js"></script>
+<script src="static/js/core/jquery.3.2.1.min.js"></script>
+<script src="static/js/core/popper.min.js"></script>
+<script src="static/js/core/bootstrap.min.js"></script>
 
-	<!-- jQuery UI -->
-	<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-	<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+<!-- jQuery UI -->
+<script src="static/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="static/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
-	<!-- jQuery Scrollbar -->
-	<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<!-- jQuery Scrollbar -->
+<script src="static/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
-	<!-- Chart JS -->
-	<script src="static/js/plugin/chart.js/chart.min.js"></script>
+<!-- Chart JS -->
+<script src="static/js/plugin/chart.js/chart.min.js"></script>
 
-	<!-- Import D3 Scale Chromatic via CDN -->
-	<script src="https://d3js.org/d3-color.v1.min.js"></script>
-	<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
-	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<!-- Import D3 Scale Chromatic via CDN -->
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
-	<!-- jQuery Sparkline -->
-	<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+<!-- jQuery Sparkline -->
+<script src="static/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 
-	<!-- Chart Circle -->
-	<script src="static/js/plugin/chart-circle/circles.min.js"></script>
+<!-- Chart Circle -->
+<script src="static/js/plugin/chart-circle/circles.min.js"></script>
 
-	<!-- Datatables -->
-	<script src="static/js/plugin/datatables/datatables.min.js"></script>
+<!-- Datatables -->
+<script src="static/js/plugin/datatables/datatables.min.js"></script>
 
-	<!-- Bootstrap Notify -->
-	<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+<!-- Bootstrap Notify -->
+<script src="static/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
-	<!-- jQuery Vector Maps -->
-	<script src="static/js/plugin/jqvmap/jquery.vmap.min.js"></script>
-	<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+<!-- jQuery Vector Maps -->
+<script src="static/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="static/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
 
-	<!-- Sweet Alert -->
-	<script src="static/js/plugin/sweetalert/sweetalert.min.js "></script>
+<!-- Sweet Alert -->
+<script src="static/js/plugin/sweetalert/sweetalert.min.js "></script>
 
-	<!-- Atlantis JS -->
-	<script src="static/js/atlantis.min.js"></script>
+<!-- Atlantis JS -->
+<script src="static/js/atlantis.min.js"></script>
 
-	<!-- Leaflet -->
-	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-		integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-		crossorigin=""></script>
-	<script type="text/javascript" src="static/js/leaflet.markercluster-src.js"></script>
-	<script type="text/javascript" src="static/js/leaflet-sidebar.js"></script>
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+<script type="text/javascript" src="static/js/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="static/js/leaflet-sidebar.js"></script>
 
-	<!-- Include the Quill library -->
-	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 	<!-- utils js -->
 	<!-- <script src="static/js/utils.js" type="module"></script> -->
 
 	<script src="static/js/main.js"></script>
 
-
+	
 	<script>
 		overwriteCSS();
 	</script>
-
+	
 
 	<!-- Specific Page JS goes HERE  -->
+	
+<script type="text/javascript">
+  $('footer').detach();
+</script>
 
-	<script type="text/javascript">
-		$('footer').detach();
-	</script>
+<script>
+  let hostname = window.location.hostname;
+  if (!hostname.includes('github')) {
+    let beforeUnloadAlert = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!beforeUnloadAlert) return;
 
-	<script>
-		let hostname = window.location.hostname;
-		if (!hostname.includes('github')) {
-			let beforeUnloadAlert = true;
-			window.addEventListener('beforeunload', function (e) {
-				if (!beforeUnloadAlert) return;
+      // etc
+      e.preventDefault();
+      e.returnValue = '';
+    });
 
-				// etc
-				e.preventDefault();
-				e.returnValue = '';
-			});
-
-			function myFunction() {
-				beforeUnloadAlert = false;
-			}
-			var myObj = document.getElementsByClassName('prevent_alert')
-			console.log(myObj);
-			for (el of myObj) {
-				el.addEventListener('click', myFunction);
-			}
-		}
-	</script>
+    function myFunction() {
+      beforeUnloadAlert = false;
+    }
+    var myObj = document.getElementsByClassName('prevent_alert')
+    console.log(myObj);
+    for (el of myObj) {
+      el.addEventListener('click', myFunction);
+    }
+  }
+</script>
 
 
 
