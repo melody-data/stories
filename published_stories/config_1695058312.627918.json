@@ -1,0 +1,100 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Revolutionary Rhythms",
+    "color_code": [
+        "#ba2c2c",
+        "#e8456e"
+    ],
+    "user_name": "denisedovani",
+    "id": "1695058312.627918",
+    "subtitle": "",
+    "curator": "Zihang Chen, Dovani Denise",
+    "description": "THIS IS A TEST",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "text",
+            "text": "<p>The roots of Rock 'n' Roll have been hotly discussed by music analysts and historians. There is widespread consensus that it emerged in the Southern United States - an area that produced the majority of the big early rock 'n' roll artists - through the convergence of numerous influences that embodied a fusion of African musical tradition and European equipment. Because of the migration of many former slaves and their descendants to major urban centers such as St. Louis, Memphis, New York City, Detroit, Chicago, Cleveland, and Buffalo, black and white residents were living in closer proximity than ever before, hearing each other's music and even beginning to emulate each other's fashions. This process of \"cultural collision\" was facilitated by radio stations that made white and black forms of music available to both populations, the development and distribution of the vinyl record, and African-American musical styles such as jazz and swing that were adopted by white performers.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "map",
+            "map_title": "Rock artists around the world",
+            "map_points_query": "SELECT DISTINCT ?point ?artistLabel ?pointLabel ?villeIdLabel ?lat ?long\r\nWHERE\r\n{\r\n{?artist wdt:P31 wd:Q5741069 .\r\n ?artist wdt:P740 ?point .}\r\nUNION\r\n{?artist wdt:P31 wd:Q5 .\r\n?artist wdt:P136 wd:Q11399 .\r\n?artist wdt:P19 ?point.}\r\n \r\n  ?point wdt:P706 ?villeId.\r\n  ?point p:P625 ?statement.\r\n  ?statement psv:P625 ?node.\r\n  ?node wikibase:geoLatitude ?lat.\r\n  ?node wikibase:geoLongitude ?long.\r\n \r\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }\r\n}\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "table",
+            "table_title": "Popular rock artists",
+            "table_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n \r\nSELECT DISTINCT ?human ?humanLabel\r\nWHERE\r\n{\r\n\tVALUES ?professions {wd:Q177220 wd:Q639669}\r\n\t?human wdt:P31 wd:Q5 .\r\n\t?human wdt:P106 ?professions .\r\n\t?human wdt:P136 ?genre .\r\n\t?human wikibase:statements ?statementcount .\r\n\t?genre rdfs:label ?genreLabel . \r\n\tFILTER CONTAINS(?genreLabel, \"rock\") .\r\n\tFILTER (?statementcount > 50 ) .\r\n\tSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" }\r\n}\r\nORDER BY DESC(?sitelinks)\r\nLIMIT 20\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "textsearch",
+            "textsearch_userinput": "queen",
+            "textsearch_title": "Search a rock band",
+            "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\n\r\nSELECT DISTINCT ?pic ?band ?bandLabel ?activity ?activityLabel ?country ?countryLabel (COUNT(?award) as ?awardCount)\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n    bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n    wikibase:api \"EntitySearch\";\r\n    mwapi:search <<searchterm>>;\r\n    mwapi:language \"en\".\r\n    ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?band wdt:P31 wd:Q5741069 . # rock band\r\n  ?band wdt:P495 ?country .\r\n  ?band wdt:P2031 ?year. # start of activity\r\n\r\n  OPTIONAL {?band wdt:P18 ?pic; wdt:P166 ?award .}\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n  }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n  BIND(YEAR(xsd:dateTime(?year)) AS ?activity)\r\n}\r\nGROUP BY ?pic ?band ?bandLabel ?activity ?activityLabel ?country ?countryLabel\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Albums release per year",
+            "chart_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n \r\nSELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n \t?item wdt:P31 wd:Q482994 . # album\r\n{?item wdt:P136 wd:Q11399 .} #genre\r\nUNION {?item wdt:P136 wd:Q7749 .}\r\n ?item wdt:P577 ?date . #publication date\r\n \r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\t\r\n  \t}\r\n   BIND(YEAR(xsd:dateTime(?date)) AS ?label)\r\n}\r\n \r\nGROUP BY ?label\r\nORDER BY ?label\r\nLIMIT 20\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "Year",
+                "y": "N\u00b0 of albums"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n \r\nSELECT (COUNT(?rockArtist) AS ?count)\r\nWHERE {\r\n \t{?rockArtist ?a wd:Q5741069 . # rock band\r\n  \t} UNION\r\n{?rockArtist ?a wd:Q5 . #singer\r\n {?rockArtist wdt:P136 wd:Q11399 . #rock music\r\n  } \r\n}\r\n}\r\n",
+            "count_label": "Rock artists and bands around the world",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n \r\nSELECT (COUNT(?rockArtist) AS ?count)\r\nWHERE {\r\n \t{?rockArtist ?a wd:Q5741069 . # rock band\r\n  \t?rockArtist wdt:P495 wd:Q38.}\r\n  UNION\r\n {?rockArtist ?a wd:Q5 .\r\n ?rockArtist wdt:P136 wd:Q11399 .\r\n ?rockArtist wdt:P27 wd:Q38 .}\r\n }\r\n",
+            "count_label": "Rock artists from Italy",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 7,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": "Subgenres of rock music in Italy",
+            "chart_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n \r\nSELECT DISTINCT ?label\r\nWHERE {\r\n  ?band wdt:P31 wd:Q215380 .\r\n  ?band wdt:P495 wd:Q38 .\r\n  ?band wdt:P136 ?genre .\r\n  \r\n  ?genre wdt:P279 wd:Q11399.\r\n  ?genre rdfs:label ?label .\r\n FILTER(LANG(?label) = \"en\") # Filter by English language label\r\n SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" }\r\n}\r\nLIMIT 10\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
