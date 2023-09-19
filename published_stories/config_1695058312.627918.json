@@ -34,7 +34,7 @@
             "operations": [],
             "type": "table",
             "table_title": "Popular rock artists",
-            "table_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n \r\nSELECT DISTINCT ?human ?humanLabel\r\nWHERE\r\n{\r\n\tVALUES ?professions {wd:Q177220 wd:Q639669}\r\n\t?human wdt:P31 wd:Q5 .\r\n\t?human wdt:P106 ?professions .\r\n\t?human wdt:P136 ?genre .\r\n\t?human wikibase:statements ?statementcount .\r\n\t?genre rdfs:label ?genreLabel . \r\n\tFILTER CONTAINS(?genreLabel, \"rock\") .\r\n\tFILTER (?statementcount > 50 ) .\r\n\tSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" }\r\n}\r\nORDER BY DESC(?sitelinks)\r\nLIMIT 20\r\n",
+            "table_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n \r\nSELECT DISTINCT ?human ?humanLabel ?pic\r\nWHERE\r\n{\r\n\tVALUES ?professions {wd:Q177220 wd:Q639669}\r\n\t?human wdt:P31 wd:Q5 .\r\n\t?human wdt:P106 ?professions .\r\n  ?human wdt:P18 ?pic .\r\n\t?human wdt:P136 ?genre .\r\n\t?human wikibase:statements ?statementcount .\r\n\t?genre rdfs:label ?genreLabel . \r\n\tFILTER CONTAINS(?genreLabel, \"rock\") .\r\n\tFILTER (?statementcount > 50 ) .\r\n    FILTER regex(str(?pic), \"jpg\").\r\n\r\n\tSERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" }\r\n}\r\nORDER BY DESC(?sitelinks)\r\nLIMIT 5",
             "extra_queries": [],
             "map_filters": []
         },
@@ -42,7 +42,7 @@
             "position": 3,
             "operations": [],
             "type": "textsearch",
-            "textsearch_userinput": "queen",
+            "textsearch_userinput": "",
             "textsearch_title": "Search a rock band",
             "textsearch_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX bd: <http://www.bigdata.com/rdf#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX mwapi: <https://www.mediawiki.org/ontology#API/>\r\n\r\nSELECT DISTINCT ?pic ?band ?bandLabel ?activity ?activityLabel ?country ?countryLabel (COUNT(?award) as ?awardCount)\r\nWHERE {\r\n  SERVICE wikibase:mwapi {\r\n    bd:serviceParam wikibase:endpoint \"www.wikidata.org\";\r\n    wikibase:api \"EntitySearch\";\r\n    mwapi:search <<searchterm>>;\r\n    mwapi:language \"en\".\r\n    ?band wikibase:apiOutputItem mwapi:item.\r\n  }\r\n  ?band wdt:P31 wd:Q5741069 . # rock band\r\n  ?band wdt:P495 ?country .\r\n  ?band wdt:P2031 ?year. # start of activity\r\n\r\n  OPTIONAL {?band wdt:P18 ?pic; wdt:P166 ?award .}\r\n  SERVICE wikibase:label {\r\n    bd:serviceParam wikibase:language \"en\".\r\n  }\r\n  FILTER regex(str(?pic), \"jpg\").\r\n  BIND(YEAR(xsd:dateTime(?year)) AS ?activity)\r\n}\r\nGROUP BY ?pic ?band ?bandLabel ?activity ?activityLabel ?country ?countryLabel\r\nLIMIT 10\r\n",
             "extra_queries": [],
