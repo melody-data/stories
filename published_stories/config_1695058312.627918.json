@@ -10,7 +10,7 @@
     "id": "1695058312.627918",
     "subtitle": "",
     "curator": "Zihang Chen, Dovani Denise",
-    "description": "THIS IS A TEST",
+    "description": "The present project traces the rise of rock 'n' roll as a cultural phenomenon, examining data on album releases and highlighting influential rock artists and their contributions.",
     "dynamic_elements": [
         {
             "position": 0,
@@ -66,6 +66,14 @@
         {
             "position": 5,
             "operations": [],
+            "type": "text",
+            "text": "<p>What is the number of Italian rock artists compared to the rest of the world?</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
             "type": "count",
             "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n \r\nSELECT (COUNT(?rockArtist) AS ?count)\r\nWHERE {\r\n \t{?rockArtist ?a wd:Q5741069 . # rock band\r\n  \t} UNION\r\n{?rockArtist ?a wd:Q5 . #singer\r\n {?rockArtist wdt:P136 wd:Q11399 . #rock music\r\n  } \r\n}\r\n}\r\n",
             "count_label": "Rock artists and bands around the world",
@@ -73,7 +81,7 @@
             "map_filters": []
         },
         {
-            "position": 6,
+            "position": 7,
             "operations": [],
             "type": "count",
             "count_query": "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\n \r\nSELECT (COUNT(?rockArtist) AS ?count)\r\nWHERE {\r\n \t{?rockArtist ?a wd:Q5741069 . # rock band\r\n  \t?rockArtist wdt:P495 wd:Q38.}\r\n  UNION\r\n {?rockArtist ?a wd:Q5 .\r\n ?rockArtist wdt:P136 wd:Q11399 .\r\n ?rockArtist wdt:P27 wd:Q38 .}\r\n }\r\n",
@@ -82,7 +90,7 @@
             "map_filters": []
         },
         {
-            "position": 7,
+            "position": 8,
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
