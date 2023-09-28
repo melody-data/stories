@@ -20,6 +20,54 @@
             "count_label": "MusicBands",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}",
+            "count_label": "RockBands",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Number of components for each band",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(?item) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n     ?band wdt:P527 ?item . \r\n     SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?band rdfs:label         ?label.\r\n      }\r\n\r\n\r\n\r\n}\r\nGROUP BY ?label\r\nORDER BY DESC(?count)\r\nLIMIT 30",
+            "chart_series": "Number",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "doughnutchart",
+            "chart_title": " The 10 most influential",
+            "chart_query": "SELECT DISTINCT ?label (COUNT(distinct ?band) as ?count) \r\nWHERE {\r\n     ?band ?a wd:Q5741069 . # rock band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n     ?band wdt:P737 ?influencer .\r\n          SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".\r\n          ?influencer rdfs:label         ?label.\r\n      }\r\n}\r\n\r\nGROUP BY ?label ?count \r\nORDER BY DESC(?count)\r\nLIMIT 10\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Beatles Member",
+            "table_query": "SELECT DISTINCT ?Member ?MemberLabel (year(xsd:dateTime(?BirthDate)) as ?Birth) (year(xsd:dateTime(?DeathDate)) as ?Death) ?BirthPlace ?BirthPlaceLabel ?VoiceType ?VoiceTypeLabel \r\nWHERE { wd:Q1299 wdt:P527 ?Member . ?Member wdt:P569 ?BirthDate . \r\n       OPTIONAL {?Member wdt:P570 ?DeathDate.} ?Member wdt:P19 ?BirthPlace. \r\n       OPTIONAL {?Member wdt:P412 ?VoiceType.} \r\n       SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\".} } \r\n\r\nLIMIT 10\r\n",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
