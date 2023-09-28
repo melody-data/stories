@@ -1,0 +1,25 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "British Rock Bands - An Overview",
+    "color_code": [
+        "#c639ba",
+        "#cf1745"
+    ],
+    "user_name": "simiat",
+    "id": "1695892579.364083",
+    "subtitle": "Exploring music, resources and connections about British rock bands with Wikidata",
+    "curator": "Simone Iattoni",
+    "description": "This data story explores the resources related to British Rock music available on Wikidata,\r\nthe centralized, linked data repository for all Wikimedia projects, with the goal of\r\noverviewing this music genre from statistical point of view.",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count)\r\nWHERE {\r\n     ?band ?a wd:Q215380 . # music band \r\n     ?band wdt:P495 wd:Q145 . # from uk\r\n}",
+            "count_label": "MusicBands",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
