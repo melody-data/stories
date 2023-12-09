@@ -1,0 +1,25 @@
+{
+    "sparql_endpoint": "https://triplestore.netwerkdigitaalerfgoed.nl/repositories/dataset-knowledge-graph",
+    "template_mode": "statistics",
+    "title": "NDE Dataset Knowledge Graph",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "ddeboer",
+    "id": "1702126037.805567",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "select (count(?dataset) as ?count) { ?dataset a <http://rdfs.org/ns/void#Dataset> }",
+            "count_label": "datasets analysed",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
