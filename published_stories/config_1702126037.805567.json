@@ -8,7 +8,7 @@
     ],
     "user_name": "ddeboer",
     "id": "1702126037.805567",
-    "subtitle": "",
+    "subtitle": "The NDE Dataset Knowledge Graph helps researchers, software developers and others to find relevant datasets for their projects. It consists of Dataset Summaries that provide statistical information about datasets.",
     "curator": "David de Boer",
     "description": "",
     "dynamic_elements": [
@@ -18,6 +18,54 @@
             "type": "count",
             "count_query": "select (count(?dataset) as ?count) { ?dataset a <http://rdfs.org/ns/void#Dataset> }",
             "count_label": "datasets analysed",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "count",
+            "count_query": "select (sum(?subjects) as ?count) {\r\n    ?s a <http://rdfs.org/ns/void#Dataset> ;\r\n       <http://rdfs.org/ns/void#distinctSubjects> ?subjects\r\n}\r\n",
+            "count_label": "subjects analysed",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Datasets using terminology sources",
+            "chart_query": "select (?terminologySource as ?label) (count(?dataset) as ?count) {\r\n    ?s a <http://rdfs.org/ns/void#Linkset> ;\r\n       <http://rdfs.org/ns/void#subjectsTarget> ?dataset ;\r\n       <http://rdfs.org/ns/void#objectsTarget> ?terminologySource ;\r\n       <http://rdfs.org/ns/void#triples> ?numberOfTriples ;\r\n} group by ?terminologySource order by desc(?count)",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": "Number of datasets"
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 3,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Vocabularies used by datasets",
+            "chart_query": "select ?label (count(?dataset) as ?count) {\r\n    ?dataset a <http://rdfs.org/ns/void#Dataset> ;\r\n       <http://rdfs.org/ns/void#vocabulary> ?label\r\n} \r\ngroup by ?label\r\norder by desc(?count)\r\n",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
+            "type": "table",
+            "table_title": "Top 10 most-linked datasets",
+            "table_query": "SELECT ?Dataset ?Literals ?URIs (ROUND(?URIs / (?Literals + ?URIs) * 100) as ?percentage) {\r\n    ?Dataset a <http://rdfs.org/ns/void#Dataset> ;\r\n             <https://www.netwerkdigitaalerfgoed.nl/def#distinctObjectsLiteral> ?Literals ;\r\n             <https://www.netwerkdigitaalerfgoed.nl/def#distinctObjectsURI> ?URIs ;\r\n             FILTER(?URIs > 1)        \r\n}\r\norder by desc(?percentage)\r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
         }
