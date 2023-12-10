@@ -68,6 +68,15 @@
             "table_query": "SELECT ?Dataset ?Literals ?URIs (ROUND(?URIs / (?Literals + ?URIs) * 100) as ?percentage) {\r\n    ?Dataset a <http://rdfs.org/ns/void#Dataset> ;\r\n             <https://www.netwerkdigitaalerfgoed.nl/def#distinctObjectsLiteral> ?Literals ;\r\n             <https://www.netwerkdigitaalerfgoed.nl/def#distinctObjectsURI> ?URIs ;\r\n             FILTER(?URIs > 1)        \r\n}\r\norder by desc(?percentage)\r\nLIMIT 10",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "count",
+            "count_query": "PREFIX void: <http://rdfs.org/ns/void#>\r\nPREFIX schema: <https://schema.org/>\r\n\r\nSELECT (count(?dataset) as ?count) {\r\n\t?dataset a <http://www.w3.org/ns/prov#Entity> .\r\n}",
+            "count_label": "RDF datasets",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
