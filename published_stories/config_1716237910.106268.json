@@ -1,0 +1,25 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/sparql",
+    "template_mode": "statistics",
+    "title": "Prova11",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "mariobenissimo",
+    "id": "1716237910.106268",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(?band) AS ?count) WHERE {?band ?a wd:Q215380. ?band wdt:P495 wd:Q34 . }",
+            "count_label": "prova",
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
+}
