@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql",
+    "template_mode": "statistics",
+    "title": "pippi",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "tommasobattisti",
+    "id": "1744129447.418749",
+    "subtitle": "",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": []
+}
