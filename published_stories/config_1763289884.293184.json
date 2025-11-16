@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql",
+    "template_mode": "statistics",
+    "title": "Second Test",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "cesenacomics",
+    "id": "1763289884.293184",
+    "subtitle": "My Second Test",
+    "curator": "",
+    "description": "",
+    "dynamic_elements": []
+}
