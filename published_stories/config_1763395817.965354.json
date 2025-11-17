@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://polifonia.disi.unibo.it/musicbo/sparql",
+    "template_mode": "statistics",
+    "title": "Fryderyk Chopin",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "margheritacosta",
+    "id": "1763395817.965354",
+    "subtitle": "",
+    "curator": "Margherita Costa",
+    "description": "",
+    "dynamic_elements": []
+}
