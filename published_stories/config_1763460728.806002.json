@@ -1,0 +1,15 @@
+{
+    "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql",
+    "template_mode": "statistics",
+    "title": "My Second Story",
+    "color_code": [
+        "#39c6b4",
+        "#17cf31"
+    ],
+    "user_name": "testmondoboia",
+    "id": "1763460728.806002",
+    "subtitle": "",
+    "curator": "",
+    "description": "asdfghjkl\u00f2\u00e0\r\n",
+    "dynamic_elements": []
+}
