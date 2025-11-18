@@ -11,7 +11,6 @@
 
 		gtag('config', 'G-9SSDBXGCXK');
 	</script>
-
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 	<title>
@@ -44,6 +43,8 @@
 	<link rel="stylesheet" href="static/css/style.css">
 
 
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<!-- <link rel="stylesheet" href="/static/css/demo.css"> -->
 
 	<!-- Specific Page CSS goes HERE  -->
 	
@@ -51,8 +52,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
   integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
@@ -63,7 +64,7 @@
 <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
 <script type="text/javascript">
-  var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "asdfghjkl\u00f2\u00e0\r\n", "dynamic_elements": [{"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = \"en\") } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10", "chart_series": "", "chart_title": "Test", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 1, "text": "\u003cp\u003eazsxdcfgvhjkl\u003c/p\u003e", "type": "text"}], "id": "1763460728.806002", "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql", "subtitle": "Test Sub", "template_mode": "statistics", "title": "My Second Story", "user_name": "testmondoboia"};
+  var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "asdfghjkl\u00f2\u00e0\r\n", "dynamic_elements": [{"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = \"en\") } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10", "chart_series": "", "chart_title": "Test", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 1, "text": "\u003cp\u003eazsxdcfgvhjkl\u003c/p\u003e", "type": "text"}, {"count_label": "Humans", "count_query": "SELECT (COUNT(*) AS ?count) WHERE { ?item wdt:P31 wd:Q5 .}", "extra_queries": [], "map_filters": [], "operations": [], "position": 2, "type": "count"}], "id": "1763460728.806002", "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql", "subtitle": "Test Sub", "template_mode": "statistics", "title": "My Second Story", "user_name": "testmondoboia"};
 </script>
 
 
@@ -256,6 +257,18 @@
 								</a>
 								
 								
+								<a class="col-8" href="/melody/fonn/tune_families_in_the_session_and_mtcann">
+									<!-- href="/tune_families_in_the_session_and_mtcann"> -->
+									Tune families in The Session and MTC-ANN
+								</a>
+								
+								
+								<a class="col-8" href="/melody/fonn/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg">
+									<!-- href="/statistics_on_the_session_annotated_subset_and_meertens_tune_collections_mtcann_pattern_kg"> -->
+									Statistics on The Session (annotated subset) and Meertens Tune Collections (MTC-ANN) Pattern KG
+								</a>
+								
+								
 							</li>
 							
 							
@@ -290,9 +303,9 @@
 							
 							<li class="menuitem row">
 								
-								<a class="col-8" href="/melody/musicbo/music_in_bologna_textual_corpus_overview">
-									<!-- href="/music_in_bologna_textual_corpus_overview"> -->
-									Music in Bologna - Textual corpus overview
+								<a class="col-8" href="/melody/musicbo/music_in_bologna_knowledge_graph_overview">
+									<!-- href="/music_in_bologna_knowledge_graph_overview"> -->
+									Music in Bologna - Knowledge Graph Overview
 								</a>
 								
 								
@@ -386,7 +399,13 @@
 								
 								<a class="col-8" href="/melody/organs/organs_statistics">
 									<!-- href="/organs_statistics"> -->
-									ORGANS Statistics
+									Organs Statistics
+								</a>
+								
+								
+								<a class="col-8" href="/melody/organs/explore_the_organs_knowledge_graph">
+									<!-- href="/explore_the_organs_knowledge_graph"> -->
+									Explore the Organs Knowledge Graph
 								</a>
 								
 								
@@ -483,7 +502,7 @@
 				
 				<li class="nav-item submenu">
 					<a data-toggle="collapse" href="#submenu9" aria-expanded="true">
-						<p>tunes</p>
+						<p>Tunes</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="submenu9">
@@ -566,12 +585,6 @@
 								</a>
 								
 								
-								<a class="col-8" href="/melody/wikidata/d">
-									<!-- href="/d"> -->
-									d
-								</a>
-								
-								
 							</li>
 							
 							
@@ -640,7 +653,7 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/bigdata/namespace/wdq/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;My Second Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;testmondoboia&#39;, &#39;id&#39;: &#39;1763460728.806002&#39;, &#39;subtitle&#39;: &#39;Test Sub&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;asdfghjklÃ²Ã \r\n&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Test&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = &#34;en&#34;) } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;azsxdcfgvhjkl&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/bigdata/namespace/wdq/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;My Second Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;testmondoboia&#39;, &#39;id&#39;: &#39;1763460728.806002&#39;, &#39;subtitle&#39;: &#39;Test Sub&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;asdfghjklòà\r\n&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Test&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = &#34;en&#34;) } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;azsxdcfgvhjkl&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 2, &#39;operations&#39;: [], &#39;type&#39;: &#39;count&#39;, &#39;count_query&#39;: &#39;SELECT (COUNT(*) AS ?count) WHERE { ?item wdt:P31 wd:Q5 .}&#39;, &#39;count_label&#39;: &#39;Humans&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
           </div>
         </div>
         <div class="modal-footer">
@@ -662,8 +675,7 @@
 
 
 <p class="card-category">
-  asdfghjklÃ²Ã 
-
+  asdfghjklòà
 
 </p>
 
@@ -707,7 +719,7 @@
 		<div class="copyright ml-auto p-2 col-md-4">
 			<p>MELODY is part of</p>
 			<a href="#"><img src="static/img/logopolifonia.svg" alt=""></a>
-			<p>Polifonia has received funding from the European Unionâ€™s Horizon 2020 research
+			<p>Polifonia has received funding from the European Union’s Horizon 2020 research
 				and innovation programme under grant agreement N. 101004746</p>
 		</div>
 	</div>
