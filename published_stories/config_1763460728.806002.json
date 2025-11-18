@@ -11,5 +11,21 @@
     "subtitle": "",
     "curator": "",
     "description": "asdfghjkl\u00f2\u00e0\r\n",
-    "dynamic_elements": []
+    "dynamic_elements": [
+        {
+            "position": 0,
+            "operations": [],
+            "type": "chart",
+            "chart_type": "barchart",
+            "chart_title": "Test",
+            "chart_query": "SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = \"en\") } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10",
+            "chart_series": "",
+            "chart_legend": {
+                "x": "",
+                "y": ""
+            },
+            "extra_queries": [],
+            "map_filters": []
+        }
+    ]
 }
