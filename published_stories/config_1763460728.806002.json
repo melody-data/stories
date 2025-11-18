@@ -26,6 +26,14 @@
             },
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 1,
+            "operations": [],
+            "type": "text",
+            "text": "<p>azsxdcfgvhjkl</p>",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
