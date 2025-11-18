@@ -51,20 +51,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
   integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-      crossorigin="" />
-  <link rel="stylesheet" href="static/css/MarkerCluster.css">
-  <link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
-  <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/@jitbit/htmlsanitizer@latest/HtmlSanitizer.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin="" />
+<link rel="stylesheet" href="static/css/MarkerCluster.css">
+<link rel="stylesheet" href="static/css/MarkerCluster.Default.css">
+<link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
-  <script type="text/javascript">
-    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "asdfghjkl\u00f2\u00e0\r\n", "dynamic_elements": [{"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = \"en\") } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10", "chart_series": "", "chart_title": "Test", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "chart"}], "id": "1763460728.806002", "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql", "subtitle": "", "template_mode": "statistics", "title": "My Second Story", "user_name": "testmondoboia"};
-  </script>
+<script type="text/javascript">
+  var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "asdfghjkl\u00f2\u00e0\r\n", "dynamic_elements": [{"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = \"en\") } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10", "chart_series": "", "chart_title": "Test", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "chart"}, {"extra_queries": [], "map_filters": [], "operations": [], "position": 1, "text": "\u003cp\u003eazsxdcfgvhjkl\u003c/p\u003e", "type": "text"}], "id": "1763460728.806002", "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql", "subtitle": "", "template_mode": "statistics", "title": "My Second Story", "user_name": "testmondoboia"};
+</script>
 
 
 </head>
@@ -652,7 +652,7 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/bigdata/namespace/wdq/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;My Second Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;testmondoboia&#39;, &#39;id&#39;: &#39;1763460728.806002&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;asdfghjklÃ²Ã \r\n&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Test&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = &#34;en&#34;) } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/bigdata/namespace/wdq/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;My Second Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;testmondoboia&#39;, &#39;id&#39;: &#39;1763460728.806002&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;asdfghjklÃ²Ã \r\n&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Test&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = &#34;en&#34;) } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}, {&#39;position&#39;: 1, &#39;operations&#39;: [], &#39;type&#39;: &#39;text&#39;, &#39;text&#39;: &#39;&lt;p&gt;azsxdcfgvhjkl&lt;/p&gt;&#39;, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
           </div>
         </div>
         <div class="modal-footer">
@@ -667,7 +667,7 @@
     <div class="page-inner py-5">
       <div class="align-items-left align-items-md-center flex-column flex-md-row">
 
-          <h1 class="text-white pb-2 fw-bold">My Second Story</h1>
+        <h1 class="text-white pb-2 fw-bold">My Second Story</h1>
 
 
 <p class="card-category">
@@ -676,31 +676,21 @@
 
 </p>
 
-          <span id='loader' class='lds-dual-ring hidden overlay'></span>
-          <div id="sortable"></div>
-          <script src="static/js/react/Error.js" type="text/babel"></script>
-          <script src="static/js/react/Map.js" type="text/babel"></script>
-          <script src="static/js/react/Table.js" type="text/babel"></script>
-          <script src="static/js/react/Chart.js" type="text/babel"></script>
-          <script src="static/js/react/Textbox.js" type="text/babel"></script>
-          <script src="static/js/react/Count.js" type="text/babel"></script>
-          <script src="static/js/react/Action.js" type="text/babel"></script>
-          <script src="static/js/react/TextSearch.js" type="text/babel"></script>
-          <script src="static/js/react/add_components.js" type="text/babel"></script>
+        <span id='loader' class='lds-dual-ring hidden overlay'></span>
+        <div id="sortable"></div>
+        <script src="static/js/react/Error.js" type="text/babel"></script>
+        <script src="static/js/react/Map.js" type="text/babel"></script>
+        <script src="static/js/react/Table.js" type="text/babel"></script>
+        <script src="static/js/react/Chart.js" type="text/babel"></script>
+        <script src="static/js/react/Textbox.js" type="text/babel"></script>
+        <script src="static/js/react/Count.js" type="text/babel"></script>
+        <script src="static/js/react/Action.js" type="text/babel"></script>
+        <script src="static/js/react/TextSearch.js" type="text/babel"></script>
+        <script src="static/js/react/add_components.js" type="text/babel"></script>
 
       </div>
     </div>
   </div>
-</div>
-
-<div data-notify="container" class="col-10 col-xs-11 col-sm-4 alert alert-info" role="alert"
-  data-notify-position="bottom-right"
-  style="display: inline-block; margin: 0px auto; padding-left: 65px; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; bottom: 20px; right: 20px;"
-  data-closing="true"><button type="button" aria-hidden="true" class="close" data-dismiss="alert"
-    style="position: absolute; right: 10px; top: 5px; z-index: 1033;">Ã—</button><span data-notify="icon"
-    class="flaticon-alarm-1"></span> <span data-notify="title">Important</span>
-  <span data-notify="message">If you leave without downloading or publishing your data story, it will be
-    deleted.</span><a href="#" target="_blank" data-notify="url"></a>
 </div>
 
 
