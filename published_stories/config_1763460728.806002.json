@@ -34,6 +34,15 @@
             "text": "<p>azsxdcfgvhjkl</p>",
             "extra_queries": [],
             "map_filters": []
+        },
+        {
+            "position": 2,
+            "operations": [],
+            "type": "count",
+            "count_query": "SELECT (COUNT(*) AS ?count) WHERE { ?item wdt:P31 wd:Q5 .}",
+            "count_label": "Humans",
+            "extra_queries": [],
+            "map_filters": []
         }
     ]
 }
