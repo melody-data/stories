@@ -63,7 +63,7 @@
   <link rel="stylesheet" href="static/css/leaflet-sidebar.css">
 
   <script type="text/javascript">
-    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "asdfghjkl\u00f2\u00e0\r\n", "dynamic_elements": [], "id": "1763460728.806002", "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql", "subtitle": "", "template_mode": "statistics", "title": "My Second Story", "user_name": "testmondoboia"};
+    var datastory_data = {"color_code": ["#39c6b4", "#17cf31"], "curator": "", "description": "asdfghjkl\u00f2\u00e0\r\n", "dynamic_elements": [{"chart_legend": {"x": "", "y": ""}, "chart_query": "SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = \"en\") } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10", "chart_series": "", "chart_title": "Test", "chart_type": "barchart", "extra_queries": [], "map_filters": [], "operations": [], "position": 0, "type": "chart"}], "id": "1763460728.806002", "sparql_endpoint": "https://query.wikidata.org/bigdata/namespace/wdq/sparql", "subtitle": "", "template_mode": "statistics", "title": "My Second Story", "user_name": "testmondoboia"};
   </script>
 
 
@@ -652,7 +652,7 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/bigdata/namespace/wdq/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;My Second Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;testmondoboia&#39;, &#39;id&#39;: &#39;1763460728.806002&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;asdfghjklÃ²Ã \r\n&#39;, &#39;dynamic_elements&#39;: []}</code>
+            <code>{&#39;sparql_endpoint&#39;: &#39;https://query.wikidata.org/bigdata/namespace/wdq/sparql&#39;, &#39;template_mode&#39;: &#39;statistics&#39;, &#39;title&#39;: &#39;My Second Story&#39;, &#39;color_code&#39;: [&#39;#39c6b4&#39;, &#39;#17cf31&#39;], &#39;user_name&#39;: &#39;testmondoboia&#39;, &#39;id&#39;: &#39;1763460728.806002&#39;, &#39;subtitle&#39;: &#39;&#39;, &#39;curator&#39;: &#39;&#39;, &#39;description&#39;: &#39;asdfghjklÃ²Ã \r\n&#39;, &#39;dynamic_elements&#39;: [{&#39;position&#39;: 0, &#39;operations&#39;: [], &#39;type&#39;: &#39;chart&#39;, &#39;chart_type&#39;: &#39;barchart&#39;, &#39;chart_title&#39;: &#39;Test&#39;, &#39;chart_query&#39;: &#39;SELECT ?label (COUNT(?human) AS ?count) WHERE { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. ?eyeColor rdfs:label ?label . FILTER(lang(?label) = &#34;en&#34;) } GROUP BY ?label ORDER BY DESC(?count) LIMIT 10&#39;, &#39;chart_series&#39;: &#39;&#39;, &#39;chart_legend&#39;: {&#39;x&#39;: &#39;&#39;, &#39;y&#39;: &#39;&#39;}, &#39;extra_queries&#39;: [], &#39;map_filters&#39;: []}]}</code>
           </div>
         </div>
         <div class="modal-footer">
