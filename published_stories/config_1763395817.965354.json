@@ -8,9 +8,9 @@
     ],
     "user_name": "margheritacosta",
     "id": "1763395817.965354",
-    "subtitle": "",
+    "subtitle": "A Romantic Revolution and an Endless Legacy",
     "curator": "Margherita Costa",
-    "description": "",
+    "description": "Welcome to a fascinating exploration of Fr\u00e9d\u00e9ric Chopin's musical history. From his early compositions in Poland to becoming the undisputed icon of Romanticism in Paris, this extraordinary composer redefined the language of the piano. He created a unique sound that merged classical elegance with deep emotional expression and veiled patriotism.\r\n\r\nJoin us as we trace his evolution and explore his most revolutionary works, such as the Nocturnes, Waltzes, and \u00c9tudes. Prepare to immerse yourself in the lyrical and vibrant world of Fr\u00e9d\u00e9ric Chopin and discover the magic behind his immortal music.",
     "dynamic_elements": [
         {
             "position": 0,
@@ -24,9 +24,8 @@
         {
             "position": 1,
             "operations": [],
-            "type": "map",
-            "map_title": "Homes",
-            "map_points_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\n\r\nSELECT DISTINCT (?residence AS ?point) ?residenceLabel ?lat ?long\r\nWHERE {\r\n  ?musician amr:name ?musicianLabel .\r\n  FILTER CONTAINS(LCASE(STR(?musicianLabel)), \"chopin\") .\r\n  ?musician owl:sameAs ?wikiPerson . \r\n\r\n  SERVICE <https://query.wikidata.org/sparql> {\r\n    \r\n    ?wikiPerson wdt:P551 ?residence . \r\n    ?residence rdfs:label ?residenceLabel .\r\n    FILTER (lang(?residenceLabel) = \"en\") .\r\n    \r\n    OPTIONAL {\r\n      ?residence p:P625 ?coords_stmt . \r\n      ?coords_stmt psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] .\r\n    }\r\n  }\r\n}\r\nORDER BY ?residenceLabel",
+            "type": "text",
+            "text": "<p>In addition to his prolific output as a composer, Fr\u00e9d\u00e9ric Chopin held influential roles that shaped his life and musical legacy. Although he is celebrated worldwide as one of the greatest composers in history, his career was also defined by a variety of professional activities that were essential for both his livelihood and his growing influence in Parisian cultural circles.</p><p>&nbsp;The doughnutchart below shows all of his professional activities.</p>",
             "extra_queries": [],
             "map_filters": []
         },
@@ -48,6 +47,14 @@
         {
             "position": 3,
             "operations": [],
+            "type": "text",
+            "text": "<p>Observing the bar chart below allows us to clearly and immediately see how many pieces were composed for each of the main typological groups, such as waltzes, nocturnes and mazurkas. This graphic representation highlights the genres to which he devoted most of his attention and emphasises his preference for short forms and his commitment to consolidating the canon of Romantic piano music.</p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 4,
+            "operations": [],
             "type": "chart",
             "chart_type": "barchart",
             "chart_title": "Chopin's compositions divided by genre",
@@ -57,6 +64,23 @@
                 "x": "",
                 "y": ""
             },
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 5,
+            "operations": [],
+            "type": "text",
+            "text": "<p>Fr\u00e9d\u00e9ric Chopin's life was shaped by both his compositions and the places that welcomed him along the way. From his native Poland to his self-imposed exile in France, his life was a journey filled with musical triumphs and personal struggles.</p><p>Throughout his life, Chopin lived, studied and worked in various European cities and regions, each of which influenced his music and artistic development.</p><p>Explore this itinerant dimension by consulting the map below, which traces the main stages of his journey, from his youth in Warsaw, to his time in Vienna and Paris, and his travels. </p>",
+            "extra_queries": [],
+            "map_filters": []
+        },
+        {
+            "position": 6,
+            "operations": [],
+            "type": "map",
+            "map_title": "Homes",
+            "map_points_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\n\r\nSELECT DISTINCT (?residence AS ?point) ?residenceLabel ?lat ?long\r\nWHERE {\r\n  ?musician amr:name ?musicianLabel .\r\n  FILTER CONTAINS(LCASE(STR(?musicianLabel)), \"chopin\") .\r\n  ?musician owl:sameAs ?wikiPerson . \r\n\r\n  SERVICE <https://query.wikidata.org/sparql> {\r\n    \r\n    ?wikiPerson wdt:P551 ?residence . \r\n    ?residence rdfs:label ?residenceLabel .\r\n    FILTER (lang(?residenceLabel) = \"en\") .\r\n    \r\n    OPTIONAL {\r\n      ?residence p:P625 ?coords_stmt . \r\n      ?coords_stmt psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] .\r\n    }\r\n  }\r\n}\r\nORDER BY ?residenceLabel",
             "extra_queries": [],
             "map_filters": []
         }
