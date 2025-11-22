@@ -83,15 +83,6 @@
             "map_points_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\n\r\nSELECT DISTINCT (?residence AS ?point) ?residenceLabel ?lat ?long\r\nWHERE {\r\n  ?musician amr:name ?musicianLabel .\r\n  FILTER CONTAINS(LCASE(STR(?musicianLabel)), \"chopin\") .\r\n  ?musician owl:sameAs ?wikiPerson . \r\n\r\n  SERVICE <https://query.wikidata.org/sparql> {\r\n    \r\n    ?wikiPerson wdt:P551 ?residence . \r\n    ?residence rdfs:label ?residenceLabel .\r\n    FILTER (lang(?residenceLabel) = \"en\") .\r\n    \r\n    OPTIONAL {\r\n      ?residence p:P625 ?coords_stmt . \r\n      ?coords_stmt psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] .\r\n    }\r\n  }\r\n}\r\nORDER BY ?residenceLabel",
             "extra_queries": [],
             "map_filters": []
-        },
-        {
-            "position": 7,
-            "operations": [],
-            "type": "table",
-            "table_title": "Life",
-            "table_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX schema: <http://schema.org/>\r\n\r\nSELECT  ?picture\r\nWHERE {\r\n\r\n  # 1. Trova l'entit\u00e0 MusicBo\r\n  ?musician amr:name ?musicianLabel .\r\n  FILTER CONTAINS(LCASE(STR(?musicianLabel)), \"chopin\") .\r\n  ?musician owl:sameAs ?wikiPerson .\r\n\r\n  # 2. Richiesta federata a Wikidata\r\n  SERVICE <https://query.wikidata.org/sparql> {\r\n    ?wikiPerson wdt:P18 ?picture. \r\n  }\r\n}\r\nLIMIT 1",
-            "extra_queries": [],
-            "map_filters": []
         }
     ]
 }
