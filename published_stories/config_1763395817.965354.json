@@ -43,7 +43,7 @@
             "operations": [],
             "type": "chart",
             "chart_type": "doughnutchart",
-            "chart_title": "Works done by Chopin",
+            "chart_title": "Professional roles",
             "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX schema: <http://schema.org/>\r\n\r\nSELECT DISTINCT (?occupationLabel as ?label)\r\nWHERE {\r\n\r\n  ?musician amr:name ?musicianLabel .\r\n  FILTER CONTAINS(LCASE(STR(?musicianLabel)), \"chopin\") .\r\n  ?musician owl:sameAs ?wikiPerson .\r\n\r\n  \r\n  SERVICE <https://query.wikidata.org/sparql> {\r\n    ?wikiPerson wdt:P106 ?occupation .\r\n    ?occupation rdfs:label ?occupationLabel .\r\n    FILTER (lang(?occupationLabel) = \"en\")\r\n  }\r\n}",
             "chart_series": "",
             "chart_legend": {
@@ -57,7 +57,7 @@
             "position": 4,
             "operations": [],
             "type": "text",
-            "text": "<p>Observing the bar chart below allows us to clearly and immediately see how many pieces were composed for each of the main typological groups, such as waltzes, nocturnes and mazurkas. This graphic representation highlights the genres to which he devoted most of his attention and emphasises his preference for short forms and his commitment to consolidating the canon of Romantic piano music.</p>",
+            "text": "<p>Observing the bar chart below allows us to clearly and immediately see how many pieces were composed for each of the main typological groups, such as waltzes, nocturnes and mazurkas. This graphic representation highlights the genres to which he devoted most of his attention, while emphasising his preference for short forms and his commitment to consolidating the canon of Romantic piano music.</p>",
             "extra_queries": [],
             "map_filters": []
         },
