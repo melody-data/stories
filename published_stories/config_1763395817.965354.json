@@ -75,7 +75,7 @@
             "type": "chart",
             "chart_type": "doughnutchart",
             "chart_title": "Professional roles",
-            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\nPREFIX schema: <http://schema.org/>\r\n\r\nSELECT DISTINCT (?occupationLabel as ?label)\r\nWHERE {\r\n\r\n  ?musician amr:name ?musicianLabel .\r\n  FILTER CONTAINS(LCASE(STR(?musicianLabel)), \"chopin\") .\r\n  ?musician owl:sameAs ?wikiPerson .\r\n\r\n  \r\n  SERVICE <https://query.wikidata.org/sparql> {\r\n    ?wikiPerson wdt:P106 ?occupation .\r\n    ?occupation rdfs:label ?occupationLabel .\r\n    FILTER (lang(?occupationLabel) = \"en\")\r\n  }\r\n}",
+            "chart_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>\r\n\r\nSELECT DISTINCT (?occupationLabel as ?label)\r\nWHERE {\r\n\r\n  ?musician amr:name ?musicianLabel .\r\n  FILTER CONTAINS(LCASE(STR(?musicianLabel)), \"chopin\") .\r\n  ?musician owl:sameAs ?wikiPerson .\r\n\r\n  \r\n  SERVICE <https://query.wikidata.org/sparql> {\r\n    ?wikiPerson wdt:P106 ?occupation .\r\n    ?occupation rdfs:label ?occupationLabel .\r\n    FILTER (lang(?occupationLabel) = \"en\")\r\n  }\r\n}",
             "chart_series": "",
             "chart_legend": {
                 "x": "",
